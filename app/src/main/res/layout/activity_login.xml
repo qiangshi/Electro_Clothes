@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.business.electr.clothes.ui.activity.LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/signin_head_picture" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16"
+        android:text="@string/login_user"
+        android:textColor="@color/color_252631"
+        android:textSize="@dimen/text_font_20" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="@dimen/padding_295"
+            android:layout_height="@dimen/padding_46"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_48"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:hint="@string/please_in_phone"
+            android:maxLength="11"
+            android:paddingStart="@dimen/padding_16"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_14" />
+
+
+        <EditText
+            android:id="@+id/et_code"
+            android:layout_width="@dimen/padding_166"
+            android:layout_height="@dimen/padding_46"
+            android:layout_below="@+id/et_phone"
+            android:layout_alignLeft="@+id/et_phone"
+            android:layout_marginTop="@dimen/padding_12"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:hint="@string/please_in_code"
+            android:maxLength="6"
+            android:paddingStart="@dimen/padding_16"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_14" />
+
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="@dimen/padding_116"
+            android:layout_height="@dimen/padding_46"
+            android:layout_below="@+id/et_phone"
+            android:layout_alignTop="@+id/et_code"
+            android:layout_alignRight="@+id/et_phone"
+            android:layout_marginStart="@dimen/padding_12"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:gravity="center"
+            android:text="@string/get_phone_code"
+            android:textColor="@color/color_252631"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_16" />
+
+
+        <CheckBox
+            android:id="@+id/cb_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_code"
+            android:layout_alignLeft="@+id/et_code"
+            android:layout_marginTop="@dimen/padding_10"
+            android:text="@string/used_read_agree"
+            android:checked="true"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_14" />
+
+        <TextView
+            android:id="@+id/tv_user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_code"
+            android:layout_marginTop="@dimen/padding_16"
+            android:layout_toRightOf="@+id/cb_read"
+            android:text="@string/user_agreement"
+            android:textColor="@color/color_4E7CFE"
+            android:textSize="@dimen/text_font_14" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="@dimen/padding_292"
+        android:layout_height="@dimen/padding_46"
+        android:layout_marginTop="@dimen/padding_42"
+        android:background="@drawable/bg_solid_4e7cfe_4"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_20" />
+
+
+</LinearLayout>

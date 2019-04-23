@@ -1,0 +1,57 @@
+
+.none{display: none;}
+.block{display: block;}
+/*裁判文书*/
+.bar-nav{height: 44px;background-color: #41c8d5;position: relative;}
+.headerTitle{text-align: center;line-height: 44px;color: #fff;font-size: 0.53rem;font-weight: normal;}
+.pull-left{position: absolute;display: block;top: 11px;z-index:10; background: url(../images/back-icon.png) no-repeat;background-size: 100%;height: 22px;width: 11px;left: 15px;}
+.contentBody{width: 94%;margin: 0.4rem auto;}
+.titleType {height: 1.2rem;line-height: 1.2rem;border-bottom: 1px solid #efefef;position: relative;}
+.titleType span{position: absolute;left: 0.5rem;font-size: 0.32rem;color: #545454;}
+.titleType img{height: 0.4rem;width: 0.4rem;margin-right: 0.24rem;position: absolute;top: 0.4rem;}
+.conList{margin: 0.35rem auto;}
+.conList li{height: 0.6rem;line-height: 0.32rem;position: relative;}
+.conList li span{display: block;float: left;position: absolute;}
+.conList li .disIcon{background: url(../images/R-icon.png) no-repeat;height: 0.3rem;width: 0.3rem;background-size: 100%;left: 0rem;}
+.conList li .bIcon{ background: url(../images/Black-icon.png) no-repeat; height: 0.15rem;width: 0.15rem;background-size: 100%;left: 0.1rem;top: 0.095rem;}
+.conList li div.end .disIcon{background-image: url(../images/middle-icon.png);}
+.conList li div.middle .disIcon{background-image: url(../images/B-icon.png);}
+.conList li div.begin .disIcon{}
+.conList li .disTxt font{font-size: 0.28rem}
+.conList li .disTxt{left: 0.5rem;font-size: 0.28rem;}
+.conList li .disTxt.on{color: #4A90E2;}
+.linef9f9f9{height: 0.22rem;background-color: #F9F9F9;}
+.titleTxt{font-size: 0.46rem;min-height: 24px; text-align: center;margin-top: 0.7rem;line-height:24px;color: #353535;font-weight: 400;}
+.d1{margin-top: 0.3rem;border-bottom: 1px solid #efefef;padding-bottom: 0.35rem;}
+.d1.bg1{background: url(../images/judicial_Logo.png) center center no-repeat; background-size: 60%;}
+.d1 ul li{min-height: 0.56rem;line-height:0.56rem;}
+.d1 ul li span{font-size: 0.28rem;min-height: 0.8rem;}
+.d1 ul li span.sp1{color: #9D9D9D;}
+.d1 ul li span.sp2{color: #353535;width: 76%;word-break: break-all;}
+.d1.d2 ul li span.sp2{width: 75%;}
+.sp2>p{font-size: 0.28rem;}
+.d1.d2 ul li{color: #353535;}
+.d1.d2 ul li span{color: #353535;}
+.d1.d2{border: none;}
+.relatedEnterprises ul li{min-height: 0.76rem;line-height: 0.76rem;}
+.relatedEnterprises ul li span{display: block;float: left;}
+.relatedEnterprises ul li span.sp1{width: 100%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.relatedEnterprises ul li span.iconBg{font-size: 13px; margin-top: 0.4831rem; color: #fba729;text-indent: 29px; background: url(../images/cancleAtt.png) no-repeat;width: 71px;height: 26px;background-size: 100%;line-height: 26px;}
+.relatedEnterprises ul li span.iconBg.an{line-height: 28px;}
+.relatedEnterprises ul li span.cancleAttention{background-image: url(../images/followAtt.png);text-indent: 15px;width: 72px;height: 26px;}
+.relatedEnterprises ul li span.cancleAttention.en{text-indent: 21px;}
+.tb1{width: 100%;}
+.tb1 th,.tb1 td{color: #999;height: 30px;border: 1px solid #efefef;text-indent: 5px;font-size: 13px;}
+.dbdbdbLine{    display: block;
+    width: 0.06rem;
+    height: 0.3rem;
+    position: absolute;
+    z-index: 10;
+    background-color: #dbdbdb;
+    top: 0.3rem;
+    left: 0.12rem;}
+.riskContent{height:100%;width:100%; overflow-x: hidden;overflow-y: scroll;-webkit-overflow-scrolling : touch;position: static;}
+.riskContent:after{min-height: calc(100% + 1px);}
+.sp2 a{color: #40c8d4;}
+.sp2 div{width: 100% !important;}
+.relatedEnterprises .sp1{color: #4A90E2;font-size: 0.28rem}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F8F9FB"
+    android:orientation="vertical">
+
+    <!-- 反馈意见 -->
+    <include layout="@layout/title_bar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/text_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_105"
+                android:background="@color/white"
+                android:gravity="start"
+                android:hint="@string/please_input_feedback_content"
+                android:maxLength="400"
+                android:paddingStart="@dimen/padding_16"
+                android:paddingEnd="@dimen/padding_16"
+                android:paddingTop="@dimen/padding_16"
+                android:layout_marginBottom="@dimen/padding_4"
+                android:textColorHint="@color/color_8D92A3"
+                android:textSize="@dimen/text_font_14" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_imgs"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_65"
+                android:paddingTop="@dimen/padding_8"
+                android:paddingBottom="@dimen/padding_8"
+                android:layout_marginBottom="@dimen/padding_4" />
+
+
+            <EditText
+                android:id="@+id/contact_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_100"
+                android:background="@color/white"
+                android:gravity="start"
+                android:hint="@string/contact_email_text"
+                android:paddingBottom="@dimen/padding_16"
+                android:paddingLeft="@dimen/padding_16"
+                android:paddingRight="@dimen/padding_16"
+                android:paddingTop="@dimen/padding_24"
+                android:textColor="@color/default_title_color"
+                android:textColorHint="@color/color_8D92A3"
+                android:textSize="@dimen/text_font_15" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_F8F9FB"
+    tools:context="com.business.electr.clothes.ui.activity.tool.EditUserInfoActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <!--姓名-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:paddingStart="@dimen/padding_16">
+
+        <TextView
+            android:id="@+id/tv_user_name_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:layout_centerVertical="true"
+            android:textColor="@color/red_dot_color"
+            android:textSize="@dimen/text_font_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_8"
+            android:layout_toEndOf="@+id/tv_user_name_"
+            android:text="@string/name"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_16"
+            android:paddingStart="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_8"
+                android:text="@string/hint_please_input" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next_grey" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--手机号-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/padding_4"
+        android:paddingStart="@dimen/padding_16">
+
+        <TextView
+            android:id="@+id/tv_phone_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:layout_centerVertical="true"
+            android:textColor="@color/red_dot_color"
+            android:textSize="@dimen/text_font_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_8"
+            android:layout_toRightOf="@+id/tv_phone_"
+            android:text="@string/phone_code"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_16"
+            android:paddingStart="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_8"
+                android:text="@string/hint_please_input" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next_grey" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--部门-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:paddingStart="@dimen/padding_16">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_16"
+            android:text="@string/department"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_department"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_16"
+            android:paddingStart="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_8"
+                android:text="@string/hint_please_input" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next_grey" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <!--邮箱-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:paddingStart="@dimen/padding_16">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_16"
+            android:text="@string/email"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_email"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_16"
+            android:paddingStart="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_8"
+                android:text="@string/hint_please_input" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next_grey" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <!--备注-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:paddingStart="@dimen/padding_16">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_16"
+            android:text="@string/remark"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_16"
+            android:paddingStart="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tv_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_8"
+                android:text="@string/hint_please_input" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next_grey" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

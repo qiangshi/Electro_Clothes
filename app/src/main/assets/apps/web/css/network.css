@@ -1,0 +1,133 @@
+@charset "utf-8";
+/*html {background: #fff;color: #000;overflow-x: hidden; -webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;}*/
+/*html * {outline:none;-webkit-text-size-adjust: none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0)}*/
+html,body { height:100%;width: 100%;font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { margin: 0;padding: 0;font-size: 16px;}
+input, select, textarea {font-size: 100%;}
+table {border-collapse: collapse; border-spacing: 0;}
+fieldset, img { border: 0;}abbr, acronym { border: 0;font-variant: normal;}
+del {text-decoration: line-through;}
+address, caption, cite, code, dfn, em, th, var { font-style: normal; font-weight: 500;}ol, ul {list-style: none;}caption, th { text-align: left;}h1, h2, h3, h4, h5, h6 {font-size: 100%; font-weight: 500;}q:before, q:after {content: '';}sub, sup {font-size: 75%;line-height: 0;position: relative; vertical-align: baseline;}sup { top: -0.5em;}sub { bottom: -0.25em;}input[type="button"], input[type="submit"], input[type="reset"], input[type="text"]  {-webkit-appearance: none;}a,a:link {color: #333;}a:hover { text-decoration: none;color: #333;}ins, a {text-decoration: none;}.clearfix:after {content: ".";display: block;height: 0pt;clear: both;visibility: hidden}.clearfix {display: inline-block}.clearfix {display: block}.fl{float: left;}.fr{float: right}
+
+.clearfix:after {content: ".";display: block;height: 0pt;clear: both;visibility: hidden}
+img{width: 100%;display: block}
+.block{display: block;}
+.none{display: none;}
+.mainBody{width: 100%;}
+.content{width: 100%;margin:0rem auto;background-color: #fff;}
+/*找关系*/
+
+.mui-bar{box-shadow: none;color: #CFCFCF;background-color: #fff;border-bottom: 1px solid #e2e2e2;}
+.mui-bar a{font-size: 0.4rem;color: #fff;}
+.mui-content{background-color: #efeff4;}
+.mainBody .rightBanner{height: 30px;line-height: 30px;color: #8a8a8a;text-align: right;position: relative;margin-top: 20px;margin-bottom: 5px;}
+.mainBody .rightBanner .nav1{height: 30px;line-height: 30px;margin-top: 10pxs;}
+.selectbg{display: block;float: left;border-radius: 4px; margin-left: 10px; line-height: 33px; border: 1px solid #dcdcdc;background: url(../images/xiala.png) no-repeat;background-size: 100%;width: 77px; height: 33px;font-size: 14px; padding: 0px 8px;}
+.searchPath select option{font-size: 14px;}
+
+.searchPath span.sp1{color: #8a8a8a;font-size: 14px;display: block;float: left;height: 33px;line-height: 33px;}
+.searchPath span.sp1 font{color: #fd704f;}
+.companyOne,.companyTwo{margin-left: 5%;  width: 95%;position: relative;}
+.txtDiv{position: relative;width: 100%;}
+.txtDiv  input{width: 90%;padding-left:0px;background-color: #fff;}
+.txtDiv  input.en{padding-left: 40px;}
+.txtDiv .companyOne input{border: none;padding-right:0px;border-bottom: 1px solid #e7e7e7;color:#353535;margin-bottom: 0px;font-size: 0.32rem;border-radius: 0px;}
+.txtDiv .companyTwo input{margin-bottom:0px;border: none;font-size:0.32rem;border-radius: 0px;box-shadow: none;}
+.txtDiv  span{z-index:10;display: block;position: absolute;height: 18px;line-height: 18px;color: #fff;width: 18px;border-radius: 3px;text-align: center;top: 10px;font-size: 13px;}
+.txtDiv  span.sp1{background-color: #7bb25e;}
+.txtDiv  span.sp2{background-color: #ff8758;}
+.txtDiv  span.sp1.en{width: 32px;}
+.txtDiv  span.sp2.en{width: 32px;}
+.txtDiv  span.an{line-height: 21px;}
+
+#findNetwork{background: url(../images/searchNetwork.png) center center no-repeat;;width: 0.4rem;height: 0.7rem;background-size: 100%;border: none;position: absolute;right: 0px;top: 20px;}
+.mui-table-view-cell:after{
+    background-color: #fff;
+}
+input::-webkit-input-placeholder{color:#333;}
+input::-moz-placeholder{/* Mozilla Firefox 19+ */color:#333;}
+input:-moz-placeholder{ /* Mozilla Firefox 4 to 18 */color:#333; }
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */  color:#333; }
+.exampleImg{width: 66.75%;margin: 35px auto ;}
+.txtDiv .mui-btn{position: absolute;top:20px;right: 0px;font-size: 0.4rem;padding:6px 7px;background-color: #4994fc;}
+.bg_line{background: url(../images/bg.png) repeat-x;height: 7px;margin-bottom: 10px;}
+.txtDiv1 {width: 100%;text-align: center;margin-top: 10px;}
+.txtDiv1 .checkNetworkImage{
+    font-size: 0.36rem;
+    margin: 0 auto;
+    background-color: #353535;
+    z-index: 2;
+    width: 3.80rem;
+    height: 0.92rem;
+    line-height: 0.92rem;
+    color: #fff;
+    border-radius: 0.46rem;
+}
+.txtDiv1 .checkNetworkImage.on{width: 3.80rem;}
+.txtDiv1 .p1{
+    line-height: 0.28rem;
+    font-size: 0.28rem;
+    margin-top: 0.4rem;
+}
+.pathImg{
+    padding: 0.4rem;
+    height: 600px;
+}
+#mynetwork{width: 100%;height: 350px;z-index: 10;}
+.bottomTitle{width: 90%;text-align: center;margin-top: 20px;color: #c1c1c1;margin: 20px auto;}
+.bottomTitle font{font-size: 15px;}
+.hisLink{display: block;position: absolute;z-index: 10;width: 100px;right: 15px; bottom: 10px;text-align: right;}
+.leftIcon{position: absolute;display: block; background: url(../images/left_icon.png) no-repeat;background-size: 100%;width: 10px;height: 18px;top: 13px;left: 16px;}
+/*历史记录*/
+.mainBody .nav1{background-color: #fff;box-shadow: 0 1px 6px #fff;margin-top: 10px;}
+.mainBody .head{height: 59px;}
+.mainBody .mui-title{color: #3c3c3c;font-size: 0.4rem;}
+.mui-bar .mui-title{font-size: 0.46rem;color: #fff;}
+.line2{height: 10px;background-color: #efeef4;width: 100%;border-top: 1px solid #e2e2e2;}
+.hisList{width: 82%;margin:15px auto 30px auto;border-left: 3px solid #e5e5e5;position: relative;font-size: 14px;}
+.hisList .dataInfo{height: 38px;padding-top: 15px;}
+.hisList .dataInfo span,.pathList .dataInfo span{display: block;position: absolute;}
+.hisList .dataInfo .sp1{background: url(../images/hisimg1.png) no-repeat;height: 22px;width: 22px;background-size: 100%;left: -13px;background-color: #fff;}
+.hisList .dataInfo .sp2{color: #9f9f9f;left: 10%;}
+.hisList .dataInfo .sp3{background: url(../images/hisimg2.png) no-repeat;height: 17px;width: 25px;right: 0px;background-size: 100%;}
+.hisList ul{margin-left: 10%;margin-top: 10px;padding-bottom: 15px;}
+.hisList ul li{line-height: 30px;height: auto;color: #3c3c3c;font-size: 0.4rem;}
+.hisList ul li.on{line-height: 22px;}
+.noData{width: 100%;}
+.noData p.p1{text-align: center;margin: 10px 0px;}
+/*查找路径*/
+.pathList{margin: 15px auto;width: 92%;}
+.pathList .box1,.hisList .box1{cursor: pointer;}
+.pathList .dataInfo{height: 38px;position: relative;margin-bottom: 6px;margin-top: 10px;}
+.pathList .dataInfo span.sp1 {background: url(../images/line.png) no-repeat ;background-size: 100%;width: 4px; height: 12px;top: 14px;}
+.pathList .dataInfo span.sp2{height:38px;line-height: 38px;left: 10px;color: #4994fc;}
+.pathList ul{border-bottom: 1px solid #ccc;padding-bottom: 15px;}
+.pathList ul li{line-height: 30px;}
+#search_input{z-index: 10;}
+#search_input li{position: static;}
+.clear_search{position: relative;z-index: 10;}
+.txtDiv .clear_search span{display: block;position: absolute; z-index: 120; right: 5px; color: #333; width: 40px; top: 3px; font-size: 0.35rem; }
+.txtDiv .one, .txtDiv .two{position: absolute;left: 27px;z-index: 10;}
+.txtDiv .two{top:80px;}
+.txtDiv.on .one, .txtDiv.on .two{left: 42px;}
+.mui-table-view.searchList1{z-index: 120;position: relative;font-size: 0.4rem;}
+.clear_search li.mui-table-view-cell{width: 100%;text-align: left;}
+.clear_search.on{padding: 0;}
+.clear_search.close{height: 25px;background-color: #fff;}
+.clear_search .mui-table-view:before{}
+.clear_search .mui-table-view:after{}
+
+/*股权路径*/
+.stockInfo{min-height: 40px;line-height: 30px;width: 94%;margin: 0 3%;}
+.stockInfo{border-bottom: 1px solid #d6d6d6;}
+.stockInfo .d{float: left;margin: 0 auto;width: 100%;font-size: 0.32rem;}
+.stockInfo .d span{font-size: 0.32rem;display: block;    float: left;}
+.stockInfo .d span.sp1{color: #8a8a8a;width: 32%;text-align: left;}
+.stockInfo .d span.sp1.en{width: 43%;}
+.stockInfo .d.d2 span.sp1{width: 20%;text-align: left;}
+.stockInfo .d.d2 span.sp1.en{width: 58.5%;}
+.stockInfo .d span.sp2{color: #555;}
+.riskContent{height:100%;width:100%; overflow-x: hidden;overflow-y: scroll;-webkit-overflow-scrolling : touch;position: static;}
+.riskContent:after{min-height: calc(100% + 1px);}
+/*.stockInfo .d.d1{margin:0 0.4rem;}
+.stockInfo .d.d2{margin:0 0.4rem;}*/

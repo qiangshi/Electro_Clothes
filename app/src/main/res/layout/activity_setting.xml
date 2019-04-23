@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F8F9FB"
+    android:orientation="vertical"
+    tools:context="com.business.electr.clothes.mvp.presenter.mine.SettingActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <!--消息提醒-->
+    <LinearLayout
+        android:id="@+id/lin_msg_remind"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/msg_remind"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <Switch
+            android:id="@+id/switch_msg"
+            android:layout_width="@dimen/padding_44"
+            android:layout_height="@dimen/padding_26"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:background="@drawable/selector_switch_button"
+            android:thumb="@color/white"
+            android:track="@color/white"/>
+
+    </LinearLayout>
+    <!--关于我们-->
+    <LinearLayout
+        android:id="@+id/lin_about_our"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/about_our"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+    <!--联系我们-->
+    <LinearLayout
+        android:id="@+id/lin_link_our"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/link_our"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+    <!--用户协议-->
+    <LinearLayout
+        android:id="@+id/lin_user_argument"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/user_argument"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+    <!--隐私政策-->
+    <LinearLayout
+        android:id="@+id/lin_private_policy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/private_policy"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+    <!--清空缓存-->
+    <LinearLayout
+        android:id="@+id/lin_clear_cpu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/clear_cpu"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:id="@+id/tv_clear_cpu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_8D92A3"
+            android:textSize="@dimen/text_font_16"
+            tools:text="12.5M"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+    <!--检查更新-->
+    <LinearLayout
+        android:id="@+id/lin_check_update"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_18"
+            android:text="@string/check_update"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:id="@+id/tv_check_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0"
+            android:textColor="@color/color_8D92A3"
+            android:textSize="@dimen/text_font_16"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/padding_16"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginStart="@dimen/padding_10"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:src="@drawable/ic_next_grey"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_log_out"
+        android:layout_width="@dimen/padding_200"
+        android:layout_height="@dimen/padding_45"
+        android:layout_marginTop="@dimen/padding_32"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_log_out"
+        android:gravity="center"
+        android:text="@string/log_out"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_16"/>
+
+
+</LinearLayout>

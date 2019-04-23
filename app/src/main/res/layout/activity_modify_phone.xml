@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.business.electr.clothes.ui.activity.mine.ModifyPhoneActivity">
+    <include layout="@layout/title_bar_layout"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="@dimen/padding_295"
+            android:layout_height="@dimen/padding_46"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_12"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:hint="@string/please_new_phone"
+            android:maxLength="11"
+            android:paddingStart="@dimen/padding_16"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_14" />
+
+
+        <EditText
+            android:id="@+id/et_code"
+            android:layout_width="@dimen/padding_166"
+            android:layout_height="@dimen/padding_46"
+            android:layout_alignLeft="@+id/et_phone"
+            android:layout_below="@+id/et_phone"
+            android:layout_marginTop="@dimen/padding_12"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:hint="@string/please_in_code"
+            android:maxLength="6"
+            android:paddingStart="@dimen/padding_16"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_14" />
+
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="@dimen/padding_116"
+            android:layout_height="@dimen/padding_46"
+            android:layout_alignRight="@+id/et_phone"
+            android:layout_alignTop="@+id/et_code"
+            android:layout_below="@+id/et_phone"
+            android:layout_marginStart="@dimen/padding_12"
+            android:background="@drawable/bg_solid_f8f9fb_4"
+            android:gravity="center"
+            android:text="@string/get_phone_code"
+            android:textColor="@color/color_252631"
+            android:textColorHint="@color/color_b4b4b6"
+            android:textSize="@dimen/text_font_16" />
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

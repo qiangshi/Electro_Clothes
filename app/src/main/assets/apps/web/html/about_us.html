@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AnyInfo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+    <style>
+        .about_we_tit {
+            padding: 0.4rem;
+            background-color: #ffffff;
+        }
+
+        .about_we_modular {
+            padding: 0.4rem;
+            background-color: #ffffff;
+        }
+
+        .about_we_tit > p:not(:first-child),
+        .about_we_content {
+            text-indent: 2em;
+            color: #333333;
+        }
+
+        .about_we_tit > p:first-child {
+            color: #333333;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .about_we_modular_tit {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .about_we_modular_tit_text {
+            position: relative;
+            display: inline-block;
+          	line-height: 0.5rem;
+            font-size: 0.46rem;
+            background-color: #c7c7cc;
+        }
+
+        .about_we_modular_tit_text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            height: 100%;
+            border-right: 0.5rem solid transparent;
+            border-top: 0.5rem solid #c7c7cc;
+        }
+
+        .about_we_modular_bottom > p {
+            color: #333333;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+	<div id="app" class="m-content">	
+	    <div class="about_we_tit">
+	        <p lang="about-us-1">致智慧的您 :</p>
+	        <p lang="about-us-2">
+	            PunchCard，一个完全由人工智能（AI）构建的企业及产业信息整合分析平台，由北京安易信科技有限公司为你定制。PunchCard覆盖权威机构公开信息和各产业媒体源发报道等大数据来源，基于此生成有产业纵深、有宏观背景的企业全息画像，为查询企业信息、了解产业背景提供了权威、高效而又可靠的平台。从基本数据的感知、评估、筛选，到信息的结构化加工、类别间关联、深层分析，再到为不同使用场景的定制消息推送、潜在风险预警以及额外因素推荐，AI渗透于PunchCard运作中每一个末端的字符。更智能、更全能，即PunchCard。</p>
+	    </div>
+	    <div class="about_we_modular">
+	        <h4>AI Your Data</h4>
+	        <div class="about_we_modular_tit"><span lang="about-us-3" class="about_we_modular_tit_text">智能数据，完美掌控</span></div>
+	        <p class="about_we_content" lang="about-us-4">
+	            工商、法院、税务、食药监、质监、商标、股东、法人、电话、地址、资讯……PunchCard通过AI技术无死角感知实时消息，在充分理解文本内容后，汇集有价值的信息形成新的“商业线索”，并且精准跟踪其发展变化，从而做到以全景、实时的方式跟进市场、企业动态。PunchCard，让数据因AI成了智慧的商业线索，实时为你送达。
+	        </p>
+	    </div>
+	    <div class="about_we_modular">
+	        <h4>AI Your Work</h4>
+	        <div class="about_we_modular_tit"><span lang="about-us-5" class="about_we_modular_tit_text">智能工作，英明决策</span></div>
+	        <p class="about_we_content" lang="about-us-6">
+	            完全超越以往基于模型的用户识别方式，PunchCard运用深度学习、人机交互、神经网络等核心技术，更深层次挖掘用户需求，模拟使用场景，进一步从资深专家的视角主动发现关联内容，实时补充实际工作所需的信息、数据和线索。这源于AI
+	            inside，它不只懂你，将更加懂你。
+	        </p>
+	    </div>
+	    <div class="about_we_modular">
+	        <h4>AI Your Thinking</h4>
+	        <div class="about_we_modular_tit"><span lang="about-us-7" class="about_we_modular_tit_text">智能思考，领驭未来</span></div>
+	        <p class="about_we_content" lang="about-us-8">
+	            迭代、升级、演变、进化，正是PunchCard的AI进阶逻辑，它将重新定义人类理解数据的方式。随着数据信息积累和交互次数增加，AI能够关联内容和实体，同时增进对数据、对研究对象和对使用者的理解。展现在使用者面前的，将不再是铺天盖地却毫不关联的文字，而是经过AI聚合、关联和提炼后得到的知识的精华。知识如广袤天空上点点星光，
+	            PunchCard将它们汇成银河。
+	        </p>
+	    </div>
+	    <div class="about_we_modular about_we_modular_bottom">
+	        <p>PunchCard,&nbsp;&nbsp;AI Your Data</p>
+	        <p>PunchCard,&nbsp;&nbsp;AI Your Work</p>
+	        <p>PunchCard,&nbsp;&nbsp;AI Your Thinking</p>
+	        <p lang="about-us-9">PunchCard，因智能，而全能 ！</p>
+	    </div>
+	</div>    
+</body>
+<script type="text/javascript" src="../js/vue.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="../js/jquery.i18n.properties-min-1.0.9.js" ></script>
+<script src="../js/index.js"></script>
+<script>
+	function fBusiness(DATA,data){
+		// 根据具体业务逻辑，改变公共DATA内数值，以适应不同情况  
+		
+	}
+</script>
+<script type="text/javascript" src="../js/business.js" ></script>
+</html>

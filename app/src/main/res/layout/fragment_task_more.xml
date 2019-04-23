@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/v_finish_task"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="@string/finish_task"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_next_grey" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/divider_dde1eb"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/v_edit_task"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="@string/edit_task"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_next_grey" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/divider_dde1eb"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/v_delete_task"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="@string/delete_task"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_16"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_next_grey" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_4"
+        android:background="@color/color_F8FAFB" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/color_252631"
+        android:textSize="@dimen/text_font_16" />
+
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath "com.sankuai.waimai.router:plugin:1.1.2"
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+def SUPPORT_CODE = "28.0.3"
+def VERSION_CODE = 100
+def VERSION_NAME = "1.0.0"
+
+ext {
+    android = [
+            compileSdkVersion        : 28,
+            buildToolsVersion        : SUPPORT_CODE,
+            minSdkVersion            : 19,
+            targetSdkVersion         : 28,
+            versionCode              : VERSION_CODE,
+            versionName              : VERSION_NAME,
+            flavorDimensions         : "version",
+            testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
+            applicationId            : "com.business.electr.clothes"
+
+    ]
+    //update time 2018-12-19
+    dependencies = [
+            "support"          : "com.android.support:support-v4:" + SUPPORT_CODE,
+            "junit"            : "junit:junit:4.12",
+            "runner"           : "com.android.support.test:runner:1.0.2",
+            "espresso"         : "com.android.support.test.espresso:espresso-core:3.0.2",
+            "appcompat"        : "androidx.appcompat:appcompat:1.1.0-alpha01",
+            "design"           : "com.google.android.material:material:1.0.0",
+            "constraint"       : "androidx.constraintlayout:constraintlayout:2.0.0-alpha3",
+            "retrofit"         : "com.squareup.retrofit2:retrofit:2.5.0",
+            "multidex"         : "com.android.support:multidex:1.0.3",
+            "converter-gson"   : "com.squareup.retrofit2:converter-gson:2.3.0",
+            "adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava2:2.5.0",
+            "rxandroid"        : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            "okhttp"           : "com.squareup.okhttp3:okhttp:3.12.1",
+            "okhttp-apache"    : "com.squareup.okhttp3:okhttp-apache:3.11.0",
+            "interceptor"      : "com.squareup.okhttp3:logging-interceptor:3.11.0",
+            "fastjson"         : "com.alibaba:fastjson:1.2.51",
+            "ucrop"            : "com.github.yalantis:ucrop:2.2.2",
+            "imgsel"           : "com.yuyh.imgsel:library:2.0.3",
+
+            "glide"            : "com.github.bumptech.glide:glide:4.8.0",
+            "glide_compiler"   : "com.github.bumptech.glide:compiler:4.8.0",
+            "integration"      : "com.github.bumptech.glide:okhttp3-integration:4.8.0",
+            "rxdownload"       : "zlc.season:rxdownload2:2.0.4",
+            "butterknife"      : "com.jakewharton:butterknife:10.0.0",
+            "butt_compiler"    : "com.jakewharton:butterknife-compiler:10.0.0",
+
+            "wmrouter"         : "com.sankuai.waimai.router:router:1.1.2",
+            "wmrouter_compiler": "com.sankuai.waimai.router:compiler:1.1.2",
+            "picker_view"      : "com.contrarywind:Android-PickerView:4.1.7",
+            "eventbus"         : "org.greenrobot:eventbus:3.1.1",
+
+
+
+//            "gsyvideo_player"    : "com.shuyu:GSYVideoPlayer:1.6.8",
+//            "jsbridge"           : "com.github.lzyzsd:jsbridge:1.0.4",
+//            "multidex"           : "com.android.support:multidex:1.0.3",
+//            "rxpermissions"      : "com.github.tbruyelle:rxpermissions:0.10.2",
+//            "rxbinding"          : "com.jakewharton.rxbinding2:rxbinding:2.2.0",
+//            "exoplayer"          : "com.google.android.exoplayer:exoplayer:2.8.4",
+//            "Luban"              : "top.zibin:Luban:1.1.8",
+//            "roundedimageview"   : "com.makeramen:roundedimageview:2.3.0",
+//            "calendarview"       : "com.github.prolificinteractive:material-calendarview:2.0.0",
+            "SmartRefreshLayout" : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-2",
+            "SmartRefreshHeader" : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-2",
+//            "crashlytics"        : "com.crashlytics.sdk.android:crashlytics:2.9.5@aar",
+
+
+            "spiderman"        : "com.simple:spiderman:1.0.8",
+            "spiderman_no_op"  : "com.simple:spiderman-no-op:1.0.8",
+    ]
+}
+

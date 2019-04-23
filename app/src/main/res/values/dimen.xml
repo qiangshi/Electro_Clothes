@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="title_bar_conner_size">4dp</dimen>
+    <!--<dimen name="bottom_bar_icon_margin">7dp</dimen>-->
+    <dimen name="risk_item_margin_top">8dp</dimen>
+    <dimen name="news_item_text_size">14sp</dimen>
+    <dimen name="title_bar_height">47dp</dimen>
+    <dimen name="default_text_size">15sp</dimen>
+    <!-- 顶部按钮栏高度 -->
+    <dimen name="pickerview_topbar_height">44dp</dimen>
+    <!-- 顶部按钮paddingLeft -->
+    <dimen name="pickerview_topbar_paddingleft">10dp</dimen>
+    <!-- 顶部按钮paddingRight -->
+    <dimen name="pickerview_topbar_paddingright">30dp</dimen>
+    <!-- 顶部按钮文字大小 -->
+    <dimen name="pickerview_topbar_btn_textsize">20sp</dimen>
+    <dimen name="pickerview_topbar_title_textsize">21sp</dimen>
+    <!-- 选项文字大小 需要配合 bools.xml 的 pickerview_customTextSize 为 true 才有效果-->
+    <dimen name="pickerview_textsize">20sp</dimen>
+
+    <dimen name="recommend_list_title_text_size">15sp</dimen>
+    <dimen name="recommend_list_gray_text_size">13sp</dimen>
+
+    <dimen name="padding_setting_fragment_left_right">21dp</dimen>
+    <dimen name="padding_setting_fragment_top_bottom">10dp</dimen>
+
+    <dimen name="title_height">48dp</dimen>
+    <dimen name="status_bar_height">0dp</dimen>
+    <!--字体尺寸-->
+    <dimen name="text_font_honghao">60sp</dimen>
+    <dimen name="text_font_30">30sp</dimen>
+    <dimen name="text_font_36">36sp</dimen>
+    <dimen name="text_font_33">33sp</dimen>
+    <dimen name="text_font_28">28sp</dimen>
+    <dimen name="text_font_25">25sp</dimen>
+    <dimen name="text_font_24">24sp</dimen>
+    <dimen name="text_font_23">23sp</dimen>
+    <dimen name="text_font_22">22sp</dimen>
+    <dimen name="text_font_21">21sp</dimen>
+    <dimen name="text_font_20">20sp</dimen>
+    <dimen name="text_font_19">19sp</dimen>
+    <dimen name="text_font_18">18sp</dimen>
+    <dimen name="text_font_17">17sp</dimen>
+    <dimen name="text_font_16">16sp</dimen>
+    <dimen name="text_font_15">15sp</dimen>
+    <dimen name="text_font_14">14sp</dimen>
+    <dimen name="text_font_13">13sp</dimen>
+    <dimen name="text_font_12">12sp</dimen>
+    <dimen name="text_font_11">11sp</dimen>
+    <dimen name="text_font_10">10sp</dimen>
+    <dimen name="text_font_9">9sp</dimen>
+    <dimen name="text_font_8">8sp</dimen>
+    <dimen name="text_font_7">7sp</dimen>
+
+
+    <!-- slidingmenu配置 -->
+    <dimen name="slidingmenu_offset">100dp</dimen>
+    <dimen name="shadow_width">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 网银支付 -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <!--底部tab栏-->
+    <dimen name="button_height">45.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">5.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">5.0dip</dimen>
+
+
+    <!--常用尺寸-->
+    <dimen name="records_row_height">40.0dip</dimen>
+
+
+    <!--padding尺寸-->
+    <dimen name="_padding_3">-3.0dip</dimen>
+    <dimen name="padding_0">0.0dip</dimen>
+    <dimen name="padding_1">1.0dip</dimen>
+    <dimen name="padding_0.5" tools:ignore="MissingDefaultResource">0.5dp</dimen>
+    <dimen name="padding_1.5" tools:ignore="MissingDefaultResource">1.5dip</dimen>
+    <dimen name="padding_2">2.0dip</dimen>
+    <dimen name="padding_2.5">2.5dip</dimen>
+    <dimen name="padding_3">3.0dip</dimen>
+    <dimen name="padding_4">4.0dip</dimen>
+    <dimen name="padding_5">5.0dip</dimen>
+    <dimen name="padding_6">6.0dip</dimen>
+    <dimen name="padding_7">7.0dip</dimen>
+    <dimen name="padding_8">8.0dip</dimen>
+    <dimen name="padding_8.25">8.25dip</dimen>
+    <dimen name="padding_9">9.0dip</dimen>
+    <dimen name="padding_10">10.0dip</dimen>
+    <dimen name="padding_11">11.0dip</dimen>
+    <dimen name="padding_11.5">11.5dip</dimen>
+    <dimen name="padding_12">12.0dip</dimen>
+    <dimen name="padding_13">13.0dip</dimen>
+    <dimen name="padding_14">14.0dip</dimen>
+    <dimen name="padding_15">15.0dip</dimen>
+    <dimen name="padding_16">16.0dip</dimen>
+    <dimen name="padding_17">17.0dip</dimen>
+    <dimen name="padding_18">18.0dip</dimen>
+    <dimen name="padding_19">19.0dip</dimen>
+    <dimen name="padding_20">20.0dip</dimen>
+    <dimen name="padding_21">21.0dip</dimen>
+    <dimen name="padding_22">22.0dip</dimen>
+    <dimen name="padding_23">23.0dip</dimen>
+    <dimen name="padding_24">24.0dip</dimen>
+    <dimen name="padding_25">25.0dip</dimen>
+    <dimen name="padding_26">26.0dip</dimen>
+    <dimen name="padding_27">27.0dip</dimen>
+    <dimen name="padding_28">28.0dip</dimen>
+    <dimen name="padding_29">29.0dip</dimen>
+    <dimen name="padding_30">30.0dip</dimen>
+    <dimen name="padding_34">34.0dip</dimen>
+    <dimen name="padding_33">33.0dip</dimen>
+    <dimen name="padding_32">32.0dip</dimen>
+    <dimen name="padding_31">31.0dip</dimen>
+    <dimen name="padding_36">36.0dip</dimen>
+    <dimen name="padding_35">35.0dip</dimen>
+    <dimen name="padding_37">37.0dip</dimen>
+    <dimen name="padding_38">38.0dip</dimen>
+    <dimen name="padding_39">39.0dip</dimen>
+    <dimen name="padding_40">40.0dip</dimen>
+    <dimen name="padding_41">41.0dip</dimen>
+    <dimen name="padding_42">42.0dip</dimen>
+    <dimen name="padding_43">43.0dip</dimen>
+    <dimen name="padding_44">44.0dip</dimen>
+    <dimen name="padding_45">45.0dip</dimen>
+    <dimen name="padding_46">46.0dip</dimen>
+    <dimen name="padding_47">47.0dip</dimen>
+    <dimen name="padding_48">48.0dip</dimen>
+    <dimen name="padding_49">49.0dip</dimen>
+    <dimen name="padding_50">50.0dip</dimen>
+    <dimen name="padding_51">51.0dip</dimen>
+    <dimen name="padding_52">52.0dip</dimen>
+    <dimen name="padding_53">53.0dip</dimen>
+    <dimen name="padding_55">55.0dip</dimen>
+    <dimen name="padding_56">56.0dip</dimen>
+    <dimen name="padding_57">57.0dip</dimen>
+    <dimen name="padding_58">58.0dip</dimen>
+    <dimen name="padding_59">59.0dip</dimen>
+    <dimen name="padding_60">60.0dip</dimen>
+    <dimen name="padding_61">61.0dip</dimen>
+    <dimen name="padding_62">62.0dip</dimen>
+    <dimen name="padding_63">63.0dip</dimen>
+    <dimen name="padding_64">64.0dip</dimen>
+    <dimen name="padding_65">65.0dip</dimen>
+    <dimen name="padding_66">66.0dip</dimen>
+    <dimen name="padding_67">67.0dip</dimen>
+    <dimen name="padding_68">68.0dip</dimen>
+    <dimen name="padding_69">69.0dip</dimen>
+    <dimen name="padding_70">70.0dip</dimen>
+    <dimen name="padding_71">71.0dp</dimen>
+    <dimen name="padding_72">72.0dip</dimen>
+    <dimen name="padding_73">73.0dip</dimen>
+    <dimen name="padding_75">75.0dip</dimen>
+    <dimen name="padding_76">76.0dip</dimen>
+    <dimen name="padding_77">77.0dip</dimen>
+    <dimen name="padding_80">80.0dip</dimen>
+    <dimen name="padding_81">81.0dip</dimen>
+    <dimen name="padding_82">82.0dip</dimen>
+    <dimen name="padding_83">83.0dip</dimen>
+    <dimen name="padding_84">84.0dip</dimen>
+    <dimen name="padding_85">85.0dip</dimen>
+    <dimen name="padding_86">86.0dip</dimen>
+    <dimen name="padding_87">87.0dip</dimen>
+    <dimen name="padding_90">90.0dip</dimen>
+    <dimen name="padding_92">92.0dip</dimen>
+    <dimen name="padding_93">93.0dip</dimen>
+    <dimen name="padding_94">94.0dip</dimen>
+    <dimen name="padding_95">95.0dip</dimen>
+    <dimen name="padding_96">96.0dip</dimen>
+    <dimen name="padding_99">99.0dip</dimen>
+    <dimen name="padding_100">100.0dip</dimen>
+    <dimen name="padding_101">101.0dip</dimen>
+    <dimen name="padding_102">102.0dip</dimen>
+    <dimen name="padding_103">103.0dip</dimen>
+    <dimen name="padding_104">104.0dip</dimen>
+    <dimen name="padding_115">115.0dip</dimen>
+    <dimen name="padding_116">116.0dip</dimen>
+    <dimen name="padding_117">117.0dip</dimen>
+    <dimen name="padding_118">118.0dip</dimen>
+    <dimen name="padding_119">119.0dip</dimen>
+    <dimen name="padding_105">105.0dip</dimen>
+    <dimen name="padding_108">108.0dip</dimen>
+    <dimen name="padding_98">98.0dip</dimen>
+    <dimen name="padding_110">110.0dip</dimen>
+    <dimen name="padding_120">120.0dip</dimen>
+    <dimen name="padding_121">121.0dip</dimen>
+    <dimen name="padding_123">123.0dip</dimen>
+    <dimen name="padding_125">125.0dip</dimen>
+    <dimen name="padding_126">126.0dip</dimen>
+    <dimen name="padding_127">127.0dip</dimen>
+    <dimen name="padding_130">130.0dip</dimen>
+    <dimen name="padding_133">133.0dip</dimen>
+    <dimen name="padding_135">135.0dip</dimen>
+    <dimen name="padding_145">145.0dip</dimen>
+    <dimen name="padding_148">148.0dip</dimen>
+    <dimen name="padding_150">150.0dip</dimen>
+    <dimen name="padding_166">166.0dip</dimen>
+    <dimen name="padding_169">169.0dip</dimen>
+    <dimen name="padding_195">195.0dip</dimen>
+    <dimen name="padding_196">196.0dip</dimen>
+    <dimen name="padding_200">200.0dip</dimen>
+    <dimen name="padding_208">208.0dip</dimen>
+    <dimen name="padding_210">210.0dip</dimen>
+    <dimen name="padding_211">211.0dip</dimen>
+    <dimen name="padding_212">212.0dip</dimen>
+    <dimen name="padding_213">213.0dip</dimen>
+    <dimen name="padding_214">214.0dip</dimen>
+    <dimen name="padding_217">217.0dip</dimen>
+    <dimen name="padding_218">218.0dip</dimen>
+    <dimen name="padding_220">220.0dip</dimen>
+    <dimen name="padding_225">225.0dip</dimen>
+    <dimen name="padding_226">226.0dip</dimen>
+    <dimen name="padding_230">230.0dip</dimen>
+    <dimen name="padding_235">235.0dip</dimen>
+    <dimen name="padding_240">240.0dip</dimen>
+    <dimen name="padding_245">245.0dip</dimen>
+    <dimen name="padding_246">246.0dip</dimen>
+    <dimen name="padding_140">140.0dip</dimen>
+    <dimen name="padding_160">160.0dip</dimen>
+    <dimen name="padding_152">152.0dip</dimen>
+    <dimen name="padding_153">153.0dip</dimen>
+    <dimen name="padding_155">155.0dip</dimen>
+    <dimen name="padding_158">158.0dip</dimen>
+    <dimen name="padding_165">165.0dip</dimen>
+    <dimen name="padding_163">163.0dip</dimen>
+    <dimen name="padding_164">164.0dip</dimen>
+    <dimen name="padding_170">170.0dip</dimen>
+    <dimen name="padding_173">173.0dip</dimen>
+    <dimen name="padding_174">174.0dip</dimen>
+    <dimen name="padding_175">175.0dip</dimen>
+    <dimen name="padding_180">180.0dip</dimen>
+    <dimen name="padding_182">182.0dip</dimen>
+    <dimen name="padding_183">183.0dip</dimen>
+    <dimen name="padding_190">190.0dip</dimen>
+    <dimen name="padding_193">193.0dip</dimen>
+    <dimen name="padding_194">194.0dip</dimen>
+    <dimen name="padding_250">250.0dip</dimen>
+    <dimen name="padding_254">254.0dip</dimen>
+    <dimen name="padding_260">260.0dip</dimen>
+    <dimen name="padding_263">263.0dip</dimen>
+    <dimen name="padding_265">265.0dip</dimen>
+    <dimen name="padding_279">279.0dip</dimen>
+    <dimen name="padding_270">270.0dip</dimen>
+    <dimen name="padding_271">271.0dip</dimen>
+    <dimen name="padding_280">280.0dip</dimen>
+    <dimen name="padding_282">282.0dip</dimen>
+    <dimen name="padding_284">284.0dip</dimen>
+    <dimen name="padding_288">288.0dip</dimen>
+    <dimen name="padding_289">289.0dip</dimen>
+    <dimen name="padding_290">290.0dp</dimen>
+    <dimen name="padding_292">292.0dp</dimen>
+    <dimen name="padding_295">295.0dp</dimen>
+    <dimen name="padding_298">298.0dip</dimen>
+    <dimen name="padding_299">299.0dip</dimen>
+    <dimen name="padding_300">300.0dip</dimen>
+    <dimen name="padding_305">305.0dip</dimen>
+    <dimen name="padding_310">310.0dip</dimen>
+    <dimen name="padding_311">311.0dip</dimen>
+    <dimen name="padding_312">312.0dip</dimen>
+    <dimen name="padding_313">313.0dip</dimen>
+    <dimen name="padding_314">314.0dip</dimen>
+    <dimen name="padding_315">315.0dip</dimen>
+    <dimen name="padding_316">316.0dip</dimen>
+    <dimen name="padding_317">317.0dip</dimen>
+    <dimen name="padding_318">318.0dip</dimen>
+    <dimen name="padding_319">319.0dip</dimen>
+    <dimen name="padding_320">320.0dip</dimen>
+    <dimen name="padding_321">321.0dip</dimen>
+    <dimen name="padding_322">322.0dip</dimen>
+    <dimen name="padding_323">323.0dip</dimen>
+    <dimen name="padding_324">324.0dip</dimen>
+    <dimen name="padding_340">340.0dip</dimen>
+    <dimen name="padding_350">350.0dip</dimen>
+    <dimen name="padding_360">360.0dip</dimen>
+    <dimen name="padding_361">361.0dip</dimen>
+    <dimen name="padding_362">362.0dip</dimen>
+    <dimen name="padding_363">363.0dip</dimen>
+    <dimen name="padding_364">364.0dip</dimen>
+    <dimen name="padding_365">365.0dip</dimen>
+    <dimen name="padding_366">366.0dip</dimen>
+    <dimen name="padding_374">374.0dip</dimen>
+    <dimen name="padding_375">375.0dip</dimen>
+    <dimen name="padding_376">376.0dip</dimen>
+    <dimen name="padding_451">451.0dip</dimen>
+    <dimen name="padding_505">505dp</dimen>
+    <dimen name="padding_605">605dp</dimen>
+
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <dimen name="shadow_line_with">-10dp</dimen>
+
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+
+    <dimen name="refresh_header_height_twitter">30dp</dimen>
+
+    <!--新闻标题-->
+    <dimen name="text_size_list_title">16sp</dimen>
+    <!--新闻来源-->
+    <dimen name="text_size_list_source">11sp</dimen>
+    <!--新闻内页标题-->
+    <dimen name="text_size_detail_title">22sp</dimen>
+    <!--新闻内页来源-->
+    <dimen name="text_size_detail_source">11sp</dimen>
+    <!--新闻内页正文-->
+    <dimen name="text_size_detail_content">16sp</dimen>
+    <!--标签字体-->
+    <dimen name="text_size_tag">11sp</dimen>
+    <!--tab 字体-->
+    <dimen name="text_size_tab">16sp</dimen>
+    <!--页面标题-->
+    <dimen name="text_size_title">17sp</dimen>
+    <!--标题行间距-->
+    <dimen name="title_line_space">4dp</dimen>
+</resources>

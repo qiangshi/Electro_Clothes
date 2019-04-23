@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_F8F9FB"
+    tools:context="com.business.electr.clothes.ui.activity.mine.LinkOurActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <!--客服电话-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_24"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="@string/service_phone"/>
+
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_4E7CFE"
+            android:textSize="@dimen/text_font_16"
+            android:text="400-650-3615"/>
+
+    </LinearLayout>
+    <!--企业邮箱-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginTop="@dimen/padding_1"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_24"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="@string/company_email"/>
+
+        <TextView
+            android:id="@+id/tv_company_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_4E7CFE"
+            android:textSize="@dimen/text_font_16"
+            android:text="service@punch_card.com"/>
+
+    </LinearLayout>
+
+    <!--公司地址-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginTop="@dimen/padding_1"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_24"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="@string/company_email"/>
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="北京市海淀区致真大厦A座705"/>
+
+    </LinearLayout>
+
+    <!--邮政编码-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_56"
+        android:layout_marginTop="@dimen/padding_1"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginEnd="@dimen/padding_24"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="@string/company_email"/>
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_252631"
+            android:textSize="@dimen/text_font_16"
+            android:text="100191"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+</LinearLayout>

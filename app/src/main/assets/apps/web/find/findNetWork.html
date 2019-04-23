@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>查找关系</title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/network.css"/>
+    <link rel="stylesheet" href="../css/vis-network.min.css"/>
+</head>
+<script>
+//屏幕适配
+    (function(){
+    var currClientWidth,
+    fontValue,
+    originWidth;
+    originWidth = 750;//ui设计稿的宽度，一般750或640
+    __resize();
+    window.addEventListener('resize', __resize, false);
+    function __resize() {
+    currClientWidth = document.documentElement.clientWidth;
+    if (currClientWidth > 768){
+    currClientWidth = 768;
+    }
+    if (currClientWidth < 320){
+    currClientWidth = 320;
+    }
+    fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+    document.documentElement.style.fontSize = fontValue + '%';
+    }
+    })();
+</script>
+<body >
+<div class="riskContent m-content" style="overflow:hidden">
+    <div>
+        <div class="content  m-boxShadow">
+            <div class="txtDiv">
+                <div class="companyOne">
+                    <!--<span class="sp1" lang="findNetWork-1">从</span>-->
+                    <input type="text" value="" placeholder="添加第一个公司" id="firstInput"
+                           style="overflow-x: scroll;" lang="findNetWork-3">
+                </div>
+                <!--<div class="one ">-->
+                    <!--<div class="clear_search on">-->
+                        <!--<ul class="mui-table-view searchList1" id="search_input">-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="clear_search close none" id="clear_search"><span-->
+                            <!--lang="findNetWork-2">关闭</span></div>-->
+                <!--</div>-->
+                <div class="companyTwo">
+                    <!--<span class="sp2" lang="findNetWork-10">到</span>-->
+                    <input type="text" value="" placeholder="添加第二个公司" id="secondInput"
+                           lang="findNetWork-4">
+                    <!--<p style="position: absolute;height: 10px;background-color: #fff;bottom: 5px;z-index: 20;width: 100%;"></p>-->
+                </div>
+                <!--<div class="two">-->
+
+                    <!--<div class="clear_search on">-->
+                        <!--<ul class="mui-table-view searchList1" id="search_input1">-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="clear_search close none" id="clear_search1">-->
+                        <!--<span>关闭</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <button type="button" class=" " id="findNetwork"></button>
+
+            </div>
+        </div>
+    </div>
+    <!--<div class="bg_line"></div>-->
+    <div class="content" style="margin-bottom: 0.32rem">
+            <div class="searchPath clearfix none" id="path">
+                <span class="sp1"><font style="color: #8a8a8a;" lang="findNetWork-5">发现</font><font
+                        id="loadCount"></font><font style="color: #8a8a8a;" lang="findNetWork-6">条路径</font>   </span>
+                <span class="selectbg"></span>
+            </div>
+        </div>
+    <div class="pathImg m-boxShadow">
+        <div id="mynetwork" class="none"></div>
+        <img class="exampleImg " src="../images/networImg.png"/>
+        <div class="txtDiv1">
+            <button type="button" id="checkNetworkImage" class="checkNetworkImage"
+                    lang="findNetWork-7">查看关系示例图
+            </button>
+            <p class="p1" lang="findNetWork-8">请依次添加2个公司，然后点击找关系</p>
+        </div>
+        <div class="bottomTitle none"><img src="../images/no-data.png"
+                                           style="width: 5rem;margin: 50px auto 30px auto">
+            <font lang="findNetWork-9">暂时没有对比关系，或公司名称没有写全，请重新查询！</font>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<script type="text/javascript" src="../js/vis.js"></script>
+<script type="text/javascript" src="../js/vue.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../js/jquery.i18n.properties-min-1.0.9.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript">
+	var parmData = null;
+	var language = "";
+	var parmter = null;
+	var hostUrl = "";
+	var pathNode = [];
+	var pathEdges = [];
+	var network = null;
+	var totalCount=0;
+	var selectId=0;
+	function fBusiness(DATA,data){
+		parmData=data;
+		parmter=DATA;
+		language=data.language;
+		hostUrl=data.host;//url
+		var height = findDimensions().height - 200;
+		$("#mynetwork").addClass("none");
+		$("#mynetwork").css({
+			"height": height,
+			"width":findDimensions().width
+		});
+		var account = ""; //account
+		
+
+		$(".bottomTitle").addClass("none");
+		//给搜索框赋值	
+		var cpWidth=$(".companyOne")[0].clientWidth;
+		
+		var btnWidth=$("#findNetwork")[0].clientWidth;
+		//alert(cpWidth+","+btnWidth+",")
+		$(".two").css({"width":cpWidth-btnWidth-4});
+		$(".one").css({"width":cpWidth-btnWidth-4});
+		$("#firstInput").css({"width":cpWidth-btnWidth-4});
+		$("#secondInput").css({"width":cpWidth-btnWidth-4});
+		$("#search_input1").css({"width":cpWidth-btnWidth-4});
+		
+		
+
+
+	//$(document).ready(function() {
+		//根据输入内容模糊搜索
+		$('#firstInput').on('input', function() {
+
+			parmter.keyword=$('#firstInput')[0].value;
+			if($('#firstInput')[0].value == "") {
+				//$("#clear_search").addClass("none");
+				return;
+			}
+			fHttpPost(hostUrl + 'search/company/cue', parmter, function(result) {
+
+			$('#search_input').html('');
+			if(result.data != undefined && result.data.length > 0) {
+				$(".txtDiv .one").removeClass("none");
+				var lists = new Array();
+				lists = result.data;
+				console.log(result.code + "," + result.data);
+				for(i = 0; i < lists.length; i++) {
+					console.log(lists.length);
+					var html = $('<li></li>').addClass('mui-table-view-cell').html('<a class="mui-navigate">' + lists[i] + "</a>");
+					$('#search_input').append(html);
+					$("#clear_search").removeClass("none");
+				}
+				
+				//点击模糊查询结果，搜索公司列表
+				$('#search_input li').on("mousedown",function(){
+					//alert(1);
+					var this_ = $(this).text();
+					$('#firstInput')[0].value=this_;
+					$(".txtDiv .one").addClass("none");
+					$("#clear_search").addClass("none");
+					parmter.key_cpyName=this_;
+					fHttpPost(hostUrl + 'update/graph',parmter, function(result) {
+							
+					});
+				
+				});
+			} else {
+				$("#clear_search").addClass("none");
+			}
+		});
+	});
+	//点击查找实例
+	$("#checkNetworkImage").unbind();
+	$("#checkNetworkImage").click(function() {
+		max = 0
+		$("#firstInput")[0].value = "北京奇虎科技有限公司";//北京奇虎科技有限公司,北京悠然天地科技有限公司
+		$("#secondInput")[0].value = "北京悠然天地科技有限公司";
+		var cpData = [];
+		cpData.push($("#firstInput")[0].value);
+		cpData.push($("#secondInput")[0].value);
+		parmter.cpyNameFrom=cpData[0];
+		parmter.cpyNameTo=cpData[1];
+		parmter.pathIndex="0"
+		//console.log(JSON.stringify(data))
+		getRestult(parmter,false,true);
+		$(".searchPath").removeClass("none");
+		$("#mynetwork").removeClass("none");
+		$(".txtDiv1").addClass("none");
+		$(".exampleImg").addClass("none");
+	});
+	$(".exampleImg").unbind();
+	$(".exampleImg").click(function() {
+		max = 0
+		$("#firstInput")[0].value = "北京奇虎科技有限公司";//北京奇虎科技有限公司,北京悠然天地科技有限公司
+		$("#secondInput")[0].value = "北京悠然天地科技有限公司";
+		var cpData = [];
+		cpData.push($("#firstInput")[0].value);
+		cpData.push($("#secondInput")[0].value);
+		parmter.cpyNameFrom=cpData[0];
+		parmter.cpyNameTo=cpData[1];
+		parmter.pathIndex="0"
+		//console.log(JSON.stringify(data))
+		getRestult(parmter,false,true);
+		$(".searchPath").removeClass("none");
+		$("#mynetwork").removeClass("none");
+		$(".txtDiv1").addClass("none");
+		$(".exampleImg").addClass("none");
+	});
+	//给搜索框赋值	
+	var cpWidth = $(".companyOne")[0].clientWidth;
+
+	var btnWidth = $("#findNetwork")[0].clientWidth;
+	//alert(cpWidth+","+btnWidth+",")
+	$(".two").css({
+		"width": cpWidth - btnWidth - 26
+	});
+	$(".one").css({
+		"width": cpWidth - btnWidth - 26
+	});
+	$("#firstInput").css({
+		"width": cpWidth - btnWidth - 26
+	});
+	$("#secondInput").css({
+		"width": cpWidth - btnWidth - 26
+	});
+	$("#search_input1").css({
+		"width": cpWidth - btnWidth - 26
+	});
+	//$("#search_input2").css({"width":cpWidth-btnWidth-4});
+			
+	//根据输入第二个公司内容模糊搜索
+	$('#secondInput').on('input', function() {
+
+		parmter.keyword=$('#secondInput')[0].value;
+		if($('#secondInput')[0].value == "") {
+			$("#clear_search1").addClass("none");
+			return;
+		}
+		//
+		fHttpPost(hostUrl + 'search/company/cue', parmter, function(result) {
+			$('#search_input1').html('');
+			if(result.data != undefined && result.data.length > 0) {
+				$(".txtDiv .two").removeClass("none");
+				console.log(1);
+				var lists = new Array();
+				lists = result.data;
+				console.log(result.code + "," + result.data);
+				for(i = 0; i < lists.length; i++) {
+					console.log(lists.length);
+					var html = $('<li></li>').addClass('mui-table-view-cell').text(lists[i]);
+					$('#search_input1').append(html);
+					var cpWidth = $(".companyOne")[0].clientWidth;
+					var btnWidth = $("#findNetwork")[0].clientWidth;
+					$("#search_input1").css({
+						"width": cpWidth - btnWidth - 4
+					});
+					$("#clear_search1").removeClass("none");		
+				}
+				//点击模糊查询结果，搜索公司列表
+					$('#search_input1 li').on("mousedown",function(){
+						var this_ = $(this).text();
+						$('#secondInput')[0].value=this_;
+						$(".txtDiv .two").addClass("none");
+						$("#clear_search1").addClass("none");
+						parmter.key_cpyName=this_;
+						fHttpPost(hostUrl + 'update/graph',parmter, function(result) {
+								
+						});
+						
+					});
+			} else { 
+				$("#clear_search1").addClass("none");
+			}
+		});
+	});
+	$("#clear_search").unbind();
+	$("#clear_search").click(function() {
+		//alert(1);
+		$(".txtDiv .one").addClass("none");
+	});
+	$("#clear_search1").unbind();
+	$("#clear_search1").click(function() {
+		$(".txtDiv .two").addClass("none");
+	});
+		$("#firstInput").unbind();
+		$("#firstInput").focus(function() {
+            fLink(1,"6",'','firstInput')
+            $("#firstInput").blur();
+		});
+		$("#secondInput").focus(function() {
+		    $("#secondInput").blur();
+            fLink(1,"6",'','secondInput')
+		});
+		//选择路径
+		$("#path select").unbind();
+		$("#path select").change(function() {
+			max = 0;
+			var selectId = $("#path select").val();
+			destroy();
+			//alert(selectId);
+			if(selectId == "全部"||selectId == "all") { //全部
+				parmter.cpyNameFrom=$("#firstInput")[0].value;
+				parmter.cpyNameTo=$("#secondInput")[0].value;	
+				parmter.pathIndex = "";
+				//这里要路径传空
+				getRestult(parmter,false);
+			} else {
+				
+				//这里要传路径 0 开始
+				parmter.cpyNameFrom=$("#firstInput")[0].value;
+				parmter.cpyNameTo=$("#secondInput")[0].value;	
+				parmter.pathIndex = selectId;
+				//这里要路径传空
+				getRestult(parmter,false);
+			}
+		});
+		$(".selectbg").unbind();
+		$(".selectbg").click(function(){
+			fLink(9,"","",{"totalCount": totalCount,"selectId": selectId}); 
+		});
+		$("#findNetwork").unbind();
+		$("#findNetwork").click(function() {
+			
+			var first = Trim($("#firstInput")[0].value, "g");
+			var second = Trim($("#secondInput")[0].value, "g");
+			pathNode = [];
+			pathEdges = [];
+			max = 0;
+			if(first != "" && second != "") {
+				if(first == second) {
+					if(language==1){
+						if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+							alert("请输入不同的公司名称!");
+						}else
+						{
+							fLink(5,"","","请输入不同的公司名称!");
+						}
+					}else if(language==4){
+						if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+						alert("Please enter a different company name!");
+						}else
+						{
+							fLink(5,"","","Please enter a different company name!");
+						}
+					}else
+					{
+						if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+						alert("請輸入不同的公司名稱!");
+						}else
+						{
+							fLink(5,"","","請輸入不同的公司名稱!");
+						}
+					}
+					
+					$("#mynetwork").addClass("none");
+					$(".searchPath").addClass("none");
+					if(language==1){
+					$(".bottomTitle font")[0].innerHTML="暂时没有对比关系，或公司名称没有写全，请重新查询！";
+						
+					}else if(language==4){
+					$(".bottomTitle font")[0].innerHTML="There is no comparison relationship, or the company name is not completely written, please re-inquire！";
+						
+					}else {
+					$(".bottomTitle font")[0].innerHTML="暫時沒有對比關係，或公司名稱沒有寫全，請重新查詢！";
+						
+					}
+
+					$(".bottomTitle").removeClass("none");
+					$(".txtDiv1").addClass("none");
+					$(".exampleImg").addClass("none");
+					
+					return;
+				}
+				var cpData = [];
+				cpData.push($("#firstInput")[0].value);
+				cpData.push($("#secondInput")[0].value);
+				parmter.cpyNameFrom = cpData[0];
+				parmter.cpyNameTo = cpData[1];
+				parmter.pathIndex="0";
+				//这里要路径传空
+				
+				getRestult(parmter,true,true);
+				
+
+			} else {
+				if(language==1){
+					if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+					alert("请输入公司名称!")
+					}
+					else
+					{
+						fLink(5,"","","请输入公司名称!");
+					}
+				}else if(language==4){
+					if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+						alert("Please enter company name!");
+					}
+					else
+					{
+						fLink(5,"","","Please enter company name!");
+					}
+				}else
+				{
+					if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+						alert("請輸入公司名稱!");
+					}else{
+						fLink(5,"","","請輸入公司名稱!");
+					}
+				}
+			}
+		});
+	//});
+	if(data.hisData!=undefined){
+			var hisDataList=data.hisData.split(',');
+			$("#firstInput")[0].value = hisDataList[0];
+			$("#secondInput")[0].value = hisDataList[1];
+			parmter.cpyNameFrom=hisDataList[0];
+			parmter.cpyNameTo=hisDataList[1];	
+			parmter.pathIndex="0";
+			if(language==4){
+				$(".txtDiv span").addClass("en");	
+				$(".txtDiv input").addClass("en");
+				$(".txtDiv").addClass("on");
+				$(".txtDiv1 .checkNetworkImage").addClass("on");
+			}
+			if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+				
+			}else
+			{
+				$(".txtDiv span").addClass("an");			
+			}
+			getRestult(parmter,false,true);
+		}
+		else
+		{
+			if(language==4){
+				$(".txtDiv span").addClass("en");	
+				$(".txtDiv input").addClass("en");
+				$(".txtDiv").addClass("on");
+				$(".txtDiv1 .checkNetworkImage").addClass("on");
+				$("#firstInput")[0].placeholder = "add first company";
+				$("#secondInput")[0].placeholder = "add second company";
+			}else if(language==1){
+				$("#firstInput")[0].placeholder = "添加第一个公司";
+				$("#secondInput")[0].placeholder = "添加第二个公司";
+			}else
+			{
+				$("#firstInput")[0].placeholder = "添加第一個公司";
+				$("#secondInput")[0].placeholder = "添加第二個公司";
+			}
+			$("#firstInput")[0].value = "";
+			$("#secondInput")[0].value = "";
+			if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//ios
+				
+			}else
+			{
+				$(".txtDiv span").addClass("an");			
+			}
+		}
+	}
+	//给输入框赋值  ziwang
+    function setInputVal(name,id){
+        var this_ = name;
+        $("#"+id+"")[0].placeholder = "";
+        $("#"+id+"")[0].value=this_;
+        parmter.key_cpyName=this_;
+        fHttpPost(hostUrl + 'update/graph',parmter, function(result) {
+
+        });
+    }
+	function getRestult(parmter,isSave,isFirst){
+		fLink(2);
+		destroy();
+		fHttpPost(hostUrl+"find/relations",parmter,function(result){
+				fLink(3); 
+			if(result.code == '200'&&result.data.nodes!=undefined){	//表示有数据
+				if(isSave){
+					var cpData = [];
+					cpData.push($("#firstInput")[0].value);
+					cpData.push($("#secondInput")[0].value);
+					var hisData=cpData[0]+","+cpData[1]+","+getCurrentData();				
+					fLink(7,"","",hisData);
+				}
+				pathNode = result.data.nodes;
+				pathEdges = result.data.edges;
+				for(var i = 0; i < pathNode.length; i++) {
+					pathNode[i].shape = 'circle';
+					pathNode[i].dashes = false;
+					pathNode[i].cpName = pathNode[i].label;
+					pathNode[i].label = lineBreak(pathNode[i].label);
+					pathNode[i].borderWidth = 2;
+					pathNode[i].widthConstraint= 90;
+                    pathNode[i].color = '#fff';
+					// if(pathNode[i].end == "true") {
+					// 	// pathNode[i].color = '#ff6d8f';
+					// 	//pathNode[i].fixed=true;
+					// } else if(pathNode[i].end == "false") {
+					// 	pathNode[i].color = '#fff';
+					// 	//pathNode[i].fixed=true;
+					// }
+				}
+
+				for(var i = 0; i < pathEdges.length; i++) {
+					pathEdges[i].arrows = "to";
+					pathEdges[i].dashes = false;
+					//edges1[i].label = lineBreak(edges1[i].label);
+					//edges1[i].enabled = true;
+					//pathEdges[i].length = 150;
+					pathEdges[i].color = {
+						color: '#353535'
+					};
+
+				}
+
+				reashData(pathNode, pathEdges);
+				
+				$("#loadCount")[0].innerHTML = result.data.pathCount;
+				if(isFirst){
+					totalCount=result.data.pathCount;
+					selectId=1;
+					$(".selectbg")[0].innerHTML = "路径1";
+				}else
+				{
+//					if(selectId>0){
+//						selectId="路径"+$(".selectbg")[0].innerHTML;
+//					}else{
+//						selectId=$(".selectbg")[0].innerHTML;
+//					}
+				}
+
+					$(".exampleImg").addClass("none");
+					$(".bottomTitle").addClass("none");
+					$(".searchPath").removeClass("none");
+					$("#mynetwork").removeClass("none");
+					$(".txtDiv1").addClass("none");
+					$(".exampleImg").addClass("none");
+
+				}
+				else
+				{
+					
+					if(result.code == '203'){
+						$("#mynetwork").addClass("none");
+						$(".searchPath").addClass("none");
+						$(".bottomTitle").removeClass("none");
+						$(".txtDiv1").addClass("none");
+						$(".exampleImg").addClass("none");
+						$(".bottomTitle font")[0].innerHTML=result.data+"!";
+						
+					}else
+					{	
+						$("#mynetwork").addClass("none");
+						$(".searchPath").addClass("none");
+						if(language==1){
+						$(".bottomTitle font")[0].innerHTML="暂时没有对比关系，或公司名称没有写全，请重新查询！";
+							
+						}else if(language==4){
+						$(".bottomTitle font")[0].innerHTML="There is no comparison relationship, or the company name is not completely written, please re-inquire！";
+							
+						}else {
+						$(".bottomTitle font")[0].innerHTML="暫時沒有對比關係，或公司名稱沒有寫全，請重新查詢！";
+							
+						}
+						$(".bottomTitle").removeClass("none");
+						$(".txtDiv1").addClass("none");
+						$(".exampleImg").addClass("none");
+					}
+				}
+
+		});
+		
+	}
+			
+	function findDimensions() //函数：获取尺寸
+	{
+		//获取窗口宽度
+		if(window.innerWidth)
+			winWidth = window.innerWidth;
+		else if((document.body) && (document.body.clientWidth))
+			winWidth = document.body.clientWidth;
+		//获取窗口高度
+		if(window.innerHeight)
+			winHeight = window.innerHeight;
+		else if((document.body) && (document.body.clientHeight))
+			winHeight = document.body.clientHeight;
+	
+		//通过深入Document内部对body进行检测，获取窗口大小
+		if(document.documentElement && document.documentElement.clientHeight &&
+			document.documentElement.clientWidth) {
+			winHeight = document.documentElement.clientHeight
+			winWidth = document.documentElement.clientWidth;
+		}
+		//结果输出至两个文本框
+		return {
+			height: winHeight,
+			width: winWidth
+		};
+	}
+	/** 
+	 * 是否去除所有空格 
+	 * @param str 
+	 * @param is_global 如果为g或者G去除所有的 
+	 * @returns 
+	 */
+	function Trim(str, is_global) {
+		var result;
+		result = str.replace(/(^\s+)|(\s+$)/g, "");
+		if(is_global.toLowerCase() == "g") {
+			result = result.replace(/\s/g, "");
+		}
+		return result;
+	}
+	//清理数据
+	function clearData(nodeList, edgeList) {
+		for(var i = 0; i < nodeList.length; i++) {
+			nodeList[i].width = 1;
+			nodeList[i].color = '#78aaee';
+			nodeList[i].background = '#78aaee';
+			if(nods1[i].end == "true") {
+				nods1[i].color = '#fd704f';
+			} else if(nods1[i].end == "false") {
+				nods1[i].color = '#fd704f';
+			}
+		}
+		for(var i = 0; i < edgeList.length; i++) {
+			edgeList[i].width = 1;
+			edgeList[i].color = {
+				color: '#78aaee'
+			};
+			edgeList[i].background = '#78aaee';
+		}
+		return {
+			n: nodeList,
+			e: edgeList
+		};
+	}
+	
+	function getCurrentData() {
+		var myDate = new Date(); //获取系统当前时间
+		var year = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+		var month = (myDate.getMonth() + 1); //获取当前月份(0-11,0代表1月)
+		var currentDate = myDate.getDate(); //获取当前日(1-31)
+		return year + "-" + ((month > 9) ? month : "0" + month) + "-" + ((currentDate>9)?currentDate:"0"+currentDate);
+	}
+	
+	//换行
+	function lineBreak(strLabel) {
+		//console.log(strLabel);
+		var str = strLabel;
+	//				if(str.length > 10) {
+	//					str = strLabel.substr(0, 9) + "...";
+	//				}
+		if(str.length > 9) {
+			var len = (parseInt(strLabel.length / 9) == parseFloat(strLabel.length / 9)) ? parseInt(strLabel.length / 9) - 1 : (parseInt(strLabel.length / 9));
+			for(var i = 0; i < len; i++) {
+				if(i == 0) {
+					str = str.insert(9, "\n");
+				} else {
+					var j = str.length;
+					str = str.insert((i + 1) * 9 + i, "\n");
+				}
+			}
+			return str;
+		} else {
+			return strLabel;
+		}
+	}
+	String.prototype.insert = function(index, item) {
+		var temp = [];
+		for(var i = 0; i < this.length; i++) {
+			temp.push(this[i]);
+		}
+		temp.splice(index, 0, item);
+		return temp.join("")
+	};
+	
+	function destroy() {
+		if(network !== null) {
+			network.destroy();
+			network = null;
+		}
+	}
+	
+	function reashData(nodes, edges) {
+		destroy();
+		var options = {
+//			physics:false,
+			  height:'100%',
+			  width:'100%',
+			layout: {
+				hierarchical: {
+					direction: "UD",
+					sortMethod: "directed"
+				}
+			},
+			nodes: {
+				shape: 'dot',
+				//size:50,
+				font: { //字体配置
+					color: '#353535', //颜色
+					size: 10, // 大小，单位px
+					face: 'arial', //字体
+					background: '#fff',//背景
+					align: 'center', //位置left right center
+					// color: '#fff', //颜色
+					// size: 10, // 大小，单位px
+					// face: 'arial', //字体
+					// //background: 'none',//背景
+					// align: 'center', //位置left right center
+
+				},
+				chosen: {
+					node: function(values, id, selected, hovering) {
+						
+					}
+				}
+			},
+			edges: {
+				font: {
+					size: 10,
+					align: 'horizontal'
+				},
+				smooth: false,
+				chosen: {
+					edge: function(values, id, selected, hovering) {
+						values.toArrowType = 'arrow';
+						values.color = values.color;
+						values.size += 2;
+//						values.width += 2;
+					}
+				}
+			}
+		};
+		if(network !== null) {
+			network.destroy();
+			network = null;
+		}
+		var container = document.getElementById('mynetwork');
+		//创建一个数组
+		var n = new vis.DataSet(nodes);
+		var e = new vis.DataSet(edges);
+		var data = {
+			nodes: n,
+			edges: e
+		};
+	
+		network = new vis.Network(container, data, options);
+		network.on("selectNode", function(params) {
+				var cpname = "";
+				for(var i = 0; i < pathNode.length; i++) {
+					if(pathNode[i].id.toString() == params.nodes.toString()) {
+						//alert(params.nodes.toString());
+						cpname = pathNode[i].label;
+					}
+				}
+				
+				//console.log(params.nodes[0]);
+				if(cpname.length > 4) {
+					
+					fLink(1,1,"企业概览",{"cpyName":cpname.replace(/\n/g,'')});
+				}
+		});
+		var options1 = {
+			physics:false,
+		}
+		network.setOptions(options1);
+		
+	}
+	function getSelectValueFun(data){
+		
+		if(data.selectId>0){
+		$(".selectbg")[0].innerHTML = "路径"+data.selectId;;
+		selectId=data.selectId;
+		}else
+		{
+			$(".selectbg")[0].innerHTML = "全部";
+			selectId=0;
+		}
+		max = 0;
+			//var selectId = $("#path select").val();
+			destroy();
+			//alert(selectId);
+			if(selectId == 0||selectId == "") { //全部
+				parmter.cpyNameFrom=$("#firstInput")[0].value;
+				parmter.cpyNameTo=$("#secondInput")[0].value;	
+				parmter.pathIndex = "";
+				//这里要路径传空
+				getRestult(parmter,false);
+			} else {
+				
+				//这里要传路径 0 开始
+				parmter.cpyNameFrom=$("#firstInput")[0].value;
+				parmter.cpyNameTo=$("#secondInput")[0].value;	
+				parmter.pathIndex = selectId-1;
+				//这里要路径传空
+				getRestult(parmter,false);
+			}
+	}
+	// var DATA={
+	// 	"token":'11154800033431910121110350028018',
+	// 	"deviceId": '866111030452716',
+	// 	"language":1,
+	// 	"osType":1,
+	// 	"version": '1.2',
+	// 	"host":'http://192.168.1.154:8005/app/',
+	// 	// "host":'http://192.168.1.154:8005/app/',
+	// 	"timeStamp": Math.round(new Date().getTime() / 1000) * 1000,
+     //    "anyCpyNo":"5475f8ef0cf28f3b99fd94fc"
+    //
+	// }
+	// fBusiness(DATA,DATA);
+</script>
+</body>
+<script type="text/javascript" src="../js/business.js"></script>
+</html>
