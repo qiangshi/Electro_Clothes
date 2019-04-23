@@ -7,8 +7,6 @@ package com.business.electr.clothes.constants;
 
 public class Constant {
 
-
-
     public static final int PAGE_COUNT = 5;
     public static final int DEFAULT_PAGE_LIMIT = 20;
     public static final String WEBSOCKET_URL = "ws://47.93.7.27:8282";
@@ -59,30 +57,5 @@ public class Constant {
     public static final int REQUEST_CODE_MODIFY_MEMBER_INFO = 0x1010;//修改企业员工信息
     public static final int SELECT_TIME = 0x0086;
 
-    // 消息类型 初始化
-    public static final String NOTICE_TYPE_INIT = "init";
-    // 消息类型 邀请用户加入公司
-    public static final String NOTICE_TYPE_INVITE_TO_TEAM = "1";
-    // 消息类型 用户统一加入公司
-    public static final String NOTICE_TYPE_AGREE_ADD_COMPANY = "10";
-    public static final String NOTICE_TYPE_REFUSE_ADD_COMPANY = "11";
 
-    // 消息类型 周报
-    public static final String NOTICE_TYPE_WEEKLY = "7";
-    // 消息类型 请假
-    public static final String NOTICE_TYPE_LEAVE = "2";
-    // 消息类型 加班
-    public static final String NOTICE_TYPE_OVERTIME = "3";
-    // 消息类型 出差
-    public static final String NOTICE_TYPE_TRIP = "4";
-    // 消息类型 外出
-    public static final String NOTICE_TYPE_FIELD = "5";
-    // 消息类型 任务
-    public static final String NOTICE_TYPE_TASK = "6";
-    // 消息类型 公告
-    public static final String NOTICE_TYPE_ANNOUNCEMENT = "9";
-    // 消息类型 聊天室外 一对一聊天
-    public static final String NOTICE_TYPE_CHAT_PUBLIC = "20";
-    // 消息类型 聊天室内 一对一聊天
-    public static final String NOTICE_TYPE_CHAT_ROOM = "21";
 }

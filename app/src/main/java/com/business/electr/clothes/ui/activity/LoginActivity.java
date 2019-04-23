@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.login.LoginPresenter;
@@ -82,8 +82,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void loginSuccess(LoginBean loginBean) {
-        saveLoginInfo(loginBean);
+    public void loginSuccess(UserBean userBean) {
+        saveLoginInfo(userBean);
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
@@ -91,9 +91,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     /**
      * 保存用户信息
      */
-    private void saveLoginInfo(LoginBean loginBean) {
-        DataCacheManager.saveToken(loginBean.getToken());
-        DataCacheManager.saveUserInfo(loginBean.getUser());
+    private void saveLoginInfo(UserBean userBean) {
+        DataCacheManager.saveToken(userBean.getToken());
+        DataCacheManager.saveUserInfo(userBean);
         SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
     }
 }

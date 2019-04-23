@@ -88,7 +88,7 @@ public class FeedBackActivity extends BaseActivity<FeedBackPresenter> implements
                 }
             }
         }
-        MultipartBody.Part userId = MultipartBody.Part.createFormData("user_id", String.valueOf(DataCacheManager.getUserInfo().getId()));
+        MultipartBody.Part userId = MultipartBody.Part.createFormData("user_id", String.valueOf(DataCacheManager.getUserInfo().getUserId()));
         MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
         MultipartBody.Part content = MultipartBody.Part.createFormData("content", textFeedback.getText().toString());
         MultipartBody.Part contact = MultipartBody.Part.createFormData("contact", contactEmail.getText().toString());

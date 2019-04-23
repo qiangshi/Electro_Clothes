@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.net.BaseApiResponse;
@@ -52,10 +52,10 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             return;
         }
         addSubscription(
-                apiStores.requestLogin(mobilePhone, verificationCode),
-                new BaseObserver<BaseApiResponse<LoginBean>>() {
+                apiStores.requestLogin(mobilePhone, verificationCode,"roleType"),
+                new BaseObserver<BaseApiResponse<UserBean>>() {
                     @Override
-                    public void onNext(BaseApiResponse<LoginBean> data) {
+                    public void onNext(BaseApiResponse<UserBean> data) {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {

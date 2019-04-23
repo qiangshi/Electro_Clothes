@@ -4,7 +4,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.mvp.presenter.login.LoginPresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.ui.activity.BaseActivity;
@@ -48,7 +48,7 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
     }
 
     @Override
-    public void loginSuccess(LoginBean loginBean) {
+    public void loginSuccess(UserBean userBean) {
 
     }
 

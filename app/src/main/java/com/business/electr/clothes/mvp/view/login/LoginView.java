@@ -1,6 +1,6 @@
 package com.business.electr.clothes.mvp.view.login;
 
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.mvp.view.IView;
 
 /**
@@ -15,6 +15,6 @@ public interface LoginView extends IView {
     void changeBtnStatus();
 
 
-    void loginSuccess(LoginBean loginBean);
+    void loginSuccess(UserBean userBean);
 
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.DataEvent;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.helper.ToolHelper;
 import com.business.electr.clothes.manager.DataCacheManager;
@@ -58,7 +58,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     TextView tvTimeBean;//时间豆
     private String logoUrl;//图片资源
 
-    private LoginBean.UserBean userBean;
+    private UserBean userBean;
 
     @Override
     protected int getLayoutId() {
@@ -90,7 +90,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                     RequestBody fileRQ = RequestBody.create(MediaType.parse("image/*"), file);
                     portrait = MultipartBody.Part.createFormData("portrait", file.getName(), fileRQ);
                 }
-                MultipartBody.Part userId = MultipartBody.Part.createFormData("user_id", String.valueOf(DataCacheManager.getUserInfo().getId()));
+                MultipartBody.Part userId = MultipartBody.Part.createFormData("user_id", String.valueOf(DataCacheManager.getUserInfo().getUserId()));
                 MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
                 MultipartBody.Part nickName = MultipartBody.Part.createFormData("nickname", tvNickName.getText().toString());
                 MultipartBody.Part contact = MultipartBody.Part.createFormData("contact", tvPhoneCode.getText().toString());
@@ -130,35 +130,31 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     }
 
     @Override
-    public void getUserInfoSuccess(LoginBean.UserBean bean) {
+    public void getUserInfoSuccess(UserBean bean) {
         userBean.setPhone(bean.getPhone());
-        userBean.setNickname(bean.getNickname());
-        userBean.setPortrait(bean.getPortrait());
-        userBean.setGender(bean.getGender());
-        userBean.setContact(bean.getContact());
-        userBean.setBirthday(bean.getBirthday());
-        userBean.setCoins(bean.getCoins());
+        userBean.setNickName(bean.getNickName());
+        // TODO: 2019/4/23 添加用户信息
         DataCacheManager.saveUserInfo(userBean);
         EventBus.getDefault().post(new DataEvent(DataEvent.TYPE_CHANGE_USERINFO, userBean));
         SynchronizationObserver.getInstance().onSynchronizationUpdate(SynchronizationObserver.TYPE_UPDATE_USER_INFO, userBean, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
-        if (!TextUtils.isEmpty(bean.getPortrait())) {
+        if (!TextUtils.isEmpty(bean.getHeadImgUrl())) {
             imgMyHead.setVisibility(View.VISIBLE);
-            GlidUtils.setCircleGrid(this, bean.getPortrait(), imgMyHead);
+            GlidUtils.setCircleGrid(this, bean.getHeadImgUrl(), imgMyHead);
         } else {
             imgMyHead.setVisibility(View.GONE);
         }
-        tvNickName.setText(bean.getNickname());
-        tvPhoneCode.setText(bean.getContact());
-        genderPos = Integer.valueOf(bean.getGender());
-        if ("0".equals(bean.getGender())) {
+        tvNickName.setText(bean.getNickName());
+        tvPhoneCode.setText(bean.getPhone());
+        genderPos = Integer.valueOf(bean.getSex());
+        if ("0".equals(bean.getSex())) {
             tvGender.setText("男");
-        } else if ("1".equals(bean.getGender())) {
+        } else if ("1".equals(bean.getSex())) {
             tvGender.setText("女");
         } else {
             tvGender.setText("未知");
         }
-        tvBirthday.setText(bean.getBirthday());
-        tvTimeBean.setText(bean.getCoins());
+        tvBirthday.setText(bean.getBirthDate());
+        tvTimeBean.setText(bean.getAccountRest());
     }
 
     @Override

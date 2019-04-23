@@ -38,7 +38,7 @@ public class ExceptionConvert<E> implements Function<Throwable, ObservableSource
             return new ResponseException(e, "1004", "证书验证失败");
         } else {
             e.printStackTrace();
-            return new ResponseException(e, "1005", "未知错误");
+            return new ResponseException(e, "1005", "网络连接错误");
         }
         return exception;
     }

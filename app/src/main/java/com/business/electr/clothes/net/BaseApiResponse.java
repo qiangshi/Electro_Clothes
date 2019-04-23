@@ -5,18 +5,35 @@ package com.business.electr.clothes.net;
  * 描述：
  */
 public class BaseApiResponse<T> {
-    private String code;
+    private int status;//状态  0 ： 成功
+    private String msg;//消息
+    private long id;//命令号
+    private int seq;//流水号
+    private T data;//数据
 
-    private T data;
 
-    private String msg;
-
-    public String getCode() {
-        return code;
+    public int getStatus() {
+        return status;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getSeq() {
+        return seq;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 
     public T getData() {

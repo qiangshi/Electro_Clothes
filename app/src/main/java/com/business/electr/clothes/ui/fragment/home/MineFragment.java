@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.observer.SynchronizationObserver;
@@ -29,15 +29,15 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.tv_user_name)
     TextView tvUserName;
 
-    private LoginBean.UserBean userBean;
+    private UserBean userBean;
 
     @Override
     protected void initEventAndData() {
         SynchronizationObserver.getInstance().registerSynchronizationListener(syncListener, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
         userBean = DataCacheManager.getUserInfo();
         if (userBean != null) {
-            GlidUtils.setCircleGrid(getActivity(), userBean.getPortrait(), imgUserHead);
-            tvUserName.setText(userBean.getNickname());
+            GlidUtils.setCircleGrid(getActivity(), userBean.getHeadImgUrl(), imgUserHead);
+            tvUserName.setText(userBean.getNickName());
         }
     }
 
@@ -45,10 +45,10 @@ public class MineFragment extends BaseFragment {
     SynchronizationObserver.OnSynchronizationListener syncListener = new SynchronizationObserver.OnSynchronizationListener() {
         @Override
         public void onSynchronizationUpdate(int type, Object object) {
-            LoginBean.UserBean bean = (LoginBean.UserBean) object;
+            UserBean bean = (UserBean) object;
             if (bean != null) {
-                tvUserName.setText(bean.getNickname());
-                GlidUtils.setCircleGrid(getActivity(), bean.getPortrait(), imgUserHead);
+                tvUserName.setText(bean.getNickName());
+                GlidUtils.setCircleGrid(getActivity(), bean.getHeadImgUrl(), imgUserHead);
             }
         }
     };

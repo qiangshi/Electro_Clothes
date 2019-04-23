@@ -12,22 +12,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 public class ApiClient {
-//    private static final String BASE_URL;
-//    private static final String URL;
 
     private final static String REQUEST_TOKEN = "token";
-    private final static String REQUEST_USER_ID = "user_id";
-    private final static String REQUEST_TIMESTAMP = "timeStamp";
-    private final static String REQUEST_DEVICE_ID = "deviceId";
-    private final static String OS_TYPE = "osType";
-    private final static String APPID = "appid";
-    private final static String VERSION = "version";
-    private final static String LANGUAGE = "language";
 
-    static {
-//        BASE_URL = TextUtils.isEmpty(BuildConfig.API_HOST) ? "http://api.anyinfo.com" : BuildConfig.API_HOST;
-//        URL = BASE_URL + "/app/";
-    }
 
     public static ApiClient getInstance() {
         return Holder.Instance;
@@ -40,8 +27,7 @@ public class ApiClient {
 
     public static Retrofit retrofit() {
         return new Retrofit.Builder()
-//                .baseUrl("http://ww1.bizbook.cn/attendance/")
-            .baseUrl("http://47.93.7.27/attendance/") //websocket 测试链接
+            .baseUrl("http://www.xxx.com/business/")
             .addConverterFactory(FastJsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(getClient())
@@ -70,8 +56,8 @@ public class ApiClient {
                                 if (SharePreferenceUtil.getBoolean(Constant.IS_LOGIN, false)) {
                                     formBody = newBodyBuilder
                                         .addEncoded(REQUEST_TOKEN, DataCacheManager.getToken())
-                                        .addEncoded(REQUEST_USER_ID,
-                                            DataCacheManager.getUserInfo().getId() + "")
+//                                        .addEncoded(REQUEST_USER_ID,
+//                                            DataCacheManager.getUserInfo().getId() + "")
                                         .build();
                                 } else {
                                     formBody = newBodyBuilder.build();

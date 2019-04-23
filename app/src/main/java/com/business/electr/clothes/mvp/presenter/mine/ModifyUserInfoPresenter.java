@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.os.Environment;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.mine.ModifyUserInfoView;
@@ -47,15 +47,15 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
      * 获取用户信息
      */
     public void getUserInfo(){
-        addSubscription(apiStores.requestUserInfo(DataCacheManager.getUserInfo().getId(), DataCacheManager.getToken()),
-                new BaseObserver<BaseApiResponse<LoginBean.UserBean>>() {
+        addSubscription(apiStores.requestUserInfo(DataCacheManager.getUserInfo().getUserId()),
+                new BaseObserver<BaseApiResponse<UserBean>>() {
                     @Override
                     public void onError(ResponseException e) {
 
                     }
 
                     @Override
-                    public void onNext(BaseApiResponse<LoginBean.UserBean> data) {
+                    public void onNext(BaseApiResponse<UserBean> data) {
                         if(data.getData() != null){
                             mView.getUserInfoSuccess(data.getData());
                         }

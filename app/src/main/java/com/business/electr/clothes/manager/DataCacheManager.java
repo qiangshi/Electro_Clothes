@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.business.electr.clothes.App;
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,7 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- * Created by pantianxiong on 2018/4/27.
+ * Created by 曾海强 on 2019/4/27.
  * 描述：android SharedPreferences缓存管理
  */
 @SuppressWarnings("unchecked")
@@ -29,7 +29,7 @@ public class DataCacheManager {
         return App.getApp().getSharedPreferences(spName, Context.MODE_PRIVATE);
     }
 
-    public static void saveUserInfo(LoginBean.UserBean userInfo) {
+    public static void saveUserInfo(UserBean userInfo) {
         String str = null;
         try {
             str = serializeObject(userInfo);
@@ -41,13 +41,13 @@ public class DataCacheManager {
         editor.apply();
     }
 
-    public static LoginBean.UserBean getUserInfo() {
+    public static UserBean getUserInfo() {
         SharedPreferences sp = getSharedPreferences(USER_INFO);
         String str = sp.getString(USER_INFO, "");
         if (TextUtils.isEmpty(str)) {
-            return new LoginBean.UserBean();
+            return new UserBean();
         }
-        return deserialize(str, LoginBean.UserBean.class);
+        return deserialize(str, UserBean.class);
     }
 
 

@@ -1,6 +1,6 @@
 package com.business.electr.clothes.net;
 
-import com.business.electr.clothes.bean.LoginBean;
+import com.business.electr.clothes.bean.UserBean;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
@@ -16,15 +16,70 @@ import retrofit2.http.Part;
  */
 public interface ApiStores {
 
-    @POST("basic/web/index.php?r=login/login")
+    /**
+     * 注册
+     * @param userName
+     * @param password
+     * @param verify
+     * @return
+     */
+    @POST("login/regist.do")
     @FormUrlEncoded
-    Observable<BaseApiResponse<LoginBean>> requestLogin(@Field("phone") @NonNull String phone,
-                                                        @Field("code") @NonNull String code);
+    Observable<BaseApiResponse<UserBean>> requestRegister(
+            @Field("userName") @NonNull String userName, @Field("password") @NonNull String password,
+            @Field("verify") @NonNull String verify);
+
+
+    /**
+     * 登录
+     * @param userName
+     * @param password
+     * @param roleType
+     * @return
+     */
+    @POST("login/login.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<UserBean>> requestLogin(
+            @Field("userName") @NonNull String userName, @Field("password") @NonNull String password,
+            @Field("roleType") String roleType);
+
+    /**
+     * 刷新token
+     * @param token
+     * @return
+     */
+    @POST("login/refresh.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestRefresh(
+            @Field("token") @NonNull String token);
+
+    /**
+     * 退出登录
+     * @param token
+     * @return
+     */
+    @POST("login/logout.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestLogout(
+            @Field("token") @NonNull String token);
 
     @POST("basic/web/index.php?r=login/get-code")
     @FormUrlEncoded
     Observable<BaseApiResponse<String>> requestVerificationCode(
             @Field("phone") @NonNull String phone);
+
+    /**********************************************业务接口**************************************/
+
+
+    /**
+     * 获取角色类型
+     * @param userId
+     * @return
+     */
+    @POST("getRoleType.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requestRoleType(
+            @Field("userId") @NonNull long userId);
 
 
     /**
@@ -32,8 +87,8 @@ public interface ApiStores {
      */
     @POST("basic/web/index.php?r=user/get-user-info")
     @FormUrlEncoded
-    Observable<BaseApiResponse<LoginBean.UserBean>> requestUserInfo(
-            @Field("user_id") @NonNull String userId, @Field("token") @NonNull String token);
+    Observable<BaseApiResponse<UserBean>> requestUserInfo(
+            @Field("userId") @NonNull long userId);
 
     /**
      * 更新用户信息
