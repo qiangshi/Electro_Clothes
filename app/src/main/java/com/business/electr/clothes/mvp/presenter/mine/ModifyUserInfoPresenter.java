@@ -72,15 +72,9 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(MultipartBody.Part user_id,
-                               MultipartBody.Part token,
-                               MultipartBody.Part portrait,
-                               MultipartBody.Part nickname,
-                               MultipartBody.Part contact,
-                               MultipartBody.Part gender,
-                               MultipartBody.Part birthday){
+    public void updateUserInfo(long user_id,int sex, int height, int weight, String birthDate){
         mView.showLoading();
-        addSubscription(apiStores.requestUpdateUserInfo(user_id,token,portrait,nickname,contact,gender,birthday),
+        addSubscription(apiStores.requestUpdateUserInfo(user_id,sex,height,weight,birthDate),
                 new BaseObserver<BaseApiResponse<String>>() {
                     @Override
                     public void onError(ResponseException e) {

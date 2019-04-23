@@ -96,7 +96,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                 MultipartBody.Part contact = MultipartBody.Part.createFormData("contact", tvPhoneCode.getText().toString());
                 MultipartBody.Part gender = MultipartBody.Part.createFormData("gender", String.valueOf(ModifyUserInfoActivity.this.genderPos));
                 MultipartBody.Part birthday = MultipartBody.Part.createFormData("birthday", tvBirthday.getText().toString());
-                mPresenter.updateUserInfo(userId, token, portrait, nickName, contact, gender, birthday);
+                mPresenter.updateUserInfo(DataCacheManager.getUserInfo().getUserId(), 1,100,200, "1993-05-14");
                 break;
             case R.id.lin_my_head://点击修改头像
                 mPresenter.autoObtainStoragePermission(this);
