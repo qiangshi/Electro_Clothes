@@ -7,6 +7,8 @@ package com.business.electr.clothes.constants;
 
 public class Constant {
 
+
+
     public static final int PAGE_COUNT = 5;
     public static final int DEFAULT_PAGE_LIMIT = 20;
     public static final String WEBSOCKET_URL = "ws://47.93.7.27:8282";
