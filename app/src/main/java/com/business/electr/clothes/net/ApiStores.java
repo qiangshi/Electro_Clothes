@@ -1,8 +1,6 @@
 package com.business.electr.clothes.net;
 
 import com.business.electr.clothes.bean.UserBean;
-import com.business.electr.clothes.bean.request.LoginParam;
-
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
@@ -38,7 +36,7 @@ public interface ApiStores {
      * @return
      */
     @POST("login/login.do")
-    Observable<BaseApiResponse<UserBean>> requestLogin(@Body LoginParam loginParam);
+    Observable<BaseApiResponse<UserBean>> requestLogin(@Body RequestBody requestBody);
 
     /**
      * 刷新token

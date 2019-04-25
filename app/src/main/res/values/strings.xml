@@ -50,6 +50,7 @@
     <string name="input_close_time_error">截止时间必须大于结束时间</string>
     <string name="commit_success">提交成功</string>
     <string name="confirm">确定</string>
+    <string name="confirm_">确认</string>
     <string name="search">搜索</string>
     <string name="cancel">取消</string>
     <string name="finish_task">结束任务</string>

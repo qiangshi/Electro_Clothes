@@ -138,18 +138,16 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/padding_284"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding_29"
-        android:layout_marginTop="@dimen/padding_22"
-        android:paddingEnd="@dimen/padding_35">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_22">
 
         <TextView
             android:id="@+id/tv_code_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/code_password_login"
-            android:layout_marginStart="@dimen/padding_44"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_11"/>
 
@@ -163,7 +161,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/forget_password"
-            android:layout_marginStart="@dimen/padding_44"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_11"/>
 
@@ -173,7 +170,6 @@
             android:layout_height="wrap_content"
             android:text="@string/first_register"
             android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginEnd="@dimen/padding_15"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_11"/>
 

@@ -1,22 +1,16 @@
 package com.business.electr.clothes.mvp.presenter.login;
 
 import android.text.TextUtils;
-import android.widget.EditText;
-
-import com.alibaba.fastjson.JSONObject;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
-import com.business.electr.clothes.bean.request.LoginParam;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
+import com.business.electr.clothes.net.ApiClient;
 import com.business.electr.clothes.net.BaseApiResponse;
 import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
 import com.business.electr.clothes.utils.DataCheckUtils;
 import com.business.electr.clothes.utils.MLog;
-
-import io.reactivex.disposables.Disposable;
-import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
 /**
@@ -55,13 +49,12 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             mView.toastMessage(R.string.read_user_agreement);
             return;
         }
-        LoginParam loginParam = new LoginParam();
-        loginParam.setUserName(mobilePhone);
-        loginParam.setPassword(verificationCode);
-        loginParam.setRoleType(0);
-
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addParams("userName",mobilePhone)
+                .addParams("password",verificationCode)
+                .addParams("roleType",0).toRequestBody();
         addSubscription(
-                apiStores.requestLogin(loginParam),
+                apiStores.requestLogin(requestBody),
                 new BaseObserver<BaseApiResponse<UserBean>>() {
                     @Override
                     public void onNext(BaseApiResponse<UserBean> data) {

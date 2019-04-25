@@ -13,6 +13,7 @@ import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.ui.activity.MainActivity;
+import com.business.electr.clothes.ui.fragment.dialog.ThireLoginFragment;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.sankuai.waimai.router.annotation.RouterUri;
@@ -27,6 +28,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     EditText etPhone;
     @BindView(R.id.area_code)
     TextView areaCode;
+
+    private ThireLoginFragment thireLoginFragment;
 
     @Override
     protected int getLayoutId() {
@@ -79,6 +82,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 //                        .start();
                 break;
             case R.id.tv_forget_password:
+                hideThireFragment();
                 break;
             case R.id.tv_register:
                 break;
@@ -89,7 +93,25 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.ll_weibo:
                 break;
             case R.id.ll_more:
+                showThireFragment();
                 break;
+        }
+    }
+
+
+    private void showThireFragment(){
+        if(thireLoginFragment == null){
+            thireLoginFragment = new ThireLoginFragment();
+        }
+        if(!thireLoginFragment.isVisible()){
+            getSupportFragmentManager().beginTransaction().add(thireLoginFragment, "thireLoginFragment").commitAllowingStateLoss();
+        }
+    }
+
+
+    private void hideThireFragment(){
+        if(thireLoginFragment != null && thireLoginFragment.isVisible()){
+            getSupportFragmentManager().beginTransaction().hide(thireLoginFragment).commitAllowingStateLoss();
         }
     }
 

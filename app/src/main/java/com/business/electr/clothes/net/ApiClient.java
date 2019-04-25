@@ -1,12 +1,8 @@
 package com.business.electr.clothes.net;
 
-import com.business.electr.clothes.constants.Constant;
-import com.business.electr.clothes.manager.DataCacheManager;
-import com.business.electr.clothes.utils.SharePreferenceUtil;
+import com.business.electr.clothes.net.paramjson.ParamsBuilder;
 import java.util.concurrent.TimeUnit;
-import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -23,6 +19,14 @@ public class ApiClient {
     private static class Holder {
 
         private static final ApiClient Instance = new ApiClient();
+    }
+
+
+    /**
+     * 链式添加参数
+     */
+    public ParamsBuilder getBuilder(){
+        return new ParamsBuilder();
     }
 
     public static Retrofit retrofit() {

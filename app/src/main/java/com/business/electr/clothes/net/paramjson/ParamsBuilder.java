@@ -25,7 +25,7 @@ public class ParamsBuilder {
     private static JSONObject gson;
     private Map<String, Object> map;
 
-    ParamsBuilder() {
+    public ParamsBuilder() {
         this.map = new HashMap<>();
     }
 
