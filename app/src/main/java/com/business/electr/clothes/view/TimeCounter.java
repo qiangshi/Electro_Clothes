@@ -29,7 +29,7 @@ public class TimeCounter extends CountDownTimer {
 
     @Override
     public void onTick(long millisUntilFinished) {
-        button.setText(millisUntilFinished / 1000 + "s");
+        button.setText("重新获取("+millisUntilFinished / 1000 + "s)");
     }
 
     @Override

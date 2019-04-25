@@ -9,7 +9,6 @@ public class Constant {
 
     public static final int PAGE_COUNT = 5;
     public static final int DEFAULT_PAGE_LIMIT = 20;
-    public static final String WEBSOCKET_URL = "ws://47.93.7.27:8282";
 
     public static final String URL = "url";
     public static final String DIALOG_HINT = "hint";
@@ -43,18 +42,13 @@ public class Constant {
     public static final String EXTRA_IS_MEMBER_MANAGER = "is_member_manager";//是否是员工管理
     public static final String EXTRA_RESULT = "result";//返回的结果
 
+    public static final String EXTRA_AREA_CODE = "area_code";//区号码
+    public static final String EXTRA_PHONE = "phone";//手机号
 
-    public static final int REQUEST_CODE_APPROVAL = 0x1000;
-    public static final int REQUEST_CODE_COPY_FOR = 0x1001;
-    public static final int REQUEST_CODE_TRAVEL_REASON = 0x1002;
+
+
     public static final int REQUEST_CODE_USER_NICK_NAME = 0x1003;
     public static final int REQUEST_CODE_PHONE = 0x1004;
-    public static final int REQUEST_CODE_MODIFY_MANAGER = 0x1005;//修改管理员
-    public static final int REQUEST_CODE_MEMBER_NAME = 0x1006;//员工姓名
-    public static final int REQUEST_CODE_MEMBER_DEPARTMENT = 0x1007;//部门
-    public static final int REQUEST_CODE_MEMBER_EMAIL = 0x1008;//邮箱
-    public static final int REQUEST_CODE_MEMBER_REMARK = 0x1009;//备注
-    public static final int REQUEST_CODE_MODIFY_MEMBER_INFO = 0x1010;//修改企业员工信息
     public static final int SELECT_TIME = 0x0086;
 
 

@@ -59,7 +59,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-                            mView.loginSuccess(data.getData());
+//                            mView.loginSuccess(data.getData());
                         }
                     }
 
@@ -78,7 +78,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
 
     //发送手机验证码的方法
-    public void sendVerificationCode(String mobilePhone, EditText etCode) {
+    public void sendVerificationCode(String mobilePhone) {
         if (TextUtils.isEmpty(mobilePhone)) {
             //请输入手机号
             mView.toastMessage(R.string.hint_input_phone_num);
@@ -87,25 +87,17 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             mView.toastMessage(R.string.msg_phone_num_error);
             return;
         }
-        //改变按钮的点击状态,倒计时
-        mView.changeBtnStatus();
 
         //发送手机验证码
         addSubscription(
                 apiStores.requestVerificationCode(mobilePhone),
                 new BaseObserver<BaseApiResponse<String>>() {
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        super.onSubscribe(d);
-                    }
-
                     @Override
                     public void onNext(BaseApiResponse<String> data) {
                         if (!TextUtils.isEmpty(data.getData().toString())) {
                             mView.toastMessage(R.string.get_success);
-                            etCode.setText(data.getData().toString());
                         }
+                        mView.sendSuccess();
                     }
 
                     @Override
@@ -115,7 +107,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
                     @Override
                     public void onComplete() {
-
                     }
                 }
         );

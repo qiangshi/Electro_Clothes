@@ -42,6 +42,11 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
     }
 
     @Override
+    public void sendSuccess() {
+
+    }
+
+    @Override
     public void changeBtnStatus() {
         mTimeCounter = new TimeCounter(60000, 1000, tvCode, R.string.btn_re_send_code);
         mTimeCounter.start();
@@ -55,6 +60,8 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
 
     @OnClick(R.id.tv_code)
     public void onViewClicked() {
-        mPresenter.sendVerificationCode(etPhone.getText().toString(),etCode);
+        mPresenter.sendVerificationCode(etPhone.getText().toString());
     }
+
+
 }

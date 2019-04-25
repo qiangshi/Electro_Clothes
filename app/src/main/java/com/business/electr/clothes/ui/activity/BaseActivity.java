@@ -19,6 +19,7 @@ import com.business.electr.clothes.bean.DataEvent;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.IView;
+import com.business.electr.clothes.ui.activity.login.LoginActivity;
 import com.business.electr.clothes.ui.fragment.dialog.EmptyFragment;
 import com.business.electr.clothes.ui.fragment.dialog.LoadingFragment;
 import com.business.electr.clothes.ui.fragment.dialog.PopupFragment;
