@@ -269,9 +269,183 @@ public interface ApiStores {
      */
     @POST("getElectrReport.do")
     @FormUrlEncoded
-    Observable<BaseApiResponse<Integer>> requestElectrRepord(
+    Observable<BaseApiResponse<Integer>> requestElectrReport(
             @Field("userId") @NonNull long userId,@Field("dayNo") @NonNull int dayNo);
 
+
+    /**
+     * 接收心率记录
+     * @param userId
+     * @param deviceId
+     * @param value
+     * @return
+     */
+    @POST("recvHrateRecord.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestHrateRecord(
+            @Field("userId") @NonNull long userId, @Field("deviceId") @NonNull int deviceId,
+            @Field("value") @NonNull String value);
+
+
+    /**
+     * 获取心率报告
+     * @param userId   用户编号
+     * @param deviceId  设备编号
+     * @param value  值
+     * @param gatherTime  采集时间
+     * @param stepNum   步数
+     * @param distance  路程
+     * @param carlo  卡路里
+     * @param rateMax 心率最低
+     * @param rateMin 心率最高
+     * @param rateAvg 心率平均
+     * @return
+     */
+    @POST("recvHrateReport.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestHrateReport(
+            @Field("userId") @NonNull long userId, @Field("deviceId") @NonNull int deviceId,
+            @Field("value") @NonNull String value, @Field("gatherTime") @NonNull int gatherTime,
+            @Field("stepNum") @NonNull int stepNum, @Field("distance") @NonNull int distance,
+            @Field("carlo") @NonNull int carlo, @Field("rateMax") @NonNull int rateMax,
+            @Field("rateMin") @NonNull int rateMin, @Field("rateAvg") @NonNull int rateAvg);
+
+    /**
+     * 获取心率记录页数
+     * @param userId
+     * @param dayNo
+     * @param pageSize
+     * @return
+     */
+    @POST("getHrateRecordPage.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requestHrateRecordPage(
+            @Field("userId") @NonNull long userId, @Field("dayNo") @NonNull int dayNo,
+            @Field("pageSize") @NonNull int pageSize);
+
+
+    /**
+     * 获取心率记录
+     * @param userId
+     * @param dayNo
+     * @param startIndex  开始索引
+     * @param pageIndex    页数
+     * @param pageSize    每页数量
+     * @return
+     */
+    @POST("getHrateRecord.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requestHrateRecord(
+            @Field("userId") @NonNull long userId, @Field("dayNo") @NonNull int dayNo,
+            @Field("startIndex") @NonNull int startIndex, @Field("pageIndex") @NonNull int pageIndex,
+            @Field("pageSize") @NonNull int pageSize);
+
+    /**
+     * 获取心率报告
+     * @param userId
+     * @param dayNo
+     * @return
+     */
+    @POST("getHrateReport.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requestHrateReport(
+            @Field("userId") @NonNull long userId, @Field("dayNo") @NonNull int dayNo);
+
+
+
+    /*************************************************医生部分***********************************************/
+
+    /**
+     * 保存医生信息
+     * @param userId
+     * @param departmentId
+     * @param dutyId
+     * @param organization
+     * @param skill
+     * @param info
+     * @return
+     */
+    @POST("saveDoctor.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Long>> requestSaveDoctor(
+            @Field("userId") @NonNull long userId, @Field("departmentId") @NonNull int departmentId,
+            @Field("dutyId") @NonNull int dutyId, @Field("organization") @NonNull String organization,
+            @Field("skill") @NonNull String skill, @Field("info") @NonNull String info);
+
+
+    /**
+     * 获取医生信息
+     * @param userId
+     * @return
+     */
+    @POST("getDoctor.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requesDoctorInfo(
+            @Field("userId") @NonNull long userId);
+
+
+    /**
+     * 获取最新心电报告页数
+     * @param dayNum  天数
+     * @param pageSize  每页记录数
+     * @return
+     */
+    @POST("getNewElectrReportPage.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requesNewElectrReportPage(
+            @Field("dayNum") @NonNull int dayNum,@Field("pageSize") @NonNull int pageSize);
+
+
+    /**
+     * 获取最新心电报告
+     * @param dayNum
+     * @param pageSize
+     * @param startIndex
+     * @param pageIndex
+     * @return
+     */
+    @POST("getNewElectrReport.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Integer>> requesNewElectrReport(
+            @Field("dayNum") @NonNull int dayNum,@Field("pageSize") @NonNull int pageSize,
+            @Field("startIndex") @NonNull int startIndex, @Field("pageIndex") @NonNull int pageIndex);
+
+
+    /**
+     * 提交心电诊断
+     * @param userId
+     * @param electrReportId
+     * @param doctorId
+     * @param advise
+     * @return
+     */
+    @POST("saveElectrCure.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<Long>> requesSaveElectrCure(
+            @Field("userId") @NonNull long userId,@Field("electrReportId") @NonNull long electrReportId,
+            @Field("doctorId") @NonNull long doctorId, @Field("advise") @NonNull String advise);
+
+
+    /**
+     * 获取部门信息
+     * @param userId
+     * @return
+     */
+    @POST("getDepartments.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestDepartments(
+            @Field("userId") @NonNull long userId);
+
+
+    /**
+     * 获取职务信息
+     * @param userId
+     * @return
+     */
+    @POST("getDutys.do")
+    @FormUrlEncoded
+    Observable<BaseApiResponse<String>> requestDutys(
+            @Field("userId") @NonNull long userId);
 
     /**
      * 用户反馈
@@ -283,7 +457,5 @@ public interface ApiStores {
             @Part MultipartBody.Part content, @Part MultipartBody.Part pic1,
             @Part MultipartBody.Part pic2, @Part MultipartBody.Part pic3,
             @Part MultipartBody.Part contact);
-
-
 
 }

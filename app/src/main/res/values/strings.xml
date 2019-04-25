@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">心电图</string>
+    <string name="app_name">心电衣</string>
 
     <integer name="loading_anim">100</integer>
     <integer name="animation_default_duration">300</integer>
@@ -9,7 +9,6 @@
     <string name="mine">我的</string>
     <string name="macroscopic">宏观</string>
     <string name="add">添加</string>
-    <string name="send">发送</string>
 
 
     <!--splash   login-->
@@ -33,203 +32,28 @@
     <string name="again_pass_logout_app">再按一退出程序</string>
 
 
-    <!--tool -->
-    <string name="login_title">区块链考勤，让工作更智能</string>
-    <string name="check_work">考勤</string>
-    <string name="leave">请假</string>
-    <string name="field_personnel">外勤</string>
-    <string name="punch_card">打卡</string>
-    <string name="travel">出差</string>
-    <string name="task">任务</string>
-    <string name="over_time">加班</string>
-    <string name="address">通讯录</string>
-    <string name="notice">公告</string>
-    <string name="count">统计</string>
+    <!--dialog  or helper -->
     <string name="commit">提交</string>
-    <string name="please_select_class">请假类型</string>
-    <string name="please_select">请选择</string>
-    <string name="start_time">开始时间</string>
-    <string name="end_time">结束时间</string>
-    <string name="please_input_reason">请输入请假事由</string>
-    <string name="leave_reason">请假事由</string>
-    <string name="personnel_remark">外勤备注</string>
-    <string name="leave_time">请假时长</string>
-    <string name="time">时长(h)</string>
-    <string name="time_long">时长</string>
-    <string name="out_work_reason">外勤事由</string>
-    <string name="over_time_reason">加班理由</string>
-    <string name="travel_remark">出差备注</string>
-    <string name="travel_reason">出差事由</string>
-    <string name="out_city">出发城市</string>
-    <string name="target_city">目标城市</string>
-    <string name="approval_person">审批人</string>
-    <string name="approval_company">选择企业</string>
-    <string name="copy_for">抄送人</string>
     <string name="input_end_time_error">结束时间必须大于开始时间</string>
     <string name="input_start_time_error">开始时间必须小于结束时间</string>
     <string name="input_hint_time_error">提醒时间必须小于截止时间</string>
     <string name="input_close_time_error">截止时间必须大于结束时间</string>
-    <string name="manager">管理</string>
-    <string name="finish">完成</string>
-    <string name="please_input_class">请选择请假类型</string>
-    <string name="please_select_start_time">请选择开始时间</string>
-    <string name="please_select_end_time">请选择结束时间</string>
-    <string name="please_select_close_time">请选择截止时间</string>
-    <string name="please_select_hint_time">请选择提醒时间</string>
-    <string name="please_input_time">请输入请假时长</string>
-    <string name="please_input_personnel_remark">请输入外勤打卡备注</string>
-    <string name="personnel_punch">外勤打卡</string>
-    <string name="please_input_time_long">请输入时长</string>
-    <string name="please_select_approval_person">请选择审批人</string>
     <string name="commit_success">提交成功</string>
-    <string name="no_record">暂无记录</string>
-    <string name="update">更新</string>
-    <string name="location_in_work">已位于打卡范围内</string>
-    <string name="location_out_work">当前不处于打卡范围</string>
-    <string name="go_work_card">上班打卡</string>
-    <string name="down_work_card">下班打卡</string>
-    <string name="down_work_card_update">更新打卡</string>
-    <string name="go_work_time">上班打卡时间 %1$s \n上班打卡位置 %2$s</string>
-    <string name="down_work_time">下班打卡时间 %1$s \n下班打卡位置 %2$s</string>
-    <string name="card_success">打卡成功</string>
-    <string name="invitation_join">邀请好友加入...</string>
-    <string name="select_line_person">选择联系人</string>
-    <string name="leave_apply">请假申请</string>
-    <string name="field_personnel_apply">外勤申请</string>
-    <string name="please_input_out_work_reason">请输入外勤事由</string>
-    <string name="please_input_over_time_reason">请输入加班理由</string>
-    <string name="please_input_travel_remark">请输入出差备注</string>
-    <string name="please_input_travel_reason">请输入出差事由</string>
-    <string name="please_select_start_city">请选择出发城市</string>
-    <string name="please_select_target_city">请选择目标城市</string>
-    <string name="travel_apply">出差申请</string>
-    <string name="over_time_apply">加班申请</string>
-    <string name="create_notice">创建公告</string>
-    <string name="release">发布</string>
-    <string name="please_input_notice_title">请输入公告标题</string>
-    <string name="please_input_notice_content">请输入公告详情</string>
-    <string name="please_input_task_title">请输入任务标题</string>
-    <string name="please_input_task_content">请输入任务详情</string>
-    <string name="release_success">发布成功</string>
-    <string name="create_task">创建任务</string>
-    <string name="answer">负责人</string>
-    <string name="coordination">配合人</string>
-    <string name="close_time">截止时间</string>
-    <string name="hint_time">提醒时间</string>
-    <string name="edit_info">编辑信息</string>
-    <string name="name">姓名</string>
-    <string name="department">部门</string>
-    <string name="email">邮箱</string>
-    <string name="remark">备注</string>
-    <string name="please_input_name">请输入姓名</string>
-    <string name="please_input_department">请输入部门</string>
-    <string name="please_input_email">请输入邮箱</string>
-    <string name="please_input_remark">请输入备注</string>
-    <string name="out_company_success">退出企业成功!</string>
-    <string name="hint">提示</string>
-    <string name="confirm_delete">确定将该用户从企业中删除？</string>
-    <string name="confirm_out">确定退出团队吗？</string>
-    <string name="all">全部</string>
-    <string name="day_statistics">日统计</string>
-    <string name="month_statistics">月统计</string>
-    <string name="scan_detail">查看详情</string>
-    <string name="late">迟到</string>
-    <string name="no_card">未打卡</string>
-    <string name="no_have_card">缺卡</string>
-    <string name="card_arrive">打卡/应到</string>
-    <string name="normal">正常</string>
-    <string name="leave_early">早退</string>
-    <string name="please_input_team">请选择加入一个团队</string>
-    <string name="please_create_team">请创建一个团队</string>
-    <string name="select_person_no_one_team">选择的联系人不在同一团队</string>
-
-
-    <string-array name="select_leave_class">
-        <item>事假</item>
-        <item>病假</item>
-        <item>调休</item>
-        <item>年假</item>
-        <item>产假</item>
-        <item>婚假</item>
-    </string-array>
-
-    <string-array name="gender_sex">
-        <item>男</item>
-        <item>女</item>
-    </string-array>
-
-    <string-array name="check_work">
-        <item>打卡</item>
-        <item>外勤</item>
-    </string-array>
-
-    <string-array name="statistics_tool">
-        <item>考勤</item>
-        <item>请假</item>
-        <item>外勤</item>
-        <item>出差</item>
-        <item>加班</item>
-    </string-array>
-
-    <string name="cpy_name">企业名称</string>
-    <string name="office_location">办公位置</string>
-    <string name="cpy_logo">企业logo</string>
-    <string name="department_desc">部门描述</string>
-    <string name="punch_time">打卡时间范围</string>
-    <string name="hint_please_input">请输入</string>
-    <string name="hint_please_select">请选择</string>
-    <string name="hint_click_upload">点击上传</string>
-    <string name="hint_click_set">点击设置</string>
-    <string name="create_cpy">创建企业</string>
-    <string name="create">创建</string>
-    <string name="go_work">上班</string>
-    <string name="off_work">下班</string>
-    <string name="hint_input_cpy_name">请输入企业/组织/团队/部门名称</string>
-    <string name="hint_input_cpy_location">请选择公司位置</string>
-    <string name="hint_upload_cpy_logo">请上传logo</string>
-    <string name="hint_input_department_desc">请输入企业/组织/团队/部门描述</string>
-    <string name="hint_select_punch_time">请选择打卡时间</string>
     <string name="confirm">确定</string>
-    <string name="create_success">创建成功</string>
-    <string name="create_failed">创建失败</string>
-    <string name="hint_input_reply">输入回复内容</string>
-    <string name="click_edit">点击可修改</string>
-    <string name="related_progress">相关进度</string>
-    <string name="related_comment">相关评论</string>
-    <string name="task_detail">任务详情</string>
-    <string name="more">更多</string>
     <string name="search">搜索</string>
     <string name="cancel">取消</string>
     <string name="finish_task">结束任务</string>
     <string name="edit_task">编辑任务</string>
     <string name="delete_task">删除任务</string>
-    <string name="invite_to_join_team">邀请加入团队</string>
-    <string name="invite">邀请</string>
-    <string name="has_send_intite">邀请已发送</string>
-    <string name="failed_send_invite">邀请发送失败</string>
-    <string name="unnamed">未命名</string>
-    <string name="leave_type">请假类型</string>
-    <string name="state">状态</string>
-    <string name="other">其他</string>
-    <string name="pending">待审批</string>
-    <string name="agree">同意</string>
-    <string name="refuse">拒绝</string>
-    <string name="leave_request_details">请假申请详情</string>
-    <string name="leave_agree_details">请假通过详情</string>
-    <string name="announcement_notice">公告通知</string>
-    <string name="leave_request_suffix">请假申请</string>
-    <string name="has_no_more_data">暂无更多信息</string>
 
     <!--mine-->
+    <string name="log_out">退出</string>
     <string name="modify_info">修改资料</string>
     <string name="time_bean">时间豆</string>
-    <string name="my_time_bean">我的时间豆</string>
     <string name="my_company">我的企业</string>
     <string name="face_back">意见与反馈</string>
     <string name="set">设置</string>
     <string name="my_info">个人信息</string>
-    <string name="approval_notice">审批通知</string>
-    <string name="task_notice">任务通知</string>
     <string name="user_head">头像</string>
     <string name="nick_name">昵称</string>
     <string name="phone_code">手机号</string>
@@ -237,11 +61,7 @@
     <string name="birthday">出生日期</string>
     <string name="preservation">保存</string>
     <string name="preservation_success">保存成功</string>
-    <string name="user_nick_name">用户昵称</string>
-    <string name="please_input_user_nick_name">请输入用户昵称</string>
     <string name="modify_phone_code">修改手机号</string>
-    <string name="count_balance">账户余额</string>
-    <string name="time_bean_receipt_details">时间豆收支明细</string>
     <string name="please_input_feedback_content">请输入反馈内容</string>
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
@@ -255,8 +75,6 @@
     <string name="service_phone">客服电话</string>
     <string name="company_email_code">service@punch_card.com</string>
     <string name="company_email">企业邮箱</string>
-    <string name="email_style_error">邮箱格式不正确，请重新输入</string>
-    <string name="phone_style_error">电话格式不正确，请重新输入</string>
     <string name="select_email">请选择邮件类应用</string>
     <string name="email_title">请输入邮件主题</string>
     <string name="email_body">请输入你想要发送的邮件内容</string>
@@ -266,47 +84,11 @@
     <string name="msg_open">消息通知已打开</string>
     <string name="msg_close">消息通知已关闭</string>
     <string name="clear_success">清除成功</string>
-    <string name="statistics">统计</string>
-    <string name="join_the_team">邀请员工进入团队</string>
-    <string name="update_manager">更换管理员</string>
-    <string name="staff_manager">员工管理</string>
-    <string name="modify_company">编辑企业信息</string>
-    <string name="out_team">申请退出</string>
-    <string name="modify_success">修改成功</string>
-    <string name="modify_failed">修改失败</string>
-    <string name="please_select_update_user">请选择更换的用户</string>
-    <string name="please_select_user">请选择联系人</string>
 
 
-    <string name="other_notification">其他通知</string>
-    <string name="other_notice">其他通知</string>
-    <string name="reject">驳回</string>
-    <string name="responsible_">责任人：</string>
-    <string name="delete_task_success">任务删除成功</string>
-    <string name="invite_notice">邀请信息</string>
-    <string name="log_out">退出</string>
-    <string name="leave_request">请假申请</string>
-    <string name="overtime_request">加班申请</string>
-    <string name="overtime_request_detail">加班申请详情</string>
-    <string name="overtime_reason">加班原因</string>
-    <string name="overtime_duration">加班时长</string>
-    <string name="trivel_duration">出差时长</string>
-    <string name="trivel_reason">出差原因</string>
-    <string name="trivel_city">出差地点</string>
-    <string name="trivel_from_city">出发城市</string>
-    <string name="trivel_to_city">目标地点</string>
-    <string name="out_reason">外勤原因</string>
-    <string name="out_duration">外勤时长</string>
-    <string name="out_request_detail">外勤申请详情</string>
-    <string name="trivel_request_detail">出差申请详情</string>
+    <string-array name="gender_sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
 
-    <string name="hint_input_content">请输入内容</string>
-    <string name="approval_success">审批成功</string>
-    <string name="add_company_success">加入成功!</string>
-    <string name="out_request">外勤申请</string>
-    <string name="trivel_request">出差申请</string>
-    <string name="cutoff_suffix">截止</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
