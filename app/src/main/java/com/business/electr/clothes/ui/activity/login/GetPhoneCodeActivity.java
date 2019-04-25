@@ -1,6 +1,6 @@
 package com.business.electr.clothes.ui.activity.login;
 
-import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
@@ -10,7 +10,6 @@ import com.business.electr.clothes.mvp.presenter.login.LoginPresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
-import com.business.electr.clothes.ui.activity.MainActivity;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
 import com.business.electr.clothes.utils.ToastUtils;
 import com.business.electr.clothes.view.PhoneCode;
@@ -75,9 +74,17 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     }
 
 
-    @OnClick(R.id.down_time)
-    public void onViewClicked() {
-        mPresenter.sendVerificationCode(phone);
+    @OnClick({R.id.down_time,R.id.img_back})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.down_time:
+                mPresenter.sendVerificationCode(phone);
+                break;
+            case R.id.img_back:
+                finish();
+                break;
+        }
+
     }
 
     @Override

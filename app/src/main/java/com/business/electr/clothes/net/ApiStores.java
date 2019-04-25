@@ -1,10 +1,13 @@
 package com.business.electr.clothes.net;
 
 import com.business.electr.clothes.bean.UserBean;
+import com.business.electr.clothes.bean.request.LoginParam;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
@@ -32,16 +35,10 @@ public interface ApiStores {
 
     /**
      * 登录
-     * @param userName
-     * @param password
-     * @param roleType
      * @return
      */
     @POST("login/login.do")
-    @FormUrlEncoded
-    Observable<BaseApiResponse<UserBean>> requestLogin(
-            @Field("userName") @NonNull String userName, @Field("password") @NonNull String password,
-            @Field("roleType") String roleType);
+    Observable<BaseApiResponse<UserBean>> requestLogin(@Body LoginParam loginParam);
 
     /**
      * 刷新token

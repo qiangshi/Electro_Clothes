@@ -27,7 +27,7 @@ public class ApiClient {
 
     public static Retrofit retrofit() {
         return new Retrofit.Builder()
-            .baseUrl("http://www.xxx.com/business/")
+            .baseUrl("http://47.102.145.7:8003/business/")
             .addConverterFactory(FastJsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(getClient())
@@ -42,32 +42,32 @@ public class ApiClient {
         try {
             return new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
-                .addInterceptor(
-                    chain -> {
-                        Request srcRequest = chain.request();
-                        if (srcRequest.method().equals("POST")) {//post请求
-                            if (srcRequest.body() instanceof FormBody) {
-                                FormBody.Builder newBodyBuilder = new FormBody.Builder();
-                                FormBody formBody = (FormBody) srcRequest.body();
-                                for (int i = 0; i < formBody.size(); i++) {
-                                    newBodyBuilder.addEncoded(formBody.encodedName(i),
-                                        formBody.encodedValue(i));
-                                }
-                                if (SharePreferenceUtil.getBoolean(Constant.IS_LOGIN, false)) {
-                                    formBody = newBodyBuilder
-                                        .addEncoded(REQUEST_TOKEN, DataCacheManager.getToken())
-//                                        .addEncoded(REQUEST_USER_ID,
-//                                            DataCacheManager.getUserInfo().getId() + "")
-                                        .build();
-                                } else {
-                                    formBody = newBodyBuilder.build();
-                                }
-                                srcRequest = srcRequest.newBuilder().post(formBody).build();
-                            }
-                        }
-                        return chain.proceed(srcRequest);
-                    }
-                )
+//                .addInterceptor(
+//                    chain -> {
+//                        Request srcRequest = chain.request();
+//                        if (srcRequest.method().equals("POST")) {//post请求
+//                            if (srcRequest.body() instanceof FormBody) {
+//                                FormBody.Builder newBodyBuilder = new FormBody.Builder();
+//                                FormBody formBody = (FormBody) srcRequest.body();
+//                                for (int i = 0; i < formBody.size(); i++) {
+//                                    newBodyBuilder.addEncoded(formBody.encodedName(i),
+//                                        formBody.encodedValue(i));
+//                                }
+//                                if (SharePreferenceUtil.getBoolean(Constant.IS_LOGIN, false)) {
+//                                    formBody = newBodyBuilder
+//                                        .addEncoded(REQUEST_TOKEN, DataCacheManager.getToken())
+////                                        .addEncoded(REQUEST_USER_ID,
+////                                            DataCacheManager.getUserInfo().getId() + "")
+//                                        .build();
+//                                } else {
+//                                    formBody = newBodyBuilder.build();
+//                                }
+//                                srcRequest = srcRequest.newBuilder().post(formBody).build();
+//                            }
+//                        }
+//                        return chain.proceed(srcRequest);
+//                    }
+//                )
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
         } catch (Exception e) {
