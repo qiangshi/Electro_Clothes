@@ -67,6 +67,7 @@
     <color name="color_8c919b">#8c919b</color>
     <color name="color_12bf00">#12bf00</color>
     <color name="color_d6d6d6">#d6d6d6</color>
+    <color name="color_3F3F40">#3F3F40</color>
     <color name="color_dde1eb">#FFDDE1EB</color>
     <color name="color_FFF8F9FB">#FFF8F9FB</color>
     <color name="color_F1F3F8">#FFF1F3F8</color>//背景色
@@ -131,6 +132,8 @@
     <color name="color_f3f3f3">#f3f3f3</color>
     <color name="color_929292">#929292</color>
     <color name="color_D7D7D7">#D7D7D7</color>
+    <color name="color_D8D8D8">#D8D8D8</color>
+    <color name="color_51D8D8D8">#51D8D8D8</color>
     <color name="color_FFF9F9F9">#FFF9F9F9</color>
     <color name="color_ef4b81">#EF4B81</color>
     <color name="color_4C84FF">#4C84FF</color>

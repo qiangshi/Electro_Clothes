@@ -31,7 +31,8 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.mine.ModifyPasswordActivity"></activity>
+        <activity android:name=".ui.activity.equipment.EquipmentActivity"></activity>
+        <activity android:name=".ui.activity.mine.ModifyPasswordActivity" />
         <activity android:name=".ui.activity.login.GetPhoneCodeActivity" />
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>

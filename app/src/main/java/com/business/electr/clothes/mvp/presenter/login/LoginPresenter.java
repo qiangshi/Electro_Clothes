@@ -24,7 +24,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         super(view);
     }
 
-
     /**
      * 手机验证码登录
      *

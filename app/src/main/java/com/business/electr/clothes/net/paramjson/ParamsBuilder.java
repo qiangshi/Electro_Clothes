@@ -12,17 +12,17 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
 /**
- * @Description: java类作用描述
+ * @Description: 动态添加post参数
  * @Author: 曾海强
  * @CreateDate: 2019/4/25 18:12
  */
 public class ParamsBuilder {
 
     static {
-        gson = new JSONObject();
+        fastJson = new JSONObject();
     }
 
-    private static JSONObject gson;
+    private static JSONObject fastJson;
     private Map<String, Object> map;
 
     public ParamsBuilder() {
@@ -60,7 +60,7 @@ public class ParamsBuilder {
      * 返回json字符串
      */
     public String toJson() {
-        return gson.toJSONString(map);
+        return fastJson.toJSONString(map);
     }
 
     /**

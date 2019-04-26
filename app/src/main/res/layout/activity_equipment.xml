@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_3F3F40"
+    tools:context=".ui.activity.equipment.EquipmentActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_44">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="@dimen/padding_30"
+            android:src="@drawable/ic_goback"
+            android:paddingEnd="@dimen/padding_20"
+            android:paddingStart="@dimen/padding_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备匹配"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/text_font_16"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_pot"
+        android:layout_marginTop="@dimen/padding_26"
+        android:layout_below="@+id/rel_title"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_pot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circular_d8d8d8_pot" />
+        <ImageView
+            android:id="@+id/img_pot2"
+            android:layout_marginStart="@dimen/padding_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circular_51d8d8d8_pot" />
+        <ImageView
+            android:id="@+id/img_pot3"
+            android:layout_marginStart="@dimen/padding_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circular_51d8d8d8_pot" />
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@+id/ll_pot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
