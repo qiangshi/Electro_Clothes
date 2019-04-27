@@ -5,7 +5,12 @@ import android.view.View;
 import android.widget.ImageView;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
+import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
+import com.business.electr.clothes.ui.fragment.equipment.Equipment1Fragment;
+import com.business.electr.clothes.ui.fragment.equipment.Equipment2Fragment;
+import com.business.electr.clothes.ui.fragment.equipment.Equipment3Fragment;
+import com.sankuai.waimai.router.annotation.RouterUri;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-
+@RouterUri(path = {RouterCons.CREATE_EQUIPMENT})
 public class EquipmentActivity extends BaseActivity {
 
 
@@ -48,7 +53,12 @@ public class EquipmentActivity extends BaseActivity {
     @Override
     protected void initDataAndEvent() {
         fragments = new ArrayList<>();
-
+        Equipment1Fragment equipment1Fragment = new Equipment1Fragment();
+        Equipment2Fragment equipment2Fragment = new Equipment2Fragment();
+        Equipment3Fragment equipment3Fragment = new Equipment3Fragment();
+        fragments.add(equipment1Fragment);
+        fragments.add(equipment2Fragment);
+        fragments.add(equipment3Fragment);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @NonNull
             @Override

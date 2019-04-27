@@ -3,6 +3,7 @@
     <color name="windowBackground">#f5f5f5</color>
     <color name="hight_light_color">#d4d26d</color>
     <color name="white">#ffffff</color>
+    <color name="color_33ffffff">#33ffffff</color>
     <color name="thirdpartyplatform">#8a8a8a</color>
     <color name="young">#41c8d5</color>
     <color name="solid">#d6d6d6</color>
@@ -96,7 +97,7 @@
     <color name="color_fd5b61">#fd5b61</color>
     <color name="color_FD8B87">#FD8B87</color>
     <color name="color_8bc34a">#8bc34a</color>
-    <color name="color_b4b4b6">#b4b4b6</color>
+    <color name="color_b4b4b4">#b4b4b4</color>
     <color name="color_7471ff">#7471ff</color>
     <color name="color_fdae60">#fdae60</color>
     <color name="color_1488d9">#1488d9</color>

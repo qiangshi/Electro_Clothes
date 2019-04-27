@@ -16,5 +16,6 @@ public class RouterCons {
     public static final String CREATE_LINK_OUR = "/create_link_our";
     public static final String WEB_VIEW_INFO = "/web_view_info";
     public static final String CREATE_GET_CODE = "/create_get_code";
+    public static final String CREATE_EQUIPMENT = "/create_equipment";
 
 }

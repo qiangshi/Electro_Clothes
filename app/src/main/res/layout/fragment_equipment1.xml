@@ -4,16 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/translucent"
-    tools:context=".ui.fragment.Equipment1Fragment">
+    android:background="@color/color_3F3F40"
+    tools:context=".ui.fragment.equipment.Equipment1Fragment">
 
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="">
+        android:layout_marginTop="@dimen/padding_60"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/icon_eq_elec"/>
 
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_17"
+        android:layout_marginTop="@dimen/padding_45"
+        android:layout_gravity="center_horizontal"
+        android:text="心贴 / 摇动以启动"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="或"
+        android:textSize="@dimen/text_font_16"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_70"
+        android:textColor="@color/color_b4b4b4"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_77"
+        android:src="@drawable/icon_eq_inte"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/padding_36"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_font_17"
+        android:text="智能袜 / 打开开关"/>
+
 
 </LinearLayout>

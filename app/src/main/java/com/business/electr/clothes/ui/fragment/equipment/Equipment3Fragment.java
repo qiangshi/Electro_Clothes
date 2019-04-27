@@ -1,13 +1,23 @@
-package com.business.electr.clothes.ui.fragment;
+package com.business.electr.clothes.ui.fragment.equipment;
 
+
+import android.os.Bundle;
 import android.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
+import com.business.electr.clothes.ui.fragment.BaseFragment;
 
-public class Equipment1Fragment extends BaseFragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Equipment3Fragment extends BaseFragment {
 
 
-    public Equipment1Fragment() {
+    public Equipment3Fragment() {
     }
 
 
@@ -19,7 +29,7 @@ public class Equipment1Fragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_equipment1;
+        return R.layout.fragment_equipment3;
     }
 
     @Override

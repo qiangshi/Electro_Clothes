@@ -109,9 +109,11 @@ public class SettingActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lin_about_our://关于我们
-                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
-                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/about_us.html")
-                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.about_our))
+//                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
+//                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/about_us.html")
+//                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.about_our))
+//                        .start();
+                new DefaultUriRequest(this,RouterCons.CREATE_EQUIPMENT)
                         .start();
                 break;
             case R.id.lin_link_our://联系我们

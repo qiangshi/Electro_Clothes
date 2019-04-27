@@ -24,7 +24,7 @@
             android:maxLength="11"
             android:paddingStart="@dimen/padding_16"
             android:singleLine="true"
-            android:textColorHint="@color/color_b4b4b6"
+            android:textColorHint="@color/color_b4b4b4"
             android:textSize="@dimen/text_font_14" />
 
 
@@ -40,7 +40,7 @@
             android:maxLength="6"
             android:paddingStart="@dimen/padding_16"
             android:singleLine="true"
-            android:textColorHint="@color/color_b4b4b6"
+            android:textColorHint="@color/color_b4b4b4"
             android:textSize="@dimen/text_font_14" />
 
 
@@ -56,7 +56,7 @@
             android:gravity="center"
             android:text="@string/get_phone_code"
             android:textColor="@color/color_252631"
-            android:textColorHint="@color/color_b4b4b6"
+            android:textColorHint="@color/color_b4b4b4"
             android:textSize="@dimen/text_font_16" />
 
 
