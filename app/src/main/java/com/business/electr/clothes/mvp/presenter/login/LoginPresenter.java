@@ -96,9 +96,10 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 new BaseObserver<BaseApiResponse<String>>() {
                     @Override
                     public void onNext(BaseApiResponse<String> data) {
+                        // TODO: 2019/4/28 根据发送验证码回调判断是否是新用户
                         MLog.e("====zhq====>111<"+data);
                         mView.toastMessage(R.string.get_success);
-                        mView.sendSuccess();
+                        mView.sendSuccess(true);
                     }
 
                     @Override

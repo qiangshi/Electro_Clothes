@@ -14,4 +14,10 @@ public interface ModifyPasswordView extends IView {
      * 注册成功
      */
     void registerSuccess(UserBean userBean);
+
+    /**
+     * 登陆成功
+     * @param userBean
+     */
+    void loginSuccess(UserBean userBean);
 }

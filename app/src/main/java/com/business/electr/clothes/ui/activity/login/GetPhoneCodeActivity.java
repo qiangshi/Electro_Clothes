@@ -37,8 +37,9 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     TextView downTime;
 
     private TimeCounter mTimeCounter;
-    private int type; //0 ： 注册   1: 登陆
+    private int type; //0 ： 注册   1: 登陆  2:忘记密码
     private String phone;
+    private boolean isNewUser;
 
     @Override
     protected int getLayoutId() {
@@ -59,6 +60,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         String areaCode = getIntent().getStringExtra(Constant.EXTRA_AREA_CODE);
         phone = getIntent().getStringExtra(Constant.EXTRA_PHONE);
         type = getIntent().getIntExtra(Constant.TYPE,0);
+        isNewUser = getIntent().getBooleanExtra(Constant.EXTRA_IS_NEW_USER,false);
         tvAreaCode.setText("(" + areaCode + ")");
         tvPhone.setText(phone);
         mTimeCounter = new TimeCounter(60000, 1000, downTime, R.string.btn_re_send_code);
@@ -66,15 +68,15 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         phoneCode.setOnInputListener(new PhoneCode.OnInputListener() {
             @Override
             public void onSucess(String code) {
-                // TODO: 2019/4/25 完善个人信息
-                ToastUtils.showToast(GetPhoneCodeActivity.this, "输入完成");
-                if(type == 1){
+                if(type == 1){// TODO: 2019/4/28 验证码登录
                     mPresenter.requestLogin(phone,code,true);
                     loginSuccess(new UserBean());
-                }else if(type == 0){
+                }else if(type ==0 || type== 2) { //注册或忘记密码
+                    // TODO: 2019/4/25 完善个人信息
                     new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
                             .putExtra(Constant.EXTRA_PHONE,phone)
                             .putExtra(Constant.EXTRA_CODE,code)
+                            .putExtra(Constant.TYPE,type)
                             .start();
                 }
             }
@@ -90,6 +92,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.down_time:
+                mTimeCounter = new TimeCounter(60000, 1000, downTime, R.string.btn_re_send_code);
                 mPresenter.sendVerificationCode(phone);
                 break;
             case R.id.img_back:
@@ -100,7 +103,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     }
 
     @Override
-    public void sendSuccess() {
+    public void sendSuccess(boolean isNewUser) {
 
     }
 

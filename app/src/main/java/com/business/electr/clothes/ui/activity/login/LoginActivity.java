@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.business.electr.clothes.App;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
@@ -25,6 +26,7 @@ import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 /**
@@ -64,6 +66,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     private ThireLoginFragment thireLoginFragment;
     private boolean isCodePassword = true;//是否是账号密码登陆； 默认账号密码登陆
     private boolean isOpen = false;//密码是否可见
+    private int type;
 
     @Override
     protected int getLayoutId() {
@@ -85,6 +88,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
      * 初始化数据
      */
     private void initData() {
+        if(SharePreferenceUtil.getBoolean(Constant.IS_REGISTER,false)){
+            tvCodeLogin.setText(getResources().getString(R.string.phone_code_login));
+        } else tvCodeLogin.setText(getResources().getString(R.string.phone_code_login_or_register));
         etPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -125,6 +131,17 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
+    public void sendSuccess(boolean isNewUser) {
+        if(isNewUser) type = 0;
+        new DefaultUriRequest(this, RouterCons.CREATE_GET_CODE)
+                .putExtra(Constant.EXTRA_AREA_CODE, areaCode.getText().toString().trim())
+                .putExtra(Constant.EXTRA_PHONE, etPhone.getText().toString())
+                .putExtra(Constant.TYPE,type)
+                .putExtra(Constant.EXTRA_IS_NEW_USER,isNewUser)
+                .start();
+    }
+
+    @Override
     public void loginSuccess(UserBean userBean) {
         saveLoginInfo(userBean);
         new DefaultUriRequest(this,RouterCons.CREATE_MAIN)
@@ -141,10 +158,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
     }
 
-    @OnClick({R.id.img_logout, R.id.area_code, R.id.tv_code_area, R.id.phone_close, R.id.img_phone_close, R.id.img_password_close, R.id.tv_code, R.id.tv_code_login, R.id.tv_forget_password, R.id.tv_register, R.id.ll_weixin, R.id.ll_qq, R.id.ll_weibo, R.id.ll_more})
+    @OnClick({R.id.img_logout, R.id.area_code, R.id.tv_code_area, R.id.phone_close, R.id.img_phone_close, R.id.img_password_close, R.id.tv_code, R.id.tv_code_login, R.id.tv_forget_password, R.id.ll_weixin, R.id.ll_qq, R.id.ll_weibo, R.id.ll_more})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_logout:
+                App.getApp().quitApp();
                 break;
             case R.id.tv_code_area://区号选择
             case R.id.area_code:
@@ -160,15 +178,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     isOpen = true;
                     etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     etPassword.setSelection(etPassword.getText().length());
+                    imgPasswordClose.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_login_open_eye));
                 } else {
                     isOpen = false;
                     etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     etPassword.setSelection(etPassword.getText().length());
+                    imgPasswordClose.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_login_close_eye));
                 }
                 break;
             case R.id.tv_code://发送验证码
                 if (isCodePassword) {//登陆
                     mPresenter.requestLogin(etPhonePass.getText().toString(),etPassword.getText().toString(),true);
+                    loginSuccess(new UserBean());
                 } else {//发送验证码
                     mPresenter.sendVerificationCode(etPhone.getText().toString());
                 }
@@ -176,12 +197,14 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             case R.id.tv_code_login:
                 if (isCodePassword) {//账号密码登录
+                    type =1;
                     isCodePassword = false;
                     llPhoneLogin.setVisibility(View.VISIBLE);
                     llCodePassword.setVisibility(View.GONE);
                     tvCodeLogin.setText(getResources().getString(R.string.code_password_login));
                     tvCode.setText(getResources().getString(R.string.get_phone_code));
                 } else {//手机验证码登陆
+                    type =0;
                     isCodePassword = true;
                     llCodePassword.setVisibility(View.VISIBLE);
                     llPhoneLogin.setVisibility(View.GONE);
@@ -189,11 +212,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     tvCode.setText(getResources().getString(R.string.login));
                 }
                 break;
-            case R.id.tv_forget_password:
-                break;
-            case R.id.tv_register:
-                new DefaultUriRequest(this,RouterCons.CREATE_REGISTER)
-                        .start();
+            case R.id.tv_forget_password://忘记密码
+                type = 2;
+                mPresenter.sendVerificationCode(etPhone.getText().toString());
                 break;
             case R.id.ll_weixin:
                 break;
@@ -223,15 +244,5 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             getSupportFragmentManager().beginTransaction().hide(thireLoginFragment).commitAllowingStateLoss();
         }
     }
-
-    @Override
-    public void sendSuccess() {
-        new DefaultUriRequest(this, RouterCons.CREATE_GET_CODE)
-                .putExtra(Constant.EXTRA_AREA_CODE, areaCode.getText().toString().trim())
-                .putExtra(Constant.EXTRA_PHONE, etPhone.getText().toString())
-                .putExtra(Constant.TYPE,1)
-                .start();
-    }
-
 
 }

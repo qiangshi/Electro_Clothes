@@ -38,6 +38,7 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
 
     private String phone;
     private String vertify;
+    private int type;
 
     @Override
     protected int getLayoutId() {
@@ -53,6 +54,7 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
     protected void initDataAndEvent() {
         phone = getIntent().getStringExtra(Constant.EXTRA_PHONE);
         vertify = getIntent().getStringExtra(Constant.EXTRA_CODE);
+        type = getIntent().getIntExtra(Constant.TYPE,0);
         etNewPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -103,7 +105,11 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
                 finish();
                 break;
             case R.id.tv_confirm:
-                mPresenter.registerUser(phone, etNewPassword.getText().toString(), etAgainPassword.getText().toString(), vertify);
+                if(type == 0){
+                    mPresenter.registerUser(phone, etNewPassword.getText().toString(), etAgainPassword.getText().toString(), vertify);
+                }else {
+
+                }
                 break;
             case R.id.img_new_pass:
                 etNewPassword.setText("");
@@ -118,6 +124,13 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
     public void registerSuccess(UserBean userBean) {
         new DefaultUriRequest(this, RouterCons.MODIFY_USER_INFO)
                 .start();
+    }
+
+    @Override
+    public void loginSuccess(UserBean userBean) {
+        new DefaultUriRequest(this,RouterCons.CREATE_MAIN)
+                .start();
+        finish();
     }
 
 

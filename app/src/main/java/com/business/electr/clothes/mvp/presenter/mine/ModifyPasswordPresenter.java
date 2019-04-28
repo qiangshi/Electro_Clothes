@@ -12,6 +12,7 @@ import com.business.electr.clothes.net.ApiClient;
 import com.business.electr.clothes.net.BaseApiResponse;
 import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
+import com.business.electr.clothes.utils.DataCheckUtils;
 import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
 
@@ -88,12 +89,68 @@ public class ModifyPasswordPresenter extends BasePresenter<ModifyPasswordView> {
 
 
     /**
+     * 账号密码登录
+     *
+     * @param mobilePhone
+     * @param password
+     */
+    public void requestLogin(String mobilePhone, String password, boolean isChecked) {
+
+        if (TextUtils.isEmpty(mobilePhone)) {
+            //请输入手机号
+            mView.toastMessage(R.string.hint_input_phone_num);
+            return;
+        } else if (!DataCheckUtils.checkPhone(mobilePhone)) {
+            mView.toastMessage(R.string.msg_phone_num_error);
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            mView.toastMessage(R.string.please_in_password);
+            return;
+        }
+//        if (!isChecked) {
+//            mView.toastMessage(R.string.read_user_agreement);
+//            return;
+//        }
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addParams("userName",mobilePhone)
+                .addParams("password",password)
+                .addParams("roleType",0).toRequestBody();
+        addSubscription(
+                apiStores.requestLogin(requestBody),
+                new BaseObserver<BaseApiResponse<UserBean>>() {
+                    @Override
+                    public void onNext(BaseApiResponse<UserBean> data) {
+                        if (data.getData() == null) {
+                            mView.toastMessage(R.string.please_get_code);
+                        } else {
+                            saveLoginInfo(data.getData());
+                            mView.loginSuccess(data.getData());
+                        }
+                    }
+
+                    @Override
+                    public void onError(ResponseException e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        MLog.d("HistoryPresenter onComplete:");
+                    }
+                }
+        );
+    }
+
+
+    /**
      * 保存用户信息
      */
     private void saveLoginInfo(UserBean userBean) {
         DataCacheManager.saveToken(userBean.getToken());
         DataCacheManager.saveUserInfo(userBean);
         SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
+        SharePreferenceUtil.putBoolean(Constant.IS_REGISTER,true);
     }
 
 }

@@ -10,13 +10,12 @@
 
     <ImageView
         android:id="@+id/img_logout"
-        android:layout_width="@dimen/padding_13"
-        android:layout_height="@dimen/padding_13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="@dimen/padding_40"
         android:layout_marginEnd="@dimen/padding_28"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_close" />
+        android:src="@drawable/icon_login_close" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="国家和地区"
+                android:text="@string/country_area"
                 android:textColor="@color/color_203237"
                 android:textSize="@dimen/text_font_15" />
 
@@ -70,13 +69,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="中国(+86)"
+                android:layout_marginEnd="@dimen/padding_6"
                 android:textColor="@color/color_203237"
                 android:textSize="@dimen/text_font_15" />
 
             <ImageView
-                android:layout_width="@dimen/padding_15"
-                android:layout_height="@dimen/padding_15"
-                android:src="@drawable/ic_next_grey" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_login_area_code" />
 
         </LinearLayout>
 
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_8"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_delete_input"
+                android:src="@drawable/icon_delete"
                 android:visibility="gone" />
 
         </LinearLayout>
@@ -153,7 +153,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_next_grey" />
+                android:layout_marginStart="@dimen/padding_6"
+                android:src="@drawable/icon_area_code" />
 
             <EditText
                 android:id="@+id/et_phone_pass"
@@ -174,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_8"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_delete_input"
+                android:src="@drawable/icon_delete"
                 android:visibility="gone" />
 
         </LinearLayout>
@@ -211,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_8"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_delete_input"
+                android:src="@drawable/icon_login_close_eye"
                 android:visibility="visible" />
 
         </LinearLayout>
@@ -272,7 +273,8 @@
             android:layout_marginStart="@dimen/padding_16"
             android:text="@string/first_register"
             android:textColor="@color/color_8c919b"
-            android:textSize="@dimen/text_font_11" />
+            android:textSize="@dimen/text_font_11"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

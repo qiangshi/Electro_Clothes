@@ -16,6 +16,7 @@ public class Constant {
     public static final String DIALOG_LEFT = "left";
     public static final String DIALOG_RIGHT = "right";
     public static final String IS_LOGIN = "is_login";
+    public static final String IS_REGISTER = "is_register";
     public static final String CLOCK_TYPE = "clock_type";
     public static final String TYPE = "type";
     public static final String CURRENT_TIME = "current_time";
@@ -46,6 +47,7 @@ public class Constant {
     public static final String EXTRA_AREA_CODE = "area_code";//区号码
     public static final String EXTRA_PHONE = "phone";//手机号
     public static final String EXTRA_CODE = "code";//验证码
+    public static final String EXTRA_IS_NEW_USER = "is_new_user";//是否是新用户
 
 
 

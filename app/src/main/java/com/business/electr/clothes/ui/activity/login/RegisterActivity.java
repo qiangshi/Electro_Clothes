@@ -87,7 +87,7 @@ public class RegisterActivity extends BaseActivity<LoginPresenter> implements Lo
     }
 
     @Override
-    public void sendSuccess() {
+    public void sendSuccess(boolean isNewUser) {
         new DefaultUriRequest(this, RouterCons.CREATE_GET_CODE)
                 .putExtra(Constant.EXTRA_AREA_CODE, areaCode.getText().toString().trim())
                 .putExtra(Constant.EXTRA_PHONE, etPhone.getText().toString())

@@ -12,7 +12,7 @@ public interface LoginView extends IView {
   /**
    * 发送验证码成功
    */
-  void sendSuccess();
+  void sendSuccess(boolean isNewUser);
 
 
   /**

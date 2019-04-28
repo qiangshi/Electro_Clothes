@@ -42,7 +42,7 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
     }
 
     @Override
-    public void sendSuccess() {
+    public void sendSuccess(boolean isNewUser) {
 
     }
 

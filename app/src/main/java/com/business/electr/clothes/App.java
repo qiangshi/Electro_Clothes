@@ -1,5 +1,6 @@
 package com.business.electr.clothes;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -82,6 +83,13 @@ public class App extends Application {
         });
     }
 
+    // 退出应用
+    public void quitApp() {
+        for (Activity activity : activities) {
+            activity.finish();
+        }
+    }
+
     /**
      * 初始化图片选择器
      */
@@ -89,16 +97,5 @@ public class App extends Application {
         ISNav.getInstance().init((ImageLoader) (context, path, imageView) -> Glide.with(context).load(path).into(imageView));
     }
 
-
-    @Override
-    public Resources getResources() {//还原字体大小 8.0以上需要在各个Activity上重写getResources方法
-        Resources res = super.getResources();
-        Configuration configuration = res.getConfiguration();
-        if (configuration.fontScale != 1.0f) {
-            configuration.fontScale = 1.0f;
-            res.updateConfiguration(configuration, res.getDisplayMetrics());
-        }
-        return res;
-    }
 
 }
