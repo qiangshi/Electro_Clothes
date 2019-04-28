@@ -19,7 +19,10 @@ import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
+/**
+ * Created by zenghaiqiang on 2019/4/28.
+ * 描述：获取手机验证码
+ */
 @RouterUri(path = {RouterCons.CREATE_GET_CODE})
 public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implements LoginView {
 
@@ -34,6 +37,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     TextView downTime;
 
     private TimeCounter mTimeCounter;
+    private int type; //0 ： 注册   1: 登陆
     private String phone;
 
     @Override
@@ -54,6 +58,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     private void init() {
         String areaCode = getIntent().getStringExtra(Constant.EXTRA_AREA_CODE);
         phone = getIntent().getStringExtra(Constant.EXTRA_PHONE);
+        type = getIntent().getIntExtra(Constant.TYPE,0);
         tvAreaCode.setText("(" + areaCode + ")");
         tvPhone.setText(phone);
         mTimeCounter = new TimeCounter(60000, 1000, downTime, R.string.btn_re_send_code);
@@ -63,8 +68,15 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
             public void onSucess(String code) {
                 // TODO: 2019/4/25 完善个人信息
                 ToastUtils.showToast(GetPhoneCodeActivity.this, "输入完成");
-                mPresenter.requestLogin(phone,code,true);
-                loginSuccess(new UserBean());
+                if(type == 1){
+                    mPresenter.requestLogin(phone,code,true);
+                    loginSuccess(new UserBean());
+                }else if(type == 0){
+                    new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
+                            .putExtra(Constant.EXTRA_PHONE,phone)
+                            .putExtra(Constant.EXTRA_CODE,code)
+                            .start();
+                }
             }
 
             @Override
@@ -92,10 +104,6 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
 
     }
 
-    @Override
-    public void changeBtnStatus() {
-
-    }
 
     @Override
     public void loginSuccess(UserBean userBean) {

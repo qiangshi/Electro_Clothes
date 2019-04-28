@@ -9,14 +9,17 @@ import com.business.electr.clothes.mvp.view.IView;
 
 public interface LoginView extends IView {
 
+  /**
+   * 发送验证码成功
+   */
   void sendSuccess();
 
+
   /**
-   * 验证码倒计时
+   * 登陆成功
+   * @param userBean
    */
-  void changeBtnStatus();
-
-
   void loginSuccess(UserBean userBean);
+
 
 }

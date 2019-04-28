@@ -74,7 +74,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     protected void initDataAndEvent() {
         initRightTitle(getResources().getString(R.string.my_info), getResources().getString(R.string.preservation));
         userBean = DataCacheManager.getUserInfo();
-        mPresenter.getUserInfo();
+//        mPresenter.getUserInfo();
     }
 
 

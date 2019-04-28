@@ -46,11 +46,11 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
 
     }
 
-    @Override
-    public void changeBtnStatus() {
-        mTimeCounter = new TimeCounter(60000, 1000, tvCode, R.string.btn_re_send_code);
-        mTimeCounter.start();
-    }
+//    @Override
+//    public void changeBtnStatus() {
+//        mTimeCounter = new TimeCounter(60000, 1000, tvCode, R.string.btn_re_send_code);
+//        mTimeCounter.start();
+//    }
 
     @Override
     public void loginSuccess(UserBean userBean) {

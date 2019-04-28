@@ -17,6 +17,7 @@
     <string name="login_user">登录您的账号</string>
     <string name="you_good">您好，</string>
     <string name="code_password_login">账号密码登录</string>
+    <string name="phone_code_login">手机验证码登录</string>
     <string name="welcome_ihi">欢迎来到智能iHi</string>
     <string name="forget_password">忘记密码</string>
     <string name="first_register">快速注册</string>
@@ -26,6 +27,10 @@
 
 
     <string name="please_in_phone">请输入您的手机号</string>
+    <string name="please_in_password">请输入登录密码</string>
+    <string name="please_in_new_password">请输入新密码</string>
+    <string name="please_in_again_password">请再次输入新密码</string>
+    <string name="password_no_agreement">两次输入的密码不一致，请重新输入</string>
     <string name="please_new_phone">请输入您的新手机号</string>
     <string name="please_in_code">请输入验证码</string>
     <string name="get_phone_code">获取验证码</string>

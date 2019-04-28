@@ -19,16 +19,10 @@ public interface ApiStores {
 
     /**
      * 注册
-     * @param userName
-     * @param password
-     * @param verify
      * @return
      */
     @POST("login/regist.do")
-    @FormUrlEncoded
-    Observable<BaseApiResponse<UserBean>> requestRegister(
-            @Field("userName") @NonNull String userName, @Field("password") @NonNull String password,
-            @Field("verify") @NonNull String verify);
+    Observable<BaseApiResponse<UserBean>> requestRegister(@Body RequestBody requestBody);
 
 
     /**
@@ -58,10 +52,13 @@ public interface ApiStores {
     Observable<BaseApiResponse<String>> requestLogout(
             @Field("token") @NonNull String token);
 
+    /**
+     * 发送验证码
+     * @param requestBody
+     * @return
+     */
     @POST("sendVerify.do")
-    @FormUrlEncoded
-    Observable<BaseApiResponse<String>> requestVerificationCode(
-            @Field("phone") @NonNull String phone);
+    Observable<BaseApiResponse<String>> requestVerificationCode(@Body RequestBody requestBody);
 
     /**********************************************业务接口**************************************/
 

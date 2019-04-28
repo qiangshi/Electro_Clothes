@@ -25,12 +25,12 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     /**
-     * 手机验证码登录
+     * 账号密码登录
      *
      * @param mobilePhone
-     * @param verificationCode
+     * @param password
      */
-    public void requestLogin(String mobilePhone, String verificationCode, boolean isChecked) {
+    public void requestLogin(String mobilePhone, String password, boolean isChecked) {
 
         if (TextUtils.isEmpty(mobilePhone)) {
             //请输入手机号
@@ -40,17 +40,17 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             mView.toastMessage(R.string.msg_phone_num_error);
             return;
         }
-        if (null == verificationCode || verificationCode.length() != 6) {
-            mView.toastMessage(R.string.msg_verification_code_error);
+        if (TextUtils.isEmpty(password)) {
+            mView.toastMessage(R.string.please_in_password);
             return;
         }
-        if (!isChecked) {
-            mView.toastMessage(R.string.read_user_agreement);
-            return;
-        }
+//        if (!isChecked) {
+//            mView.toastMessage(R.string.read_user_agreement);
+//            return;
+//        }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
                 .addParams("userName",mobilePhone)
-                .addParams("password",verificationCode)
+                .addParams("password",password)
                 .addParams("roleType",0).toRequestBody();
         addSubscription(
                 apiStores.requestLogin(requestBody),
@@ -60,7 +60,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-//                            mView.loginSuccess(data.getData());
+                            mView.loginSuccess(data.getData());
                         }
                     }
 
@@ -88,10 +88,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             mView.toastMessage(R.string.msg_phone_num_error);
             return;
         }
-
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addParams("phone",mobilePhone).toRequestBody();
         //发送手机验证码
         addSubscription(
-                apiStores.requestVerificationCode(mobilePhone),
+                apiStores.requestVerificationCode(requestBody),
                 new BaseObserver<BaseApiResponse<String>>() {
                     @Override
                     public void onNext(BaseApiResponse<String> data) {
