@@ -71,7 +71,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
                     @Override
                     public void onComplete() {
-                        MLog.d("SelfSelectPresenter onComplete:");
+                        MLog.d("HistoryPresenter onComplete:");
                     }
                 }
         );

@@ -1,16 +1,16 @@
 package com.business.electr.clothes.ui.fragment.home;
 
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.mvp.presenter.home.MacroscopicPresenter;
-import com.business.electr.clothes.mvp.view.home.MacroscopicView;
+import com.business.electr.clothes.mvp.presenter.home.PresentationPresenter;
+import com.business.electr.clothes.mvp.view.home.PresentationView;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 
 /**
  * @Description: java类作用描述
  * @Author: 曾海强
- * @CreateDate: 2019/3/1 10:22
+ * @CreateDate: 2019/4/28
  */
-public class MacroscopicFragment extends BaseFragment<MacroscopicPresenter> implements MacroscopicView {
+public class PresentationFragment extends BaseFragment<PresentationPresenter> implements PresentationView {
 
 
     @Override
@@ -20,11 +20,11 @@ public class MacroscopicFragment extends BaseFragment<MacroscopicPresenter> impl
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_macroscopic;
+        return R.layout.fragment_presentation;
     }
 
     @Override
-    protected MacroscopicPresenter getPresenter() {
+    protected PresentationPresenter getPresenter() {
         return null;
     }
 

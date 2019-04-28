@@ -7,7 +7,7 @@
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/padding_48" />
+        android:layout_marginBottom="@dimen/padding_71" />
 
     <com.business.electr.clothes.view.MainBottomView
         android:id="@+id/mbv_home"

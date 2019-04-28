@@ -4,8 +4,8 @@ package com.business.electr.clothes.ui.fragment.home;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.mvp.presenter.home.SelfSelectPresenter;
-import com.business.electr.clothes.mvp.view.home.SelfSelectView;
+import com.business.electr.clothes.mvp.presenter.home.HistoryPresenter;
+import com.business.electr.clothes.mvp.view.home.HistoryView;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.business.electr.clothes.utils.MLog;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -17,9 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**
- * Created by zenghaiqiang on 2019/1/15. 消息Fragment
+ * Created by zenghaiqiang on 2019/4/28.
+ * 历史Fragment
  */
-public class SelfSelectFragment extends BaseFragment<SelfSelectPresenter> implements SelfSelectView, OnRefreshListener {
+public class HistoryFragment extends BaseFragment<HistoryPresenter> implements HistoryView, OnRefreshListener {
 
     @BindView(R.id.rv_message)
     RecyclerView rvMessage;
@@ -37,12 +38,12 @@ public class SelfSelectFragment extends BaseFragment<SelfSelectPresenter> implem
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_self_select;
+        return R.layout.fragment_history;
     }
 
     @Override
-    protected SelfSelectPresenter getPresenter() {
-        return new SelfSelectPresenter(this);
+    protected HistoryPresenter getPresenter() {
+        return new HistoryPresenter(this);
     }
 
     @Override

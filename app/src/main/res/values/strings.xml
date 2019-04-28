@@ -5,9 +5,10 @@
     <integer name="animation_default_duration">300</integer>
 
     <!--main-->
-    <string name="self_select">自选</string>
+    <string name="history">历史</string>
     <string name="mine">我的</string>
-    <string name="macroscopic">宏观</string>
+    <string name="presentation">报告</string>
+    <string name="task">任务</string>
     <string name="add">添加</string>
 
 

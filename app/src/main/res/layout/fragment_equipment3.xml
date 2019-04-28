@@ -11,7 +11,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:src="@drawable/icon_peidui"
-       android:layout_marginTop="@dimen/padding_102"
+       android:layout_marginTop="@dimen/padding_60"
        android:layout_centerHorizontal="true"
        android:layout_marginBottom="@dimen/padding_119" />
 
@@ -21,18 +21,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_17"
+        android:layout_above="@+id/tv_hint"
         android:textColor="@color/white"
         android:text="配对成功 请穿上心电衣"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/img_ele_pei"/>
+        android:layout_marginBottom="@dimen/padding_3"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
+        android:id="@+id/tv_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_13"
         android:text="若要解除匹配 请向上滑动心贴"
-        android:layout_marginTop="@dimen/padding_3"
-        android:layout_below="@+id/tv_pei_success"
+        android:layout_marginBottom="@dimen/padding_69"
+        android:layout_alignParentBottom="true"
         android:textColor="@color/color_33ffffff"
         android:layout_centerHorizontal="true"/>
 

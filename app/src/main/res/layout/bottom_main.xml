@@ -2,51 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottom_bar_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/padding_71"
     android:layout_alignParentBottom="true"
     android:baselineAligned="false">
 
     <RelativeLayout
-        android:id="@+id/rl_self"
+        android:id="@+id/rl_history"
         android:layout_width="0dp"
-        android:layout_height="@dimen/padding_49"
+        android:layout_height="@dimen/padding_44"
         android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center">
+        android:background="@drawable/gard_view_top">
 
         <LinearLayout
-            android:id="@+id/ll_self"
+            android:id="@+id/ll_history"
             android:layout_width="@dimen/padding_40"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/padding_8"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img_self"
-                android:layout_width="@dimen/padding_20"
-                android:layout_height="@dimen/padding_20"
-                android:src="@drawable/label_news_selection_iconxhdpi" />
-
-            <TextView
-                android:id="@+id/tv_self"
+                android:id="@+id/img_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_4"
+                android:src="@drawable/icon_main_history_noselect" />
+
+            <TextView
+                android:id="@+id/tv_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_2"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@string/self_select"
-                android:textColor="@color/color_4C84FF"
-                android:textSize="@dimen/text_font_10" />
+                android:text="@string/history"
+                android:textColor="@color/color_8c919b"
+                android:textSize="@dimen/text_font_9" />
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/img_red_top_self"
+            android:id="@+id/img_red_top_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/ll_self"
+            android:layout_alignEnd="@+id/ll_history"
             android:layout_marginTop="4dp"
             android:src="@drawable/label_dot_iconxhdpi"
             android:visibility="gone" />
@@ -55,46 +53,119 @@
 
 
     <RelativeLayout
-        android:id="@+id/rl_macroscopic"
+        android:id="@+id/rl_presentation"
         android:layout_width="0dp"
-        android:layout_height="@dimen/padding_49"
+        android:layout_height="@dimen/padding_44"
         android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center">
+        android:background="@drawable/gard_view_top">
 
         <LinearLayout
-            android:id="@+id/ll_macroscopic"
+            android:id="@+id/ll_presentation"
             android:layout_width="@dimen/padding_40"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/padding_8"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img_macroscopic"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/label_news_unselection_iconxhdpi" />
-
-            <TextView
-                android:id="@+id/tv_macroscopic"
+                android:id="@+id/img_presentation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_4"
+                android:src="@drawable/icon_main_presen_noselect" />
+
+            <TextView
+                android:id="@+id/tv_presentation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_2"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@string/macroscopic"
-                android:textColor="@color/color_8D92A3"
-                android:textSize="@dimen/text_font_10" />
+                android:text="@string/presentation"
+                android:textColor="@color/color_8c919b"
+                android:textSize="@dimen/text_font_9" />
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/img_red_top_macroscopic"
+            android:id="@+id/img_red_top_presentation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/ll_macroscopic"
+            android:layout_alignEnd="@+id/ll_presentation"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/label_dot_iconxhdpi"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_27"
+            android:layout_height="@dimen/padding_44"
+            android:background="@drawable/gard_view_top"/>
+        <RelativeLayout
+            android:id="@+id/rel_main_elect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_main_circlure_select">
+
+            <ImageView
+                android:id="@+id/img_elect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_main_elect_select"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_task"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/padding_44"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@drawable/gard_view_top">
+
+        <LinearLayout
+            android:id="@+id/ll_task"
+            android:layout_width="@dimen/padding_40"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_main_task_noselect" />
+
+            <TextView
+                android:id="@+id/tv_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/task"
+                android:textColor="@color/color_8c919b"
+                android:textSize="@dimen/text_font_9" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_red_top_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/ll_task"
             android:layout_marginTop="4dp"
             android:src="@drawable/label_dot_iconxhdpi"
             android:visibility="gone" />
@@ -105,37 +176,35 @@
     <RelativeLayout
         android:id="@+id/rl_mine"
         android:layout_width="0dp"
-        android:layout_height="@dimen/padding_49"
+        android:layout_height="@dimen/padding_44"
         android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:background="@drawable/gard_view_top"
+        android:gravity="center">
 
         <LinearLayout
             android:id="@+id/ll_mine"
             android:layout_width="@dimen/padding_40"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_8"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/img_mine"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/label_me_unselection_iconxhdpi" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_main_mine_noselect" />
 
             <TextView
                 android:id="@+id/tv_mine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_4"
+                android:layout_marginTop="@dimen/padding_2"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/mine"
-                android:textColor="@color/color_8D92A3"
-                android:textSize="@dimen/text_font_10" />
+                android:textColor="@color/color_8c919b"
+                android:textSize="@dimen/text_font_9" />
         </LinearLayout>
 
         <ImageView
@@ -148,5 +217,6 @@
             android:visibility="gone" />
 
     </RelativeLayout>
+
 
 </LinearLayout>

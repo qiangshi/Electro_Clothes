@@ -18,10 +18,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by zenghaiqiang on 2019/1/15.
+ * Created by zenghaiqiang on 2019/4/28.
  * 我的Fragment
  */
-
 public class MineFragment extends BaseFragment {
 
     @BindView(R.id.img_user_head)

@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
+
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.DataEvent;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.router.RouterCons;
-import com.business.electr.clothes.ui.fragment.home.MacroscopicFragment;
-import com.business.electr.clothes.ui.fragment.home.SelfSelectFragment;
+import com.business.electr.clothes.ui.fragment.home.ElectFragment;
+import com.business.electr.clothes.ui.fragment.home.HistoryFragment;
+import com.business.electr.clothes.ui.fragment.home.PresentationFragment;
 import com.business.electr.clothes.ui.fragment.home.MineFragment;
+import com.business.electr.clothes.ui.fragment.home.TaskFragment;
 import com.business.electr.clothes.view.MainBottomView;
 import com.sankuai.waimai.router.annotation.RouterUri;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
+
 import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
-import static com.business.electr.clothes.bean.DataEvent.TYPE_CHANGE_INFO_DOT;
 
 @RouterUri(path = {RouterCons.CREATE_MAIN})
 public class MainActivity extends BaseActivity implements MainBottomView.HomeBottomClick {
@@ -29,8 +29,10 @@ public class MainActivity extends BaseActivity implements MainBottomView.HomeBot
     @BindView(R.id.mbv_home)
     MainBottomView mbvHome;
 
-    private SelfSelectFragment selfSelectFragment;
-    private MacroscopicFragment macroscopicFragment;
+    private HistoryFragment historyFragment;
+    private PresentationFragment presentationFragment;
+    private ElectFragment electFragment;
+    private TaskFragment taskFragment;
     private MineFragment mineFragment;
 
     private FragmentTransaction fragmentTransaction;
@@ -57,16 +59,22 @@ public class MainActivity extends BaseActivity implements MainBottomView.HomeBot
 
     @Override
     protected void initDataAndEvent() {
-        selfClick();
+        electClick();
         mbvHome.setHomeBottomClick(this);
     }
 
     private void hide(FragmentTransaction transaction) {
-        if (selfSelectFragment != null) {
-            transaction.hide(selfSelectFragment);
+        if (historyFragment != null) {
+            transaction.hide(historyFragment);
         }
-        if (macroscopicFragment != null) {
-            transaction.hide(macroscopicFragment);
+        if (presentationFragment != null) {
+            transaction.hide(presentationFragment);
+        }
+        if (electFragment != null) {
+            transaction.hide(electFragment);
+        }
+        if (taskFragment != null) {
+            transaction.hide(taskFragment);
         }
         if (mineFragment != null) {
             transaction.hide(mineFragment);
@@ -75,27 +83,53 @@ public class MainActivity extends BaseActivity implements MainBottomView.HomeBot
 
 
     @Override
-    public void selfClick() {
+    public void historyClick() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         hide(fragmentTransaction);
-        if (selfSelectFragment == null) {
-            selfSelectFragment = new SelfSelectFragment();
-            fragmentTransaction.add(R.id.frame_layout, selfSelectFragment);
+        if (historyFragment == null) {
+            historyFragment = new HistoryFragment();
+            fragmentTransaction.add(R.id.frame_layout, historyFragment);
         } else {
-            fragmentTransaction.show(selfSelectFragment);
+            fragmentTransaction.show(historyFragment);
         }
         fragmentTransaction.commit();
     }
 
     @Override
-    public void macroscopicClick() {
+    public void presentation() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         hide(fragmentTransaction);
-        if (macroscopicFragment == null) {
-            macroscopicFragment = new MacroscopicFragment();
-            fragmentTransaction.add(R.id.frame_layout, macroscopicFragment);
+        if (presentationFragment == null) {
+            presentationFragment = new PresentationFragment();
+            fragmentTransaction.add(R.id.frame_layout, presentationFragment);
         } else {
-            fragmentTransaction.show(macroscopicFragment);
+            fragmentTransaction.show(presentationFragment);
+        }
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void electClick() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        hide(fragmentTransaction);
+        if (electFragment == null) {
+            electFragment = new ElectFragment();
+            fragmentTransaction.add(R.id.frame_layout, electFragment);
+        } else {
+            fragmentTransaction.show(electFragment);
+        }
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void taskClick() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        hide(fragmentTransaction);
+        if (taskFragment == null) {
+            taskFragment = new TaskFragment();
+            fragmentTransaction.add(R.id.frame_layout, taskFragment);
+        } else {
+            fragmentTransaction.show(taskFragment);
         }
         fragmentTransaction.commit();
     }
@@ -113,16 +147,6 @@ public class MainActivity extends BaseActivity implements MainBottomView.HomeBot
         fragmentTransaction.commit();
     }
 
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onDataEvent(DataEvent event) {
-        switch (event.getType()) {
-            case TYPE_CHANGE_INFO_DOT:
-                Boolean isVisible = (Boolean) event.getData();
-                mbvHome.showSelfDot(isVisible);
-                break;
-        }
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

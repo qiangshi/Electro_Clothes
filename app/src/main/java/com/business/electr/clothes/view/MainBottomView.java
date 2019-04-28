@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.business.electr.clothes.R;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
@@ -21,26 +23,6 @@ import butterknife.OnClick;
  */
 public class MainBottomView extends LinearLayout {
 
-    @BindView(R.id.img_self)
-    ImageView imgSelf;
-    @BindView(R.id.tv_self)
-    TextView tvSelf;
-    @BindView(R.id.ll_self)
-    LinearLayout llSelf;
-    @BindView(R.id.img_red_top_self)
-    ImageView imgRedTopSelf;
-    @BindView(R.id.rl_self)
-    RelativeLayout rlSelf;
-    @BindView(R.id.img_macroscopic)
-    ImageView imgMacroscopic;
-    @BindView(R.id.tv_macroscopic)
-    TextView tvMacroscopic;
-    @BindView(R.id.ll_macroscopic)
-    LinearLayout llMacroscopic;
-    @BindView(R.id.img_red_top_macroscopic)
-    ImageView imgRedTopMacroscopic;
-    @BindView(R.id.rl_macroscopic)
-    RelativeLayout rlMacroscopic;
     @BindView(R.id.img_mine)
     ImageView imgMine;
     @BindView(R.id.tv_mine)
@@ -53,6 +35,22 @@ public class MainBottomView extends LinearLayout {
     RelativeLayout rlMine;
     @BindView(R.id.bottom_bar_layout)
     LinearLayout bottomBarLayout;
+    @BindView(R.id.img_history)
+    ImageView imgHistory;
+    @BindView(R.id.tv_history)
+    TextView tvHistory;
+    @BindView(R.id.img_presentation)
+    ImageView imgPresentation;
+    @BindView(R.id.img_elect)
+    ImageView imgElect;
+    @BindView(R.id.rel_main_elect)
+    RelativeLayout relMainElect;
+    @BindView(R.id.tv_presentation)
+    TextView tvPresentation;
+    @BindView(R.id.img_task)
+    ImageView imgTask;
+    @BindView(R.id.tv_task)
+    TextView tvTask;
 
     private Context context;
 
@@ -72,56 +70,88 @@ public class MainBottomView extends LinearLayout {
 
     private void initView() {
         View view = LayoutInflater.from(context).inflate(R.layout.bottom_main, this);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
     }
 
     public void switchBottom(int homedress) {
         switch (homedress) {
             case 0:
-                tvSelf.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMine.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_selection_iconxhdpi));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_unselection_iconxhdpi));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_353535));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_select));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
-                    homeBottomClick.selfClick();
+                    homeBottomClick.historyClick();
                 }
                 break;
             case 1:
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvSelf.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMine.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_selection_iconxhdpi));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_unselection_iconxhdpi));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_select));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
-                    homeBottomClick.macroscopicClick();
+                    homeBottomClick.presentation();
                 }
                 break;
             case 2:
-                tvMine.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvSelf.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_selection_iconxhdpi));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_select));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_select));
+                if (homeBottomClick != null) {
+                    homeBottomClick.electClick();
+                }
+                break;
+            case 3:
+                tvTask.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_select));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
+                if (homeBottomClick != null) {
+                    homeBottomClick.taskClick();
+                }
+                break;
+            case 4:
+                tvMine.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_select));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.mineClick();
                 }
                 break;
         }
     }
-
-    public void showSelfDot(boolean isVisible) {
-        if (isVisible) {
-            imgRedTopSelf.setVisibility(VISIBLE);
-        } else {
-            imgRedTopSelf.setVisibility(GONE);
-        }
-    }
-
-
 
     private HomeBottomClick homeBottomClick;
 
@@ -129,38 +159,80 @@ public class MainBottomView extends LinearLayout {
         this.homeBottomClick = homeBottomClick;
     }
 
-    @OnClick({R.id.rl_self, R.id.rl_macroscopic, R.id.rl_mine})
+    @OnClick({R.id.rl_history, R.id.rl_presentation, R.id.rel_main_elect, R.id.rl_task, R.id.rl_mine})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rl_self:
-                tvSelf.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMine.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_selection_iconxhdpi));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_unselection_iconxhdpi));
+            case R.id.rl_history:
+                tvHistory.setTextColor(getResources().getColor(R.color.color_353535));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_select));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
-                    homeBottomClick.selfClick();
+                    homeBottomClick.historyClick();
                 }
                 break;
-            case R.id.rl_macroscopic:
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvSelf.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMine.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_selection_iconxhdpi));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_unselection_iconxhdpi));
+            case R.id.rl_presentation:
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_select));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
-                    homeBottomClick.macroscopicClick();
+                    homeBottomClick.presentation();
+                }
+                break;
+            case R.id.rel_main_elect:
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_select));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_select));
+                if (homeBottomClick != null) {
+                    homeBottomClick.electClick();
+                }
+                break;
+            case R.id.rl_task:
+                tvTask.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvMine.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_select));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
+                if (homeBottomClick != null) {
+                    homeBottomClick.taskClick();
                 }
                 break;
             case R.id.rl_mine:
-                tvMine.setTextColor(getResources().getColor(R.color.color_4C84FF));
-                tvSelf.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                tvMacroscopic.setTextColor(getResources().getColor(R.color.color_8D92A3));
-                imgMacroscopic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgSelf.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_news_unselection_iconxhdpi));
-                imgMine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.label_me_selection_iconxhdpi));
+                tvMine.setTextColor(getResources().getColor(R.color.color_353535));
+                tvHistory.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvPresentation.setTextColor(getResources().getColor(R.color.color_8c919b));
+                tvTask.setTextColor(getResources().getColor(R.color.color_8c919b));
+                imgHistory.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_history_noselect));
+                imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
+                imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
+                imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_select));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.mineClick();
                 }
@@ -168,11 +240,17 @@ public class MainBottomView extends LinearLayout {
         }
     }
 
+
+
     public interface HomeBottomClick {
 
-        void selfClick();
+        void historyClick();
 
-        void macroscopicClick();
+        void presentation();
+
+        void electClick();
+
+        void taskClick();
 
         void mineClick();
     }
