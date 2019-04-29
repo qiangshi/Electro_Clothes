@@ -189,7 +189,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.tv_code://发送验证码
                 if (isCodePassword) {//登陆
                     mPresenter.requestLogin(etPhonePass.getText().toString(),etPassword.getText().toString(),true);
-                    loginSuccess(new UserBean());
                 } else {//发送验证码
                     mPresenter.sendVerificationCode(etPhone.getText().toString());
                 }
