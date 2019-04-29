@@ -73,7 +73,7 @@
             android:id="@+id/img_time_bean"
             android:layout_width="@dimen/padding_16"
             android:layout_height="@dimen/padding_16"
-            android:src="@drawable/me_timebeans_iconxhdpi"
+            android:src="@drawable/icon_main_task_select"
             android:layout_marginStart="@dimen/padding_16"/>
 
         <TextView

@@ -21,16 +21,16 @@ android {
         }
 
         ndk {
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi-v7a"
         }
     }
 
     signingConfigs {
         release {
-            storeFile file("../riskbook_irb.jks")
-            storePassword "riskbook2019"
-            keyAlias "irb"
-            keyPassword "riskbook2019"
+            storeFile file("../electro_clothes.jks")
+            storePassword "business2019"
+            keyAlias "business"
+            keyPassword "business2019"
         }
     }
 
@@ -39,7 +39,6 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
         }
         debug {
 //            signingConfig signingConfigs.release

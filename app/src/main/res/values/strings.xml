@@ -68,8 +68,8 @@
     <!--mine-->
     <string name="log_out">退出</string>
     <string name="modify_info">修改资料</string>
-    <string name="time_bean">时间豆</string>
-    <string name="my_company">我的企业</string>
+    <string name="time_bean">任务目标</string>
+    <string name="my_company">我的iHi</string>
     <string name="face_back">意见与反馈</string>
     <string name="set">设置</string>
     <string name="my_info">个人信息</string>

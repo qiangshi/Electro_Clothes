@@ -7,85 +7,21 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include layout="@layout/title_bar_layout"/>
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_44"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="fragment_history"/>
 
-        <ImageView
-            android:id="@+id/iv_avatar"
-            android:layout_width="@dimen/padding_25"
-            android:layout_height="@dimen/padding_25"
-            android:layout_marginStart="@dimen/padding_16"
-            android:src="@drawable/ic_test_avatar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_18"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/padding_16"
-            android:text="@string/add"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <include layout="@layout/divider_dde1eb" />
-
-    <LinearLayout
-        android:id="@+id/v_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_16"
-        android:layout_marginTop="@dimen/padding_8"
-        android:layout_marginRight="@dimen/padding_16"
-        android:layout_marginBottom="@dimen/padding_8"
-        android:background="@drawable/bg_info_search"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_8"
-        android:paddingRight="@dimen/padding_16"
-        android:paddingBottom="@dimen/padding_8">
-
-        <ImageView
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_search" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_8"
-            android:text="@string/search"
-            android:textColor="@color/color_B4B4B6"
-            android:textSize="@dimen/text_font_14" />
-
-    </LinearLayout>
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_message"

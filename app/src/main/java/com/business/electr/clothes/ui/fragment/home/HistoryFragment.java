@@ -1,8 +1,10 @@
 package com.business.electr.clothes.ui.fragment.home;
 
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.home.HistoryPresenter;
 import com.business.electr.clothes.mvp.view.home.HistoryView;
@@ -26,14 +28,16 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     RecyclerView rvMessage;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
-    @BindView(R.id.tv_add)
-    TextView tvAdd;
-    @BindView(R.id.iv_avatar)
-    ImageView ivAvatar;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+    @BindView(R.id.btn_back)
+    ImageView btnBack;
 
 
     @Override
     protected void initEventAndData() {
+        tvTitle.setText("历史");
+        btnBack.setVisibility(View.GONE);
     }
 
     @Override

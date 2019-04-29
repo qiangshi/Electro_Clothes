@@ -117,20 +117,20 @@ public class SettingActivity extends BaseActivity {
                         .start();
                 break;
             case R.id.lin_link_our://联系我们
-                new DefaultUriRequest(this, RouterCons.CREATE_LINK_OUR)
-                        .start();
+//                new DefaultUriRequest(this, RouterCons.CREATE_LINK_OUR)
+//                        .start();
                 break;
             case R.id.lin_user_argument://用户协议
-                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
-                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/service.html")
-                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.user_argument))
-                        .start();
+//                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
+//                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/service.html")
+//                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.user_argument))
+//                        .start();
                 break;
             case R.id.lin_private_policy://隐私政策
-                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
-                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/privacy.html")
-                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.private_policy))
-                        .start();
+//                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
+//                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/privacy.html")
+//                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.private_policy))
+//                        .start();
                 break;
             case R.id.lin_clear_cpu://清空缓存
                 clearCache();

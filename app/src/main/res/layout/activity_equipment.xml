@@ -14,12 +14,13 @@
 
         <ImageView
             android:id="@+id/img_back"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/padding_32"
+            android:layout_height="@dimen/padding_32"
+            android:layout_alignParentStart="true"
+            android:adjustViewBounds="true"
             android:layout_centerVertical="true"
-            android:layout_height="@dimen/padding_30"
-            android:src="@drawable/ic_goback"
-            android:paddingEnd="@dimen/padding_20"
-            android:paddingStart="@dimen/padding_15" />
+            android:paddingStart="@dimen/padding_16"
+            android:src="@drawable/ic_goback" />
 
         <TextView
             android:layout_width="wrap_content"
