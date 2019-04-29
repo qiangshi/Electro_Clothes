@@ -207,7 +207,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     isCodePassword = true;
                     llCodePassword.setVisibility(View.VISIBLE);
                     llPhoneLogin.setVisibility(View.GONE);
-                    tvCodeLogin.setText(getResources().getString(R.string.phone_code_login));
+                    if(SharePreferenceUtil.getBoolean(Constant.IS_REGISTER,false)){
+                        tvCodeLogin.setText(getResources().getString(R.string.phone_code_login));
+                    } else tvCodeLogin.setText(getResources().getString(R.string.phone_code_login_or_register));
                     tvCode.setText(getResources().getString(R.string.login));
                 }
                 break;

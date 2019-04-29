@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.home.ElectFragment">
 
+
+    <com.business.electr.clothes.view.DashBoard
+        android:id="@+id/dash_board"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_300"
+        android:background="@color/white"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
