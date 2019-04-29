@@ -113,8 +113,6 @@ public class SettingActivity extends BaseActivity {
 //                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/about_us.html")
 //                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.about_our))
 //                        .start();
-                new DefaultUriRequest(this,RouterCons.CREATE_EQUIPMENT)
-                        .start();
                 break;
             case R.id.lin_link_our://联系我们
 //                new DefaultUriRequest(this, RouterCons.CREATE_LINK_OUR)

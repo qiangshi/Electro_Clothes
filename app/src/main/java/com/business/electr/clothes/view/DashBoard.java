@@ -22,13 +22,10 @@ import androidx.annotation.Nullable;
  */
 public class DashBoard extends View {
 
-
     private Paint paint , tmpPaint , textPaint ,  strokePain;
     private RectF rect;
     private int backGroundColor;    //背景色
-    private float pointLength;      //指针长度
-    private float per ;             //指数百分比
-    private float perPoint ;        //缓存(变化中)指针百分比
+    private int per ;             //指数百分比
     private float perOld ;          //变化前指针百分比
     private float length ;          //仪表盘半径
     private float r ;
@@ -66,7 +63,6 @@ public class DashBoard extends View {
         backGroundColor = Color.WHITE;
         r = specSize;
         length = r  / 4 * 3;
-        pointLength =  - (float) (r *  0.6);
         per = 0;
         perOld = 0;
     }
@@ -91,12 +87,10 @@ public class DashBoard extends View {
     protected void onDraw(Canvas canvas) {
 
         setLayerType(LAYER_TYPE_SOFTWARE, null);
-        //颜色指示的环
+        //内弧
         initRing(canvas);
         //刻度文字
-        initScale(canvas,60);
-        //指针
-//        initPointer(canvas);
+        initScale(canvas,per/2);
         //提示内容
         initText(canvas);
     }
@@ -114,27 +108,22 @@ public class DashBoard extends View {
         textPaint.setColor(Color.parseColor("#353535"));
         textPaint.setTextAlign(Paint.Align.RIGHT);
 
-        int _per = (int) (per * 80);
-        float swidth = textPaint.measureText(String.valueOf(_per));
-        //计算偏移量 是的数字和百分号整体居中显示
-        swidth =   (swidth - (swidth + 22) / 2);
 
+        float swidth = textPaint.measureText(String.valueOf(per));
+        //计算偏移量 是的数字和单位整体居中显示
+        swidth =   (swidth - (swidth + 44) / 2);
 
         canvas.translate( swidth , 0);
-        canvas.drawText("" + _per, 0, 0, textPaint);
-
+        canvas.drawText("" + per, 0, 0, textPaint);
         textPaint.setTextSize(60);
         textPaint.setTextAlign(Paint.Align.LEFT);
-
         canvas.drawText("/m" , 0, 0, textPaint);
         textPaint.setTextSize(42);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setColor(Color.parseColor("#b6b6b6"));
-
         canvas.restore();
         canvas.save();
         canvas.translate(canvas.getWidth()/2  , r + length / 3 /2 );
-
         canvas.drawText("0", -length+30, 0+15f, textPaint);
         canvas.drawText("160", length-30, 0+15f, textPaint);
         textPaint.setTextSize(33);
@@ -147,9 +136,6 @@ public class DashBoard extends View {
         this.backGroundColor = color;
     }
 
-    public void setPointLength1(float pointLength1){
-        this.pointLength = -length * pointLength1 ;
-    }
 
     private void initScale(Canvas canvas,int curElect) {//绘制刻度
         canvas.restore();
@@ -158,6 +144,7 @@ public class DashBoard extends View {
         paint.setColor(Color.parseColor("#c1c3c9"));
         tmpPaint = new Paint(paint); //小刻度画笔对象
         tmpPaint.setTextSize(35);
+        tmpPaint.setColor(Color.parseColor("#eeeeee"));
         tmpPaint.setTextAlign(Paint.Align.CENTER);
 
         canvas.rotate(-90,0f,0f);
@@ -166,7 +153,6 @@ public class DashBoard extends View {
         y = - y;
         int count = 80; //总刻度数
         paint.setColor(backGroundColor);
-
         float tempRou = 180 / 80f;//等分成80份
 
         paint.setColor(Color.parseColor("#23c688"));
@@ -208,55 +194,37 @@ public class DashBoard extends View {
     }
 
 
-    private void initPointer(Canvas canvas) {
-        paint.setColor(Color.BLACK);
-        canvas.restore();
-        canvas.save();
-        canvas.translate(canvas.getWidth()/2, r);
-        float change;
-
-        if (perPoint < 1 ){
-            change = perPoint * 180;
-        }else {
-            change = 180;
-        }
-
-        //根据参数得到旋转角度
-        canvas.rotate(-90 + change,0f,0f);
-
-        //绘制三角形形成指针
-        Path path = new Path();
-        path.moveTo(0 , pointLength);
-        path.lineTo(-10 , 0);
-        path.lineTo(10,0);
-        path.lineTo(0 , pointLength);
-        path.close();
-
-        canvas.drawPath(path, paint);
-
-    }
-
+    /**
+     * 花55-100的圆弧
+     * @param canvas
+     */
     private void initRing(Canvas canvas) {
         paint.setAntiAlias(true);
         canvas.save();
         canvas.translate(canvas.getWidth()/2, r);
-
         rect = new RectF( - (length - length / 6f  - 20), -(length / 6f * 5f - 20), length - length / 6f -20 , length / 6f * 5f - 20);
         strokePain = new Paint(paint);
-
         strokePain.setColor(0xffeeeeee);
         strokePain.setStrokeWidth(5);
         strokePain.setShader(null);
         strokePain.setStyle(Paint.Style.STROKE);
         canvas.drawArc(rect, 241, 52, false, strokePain);
-        canvas.restore();
-        canvas.save();
-        canvas.translate(canvas.getWidth()/2, r);
+    }
+
+    /**
+     * 设置当前的心率
+     * @param curElect
+     */
+    public void setCurElect(int curElect){
+        this.perOld = this.per;
+        this.per = curElect;
+        invalidate();
     }
 
 
 
-    public void cgangePer(float per ){
+
+    public void cgangePer(int per ){
         this.perOld = this.per;
         this.per = per;
         ValueAnimator va =  ValueAnimator.ofFloat(perOld,per);
@@ -265,7 +233,7 @@ public class DashBoard extends View {
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                perPoint = (float) animation.getAnimatedValue();
+//                perPoint = (float) animation.getAnimatedValue();
                 invalidate();
             }
         });
