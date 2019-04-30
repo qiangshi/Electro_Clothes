@@ -27,10 +27,10 @@ public class ElectView extends View {
     private Paint linePaint;//背景线的画笔
     private Paint electPaint;//心电图的画笔
     private Path electPath;//心电图轨迹画笔
-    private int backgroubColor = Color.parseColor("#979797");//背景线的颜色
+    private int backgroubColor = Color.parseColor("#20979797");//背景线的颜色
     private int electColor = Color.parseColor("#23c688");//心电图的颜色
-    private int verticalLineNum = 32;  //纵向的线数量
-    private int horizontalLineNum = 8;//横向的线数量
+    private int verticalLineNum = 31;  //纵向的线数量
+    private int horizontalLineNum = 7;//横向的线数量
 
     public ElectView(Context context) {
         super(context);
@@ -74,7 +74,7 @@ public class ElectView extends View {
     private int smallWidth, smallHeight;
     private int baseLine;//基准线
     private int maxLevel;//最大高度
-    private boolean isDrawGird;
+    private boolean isDrawGird = true;
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -89,7 +89,7 @@ public class ElectView extends View {
     }
 
     private void setData() {
-
+        generateElectrocar();
     }
 
     @Override
@@ -113,10 +113,10 @@ public class ElectView extends View {
     }
 
     private void drawGrid(Canvas canvas) {
-        for (int i = 0; i < verticalLineNum; i++) {
+        for (int i = 0; i < verticalLineNum+1; i++) {
             canvas.drawLine(i * smallWidth, 0, i * smallWidth, height, linePaint);
         }
-        for (int i = 0; i < horizontalLineNum; i++) {
+        for (int i = 0; i < horizontalLineNum+1; i++) {
             canvas.drawLine(0, i * smallHeight, width, i * smallHeight, linePaint);
         }
     }
@@ -125,10 +125,10 @@ public class ElectView extends View {
     private List<Float> datas = new ArrayList<>();
     private List<Float> electDatas = new ArrayList<>();
     public void generateElectrocar(){
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 6; i++) {
             datas.add(0f);
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 20; i++) {
             double random;
             if(i % 2 ==0){
                 random = Math.random();
@@ -138,7 +138,7 @@ public class ElectView extends View {
             float value = (float) (maxLevel * random);
             datas.add(value);
         }
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 9; i++) {
             datas.add(0f);
         }
     }

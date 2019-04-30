@@ -13,6 +13,7 @@ import com.business.electr.clothes.view.ElectView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.business.electr.clothes.view.DashBoard;
+import com.business.electr.clothes.view.QuantityView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import java.util.Random;
@@ -35,6 +36,8 @@ public class ElectFragment extends BaseFragment<ElectPresenter>  {
     ImageView imgBluetooth;
     @BindView(R.id.ev_elect)
     ElectView electView;
+    @BindView(R.id.quantity_view)
+    QuantityView quantityView;
 
     public ElectFragment() {
     }
@@ -55,6 +58,7 @@ public class ElectFragment extends BaseFragment<ElectPresenter>  {
     protected void initEventAndData() {
         handler.sendEmptyMessageDelayed(0, 1000);
         electView.startDarw();
+        quantityView.setProcess(75);
     }
 
     @Override
