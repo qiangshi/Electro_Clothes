@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.home.ElectPresenter;
-import com.business.electr.clothes.mvp.view.home.ElectView;
+import com.business.electr.clothes.view.ElectView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.business.electr.clothes.view.DashBoard;
@@ -24,7 +24,7 @@ import butterknife.OnClick;
  * Created by zenghaiqiang on 2019/4/28.
  * 我的心电记录
  */
-public class ElectFragment extends BaseFragment<ElectPresenter> implements ElectView {
+public class ElectFragment extends BaseFragment<ElectPresenter>  {
 
 
     @BindView(R.id.dash_board)
@@ -33,6 +33,8 @@ public class ElectFragment extends BaseFragment<ElectPresenter> implements Elect
     TextView tvName;
     @BindView(R.id.img_bluetooth)
     ImageView imgBluetooth;
+    @BindView(R.id.ev_elect)
+    ElectView electView;
 
     public ElectFragment() {
     }
@@ -52,6 +54,7 @@ public class ElectFragment extends BaseFragment<ElectPresenter> implements Elect
     @Override
     protected void initEventAndData() {
         handler.sendEmptyMessageDelayed(0, 1000);
+        electView.startDarw();
     }
 
     @Override
@@ -61,7 +64,7 @@ public class ElectFragment extends BaseFragment<ElectPresenter> implements Elect
 
     @Override
     protected ElectPresenter getPresenter() {
-        return new ElectPresenter(this);
+        return null;
     }
 
     @Override

@@ -6,9 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
-import android.graphics.Path;
 import android.graphics.RectF;
-import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
@@ -21,7 +19,7 @@ import androidx.annotation.Nullable;
  * 自定义仪表盘
  */
 public class DashBoard extends View {
-
+                  //划刻度线   划文字
     private Paint paint , tmpPaint , textPaint ,  strokePain;
     private RectF rect;
     private int backGroundColor;    //背景色
@@ -35,19 +33,15 @@ public class DashBoard extends View {
         init();
     }
 
-
-
     public DashBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-
     public DashBoard(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
-
 
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = MeasureSpec.getSize(widthMeasureSpec);
@@ -56,8 +50,6 @@ public class DashBoard extends View {
         //优化组件高度
         setMeasuredDimension(width, heitht);
     }
-
-
 
     private void initIndex(int specSize) {
         backGroundColor = Color.WHITE;
@@ -76,8 +68,6 @@ public class DashBoard extends View {
         strokePain = new Paint();
     }
 
-
-
     public void setR(float r) {
         this.r = r;
         this.length = r  / 4 * 3;
@@ -85,16 +75,94 @@ public class DashBoard extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         setLayerType(LAYER_TYPE_SOFTWARE, null);
-        //内弧
-        initRing(canvas);
-        //刻度文字
-        initScale(canvas,per/2);
-        //提示内容
-        initText(canvas);
+        initRing(canvas);   //划内弧
+        initScale(canvas,per/2);  //刻度文字
+        initText(canvas);//提示内容
     }
 
+    /**
+     * 花55-100的圆弧
+     * @param canvas
+     */
+    private void initRing(Canvas canvas) {
+        paint.setAntiAlias(true);
+        canvas.save();
+        canvas.translate(canvas.getWidth()/2, r);
+        rect = new RectF( - (length - length / 6f  - 20), -(length / 6f * 5f - 20), length - length / 6f -20 , length / 6f * 5f - 20);
+        strokePain = new Paint(paint);
+        strokePain.setColor(0xffeeeeee);
+        strokePain.setStrokeWidth(5);
+        strokePain.setShader(null);
+        strokePain.setStyle(Paint.Style.STROKE);
+        canvas.drawArc(rect, 241, 52, false, strokePain);
+    }
+
+
+    private void initScale(Canvas canvas,int curElect) {//绘制刻度
+        canvas.restore();
+        canvas.save();
+        canvas.translate(canvas.getWidth()/2, r);
+        tmpPaint = new Paint(paint); //小刻度画笔对象
+        tmpPaint.setTextSize(35);
+        tmpPaint.setColor(Color.parseColor("#eeeeee"));
+        tmpPaint.setTextAlign(Paint.Align.CENTER);
+        canvas.rotate(-90,0f,0f);
+
+        float  y = length;
+        y = - y;
+        int count = 80; //总刻度数
+        float tempRou = 180 / 80f;//等分成80份
+
+        paint.setColor(Color.parseColor("#23c688"));
+        paint.setStrokeWidth(5);
+        //绘制刻度和百分比
+        for (int i = 0 ; i <= curElect ; i++){//划绿色的刻度线
+            if(i == 27){
+                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                canvas.drawText("55", 0, y + length / 6 + 70, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+            }
+            if(i == 50){
+                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+            }
+            if(i == curElect){
+                paint.setStrokeWidth(8);
+                canvas.drawLine(0f, y-length/30 , 0, y + length / 5, paint);
+            }else {
+                canvas.drawLine(0f, y , 0, y + length / 6, paint);
+            }
+            canvas.rotate(tempRou,0f,0f);
+        }
+
+        paint.setColor(Color.parseColor("#eeeeee"));
+        paint.setStrokeWidth(5);
+        for (int i = curElect +1; i <= count ; i++){//划灰色的刻度线
+            if(i == 27){
+                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                canvas.drawText("55", 0, y + length / 6 + 70, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+            }
+            if(i == 50){
+                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
+                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+            }
+            canvas.drawLine(0f, y , 0, y + length / 6, paint);
+            canvas.rotate(tempRou,0f,0f);
+        }
+    }
+
+    /**
+     * 初始化显示的文字
+     * @param canvas
+     */
     private void initText(Canvas canvas) {
         //抗锯齿
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
@@ -103,15 +171,13 @@ public class DashBoard extends View {
         canvas.translate(canvas.getWidth()/2, r);
         textPaint.setStrokeWidth(1);
         textPaint.setAntiAlias(true);
-
         textPaint.setTextSize(150);
         textPaint.setColor(Color.parseColor("#353535"));
         textPaint.setTextAlign(Paint.Align.RIGHT);
 
-
         float swidth = textPaint.measureText(String.valueOf(per));
         //计算偏移量 是的数字和单位整体居中显示
-        swidth =   (swidth - (swidth + 44) / 2);
+        swidth =   (swidth - (swidth + 60) / 2);
 
         canvas.translate( swidth , 0);
         canvas.drawText("" + per, 0, 0, textPaint);
@@ -132,85 +198,6 @@ public class DashBoard extends View {
     }
 
 
-    public void setBackGroundColor(int color){
-        this.backGroundColor = color;
-    }
-
-
-    private void initScale(Canvas canvas,int curElect) {//绘制刻度
-        canvas.restore();
-        canvas.save();
-        canvas.translate(canvas.getWidth()/2, r);
-        paint.setColor(Color.parseColor("#c1c3c9"));
-        tmpPaint = new Paint(paint); //小刻度画笔对象
-        tmpPaint.setTextSize(35);
-        tmpPaint.setColor(Color.parseColor("#eeeeee"));
-        tmpPaint.setTextAlign(Paint.Align.CENTER);
-
-        canvas.rotate(-90,0f,0f);
-
-        float  y = length;
-        y = - y;
-        int count = 80; //总刻度数
-        paint.setColor(backGroundColor);
-        float tempRou = 180 / 80f;//等分成80份
-
-        paint.setColor(Color.parseColor("#23c688"));
-        paint.setStrokeWidth(5);
-
-        //绘制刻度和百分比
-        for (int i = 0 ; i <= curElect ; i++){
-            if(i == 27){
-                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                canvas.drawText("55", 0, y + length / 6 + 70, tmpPaint);
-            }
-            if(i == 50){
-                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
-            }
-            if(i == curElect){
-                paint.setStrokeWidth(8);
-                canvas.drawLine(0f, y-length/30 , 0, y + length / 5, paint);
-            }else {
-                canvas.drawLine(0f, y , 0, y + length / 6, paint);
-            }
-            canvas.rotate(tempRou,0f,0f);
-        }
-
-        paint.setColor(Color.parseColor("#eeeeee"));
-        paint.setStrokeWidth(5);
-        for (int i = curElect +1; i <= count ; i++){
-            if(i == 27){
-                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                canvas.drawText("55", 0, y + length / 6 + 70, tmpPaint);
-            }
-            if(i == 50){
-                canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
-            }
-            canvas.drawLine(0f, y , 0, y + length / 6, paint);
-            canvas.rotate(tempRou,0f,0f);
-        }
-    }
-
-
-    /**
-     * 花55-100的圆弧
-     * @param canvas
-     */
-    private void initRing(Canvas canvas) {
-        paint.setAntiAlias(true);
-        canvas.save();
-        canvas.translate(canvas.getWidth()/2, r);
-        rect = new RectF( - (length - length / 6f  - 20), -(length / 6f * 5f - 20), length - length / 6f -20 , length / 6f * 5f - 20);
-        strokePain = new Paint(paint);
-        strokePain.setColor(0xffeeeeee);
-        strokePain.setStrokeWidth(5);
-        strokePain.setShader(null);
-        strokePain.setStyle(Paint.Style.STROKE);
-        canvas.drawArc(rect, 241, 52, false, strokePain);
-    }
-
     /**
      * 设置当前的心率
      * @param curElect
@@ -220,9 +207,6 @@ public class DashBoard extends View {
         this.per = curElect;
         invalidate();
     }
-
-
-
 
     public void cgangePer(int per ){
         this.perOld = this.per;
@@ -238,6 +222,5 @@ public class DashBoard extends View {
             }
         });
         va.start();
-
     }
 }
