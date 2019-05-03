@@ -1,215 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_F8F9FB"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <!--用户信息-->
-    <RelativeLayout
-        android:layout_marginBottom="@dimen/padding_8"
-        android:background="@color/white"
-        android:id="@+id/rel_user_info"
-        android:paddingTop="@dimen/padding_40"
-        android:paddingBottom="@dimen/padding_24"
-        android:paddingEnd="@dimen/padding_16"
-        android:gravity="center_vertical"
+    <LinearLayout
+        android:id="@+id/ll_user_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/padding_80"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/padding_29"
+        android:paddingEnd="@dimen/padding_29">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="晚上好，陈晓晓"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16" />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/img_user_head"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_width="@dimen/padding_60"
-            android:layout_height="@dimen/padding_60"
-            android:src="@drawable/ic_test_avatar"
-            />
-
-
-        <TextView
-            android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_20"
-            tools:text="宁少"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginTop="@dimen/padding_5"
-            android:layout_toEndOf="@+id/img_user_head"/>
+            android:layout_marginEnd="@dimen/padding_13"
+            android:src="@drawable/icon_main_mine_noselect" />
 
         <ImageView
-            android:id="@+id/img_modify"
-            android:layout_width="@dimen/padding_14"
-            android:layout_height="@dimen/padding_14"
-            android:layout_alignStart="@+id/tv_user_name"
-            android:layout_below="@+id/tv_user_name"
-            android:layout_marginStart="@dimen/padding_2"
-            android:layout_marginTop="@dimen/padding_8"
-            android:src="@drawable/me_modify_iconxhdpi"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/modify_info"
-            android:layout_marginTop="@dimen/padding_5"
-            android:layout_marginStart="@dimen/padding_5"
-            android:layout_below="@+id/tv_user_name"
-            android:layout_toEndOf="@+id/img_modify"/>
-
-
-    </RelativeLayout>
-
-    <!--时间豆-->
-    <LinearLayout
-        android:id="@+id/lin_time_bean"
-        android:layout_marginBottom="@dimen/padding_1"
-        android:background="@drawable/selector_bg_click"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/img_time_bean"
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/icon_main_task_select"
-            android:layout_marginStart="@dimen/padding_16"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_16"
-            android:textColor="@color/color_252631"
-            android:text="@string/time_bean"
-            android:layout_marginStart="@dimen/padding_12"/>
-
-       <Space
-           android:layout_width="0dp"
-           android:layout_weight="1"
-           android:layout_height="match_parent" />
-
-        <ImageView
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/ic_next_grey"
-            android:layout_marginEnd="@dimen/padding_16"/>
+            android:src="@drawable/icon_login_area_code" />
 
     </LinearLayout>
 
-    <!--我的企业-->
-    <LinearLayout
-        android:id="@+id/lin_my_company"
-        android:layout_marginBottom="@dimen/padding_1"
-        android:background="@drawable/selector_bg_click"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:gravity="center_vertical">
+        android:layout_height="@dimen/padding_0.5"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_28"
+        android:background="@color/color_44979797" />
 
-        <ImageView
-            android:id="@+id/img_my_company"
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/me_business_iconxhdpi"
-            android:layout_marginStart="@dimen/padding_16"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_120"
+        android:layout_gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_ihi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_14"
+                android:src="@drawable/icon_mine_ihi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的iHi"
+                android:textColor="@color/color_353535"
+                android:textSize="@dimen/text_font_12" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_task"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_14"
+                android:src="@drawable/icon_mine_task" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任务目标"
+                android:textColor="@color/color_353535"
+                android:textSize="@dimen/text_font_12" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ihi_exper"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_14"
+                android:src="@drawable/icon_mine_ihi_exper" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI体验"
+                android:textColor="@color/color_353535"
+                android:textSize="@dimen/text_font_12" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_20"
+        android:text="会员功能"
+        android:layout_marginStart="@dimen/padding_30"
+        android:layout_marginBottom="@dimen/padding_28"
+        android:textColor="@color/color_9297A0"
+        android:textSize="@dimen/text_font_14"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0.5"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_28"
+        android:background="@color/color_44979797" />
+    <!--我的AI小护士-->
+    <LinearLayout
+        android:id="@+id/lin_ai"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_70"
+        android:layout_marginBottom="@dimen/padding_1"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_16"
-            android:textColor="@color/color_252631"
-            android:text="@string/my_company"
-            android:layout_marginStart="@dimen/padding_12"/>
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="我的AI小护士"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
 
         <Space
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/ic_next_grey"
-            android:layout_marginEnd="@dimen/padding_16"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
 
     </LinearLayout>
+
+    <!--我的私人医生-->
+    <LinearLayout
+        android:id="@+id/lin_my_doctor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_70"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="我的私人医生"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0.5"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_28"
+        android:background="@color/color_44979797" />
 
 
     <!--意见与反馈-->
+    <!--<LinearLayout-->
+        <!--android:id="@+id/lin_feed_back"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/padding_56"-->
+        <!--android:layout_marginBottom="@dimen/padding_1"-->
+        <!--android:background="@drawable/selector_bg_click"-->
+        <!--android:gravity="center_vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_feed_back"-->
+            <!--android:layout_width="@dimen/padding_16"-->
+            <!--android:layout_height="@dimen/padding_16"-->
+            <!--android:layout_marginStart="@dimen/padding_16"-->
+            <!--android:src="@drawable/me_feedback_iconxhdpi" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="@dimen/padding_12"-->
+            <!--android:text="@string/face_back"-->
+            <!--android:textColor="@color/color_252631"-->
+            <!--android:textSize="@dimen/text_font_16" />-->
+
+        <!--<Space-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/padding_16"-->
+            <!--android:layout_height="@dimen/padding_16"-->
+            <!--android:layout_marginEnd="@dimen/padding_16"-->
+            <!--android:src="@drawable/ic_next_grey" />-->
+
+    <!--</LinearLayout>-->
+
+
+    <!--帮助-->
     <LinearLayout
-        android:id="@+id/lin_feed_back"
-        android:layout_marginBottom="@dimen/padding_1"
-        android:background="@drawable/selector_bg_click"
+        android:id="@+id/lin_help"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
+        android:layout_marginTop="@dimen/padding_20"
+        android:layout_height="@dimen/padding_70"
         android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/img_feed_back"
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/me_feedback_iconxhdpi"
-            android:layout_marginStart="@dimen/padding_16"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_16"
-            android:textColor="@color/color_252631"
-            android:text="@string/face_back"
-            android:layout_marginStart="@dimen/padding_12"/>
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="帮助"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
 
         <Space
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/ic_next_grey"
-            android:layout_marginEnd="@dimen/padding_16"/>
-
-    </LinearLayout>
-
-
-    <!--设置-->
-    <LinearLayout
-        android:id="@+id/lin_set"
-        android:layout_marginBottom="@dimen/padding_1"
-        android:background="@drawable/selector_bg_click"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/img_set"
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/me_set_iconxhdpi"
-            android:layout_marginStart="@dimen/padding_16"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_16"
-            android:textColor="@color/color_252631"
-            android:text="@string/set"
-            android:layout_marginStart="@dimen/padding_12"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:layout_width="@dimen/padding_16"
-            android:layout_height="@dimen/padding_16"
-            android:src="@drawable/ic_next_grey"
-            android:layout_marginEnd="@dimen/padding_16"/>
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

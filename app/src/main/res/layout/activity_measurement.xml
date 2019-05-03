@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_jingce"
+    tools:context=".ui.activity.equipment.MeasurementActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_35"
+        android:paddingStart="@dimen/padding_22">
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_5"
+            android:src="@drawable/icon_close" />
+
+        <com.business.electr.clothes.view.QuantityView
+            android:id="@+id/qv_time"
+            android:layout_width="@dimen/padding_33"
+            android:layout_height="@dimen/padding_33"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/img_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/padding_28"
+            android:padding="@dimen/padding_5"
+            android:src="@drawable/icon_voice"
+            android:visibility="gone"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_hint_60"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_title">
+
+        <TextView
+            android:id="@+id/tv_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="60"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_font_52" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_60"
+            android:layout_marginBottom="@dimen/padding_13"
+            android:layout_toEndOf="@+id/tv_60"
+            android:text="秒"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_font_11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_60"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-10dp"
+            android:text="心率之旅"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_font_15" />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/img_down_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rel_title"
+        android:layout_marginTop="@dimen/padding_130"
+        android:src="@drawable/icon_jingce_3"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding_185"
+        android:text="平复情绪，放松身心，平衡呼吸"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_16" />
+
+    <ImageView
+        android:id="@+id/img_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_89"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_jingce_start" />
+
+
+    <TextView
+        android:id="@+id/tv_end"
+        android:layout_width="@dimen/padding_75"
+        android:layout_height="@dimen/padding_46"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_80"
+        android:background="@drawable/bg_stroke_66ffffff_23"
+        android:gravity="center"
+        android:text="结束"
+        android:textColor="@color/color_66ffffff"
+        android:textSize="@dimen/text_font_14"
+        android:visibility="gone"/>
+
+</RelativeLayout>

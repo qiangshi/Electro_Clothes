@@ -16,16 +16,18 @@
         android:maxLines="1"
         android:singleLine="true"
         android:textColor="@color/color_353535"
-        android:textSize="@dimen/text_font_20" />
+        android:textSize="@dimen/text_font_16" />
 
     <ImageView
         android:id="@+id/btn_back"
-        android:layout_width="@dimen/padding_32"
-        android:layout_height="@dimen/padding_32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:adjustViewBounds="true"
         android:layout_centerVertical="true"
-        android:paddingStart="@dimen/padding_16"
+        android:paddingStart="@dimen/padding_28"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
         android:src="@drawable/ic_goback"
         android:visibility="visible" />
 
@@ -46,7 +48,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:paddingBottom="@dimen/padding_10"
-        android:paddingEnd="@dimen/padding_16"
+        android:paddingEnd="@dimen/padding_28"
         android:paddingStart="@dimen/padding_10"
         android:paddingTop="@dimen/padding_10"
         android:visibility="gone" />

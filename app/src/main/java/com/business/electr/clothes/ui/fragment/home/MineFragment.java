@@ -6,12 +6,10 @@ import android.widget.TextView;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
-import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
-import com.business.electr.clothes.utils.GlidUtils;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import butterknife.BindView;
@@ -23,21 +21,17 @@ import butterknife.OnClick;
  */
 public class MineFragment extends BaseFragment {
 
+
+    @BindView(R.id.tv_name)
+    TextView tvName;
     @BindView(R.id.img_user_head)
     ImageView imgUserHead;
-    @BindView(R.id.tv_user_name)
-    TextView tvUserName;
-
     private UserBean userBean;
 
     @Override
     protected void initEventAndData() {
         SynchronizationObserver.getInstance().registerSynchronizationListener(syncListener, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
-        userBean = DataCacheManager.getUserInfo();
-        if (userBean != null) {
-            GlidUtils.setCircleGrid(getActivity(), userBean.getHeadImgUrl(), imgUserHead);
-            tvUserName.setText(userBean.getNickName());
-        }
+
     }
 
 
@@ -46,8 +40,8 @@ public class MineFragment extends BaseFragment {
         public void onSynchronizationUpdate(int type, Object object) {
             UserBean bean = (UserBean) object;
             if (bean != null) {
-                tvUserName.setText(bean.getNickName());
-                GlidUtils.setCircleGrid(getActivity(), bean.getHeadImgUrl(), imgUserHead);
+//                tvUserName.setText(bean.getNickName());
+//                GlidUtils.setCircleGrid(getActivity(), bean.getHeadImgUrl(), imgUserHead);
             }
         }
     };
@@ -67,28 +61,33 @@ public class MineFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.rel_user_info, R.id.lin_time_bean, R.id.lin_my_company, R.id.lin_feed_back, R.id.lin_set})
+
+    @OnClick({R.id.ll_user_info, R.id.ll_ihi, R.id.ll_task, R.id.ll_ihi_exper, R.id.lin_ai, R.id.lin_my_doctor, R.id.lin_help})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rel_user_info://修改用户信息
+            case R.id.ll_user_info:
                 new DefaultUriRequest(getActivity(), RouterCons.MODIFY_USER_INFO)
                         .start();
                 break;
-            case R.id.lin_time_bean://时间豆界面
-
+            case R.id.ll_ihi:
                 break;
-            case R.id.lin_my_company://企业管理
+            case R.id.ll_task:
                 break;
-            case R.id.lin_feed_back://问题与反馈
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_QUESTION_FEEDBACK)
-                        .start();
+            case R.id.ll_ihi_exper:
                 break;
-            case R.id.lin_set://设置
+            case R.id.lin_ai:
+                break;
+            case R.id.lin_my_doctor:
+//                new DefaultUriRequest(getActivity(), RouterCons.CREATE_QUESTION_FEEDBACK)
+//                        .start();
+                break;
+            case R.id.lin_help:
                 new DefaultUriRequest(getActivity(), RouterCons.CREATE_SETTING)
                         .start();
                 break;
         }
     }
+
 
     @Override
     public void onDestroy() {

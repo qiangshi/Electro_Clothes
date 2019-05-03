@@ -31,7 +31,9 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.login.RegisterActivity"></activity>
+        <activity android:name=".ui.activity.equipment.MeasureResultActivity"></activity>
+        <activity android:name=".ui.activity.equipment.MeasurementActivity" />
+        <activity android:name=".ui.activity.login.RegisterActivity" />
         <activity android:name=".ui.activity.equipment.EquipmentActivity" />
         <activity android:name=".ui.activity.mine.ModifyPasswordActivity" />
         <activity android:name=".ui.activity.login.GetPhoneCodeActivity" />

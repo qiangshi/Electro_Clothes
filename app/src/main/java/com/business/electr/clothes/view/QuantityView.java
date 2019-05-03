@@ -9,8 +9,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.business.electr.clothes.utils.MLog;
-
 import androidx.annotation.Nullable;
 
 /**
@@ -25,6 +23,7 @@ public class QuantityView extends View {
     private int circleColor = Color.parseColor("#4ABC99");
     private int textColor = Color.parseColor("#353535");
     private int process;
+    private boolean isDown;//是否是倒计时
 
     public QuantityView(Context context) {
         super(context);
@@ -58,21 +57,35 @@ public class QuantityView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if(isDown){
+            circlePaint.setColor(Color.parseColor("#80ffffff"));
+            textPaint.setColor(Color.parseColor("#80ffffff"));
+            textPaint.setTextSize(48);
+        }
         canvas.translate(canvas.getWidth()/2, canvas.getHeight()/2);
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
         RectF rect = new RectF( - (canvas.getWidth()/2-10), - (canvas.getHeight()/2-10), (canvas.getWidth()/2-10), (canvas.getHeight()/2-10));
         int pro = process * 360/ 100 ;
+        if(isDown) pro = process * 360 / 60;
         canvas.drawArc(rect, -90, pro, false, circlePaint);
-
-        textPaint.setTextAlign(Paint.Align.RIGHT);
+        if(!isDown) textPaint.setTextAlign(Paint.Align.RIGHT);
+        else textPaint.setTextAlign(Paint.Align.CENTER);
+        textPaint.setTextSize(27);
         float swidth = textPaint.measureText(String.valueOf(process));
         //计算偏移量 是的数字和单位整体居中显示
         swidth =   (swidth - (swidth + 18) / 2);
         canvas.translate( swidth , 8);
         canvas.drawText(""+process,0,0,textPaint);
-        textPaint.setTextAlign(Paint.Align.LEFT);
-        textPaint.setTextSize(18);
-        canvas.drawText("%",0,0,textPaint);
+        if(!isDown){
+            textPaint.setTextAlign(Paint.Align.LEFT);
+            textPaint.setTextSize(18);
+            canvas.drawText("%",0,0,textPaint);
+        }
+
+    }
+
+    public void setIsDown(boolean isDown){
+        this.isDown = isDown;
     }
 
     public void setProcess(int process){

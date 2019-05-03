@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical"
+    tools:context=".ui.activity.equipment.MeasureResultActivity">
+
+    <include
+        android:id="@+id/include_title"
+        layout="@layout/title_bar_layout" />
+
+    <RelativeLayout
+        android:id="@+id/rel_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include_title"
+        android:background="@color/white"
+        android:paddingTop="@dimen/padding_20">
+
+
+        <TextView
+            android:id="@+id/tv_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="90"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_65" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_average"
+            android:layout_marginBottom="@dimen/padding_13"
+            android:layout_toEndOf="@+id/tv_average"
+            android:text="/m"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_25" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_average"
+            android:layout_alignLeft="@id/tv_average"
+            android:layout_marginStart="-15dp"
+            android:text="常规静息心率 55-100"
+            android:textColor="@color/color_bdbfc5" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_65"
+            android:layout_below="@+id/tv_hint"
+            android:layout_marginTop="@dimen/padding_25">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/padding_30"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_mini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60"
+                    android:textColor="@color/color_353535"
+                    android:textSize="@dimen/text_font_20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_mini"
+                    android:layout_toEndOf="@id/tv_mini"
+                    android:text="/m"
+                    android:textColor="@color/color_353535"
+                    android:textSize="@dimen/text_font_15" />
+
+                <ImageView
+                    android:id="@+id/img_mini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_mini"
+                    android:layout_marginStart="@dimen/padding_5"
+                    android:layout_marginTop="@dimen/padding_6"
+                    android:src="@drawable/icon_minimum" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_mini"
+                    android:layout_marginStart="@dimen/padding_3"
+                    android:layout_marginTop="@dimen/padding_2"
+                    android:layout_toEndOf="@+id/img_mini"
+                    android:text="最低"
+                    android:textColor="@color/color_8c919b"
+                    android:textSize="@dimen/text_font_13" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/padding_30"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="96"
+                    android:textColor="@color/color_353535"
+                    android:textSize="@dimen/text_font_20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_high"
+                    android:layout_toEndOf="@id/tv_high"
+                    android:text="/m"
+                    android:textColor="@color/color_353535"
+                    android:textSize="@dimen/text_font_15" />
+
+                <ImageView
+                    android:id="@+id/img_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_high"
+                    android:layout_marginStart="@dimen/padding_5"
+                    android:layout_marginTop="@dimen/padding_6"
+                    android:src="@drawable/icon_highest" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_high"
+                    android:layout_marginStart="@dimen/padding_3"
+                    android:layout_marginTop="@dimen/padding_2"
+                    android:layout_toEndOf="@+id/img_high"
+                    android:text="最高"
+                    android:textColor="@color/color_8c919b"
+                    android:textSize="@dimen/text_font_13" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.business.electr.clothes.view.PentagonView
+        android:paddingTop="@dimen/padding_20"
+        android:layout_below="@+id/rel_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -28,6 +28,8 @@
     <dimen name="status_bar_height">0dp</dimen>
     <!--字体尺寸-->
     <dimen name="text_font_honghao">60sp</dimen>
+    <dimen name="text_font_65">65sp</dimen>
+    <dimen name="text_font_52">52sp</dimen>
     <dimen name="text_font_30">30sp</dimen>
     <dimen name="text_font_36">36sp</dimen>
     <dimen name="text_font_33">33sp</dimen>

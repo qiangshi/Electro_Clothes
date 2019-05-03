@@ -21,6 +21,10 @@ import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * Created by zenghaiqiang on 2019/4/28.
+ * 描述：设备连接管理
+ */
 @RouterUri(path = {RouterCons.CREATE_EQUIPMENT})
 public class EquipmentActivity extends BaseActivity {
 
