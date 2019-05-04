@@ -21,5 +21,9 @@ public class RouterCons {
     public static final String CREATE_MEASUREMENT = "/create_measurement";
     public static final String CREATE_MEASURE_RESULT = "/create_measure_result";
     public static final String CREATE_SET_PASSWORD = "/create_set_password";
+    public static final String CREATE_RE_SET_PASSWORD = "/create_re_set_password";
+    public static final String CREATE_SET_NEW_PASSWORD = "/create_set_new_password";
+    public static final String CREATE_MY_IHI = "/create_my_ihi";
+    public static final String CREATE_HELPER = "/create_helper";
 
 }

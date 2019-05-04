@@ -60,11 +60,11 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:paddingEnd="@dimen/padding_10"
+        android:paddingEnd="@dimen/padding_28"
         android:singleLine="true"
         android:text="提交"
-        android:textColor="@color/color_4E7CFE"
-        android:textSize="@dimen/text_font_16"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14"
         android:visibility="gone" />
 
 

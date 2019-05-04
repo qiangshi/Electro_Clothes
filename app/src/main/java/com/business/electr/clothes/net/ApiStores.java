@@ -1,6 +1,10 @@
 package com.business.electr.clothes.net;
 
+import com.business.electr.clothes.bean.MapModel;
 import com.business.electr.clothes.bean.UserBean;
+
+import java.util.Map;
+
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
@@ -30,7 +34,7 @@ public interface ApiStores {
      * @return
      */
     @POST("login/login.do")
-    Observable<BaseApiResponse<UserBean>> requestLogin(@Body RequestBody requestBody);
+    Observable<BaseApiResponse<MapModel<UserBean>>> requestLogin(@Body RequestBody requestBody);
 
     /**
      * 刷新token
@@ -78,32 +82,21 @@ public interface ApiStores {
      * 获取用户信息
      */
     @POST("getUserInfo.do")
-    @FormUrlEncoded
-    Observable<BaseApiResponse<UserBean>> requestUserInfo(
-            @Field("userId") @NonNull long userId);
+    Observable<BaseApiResponse<MapModel<UserBean>>> requestUserInfo(@Body RequestBody requestBody);
 
     /**
      * 更新用户密码
-     * @param userId
-     * @param oldPassword
-     * @param newPassword
      * @return
      */
     @POST("updatePassword.do")
     @FormUrlEncoded
-    Observable<BaseApiResponse<String>> requestUpdatePassword(
-            @Field("userId") @NonNull long userId,@Field("oldPassword") @NonNull String oldPassword,
-            @Field("newPassword") @NonNull String newPassword);
+    Observable<BaseApiResponse<String>> requestUpdatePassword(@Body RequestBody requestBody);
 
     /**
      * 更新用户信息
      */
     @POST("updateUserInfo.do")
-    @FormUrlEncoded
-    Observable<BaseApiResponse<String>> requestUpdateUserInfo(
-            @Field("userId") @NonNull long userId,@Field("sex") int sex,
-            @Field("height") int height,@Field("weight") int weight,
-            @Field("birthDate") String birthDate);
+    Observable<BaseApiResponse<String>> requestUpdateUserInfo(@Body RequestBody requestBody);
 
     /**
      * 获取设备信息

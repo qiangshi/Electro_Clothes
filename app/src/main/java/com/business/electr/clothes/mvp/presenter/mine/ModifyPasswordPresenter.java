@@ -3,6 +3,7 @@ package com.business.electr.clothes.mvp.presenter.mine;
 import android.text.TextUtils;
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.bean.MapModel;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.manager.DataCacheManager;
@@ -118,14 +119,14 @@ public class ModifyPasswordPresenter extends BasePresenter<ModifyPasswordView> {
                 .addParams("roleType",0).toRequestBody();
         addSubscription(
                 apiStores.requestLogin(requestBody),
-                new BaseObserver<BaseApiResponse<UserBean>>() {
+                new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
                     @Override
-                    public void onNext(BaseApiResponse<UserBean> data) {
+                    public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-                            saveLoginInfo(data.getData());
-                            mView.loginSuccess(data.getData());
+                            saveLoginInfo(data.getData().getMap());
+                            mView.loginSuccess(data.getData().getMap());
                         }
                     }
 

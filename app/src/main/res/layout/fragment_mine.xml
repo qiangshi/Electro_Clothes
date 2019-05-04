@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_13"
-            android:src="@drawable/icon_main_mine_noselect" />
+            android:src="@drawable/icon_mine_user_head" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_0.5"
+        android:layout_height="@dimen/padding_0_33"
         android:layout_marginStart="@dimen/padding_28"
         android:layout_marginEnd="@dimen/padding_28"
         android:background="@color/color_44979797" />
@@ -143,7 +143,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_0.5"
+        android:layout_height="@dimen/padding_0_33"
         android:layout_marginStart="@dimen/padding_28"
         android:layout_marginEnd="@dimen/padding_28"
         android:background="@color/color_44979797" />
@@ -151,8 +151,7 @@
     <LinearLayout
         android:id="@+id/lin_ai"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_70"
-        android:layout_marginBottom="@dimen/padding_1"
+        android:layout_height="@dimen/padding_60"
         android:gravity="center_vertical">
 
         <TextView
@@ -180,7 +179,7 @@
     <LinearLayout
         android:id="@+id/lin_my_doctor"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_70"
+        android:layout_height="@dimen/padding_60"
         android:gravity="center_vertical">
 
         <TextView
@@ -206,7 +205,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_0.5"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginTop="@dimen/padding_10"
         android:layout_marginStart="@dimen/padding_28"
         android:layout_marginEnd="@dimen/padding_28"
         android:background="@color/color_44979797" />
@@ -254,8 +254,9 @@
     <LinearLayout
         android:id="@+id/lin_help"
         android:layout_width="match_parent"
+        android:background="@drawable/selector_bg_click"
         android:layout_marginTop="@dimen/padding_20"
-        android:layout_height="@dimen/padding_70"
+        android:layout_height="@dimen/padding_60"
         android:gravity="center_vertical">
 
 

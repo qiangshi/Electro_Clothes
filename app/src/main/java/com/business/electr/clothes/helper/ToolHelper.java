@@ -70,7 +70,7 @@ public class ToolHelper {
                 SimpleDateFormat formatter = new SimpleDateFormat(dateType, Locale.getDefault());
                 String dateString = formatter.format(date);
                 textView.setText(dateString);
-                textView.setTextColor(ContextCompat.getColor(activity, R.color.color_252631));
+                textView.setTextColor(ContextCompat.getColor(activity, R.color.color_8c919b));
                 if(handler != null){
                     Message msg = new Message();
                     msg.what = Constant.SELECT_TIME;

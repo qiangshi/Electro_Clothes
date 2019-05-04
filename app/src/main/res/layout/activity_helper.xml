@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.activity.mine.HelperActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_200">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_25"
+            android:paddingTop="@dimen/padding_20"
+            android:paddingEnd="@dimen/padding_10"
+            android:paddingBottom="@dimen/padding_10"
+            android:src="@drawable/ic_goback" />
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo" />
+
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="@dimen/padding_5"
+            android:text="Fibre T"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_des"
+            android:layout_centerHorizontal="true"
+            android:text="1.0.0"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_10" />
+
+
+    </RelativeLayout>
+
+    <!--FAQ-->
+    <LinearLayout
+        android:id="@+id/lin_faq"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:layout_marginTop="@dimen/padding_20"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="FAQ"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
+
+    </LinearLayout>
+
+    <!--更新版本-->
+    <LinearLayout
+        android:id="@+id/lin_update_version"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="版本更新"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
+
+    </LinearLayout>
+
+    <!--联系产品经理-->
+    <LinearLayout
+        android:id="@+id/lin_link"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_60"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="联系产品经理"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_12"
+            android:text="24小时内回复"
+            android:textColor="@color/color_D0D1D2"
+            android:textSize="@dimen/padding_11" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
+
+    </LinearLayout>
+
+    <!--关于我们-->
+    <LinearLayout
+        android:id="@+id/lin_about_our"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_60"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_31"
+            android:text="关于我们"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_30"
+            android:src="@drawable/icon_login_area_code" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="智纤至康版权所有"
+        android:textColor="@color/color_dcdcdc"
+        android:textSize="@dimen/text_font_11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_6"
+        android:text="Made with by FibreT, Inc."
+        android:textColor="@color/color_dcdcdc"
+        android:textSize="@dimen/text_font_13" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_12"
+        android:layout_marginBottom="@dimen/padding_38"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_10"
+            android:text="服务条款"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_11" />
+
+        <TextView
+            android:id="@+id/tv_private"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隐私政策"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_11" />
+    </LinearLayout>
+
+
+</LinearLayout>

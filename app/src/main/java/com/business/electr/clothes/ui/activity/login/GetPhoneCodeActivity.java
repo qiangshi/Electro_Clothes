@@ -37,7 +37,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
     TextView downTime;
 
     private TimeCounter mTimeCounter;
-    private int type; //0 ： 注册   1: 登陆  2:忘记密码
+    private int type; //0 ： 注册   1: 登陆  2:忘记密码 3:用户信息中的忘记密码
     private String phone;
     private boolean isNewUser;
 
@@ -74,6 +74,12 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
                 }else if(type ==0 || type== 2) { //注册或忘记密码
                     // TODO: 2019/4/25 完善个人信息
                     new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
+                            .putExtra(Constant.EXTRA_PHONE,phone)
+                            .putExtra(Constant.EXTRA_CODE,code)
+                            .putExtra(Constant.TYPE,type)
+                            .start();
+                } else if(type == 3){
+                    new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_NEW_PASSWORD)
                             .putExtra(Constant.EXTRA_PHONE,phone)
                             .putExtra(Constant.EXTRA_CODE,code)
                             .putExtra(Constant.TYPE,type)

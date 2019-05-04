@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.activity.mine.ForgetPassActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:background="@color/color_44979797" />
+
+    <!--用户名-->
+    <LinearLayout
+        android:id="@+id/lin_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_28"
+            android:text="@string/nick_name"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_14"
+            tools:text="13452658987" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+
+    <!--新密码-->
+    <LinearLayout
+        android:id="@+id/lin_new_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_28"
+            android:text="新密码"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/et_new_password"
+            android:layout_width="@dimen/padding_150"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/padding_36"
+            android:background="@null"
+            android:hint="请输入您的新密码"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_14" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+    <!--新密码-->
+    <LinearLayout
+        android:id="@+id/lin_new_again_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_28"
+            android:text="确认密码"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/et_new_again_password"
+            android:layout_width="@dimen/padding_150"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/padding_36"
+            android:background="@null"
+            android:hint="请再次输入您的新密码"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_14" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_8c919b"
+        android:layout_marginStart="@dimen/padding_26"
+        android:textSize="@dimen/text_font_11"
+        android:layout_marginTop="@dimen/padding_15"
+        android:text="密码必须至少8个字符，而且同时包含字母和数字"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="@dimen/padding_305"
+        android:layout_height="@dimen/padding_48"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/padding_55"
+        android:background="@drawable/bg_login_get_code"
+        android:gravity="center"
+        android:text="@string/commit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_15" />
+
+</LinearLayout>

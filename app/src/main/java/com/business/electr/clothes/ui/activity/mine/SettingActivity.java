@@ -125,10 +125,10 @@ public class SettingActivity extends BaseActivity {
 //                        .start();
                 break;
             case R.id.lin_private_policy://隐私政策
-//                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
-//                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/privacy.html")
-//                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.private_policy))
-//                        .start();
+                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)
+                        .putExtra(Constant.URL,"file:///android_asset/apps/web/html/privacy.html")
+                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.private_policy))
+                        .start();
                 break;
             case R.id.lin_clear_cpu://清空缓存
                 clearCache();

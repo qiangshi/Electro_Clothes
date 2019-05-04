@@ -79,6 +79,7 @@
     <!--padding尺寸-->
     <dimen name="_padding_3">-3.0dip</dimen>
     <dimen name="padding_0">0.0dip</dimen>
+    <dimen name="padding_0_33">0.33dip</dimen>
     <dimen name="padding_1">1.0dip</dimen>
     <dimen name="padding_0.5" tools:ignore="MissingDefaultResource">0.5dp</dimen>
     <dimen name="padding_1.5" tools:ignore="MissingDefaultResource">1.5dip</dimen>

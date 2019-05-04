@@ -21,6 +21,7 @@ import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.ui.activity.MainActivity;
 import com.business.electr.clothes.ui.fragment.dialog.ThireLoginFragment;
+import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.sankuai.waimai.router.annotation.RouterUri;
@@ -153,6 +154,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
      * 保存用户信息
      */
     private void saveLoginInfo(UserBean userBean) {
+        MLog.e("====zhq====>111<"+userBean.getToken());
         DataCacheManager.saveToken(userBean.getToken());
         DataCacheManager.saveUserInfo(userBean);
         SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);

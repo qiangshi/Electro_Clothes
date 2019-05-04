@@ -30,9 +30,8 @@
 
     <string name="please_in_phone">请输入您的手机号</string>
     <string name="please_in_password">请输入登录密码</string>
-    <string name="please_in_new_password">请输入新密码</string>
-    <string name="please_in_again_password">请再次输入新密码</string>
-    <string name="password_no_agreement">两次输入的密码不一致，请重新输入</string>
+
+
     <string name="please_new_phone">请输入您的新手机号</string>
     <string name="please_in_code">请输入验证码</string>
     <string name="get_phone_code">获取验证码</string>
@@ -69,14 +68,23 @@
     <string name="log_out">退出</string>
     <string name="modify_info">修改资料</string>
     <string name="time_bean">任务目标</string>
-
-
+    <string name="modify">修改</string>
+    <string name="my_info">账号信息</string>
     <string name="my_company">我的iHi</string>
+    <string name="please_in_height">请输入正确的身高信息</string>
+    <string name="please_in_weight">请输入正确的体重信息</string>
+    <string name="please_in_old_password">请输入旧密码</string>
+    <string name="please_in_new_password">请输入新密码</string>
+    <string name="please_in_again_password">请再次输入新密码</string>
+    <string name="password_no_agreement">两次输入的密码不一致，请重新输入</string>
+    <string name="password_no_standard">密码不符合规范，请重新输入</string>
+    <string name="modify_success">修改成功</string>
+
+
     <string name="face_back">意见与反馈</string>
     <string name="set">设置</string>
-    <string name="my_info">个人信息</string>
     <string name="user_head">头像</string>
-    <string name="nick_name">昵称</string>
+    <string name="nick_name">用户名</string>
     <string name="phone_code">手机号</string>
     <string name="gender">性别</string>
     <string name="birthday">出生日期</string>
@@ -87,7 +95,7 @@
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
     <string name="about_our">关于我们</string>
-    <string name="link_our">联系我们</string>
+    <string name="link_our">联系产品经理</string>
     <string name="user_argument">用户协议</string>
     <string name="private_policy">隐私策略</string>
     <string name="clear_cpu">清空缓存</string>

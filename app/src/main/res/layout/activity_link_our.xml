@@ -4,121 +4,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/color_F8F9FB"
+    android:background="@color/white"
     tools:context="com.business.electr.clothes.ui.activity.mine.LinkOurActivity">
 
     <include layout="@layout/title_bar_layout"/>
 
-    <!--客服电话-->
-    <LinearLayout
+
+    <EditText
+        android:id="@+id/et_suggest"
+        android:gravity="start"
+        android:paddingTop="@dimen/padding_20"
+        android:paddingStart="@dimen/padding_29"
+        android:textSize="@dimen/text_font_13"
+        android:hint="有任何产品问题都可以反馈给我们…"
+        android:background="@null"
+        android:textColorHint="@color/color_D0D1D2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:gravity="center_vertical"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginEnd="@dimen/padding_24"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="@string/service_phone"/>
-
-
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_4E7CFE"
-            android:textSize="@dimen/text_font_16"
-            android:text="400-650-3615"/>
-
-    </LinearLayout>
-    <!--企业邮箱-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:layout_marginTop="@dimen/padding_1"
-        android:gravity="center_vertical"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginEnd="@dimen/padding_24"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="@string/company_email"/>
-
-        <TextView
-            android:id="@+id/tv_company_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_4E7CFE"
-            android:textSize="@dimen/text_font_16"
-            android:text="service@punch_card.com"/>
-
-    </LinearLayout>
-
-    <!--公司地址-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:layout_marginTop="@dimen/padding_1"
-        android:gravity="center_vertical"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginEnd="@dimen/padding_24"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="@string/company_email"/>
-
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="北京市海淀区致真大厦A座705"/>
-
-    </LinearLayout>
-
-    <!--邮政编码-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_56"
-        android:layout_marginTop="@dimen/padding_1"
-        android:gravity="center_vertical"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_marginEnd="@dimen/padding_24"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="@string/company_email"/>
-
-        <TextView
-            android:id="@+id/tv_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_252631"
-            android:textSize="@dimen/text_font_16"
-            android:text="100191"/>
-
-    </LinearLayout>
+        android:layout_height="@dimen/padding_200" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"/>
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_weixin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/img_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_13"
+            android:src="@drawable/icon_my_ihi"
+            android:paddingStart="@dimen/padding_30"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_13"
+            android:textColor="@color/color_353535"
+            android:text="微信回复"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_weixin"
+            android:layout_width="@dimen/padding_200"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:textColorHint="@color/color_8c919b"
+            android:textSize="@dimen/text_font_12"
+            android:layout_marginEnd="@dimen/padding_27"
+            android:hint="微信号"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/img_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_13"
+            android:src="@drawable/icon_my_ihi"
+            android:paddingStart="@dimen/padding_30"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_13"
+            android:textColor="@color/color_353535"
+            android:text="邮箱回复"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="@dimen/padding_200"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:textColorHint="@color/color_8c919b"
+            android:textSize="@dimen/text_font_12"
+            android:layout_marginEnd="@dimen/padding_27"
+            android:hint="邮箱"/>
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="@dimen/padding_305"
+        android:layout_height="@dimen/padding_48"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/padding_55"
+        android:background="@drawable/bg_login_get_code"
+        android:gravity="center"
+        android:text="@string/commit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_15" />
+
+
 
 </LinearLayout>

@@ -88,7 +88,7 @@ public class DataCheckUtils {
 
     //检查密码
     public static boolean checkPwd(String pwd) {
-        if (TextUtils.isEmpty(pwd) || pwd.length() < 6) {
+        if (TextUtils.isEmpty(pwd) || pwd.length() < 8) {
             return false;
         }
         String regex = "^(?=.{6,20}$)(?![0-9]+$)(?![a-zA-Z]+$)(?![\\!@#\\$%\\^&\\*\\(\\)\\.\\/\\\\,\\[\\]\\{\\}\\+\\-_]+$)[0-9a-zA-Z\\!@#\\$%\\^&\\*\\(\\)\\.\\/\\\\,\\[\\]\\{\\}\\+\\-_]+$";

@@ -2,6 +2,7 @@ package com.business.electr.clothes.mvp.presenter.login;
 
 import android.text.TextUtils;
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.bean.MapModel;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
@@ -11,6 +12,9 @@ import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
 import com.business.electr.clothes.utils.DataCheckUtils;
 import com.business.electr.clothes.utils.MLog;
+
+import java.util.Map;
+
 import okhttp3.RequestBody;
 
 /**
@@ -54,13 +58,13 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 .addParams("roleType",0).toRequestBody();
         addSubscription(
                 apiStores.requestLogin(requestBody),
-                new BaseObserver<BaseApiResponse<UserBean>>() {
+                new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
                     @Override
-                    public void onNext(BaseApiResponse<UserBean> data) {
+                    public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-                            mView.loginSuccess(data.getData());
+                            mView.loginSuccess(data.getData().getMap());
                         }
                     }
 

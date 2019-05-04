@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.activity.mine.MyIHIActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <TextView
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginTop="@dimen/padding_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14"
+        android:text="采样率"/>
+
+    <View
+        android:layout_marginTop="@dimen/padding_26"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+
+    <LinearLayout
+        android:id="@+id/ll_125_sampling"
+        android:layout_width="match_parent"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/padding_63">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_353535"
+            android:layout_marginStart="@dimen/padding_26"
+            android:textSize="@dimen/text_font_14"
+            android:text="125Hz"/>
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_125"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_31"
+            android:src="@drawable/icon_my_ihi"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_1000_sampling"
+        android:layout_width="match_parent"
+        android:background="@drawable/selector_bg_click"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/padding_63">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_353535"
+            android:layout_marginStart="@dimen/padding_26"
+            android:textSize="@dimen/text_font_14"
+            android:text="1000Hz"/>
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_31"
+            android:src="@drawable/icon_my_ihi"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="@dimen/padding_305"
+        android:layout_height="@dimen/padding_48"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/padding_55"
+        android:background="@drawable/bg_login_get_code"
+        android:gravity="center"
+        android:text="@string/commit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_15" />
+
+
+</LinearLayout>

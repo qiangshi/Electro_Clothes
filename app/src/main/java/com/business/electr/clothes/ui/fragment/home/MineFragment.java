@@ -40,8 +40,7 @@ public class MineFragment extends BaseFragment {
         public void onSynchronizationUpdate(int type, Object object) {
             UserBean bean = (UserBean) object;
             if (bean != null) {
-//                tvUserName.setText(bean.getNickName());
-//                GlidUtils.setCircleGrid(getActivity(), bean.getHeadImgUrl(), imgUserHead);
+                tvName.setText(bean.getUserName());
             }
         }
     };
@@ -70,6 +69,8 @@ public class MineFragment extends BaseFragment {
                         .start();
                 break;
             case R.id.ll_ihi:
+                new DefaultUriRequest(getActivity(),RouterCons.CREATE_MY_IHI)
+                        .start();
                 break;
             case R.id.ll_task:
                 break;
@@ -82,7 +83,7 @@ public class MineFragment extends BaseFragment {
 //                        .start();
                 break;
             case R.id.lin_help:
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_SETTING)
+                new DefaultUriRequest(getActivity(), RouterCons.CREATE_HELPER)
                         .start();
                 break;
         }
