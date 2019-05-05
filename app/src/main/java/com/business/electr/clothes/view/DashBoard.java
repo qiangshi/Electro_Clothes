@@ -230,7 +230,7 @@ public class DashBoard extends View {
         canvas.drawText("0", -length + 30, 0 + 15f, textPaint);
         canvas.drawText("160", length - 30, 0 + 15f, textPaint);
         textPaint.setTextSize(33);
-        canvas.drawText("常规静息心率55-100", 0, 0 - 10f, textPaint);
+        canvas.drawText("常规静息心率60-100", 0, 0 - 10f, textPaint);
 
     }
 
