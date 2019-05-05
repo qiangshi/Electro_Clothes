@@ -25,5 +25,7 @@ public class RouterCons {
     public static final String CREATE_SET_NEW_PASSWORD = "/create_set_new_password";
     public static final String CREATE_MY_IHI = "/create_my_ihi";
     public static final String CREATE_HELPER = "/create_helper";
+    public static final String CREATE_ELECT_DETAIL = "/create_elect_detail";
+    public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
 
 }

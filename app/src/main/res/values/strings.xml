@@ -11,6 +11,41 @@
     <string name="task">任务</string>
     <string name="add">添加</string>
 
+    <!--history-->
+    <string name="elect_collection">心电采集</string>
+    <string name="elect_mini">心电最低</string>
+    <string name="elect_average">心电平均</string>
+    <string name="elect_height">心电最高</string>
+    <string name="elect_number">步数</string>
+    <string name="elect_calorie">卡路里</string>
+    <string name="kilometre">公里</string>
+    <string name="day">日</string>
+    <string name="week">周</string>
+    <string name="month">月</string>
+    <string name="year">年</string>
+    <string name="upload_doctor">上传问医</string>
+
+    <!--设备匹配-->
+    <string name="equipment_match">设备匹配</string>
+    <string name="normal_elect_60_100">常规静息心率 60-100</string>
+    <string name="per_m">/m</string>
+    <string name="mini_er">最低</string>
+    <string name="height_er">最高</string>
+    <string name="second">秒</string>
+    <string name="elect_travel">心率之旅</string>
+    <string name="emotions_relax_body">平复情绪，放松身心，平衡呼吸</string>
+    <string name="end">结束</string>
+    <string name="average">平均</string>
+    <string name="now_day_collection">今日已采集 </string>
+    <string name="house">小时</string>
+    <string name="six_s_jingce">60/s精测</string>
+    <string name="equipment_start">心贴 / 摇动以启动</string>
+    <string name="or">或</string>
+    <string name="smart_socks">智能袜 / 打开开关</string>
+    <string name="select_a_ihi">选择一个iHi心贴</string>
+    <string name="match_success">配对成功 请穿上心电衣</string>
+    <string name="if_no_match_up_slide">若要解除匹配 请向上滑动心贴</string>
+
 
     <!--splash   login-->
     <string name="please_open_read_write_permission">请您打开我们需要的存储权限</string>
@@ -73,12 +108,50 @@
     <string name="my_company">我的iHi</string>
     <string name="please_in_height">请输入正确的身高信息</string>
     <string name="please_in_weight">请输入正确的体重信息</string>
-    <string name="please_in_old_password">请输入旧密码</string>
-    <string name="please_in_new_password">请输入新密码</string>
-    <string name="please_in_again_password">请再次输入新密码</string>
+    <string name="please_in_old_password">请输入您旧密码</string>
+    <string name="old_password">旧密码</string>
+    <string name="please_in_again_password">请再次输入您的新密码</string>
     <string name="password_no_agreement">两次输入的密码不一致，请重新输入</string>
     <string name="password_no_standard">密码不符合规范，请重新输入</string>
     <string name="modify_success">修改成功</string>
+    <string name="new_password">新密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="please_in_new_password">请输入您的新密码</string>
+    <string name="password_hint">密码必须至少8个字符，而且同时包含字母和数字</string>
+    <string name="again_get">重新获取</string>
+    <string name="faq">FAQ</string>
+    <string name="version_update">版本更新</string>
+    <string name="link_our">联系产品经理</string>
+    <string name="link_our_time_hint">24小时内回复</string>
+    <string name="about_our">关于我们</string>
+    <string name="company_info">智纤至康版权所有</string>
+    <string name="made_with_frbret">Made with by FibreT, Inc.</string>
+    <string name="service_clause">服务条款</string>
+    <string name="have_question_link_our">有任何产品问题都可以反馈给我们…</string>
+    <string name="private_policy">隐私政策</string>
+    <string name="wei_result">微信回复</string>
+    <string name="wei_code">微信号</string>
+    <string name="email_result">邮箱回复</string>
+    <string name="email">邮箱</string>
+    <string name="set_new_password">设置新密码</string>
+    <string name="password">密码</string>
+    <string name="name">姓名</string>
+    <string name="body_height">身高(cm)</string>
+    <string name="weight">体重(kg)</string>
+    <string name="unit_cm">单位(cm)</string>
+    <string name="unit_kg">单位(kg)</string>
+    <string name="sampling_rate">采样率</string>
+    <string name="my_ihi">我的iHi</string>
+    <string name="task_tag">任务目标</string>
+    <string name="ai_experience">AI体验</string>
+    <string name="vip_function">会员功能</string>
+    <string name="my_ai_nurses">我的AI小护士</string>
+    <string name="my_private_doctor">我的私人医生</string>
+    <string name="helper">帮助</string>
+    <string name="user_info">个人信息</string>
+    <string name="register">注册</string>
+    <string name="please_input">请输入</string>
+    <string name="please_select">请选择</string>
 
 
     <string name="face_back">意见与反馈</string>
@@ -94,10 +167,9 @@
     <string name="please_input_feedback_content">请输入反馈内容</string>
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
-    <string name="about_our">关于我们</string>
-    <string name="link_our">联系产品经理</string>
+
+
     <string name="user_argument">用户协议</string>
-    <string name="private_policy">隐私策略</string>
     <string name="clear_cpu">清空缓存</string>
     <string name="check_update">检查更新</string>
     <string name="used_update_news">已更新到最新</string>
@@ -118,6 +190,82 @@
     <string-array name="gender_sex">
         <item>男</item>
         <item>女</item>
+    </string-array>
+
+    <string-array name="height_list">
+        <item>110cm</item>
+        <item>111cm</item>
+        <item>112cm</item>
+        <item>113cm</item>
+        <item>114cm</item>
+        <item>115cm</item>
+        <item>116cm</item>
+        <item>117cm</item>
+        <item>118cm</item>
+        <item>119cm</item>
+        <item>120cm</item>
+        <item>121cm</item>
+        <item>122cm</item>
+        <item>123cm</item>
+        <item>124cm</item>
+        <item>125cm</item>
+        <item>126cm</item>
+        <item>127cm</item>
+        <item>128cm</item>
+        <item>129cm</item>
+        <item>130cm</item>
+        <item>131cm</item>
+        <item>132cm</item>
+        <item>133cm</item>
+        <item>134cm</item>
+        <item>135cm</item>
+        <item>136cm</item>
+        <item>137cm</item>
+        <item>138cm</item>
+        <item>139cm</item>
+        <item>140cm</item>
+        <item>141cm</item>
+        <item>142cm</item>
+        <item>143cm</item>
+        <item>144cm</item>
+        <item>145cm</item>
+        <item>146cm</item>
+    </string-array>
+
+    <string-array name="weight_list">
+        <item>30kg</item>
+        <item>31kg</item>
+        <item>33kg</item>
+        <item>34kg</item>
+        <item>35kg</item>
+        <item>36kg</item>
+        <item>37kg</item>
+        <item>38kg</item>
+        <item>39kg</item>
+        <item>40kg</item>
+        <item>41kg</item>
+        <item>42kg</item>
+        <item>43kg</item>
+        <item>44kg</item>
+        <item>45kg</item>
+        <item>46kg</item>
+        <item>47kg</item>
+        <item>48kg</item>
+        <item>49kg</item>
+        <item>50kg</item>
+        <item>51kg</item>
+        <item>52kg</item>
+        <item>53kg</item>
+        <item>54kg</item>
+        <item>55kg</item>
+        <item>56kg</item>
+        <item>57kg</item>
+        <item>58kg</item>
+        <item>59kg</item>
+        <item>60kg</item>
+        <item>61kg</item>
+        <item>62kg</item>
+        <item>63kg</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

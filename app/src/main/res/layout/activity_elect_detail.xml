@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical"
+    tools:context=".ui.activity.ElectDetailActivity">
+
+    <include layout="@layout/title_bar_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_131"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="-10dp"
+            android:text="7.5"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_38" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_house"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/tv_house"
+            android:text="小时"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_house"
+            android:layout_alignStart="@+id/tv_house"
+            android:layout_marginStart="@dimen/padding_10"
+            android:text="昨天已采集"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_13" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/padding_6">
+
+        <com.business.electr.clothes.view.ElectView
+            android:id="@+id/ev_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_230" />
+
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="@dimen/padding_305"
+            android:layout_height="@dimen/padding_48"
+             android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_35"
+            android:background="@drawable/bg_login_get_code"
+            android:gravity="center"
+            android:text="@string/upload_doctor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_font_15" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -31,7 +31,9 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.mine.HelperActivity"></activity>
+        <activity android:name=".ui.activity.login.PerfectInfoActivity"></activity>
+        <activity android:name=".ui.activity.ElectDetailActivity" />
+        <activity android:name=".ui.activity.mine.HelperActivity" />
         <activity android:name=".ui.activity.mine.MyIHIActivity" />
         <activity android:name=".ui.activity.mine.ForgetPassActivity" />
         <activity android:name=".ui.activity.mine.ReSetPasswordActivity" />

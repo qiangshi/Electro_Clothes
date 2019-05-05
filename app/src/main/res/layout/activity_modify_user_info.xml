@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_28"
-            android:text="密码"
+            android:text="@string/password"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_28"
-            android:text="姓名"
+            android:text="@string/name"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -158,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_36"
-            android:text="男"
+            tools:text="男"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_14" />
 
@@ -226,7 +226,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_28"
-            android:text="身高(cm)"
+            android:text="@string/body_height"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -237,12 +237,12 @@
 
 
         <EditText
-            android:id="@+id/et_height_111"
+            android:id="@+id/et_height"
             android:layout_width="@dimen/padding_150"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/padding_36"
             android:background="@null"
-            android:hint="单位(cm)"
+            android:hint="@string/unit_cm"
             android:inputType="number"
             android:gravity="right|center_vertical"
             android:textColor="@color/color_8c919b"
@@ -272,7 +272,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_28"
-            android:text="体重(kg)"
+            android:text="@string/weight"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -282,13 +282,13 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/et_weight_222"
+            android:id="@+id/et_weight"
             android:layout_width="@dimen/padding_150"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/padding_36"
             android:background="@null"
             android:inputType="number"
-            android:hint="单位(kg)"
+            android:hint="@string/unit_kg"
             android:gravity="right|center_vertical"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_14"

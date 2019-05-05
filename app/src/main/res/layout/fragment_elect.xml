@@ -83,7 +83,7 @@
                 android:textSize="@dimen/text_font_15"
                 android:textColor="@color/color_353535"
                 android:layout_alignBottom="@+id/tv_mini"
-                android:text="/m"/>
+                android:text="@string/per_m"/>
 
             <ImageView
                 android:id="@+id/img_mini"
@@ -102,7 +102,7 @@
                 android:layout_marginStart="@dimen/padding_3"
                 android:layout_toEndOf="@+id/img_mini"
                 android:textColor="@color/color_8c919b"
-                android:text="最低"
+                android:text="@string/mini_er"
                 android:textSize="@dimen/text_font_13"/>
 
         </RelativeLayout>
@@ -128,7 +128,7 @@
                 android:textSize="@dimen/text_font_15"
                 android:textColor="@color/color_353535"
                 android:layout_alignBottom="@+id/tv_average"
-                android:text="/m"/>
+                android:text="@string/per_m"/>
 
             <ImageView
                 android:id="@+id/img_average"
@@ -147,7 +147,7 @@
                 android:layout_marginStart="@dimen/padding_3"
                 android:layout_toEndOf="@+id/img_average"
                 android:textColor="@color/color_8c919b"
-                android:text="平均"
+                android:text="@string/average"
                 android:textSize="@dimen/text_font_13"/>
 
         </RelativeLayout>
@@ -173,7 +173,7 @@
                 android:textSize="@dimen/text_font_15"
                 android:textColor="@color/color_353535"
                 android:layout_alignBottom="@+id/tv_high"
-                android:text="/m"/>
+                android:text="@string/per_m"/>
 
             <ImageView
                 android:id="@+id/img_high"
@@ -192,7 +192,7 @@
                 android:layout_marginStart="@dimen/padding_3"
                 android:layout_toEndOf="@+id/img_high"
                 android:textColor="@color/color_8c919b"
-                android:text="最高"
+                android:text="@string/height_er"
                 android:textSize="@dimen/text_font_13"/>
 
         </RelativeLayout>
@@ -224,7 +224,7 @@
             android:textColor="@color/color_8c919b"
             android:layout_marginStart="@dimen/padding_7"
             android:textSize="@dimen/padding_10"
-            android:text="步数"/>
+            android:text="@string/elect_number"/>
 
 
         <Space
@@ -248,7 +248,7 @@
             android:textColor="@color/color_8c919b"
             android:layout_marginStart="@dimen/padding_7"
             android:textSize="@dimen/padding_10"
-            android:text="公里"/>
+            android:text="@string/kilometre"/>
 
 
         <Space
@@ -272,7 +272,7 @@
             android:layout_marginStart="@dimen/padding_7"
             android:textSize="@dimen/padding_10"
             android:layout_marginEnd="@dimen/padding_31"
-            android:text="卡路里"/>
+            android:text="@string/elect_calorie"/>
 
     </LinearLayout>
 
@@ -288,7 +288,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_12"
             android:textColor="@color/color_8c919b"
-            android:text="今日已采集 "/>
+            android:text="@string/now_day_collection"/>
 
         <TextView
             android:id="@+id/tv_house"
@@ -296,14 +296,14 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_15"
             android:textColor="@color/color_353535"
-            android:text="3.5"/>
+            android:text=" 3.5"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_12"
             android:textColor="@color/color_8c919b"
-            android:text="小时"/>
+            android:text="@string/house"/>
 
     </LinearLayout>
 
@@ -315,6 +315,6 @@
         android:layout_height="@dimen/padding_39"
         android:layout_marginEnd="@dimen/padding_25"
         android:layout_gravity="end"
-        android:text="60/s精测"/>
+        android:text="@string/six_s_jingce"/>
 
 </LinearLayout>

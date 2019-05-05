@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我的iHi"
+                android:text="@string/my_ihi"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_12" />
 
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="任务目标"
+                android:text="@string/task_tag"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_12" />
 
@@ -121,7 +121,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AI体验"
+                android:text="@string/ai_experience"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_12" />
 
@@ -135,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_20"
-        android:text="会员功能"
+        android:text="@string/vip_function"
         android:layout_marginStart="@dimen/padding_30"
         android:layout_marginBottom="@dimen/padding_28"
         android:textColor="@color/color_9297A0"
@@ -158,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="我的AI小护士"
+            android:text="@string/my_ai_nurses"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -186,7 +186,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="我的私人医生"
+            android:text="@string/my_private_doctor"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -211,45 +211,6 @@
         android:layout_marginEnd="@dimen/padding_28"
         android:background="@color/color_44979797" />
 
-
-    <!--意见与反馈-->
-    <!--<LinearLayout-->
-        <!--android:id="@+id/lin_feed_back"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/padding_56"-->
-        <!--android:layout_marginBottom="@dimen/padding_1"-->
-        <!--android:background="@drawable/selector_bg_click"-->
-        <!--android:gravity="center_vertical">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img_feed_back"-->
-            <!--android:layout_width="@dimen/padding_16"-->
-            <!--android:layout_height="@dimen/padding_16"-->
-            <!--android:layout_marginStart="@dimen/padding_16"-->
-            <!--android:src="@drawable/me_feedback_iconxhdpi" />-->
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="@dimen/padding_12"-->
-            <!--android:text="@string/face_back"-->
-            <!--android:textColor="@color/color_252631"-->
-            <!--android:textSize="@dimen/text_font_16" />-->
-
-        <!--<Space-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1" />-->
-
-        <!--<ImageView-->
-            <!--android:layout_width="@dimen/padding_16"-->
-            <!--android:layout_height="@dimen/padding_16"-->
-            <!--android:layout_marginEnd="@dimen/padding_16"-->
-            <!--android:src="@drawable/ic_next_grey" />-->
-
-    <!--</LinearLayout>-->
-
-
     <!--帮助-->
     <LinearLayout
         android:id="@+id/lin_help"
@@ -264,7 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="帮助"
+            android:text="@string/helper"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 

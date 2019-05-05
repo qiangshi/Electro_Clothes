@@ -42,9 +42,9 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     EditText etName;//用户姓名
 
 
-    @BindView(R.id.et_height_111)
+    @BindView(R.id.et_height)
     EditText etHeight;//身高
-    @BindView(R.id.et_weight_222)
+    @BindView(R.id.et_weight)
     EditText etWeight;//体重
 
 

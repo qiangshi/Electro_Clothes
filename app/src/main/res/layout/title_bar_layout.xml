@@ -62,7 +62,7 @@
         android:gravity="center"
         android:paddingEnd="@dimen/padding_28"
         android:singleLine="true"
-        android:text="提交"
+        android:text="@string/commit"
         android:textColor="@color/color_353535"
         android:textSize="@dimen/text_font_14"
         android:visibility="gone" />

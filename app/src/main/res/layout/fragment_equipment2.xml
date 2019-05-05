@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="@dimen/text_font_17"
-        android:text="选择一个iHi心贴"/>
+        android:text="@string/select_a_ihi"/>
 
 
 </RelativeLayout>

@@ -64,7 +64,7 @@
             android:layout_alignBottom="@+id/tv_60"
             android:layout_marginBottom="@dimen/padding_13"
             android:layout_toEndOf="@+id/tv_60"
-            android:text="秒"
+            android:text="@string/second"
             android:textColor="@color/white"
             android:textSize="@dimen/text_font_11" />
 
@@ -74,7 +74,7 @@
             android:layout_below="@+id/tv_60"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="-10dp"
-            android:text="心率之旅"
+            android:text="@string/elect_travel"
             android:textColor="@color/white"
             android:textSize="@dimen/text_font_15" />
 
@@ -98,7 +98,7 @@
         android:layout_below="@+id/rel_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/padding_185"
-        android:text="平复情绪，放松身心，平衡呼吸"
+        android:text="@string/emotions_relax_body"
         android:textColor="@color/white"
         android:textSize="@dimen/text_font_16" />
 
@@ -122,7 +122,7 @@
         android:layout_marginBottom="@dimen/padding_80"
         android:background="@drawable/bg_stroke_66ffffff_23"
         android:gravity="center"
-        android:text="结束"
+        android:text="@string/end"
         android:textColor="@color/color_66ffffff"
         android:textSize="@dimen/text_font_14"
         android:visibility="gone"/>

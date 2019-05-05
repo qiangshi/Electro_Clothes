@@ -16,7 +16,7 @@
         android:paddingTop="@dimen/padding_20"
         android:paddingStart="@dimen/padding_29"
         android:textSize="@dimen/text_font_13"
-        android:hint="有任何产品问题都可以反馈给我们…"
+        android:hint="@string/have_question_link_our"
         android:background="@null"
         android:textColorHint="@color/color_D0D1D2"
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_13"
             android:textColor="@color/color_353535"
-            android:text="微信回复"/>
+            android:text="@string/wei_result"/>
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:textColorHint="@color/color_8c919b"
             android:textSize="@dimen/text_font_12"
             android:layout_marginEnd="@dimen/padding_27"
-            android:hint="微信号"/>
+            android:hint="@string/wei_code"/>
 
 
     </LinearLayout>
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_13"
             android:textColor="@color/color_353535"
-            android:text="邮箱回复"/>
+            android:text="@string/email_result"/>
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             android:textColorHint="@color/color_8c919b"
             android:textSize="@dimen/text_font_12"
             android:layout_marginEnd="@dimen/padding_27"
-            android:hint="邮箱"/>
+            android:hint="@string/email"/>
 
     </LinearLayout>
 

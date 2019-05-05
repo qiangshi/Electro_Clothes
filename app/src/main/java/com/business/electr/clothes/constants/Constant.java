@@ -19,6 +19,7 @@ public class Constant {
     public static final String IS_REGISTER = "is_register";
     public static final String CLOCK_TYPE = "clock_type";
     public static final String TYPE = "type";
+    public static final String TITLE_TIME = "title_time";
     public static final String CURRENT_TIME = "current_time";
     public static final String IS_TIME_BEAN_RECEIVE = "is_time_bean_receive";
 

@@ -4,8 +4,8 @@
 
     <solid android:color="@color/gray_text_color"/>
 
-    <corners android:radius="@dimen/padding_27"/>
-    <size android:height="@dimen/padding_54" android:width="@dimen/padding_54"/>
+    <corners android:radius="@dimen/padding_22"/>
+    <size android:height="@dimen/padding_43" android:width="@dimen/padding_43"/>
 
 
 </shape>

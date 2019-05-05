@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="FAQ"
+            android:text="@string/faq"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="版本更新"
+            android:text="@string/version_update"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="联系产品经理"
+            android:text="@string/link_our"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -141,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_12"
-            android:text="24小时内回复"
+            android:text="@string/link_our_time_hint"
             android:textColor="@color/color_D0D1D2"
             android:textSize="@dimen/padding_11" />
 
@@ -166,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_31"
-            android:text="关于我们"
+            android:text="@string/about_our"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_13" />
 
@@ -192,7 +192,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="智纤至康版权所有"
+        android:text="@string/company_info"
         android:textColor="@color/color_dcdcdc"
         android:textSize="@dimen/text_font_11" />
 
@@ -201,7 +201,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/padding_6"
-        android:text="Made with by FibreT, Inc."
+        android:text="@string/made_with_frbret"
         android:textColor="@color/color_dcdcdc"
         android:textSize="@dimen/text_font_13" />
 
@@ -219,7 +219,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_10"
-            android:text="服务条款"
+            android:text="@string/service_clause"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_11" />
 
@@ -227,7 +227,7 @@
             android:id="@+id/tv_private"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="隐私政策"
+            android:text="@string/private_policy"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_11" />
     </LinearLayout>

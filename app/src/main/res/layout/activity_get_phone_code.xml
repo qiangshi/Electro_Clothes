@@ -75,6 +75,6 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_12"
         android:textColor="@color/color_8c919b"
-        android:text="重新获取"/>
+        android:text="@string/again_get"/>
 
 </LinearLayout>

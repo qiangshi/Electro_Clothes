@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.history.HistoryTwoFragment">
+    <!--心电采集-->
+    <LinearLayout
+        android:id="@+id/lin_collection"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_collection"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/elect_collection"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="3.4/h" />
+
+    </LinearLayout>
+
+    <!--心电最低-->
+    <LinearLayout
+        android:id="@+id/lin_elect_mini"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_mini"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/elect_mini"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_elect_mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="60/m" />
+
+    </LinearLayout>
+
+    <!--心电平均-->
+    <LinearLayout
+        android:id="@+id/lin_elect_average"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_average"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/elect_average"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_elect_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="80/m" />
+
+    </LinearLayout>
+
+    <!--心电最高-->
+    <LinearLayout
+        android:id="@+id/lin_elect_height"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_height"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/elect_height"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_elect_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="100/m" />
+
+    </LinearLayout>
+
+    <!--步数-->
+    <LinearLayout
+        android:id="@+id/lin_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_num"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_12"
+            android:text="@string/elect_number"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="3536" />
+
+    </LinearLayout>
+
+    <!--公里-->
+    <LinearLayout
+        android:id="@+id/lin_kilometre"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_kilometre"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/kilometre"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_kilometre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="2/km" />
+
+    </LinearLayout>
+
+    <!--卡路里-->
+    <LinearLayout
+        android:id="@+id/lin_calorie"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_23"
+            android:src="@drawable/icon_history_calorie"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_13"
+            android:text="@string/elect_calorie"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/tv_calorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:textColor="@color/color_8c919b"
+            android:textSize="@dimen/text_font_18"
+            tools:text="447/k" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

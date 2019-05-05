@@ -107,8 +107,6 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
             case R.id.tv_confirm:
                 if(type == 0){
                     mPresenter.registerUser(phone, etNewPassword.getText().toString(), etAgainPassword.getText().toString(), vertify);
-                }else {
-
                 }
                 break;
             case R.id.img_new_pass:
@@ -122,7 +120,7 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
 
     @Override
     public void registerSuccess(UserBean userBean) {
-        new DefaultUriRequest(this, RouterCons.MODIFY_USER_INFO)
+        new DefaultUriRequest(this, RouterCons.CREATE_PERFECT_INFO)
                 .start();
     }
 

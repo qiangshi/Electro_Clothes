@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/color_353535"
         android:textSize="@dimen/text_font_14"
-        android:text="采样率"/>
+        android:text="@string/sampling_rate"/>
 
     <View
         android:layout_marginTop="@dimen/padding_26"

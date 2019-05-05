@@ -4,11 +4,11 @@
 
     <item>
         <shape>
-            <solid android:color="@color/item_segmenting_line" />
+            <solid android:color="@color/color_80c9c9c9" />
         </shape>
     </item>
-    <!--第二层背景 顶部偏移0.25dp -->
-    <item android:top="1dp">
+    <!--第二层背景 顶部偏移1dp -->
+    <item android:top="0.66dp">
         <shape>
             <solid android:color="@color/white" />
         </shape>

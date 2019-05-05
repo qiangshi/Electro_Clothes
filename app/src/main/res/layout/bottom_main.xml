@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottom_bar_layout"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/padding_71"
+    android:layout_height="@dimen/padding_54"
     android:layout_alignParentBottom="true"
     android:baselineAligned="false">
 
@@ -105,7 +105,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/padding_27"
+            android:layout_marginTop="@dimen/padding_10"
             android:layout_height="@dimen/padding_44"
             android:background="@drawable/gard_view_top"/>
         <RelativeLayout
