@@ -159,6 +159,7 @@
         android:id="@+id/lin_height"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_63"
+        android:background="@drawable/selector_bg_click"
         android:gravity="center_vertical">
 
 
@@ -175,16 +176,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-
-
-        <EditText
-            android:id="@+id/et_height"
+        <TextView
+            android:id="@+id/tv_height"
             android:layout_width="@dimen/padding_150"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/padding_15"
-            android:background="@null"
-            android:inputType="number"
-            android:hint="@string/please_select"
+            android:text="@string/please_select"
             android:gravity="right|center_vertical"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_14" />
@@ -226,14 +223,12 @@
             android:layout_weight="1" />
 
 
-        <EditText
-            android:id="@+id/et_weight"
+        <TextView
+            android:id="@+id/tv_weight"
             android:layout_width="@dimen/padding_150"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/padding_15"
-            android:background="@null"
-            android:inputType="number"
-            android:hint="@string/please_select"
+            android:text="@string/please_select"
             android:gravity="right|center_vertical"
             android:textColor="@color/color_8c919b"
             android:textSize="@dimen/text_font_14" />

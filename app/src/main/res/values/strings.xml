@@ -9,7 +9,7 @@
     <string name="mine">我的</string>
     <string name="presentation">报告</string>
     <string name="task">任务</string>
-    <string name="add">添加</string>
+
 
     <!--history-->
     <string name="elect_collection">心电采集</string>
@@ -49,7 +49,6 @@
 
     <!--splash   login-->
     <string name="please_open_read_write_permission">请您打开我们需要的存储权限</string>
-    <string name="login_user">登录您的账号</string>
     <string name="you_good">您好，</string>
     <string name="code_password_login">账号密码登录</string>
     <string name="phone_code_login">手机验证码登录</string>
@@ -61,24 +60,16 @@
     <string name="please_input_code">输入短信验证码</string>
     <string name="verification_send_to">验证码已发送至</string>
     <string name="country_area">国家和地区</string>
-
-
     <string name="please_in_phone">请输入您的手机号</string>
     <string name="please_in_password">请输入登录密码</string>
-
-
     <string name="please_new_phone">请输入您的新手机号</string>
     <string name="please_in_code">请输入验证码</string>
     <string name="get_phone_code">获取验证码</string>
     <string name="login">登录</string>
-    <string name="user_agreement">《用户相关协议》</string>
-    <string name="used_read_agree">已阅读并同意</string>
     <string name="hint_input_phone_num">请输入手机号</string>
     <string name="msg_phone_num_error">手机号输入有误，请重新输入</string>
-    <string name="msg_email_error">邮箱输入有误，请重新输入</string>
     <string name="msg_verification_code_error">验证码错误，请重新输入</string>
     <string name="btn_re_send_code">重新发送</string>
-    <string name="read_user_agreement">请阅读用户协议并同意</string>
     <string name="please_get_code">请重新获取验证码</string>
     <string name="get_success">获取成功</string>
     <string name="again_pass_logout_app">再按一退出程序</string>
@@ -93,7 +84,6 @@
     <string name="commit_success">提交成功</string>
     <string name="confirm">确定</string>
     <string name="confirm_">确认</string>
-    <string name="search">搜索</string>
     <string name="cancel">取消</string>
     <string name="finish_task">结束任务</string>
     <string name="edit_task">编辑任务</string>
@@ -101,8 +91,6 @@
 
     <!--mine-->
     <string name="log_out">退出</string>
-    <string name="modify_info">修改资料</string>
-    <string name="time_bean">任务目标</string>
     <string name="modify">修改</string>
     <string name="my_info">账号信息</string>
     <string name="my_company">我的iHi</string>
@@ -168,19 +156,12 @@
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
 
-
     <string name="user_argument">用户协议</string>
     <string name="clear_cpu">清空缓存</string>
     <string name="check_update">检查更新</string>
     <string name="used_update_news">已更新到最新</string>
-    <string name="service_phone">客服电话</string>
-    <string name="company_email_code">service@punch_card.com</string>
-    <string name="company_email">企业邮箱</string>
-    <string name="select_email">请选择邮件类应用</string>
-    <string name="email_title">请输入邮件主题</string>
-    <string name="email_body">请输入你想要发送的邮件内容</string>
-    <string name="dial">拨打</string>
-    <string name="this_service_tel">4006503615</string>
+
+
     <string name="please_open_phone_permission">请您打开我们需要的电话权限</string>
     <string name="msg_open">消息通知已打开</string>
     <string name="msg_close">消息通知已关闭</string>
@@ -268,7 +249,5 @@
         <item>63kg</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

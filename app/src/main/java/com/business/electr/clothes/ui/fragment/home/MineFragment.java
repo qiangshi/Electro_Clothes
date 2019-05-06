@@ -1,5 +1,6 @@
 package com.business.electr.clothes.ui.fragment.home;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
+import com.business.electr.clothes.ui.activity.TestActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -81,6 +83,7 @@ public class MineFragment extends BaseFragment {
                         .start();
                 break;
             case R.id.lin_my_doctor:
+                startActivity(new Intent(getActivity(), TestActivity.class));
 //                new DefaultUriRequest(getActivity(), RouterCons.CREATE_QUESTION_FEEDBACK)
 //                        .start();
                 break;
