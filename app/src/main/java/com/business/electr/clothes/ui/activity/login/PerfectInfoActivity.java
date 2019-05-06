@@ -81,7 +81,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                             @Override
                             public void onTypeChange(int pos) {
                                 PerfectInfoActivity.this.genderPos = pos;
-                                tvGender.setText(heights.get(pos));
+                                tvHeight.setText(heights.get(pos));
                             }
                         });
                 break;
@@ -91,7 +91,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                             @Override
                             public void onTypeChange(int pos) {
                                 PerfectInfoActivity.this.genderPos = pos;
-                                tvGender.setText(weights.get(pos));
+                                tvWeight.setText(weights.get(pos));
                             }
                         });
                 break;
