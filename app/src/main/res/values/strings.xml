@@ -48,7 +48,7 @@
 
 
     <!--splash   login-->
-    <string name="please_open_read_write_permission">请您打开我们需要的存储权限</string>
+    <string name="please_open_read_write_permission">请您打开我们需要的定位权限</string>
     <string name="you_good">您好，</string>
     <string name="code_password_login">账号密码登录</string>
     <string name="phone_code_login">手机验证码登录</string>

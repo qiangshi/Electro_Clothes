@@ -4,6 +4,7 @@ import com.business.electr.clothes.constants.Constant;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
 
@@ -45,6 +46,28 @@ public class DateUtils {
      */
     public static String getCurrentTimeYear() {
         return getTime(System.currentTimeMillis(), new SimpleDateFormat(Constant.DATE_FORMAT_3));
+    }
+
+    /**
+     * 获取当前时间的年份  10:20
+     *
+     * @return
+     */
+    public static String getCurrentTimeHouse() {
+        return getTime(System.currentTimeMillis(), new SimpleDateFormat(Constant.DATE_FORMAT_4));
+    }
+
+
+    /**
+     * 获取今天已经走了的时间  单位（分）
+     * @return
+     */
+    public static int getSecondTime() {
+        String temp = "";
+        temp = getCurrentTimeHouse();
+        String[] second = temp.split(":");
+        int s = Integer.valueOf(second[0]) * 60 + Integer.valueOf(second[1]);
+        return s;
     }
 
 }

@@ -30,22 +30,20 @@
             android:src="@drawable/logo" />
 
 
-        <TextView
-            android:id="@+id/tv_des"
+        <ImageView
+            android:id="@+id/img_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_logo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-25dp"
             android:layout_marginBottom="@dimen/padding_5"
-            android:text="Fibre T"
-            android:textColor="@color/color_353535"
-            android:textSize="@dimen/text_font_16" />
+            android:src="@drawable/icon_text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_des"
+            android:layout_below="@+id/img_des"
             android:layout_centerHorizontal="true"
             android:text="1.0.0"
             android:textColor="@color/color_8c919b"

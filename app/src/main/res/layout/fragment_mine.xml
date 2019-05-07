@@ -152,6 +152,7 @@
         android:id="@+id/lin_ai"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_60"
+        android:background="@drawable/selector_bg_click"
         android:gravity="center_vertical">
 
         <TextView
@@ -180,6 +181,7 @@
         android:id="@+id/lin_my_doctor"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_60"
+        android:background="@drawable/selector_bg_click"
         android:gravity="center_vertical">
 
         <TextView

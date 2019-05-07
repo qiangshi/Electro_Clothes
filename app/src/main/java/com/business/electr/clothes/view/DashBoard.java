@@ -22,7 +22,6 @@ public class DashBoard extends View {
     //划刻度线   划文字
     private Paint paint, tmpPaint, textPaint, strokePain;
     private RectF rect;
-    private int backGroundColor;    //背景色
     private int per;             //指数百分比
     private float perOld;          //变化前指针百分比
     private float length;          //仪表盘半径
@@ -52,7 +51,6 @@ public class DashBoard extends View {
     }
 
     private void initIndex(int specSize) {
-        backGroundColor = Color.WHITE;
         r = specSize;
         length = r / 4 * 3;
         per = 0;
@@ -92,7 +90,7 @@ public class DashBoard extends View {
         canvas.translate(canvas.getWidth() / 2, r / 6 * 5);
         rect = new RectF(-(length - length / 6f - 20), -(length / 6f * 5f - 20), length - length / 6f - 20, length / 6f * 5f - 20);
         strokePain = new Paint(paint);
-        strokePain.setColor(0xffeeeeee);
+        strokePain.setColor(getResources().getColor(R.color.color_eeeeee));
         strokePain.setStrokeWidth(5);
         strokePain.setShader(null);
         strokePain.setStyle(Paint.Style.STROKE);
