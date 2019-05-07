@@ -21,13 +21,13 @@ import androidx.annotation.Nullable;
  * @CreateDate: 2019/5/7 14:57
  */
 public class StripShapeView extends View {
-    private Paint dynamicPaint, textPaint;
-    private int bgColor;
-    private float per_width;
-    private int width, height;
-    private int stripHeight = 18;
-    private Path stripPath;
-    private int num = 144;
+    private Paint dynamicPaint;//动态绘制条形
+    private Paint textPaint;//绘制文字
+    private int bgColor;//背景颜色
+    private float per_width;//每个的大小
+    private int width, height;//整个控件的宽高
+    private int stripHeight = 18;//条形图的高
+    private int num = 144;//条形图分割的段数
 
     private Context context;
     private List<StripData> dataList;
@@ -76,7 +76,6 @@ public class StripShapeView extends View {
         textPaint.setStyle(Paint.Style.STROKE);
         textPaint.setStrokeWidth(stripHeight);
 
-        stripPath = new Path();
         dataList = new ArrayList<>();
         generalTestData();
     }
@@ -98,7 +97,6 @@ public class StripShapeView extends View {
         canvas.translate(stripHeight,stripHeight/2);
         int second = DateUtils.getSecondTime()/10;
         MLog.e("====zhq====>second<"+second );
-        stripPath.moveTo(0, 0);
         dynamicPaint.setStrokeWidth(stripHeight);
         for (int i = 0; i < num; i++) {
             boolean isHas = false;
