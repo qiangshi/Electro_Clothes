@@ -1,6 +1,5 @@
 package com.business.electr.clothes.view;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,9 +8,8 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
-
-import com.business.electr.clothes.utils.MLog;
+import com.business.electr.clothes.R;
+import com.business.electr.clothes.utils.LinearGradientUtil;
 
 import androidx.annotation.Nullable;
 
@@ -54,7 +52,6 @@ public class DashBoard extends View {
     }
 
     private void initIndex(int specSize) {
-        MLog.e("====zhq====>specSize<" + specSize);
         backGroundColor = Color.WHITE;
         r = specSize;
         length = r / 4 * 3;
@@ -109,7 +106,7 @@ public class DashBoard extends View {
         canvas.translate(canvas.getWidth() / 2, r / 6 * 5);
         tmpPaint = new Paint(paint); //小刻度画笔对象
         tmpPaint.setTextSize(35);
-        tmpPaint.setColor(Color.parseColor("#eeeeee"));
+        tmpPaint.setColor(getResources().getColor(R.color.color_eeeeee));
         tmpPaint.setTextAlign(Paint.Align.CENTER);
         canvas.rotate(-90, 0f, 0f);
 
@@ -118,11 +115,13 @@ public class DashBoard extends View {
         int count = 80; //总刻度数
         float tempRou = 180 / 80f;//等分成80份
 
-        paint.setColor(Color.parseColor("#3D6AFE"));//心率低区域刻度
+        LinearGradientUtil linearGradientUtil = new LinearGradientUtil(getResources().getColor(R.color.start_color), getResources().getColor(R.color.middle_color), getResources().getColor(R.color.end_color));
         paint.setStrokeWidth(5);
-        int size = Math.min(29,curElect);
+        int size = Math.min(29, curElect);
+
         //绘制刻度和百分比
         for (int i = 0; i <= size; i++) {//划绿色的刻度线
+            paint.setColor(linearGradientUtil.getThreeColor(i * 1.0f / 40));
             if (i == curElect) {
                 paint.setStrokeWidth(8);
                 canvas.drawLine(0f, y - length / 30, 0, y + length / 5, paint);
@@ -134,23 +133,22 @@ public class DashBoard extends View {
             }
         }
 
-
-        paint.setColor(Color.parseColor("#0CBB94"));
         paint.setStrokeWidth(5);
         //绘制刻度和百分比
         for (int i = 30; i <= Math.min(curElect, 50); i++) {//划化正常的刻度线
             if (i == 30) {
                 canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_c1c3c9));
                 canvas.drawText("60", 0, y + length / 6 + 70, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_eeeeee));
             }
             if (i == 50) {
                 canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_c1c3c9));
                 canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_eeeeee));
             }
+            paint.setColor(linearGradientUtil.getThreeColor(i * 1.0f / 40));
             if (i == curElect) {
                 paint.setStrokeWidth(8);
                 canvas.drawLine(0f, y - length / 30, 0, y + length / 5, paint);
@@ -160,10 +158,10 @@ public class DashBoard extends View {
             canvas.rotate(tempRou, 0f, 0f);
         }
 
-        paint.setColor(Color.parseColor("#FDA371"));//心率高区域刻度
         paint.setStrokeWidth(5);
         //绘制刻度和百分比
         for (int i = 51; i <= curElect; i++) {//划黄色的刻度线
+            paint.setColor(linearGradientUtil.getThreeColor(i * 1.0f / 40));
             if (i == curElect) {
                 paint.setStrokeWidth(8);
                 canvas.drawLine(0f, y - length / 30, 0, y + length / 5, paint);
@@ -175,20 +173,20 @@ public class DashBoard extends View {
             }
         }
 
-        paint.setColor(Color.parseColor("#eeeeee"));
+        paint.setColor(getResources().getColor(R.color.color_eeeeee));
         paint.setStrokeWidth(5);
         for (int i = curElect + 1; i <= count; i++) {//划灰色的刻度线
             if (i == 30) {
                 canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_c1c3c9));
                 canvas.drawText("60", 0, y + length / 6 + 70, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_eeeeee));
             }
             if (i == 50) {
                 canvas.drawLine(0f, y + length / 6 + 10, 0, y + length / 6 + 30, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#c1c3c9"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_c1c3c9));
                 canvas.drawText("100", 0, y + length / 6 + 70, tmpPaint);
-                tmpPaint.setColor(Color.parseColor("#eeeeee"));
+                tmpPaint.setColor(getResources().getColor(R.color.color_eeeeee));
             }
             canvas.drawLine(0f, y, 0, y + length / 6, paint);
             canvas.rotate(tempRou, 0f, 0f);
@@ -209,7 +207,7 @@ public class DashBoard extends View {
         textPaint.setStrokeWidth(1);
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(150);
-        textPaint.setColor(Color.parseColor("#353535"));
+        textPaint.setColor(getResources().getColor(R.color.color_353535));
         textPaint.setTextAlign(Paint.Align.RIGHT);
 
         float swidth = textPaint.measureText(String.valueOf(per));
@@ -223,7 +221,7 @@ public class DashBoard extends View {
         canvas.drawText("/m", 0, 0, textPaint);
         textPaint.setTextSize(42);
         textPaint.setTextAlign(Paint.Align.CENTER);
-        textPaint.setColor(Color.parseColor("#b6b6b6"));
+        textPaint.setColor(getResources().getColor(R.color.color_b6b6b6));
         canvas.restore();
         canvas.save();
         canvas.translate(canvas.getWidth() / 2, r / 6 * 5 + length / 3 / 2);
@@ -246,19 +244,4 @@ public class DashBoard extends View {
         invalidate();
     }
 
-    public void cgangePer(int per) {
-        this.perOld = this.per;
-        this.per = per;
-        ValueAnimator va = ValueAnimator.ofFloat(perOld, per);
-        va.setDuration(1000);
-        va.setInterpolator(new OvershootInterpolator());
-        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-//                perPoint = (float) animation.getAnimatedValue();
-                invalidate();
-            }
-        });
-        va.start();
-    }
 }

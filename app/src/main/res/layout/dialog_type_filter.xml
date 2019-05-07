@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:maxHeight="@dimen/padding_170">
+    android:layout_height="@dimen/padding_200"
+    android:gravity="bottom"
+    android:background="@color/translucent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_dialog_type_filter"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxHeight="@dimen/padding_170" />
+        android:layout_height="@dimen/padding_200"
+        android:gravity="bottom"
+        android:background="@color/translucent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_dialog_type_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

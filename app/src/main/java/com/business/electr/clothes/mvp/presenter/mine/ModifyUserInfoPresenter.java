@@ -64,20 +64,10 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
         mView.showLoading();
         int heigh = 0,weigh = 0;
         if(!TextUtils.isEmpty(height)){
-            if(DataCheckUtils.checkNumber(height)){
-                heigh = Integer.valueOf(height);
-            }else {
-                mView.toastMessage(R.string.please_in_height);
-                return;
-            }
+            heigh = Integer.valueOf(height.substring(0,height.length()-2));
         }
         if(!TextUtils.isEmpty(weight)){
-            if(DataCheckUtils.checkNumber(weight)){
-                weigh = Integer.valueOf(weight);
-            }else {
-                mView.toastMessage(R.string.please_in_weight);
-                return;
-            }
+            weigh = Integer.valueOf(weight.substring(0,weight.length()-2));
         }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
                 .addCommonMap()

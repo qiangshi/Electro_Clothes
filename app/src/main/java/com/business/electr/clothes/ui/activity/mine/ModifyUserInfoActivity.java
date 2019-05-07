@@ -14,12 +14,15 @@ import com.business.electr.clothes.mvp.view.mine.ModifyUserInfoView;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
+import com.business.electr.clothes.ui.activity.login.PerfectInfoActivity;
 import com.business.electr.clothes.ui.fragment.dialog.TypeFilterFragment;
 import com.business.electr.clothes.utils.MLog;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -42,12 +45,13 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     EditText etName;//用户姓名
 
 
-    @BindView(R.id.et_height)
-    EditText etHeight;//身高
-    @BindView(R.id.et_weight)
-    EditText etWeight;//体重
+    @BindView(R.id.tv_height)
+    TextView tvHeight;//身高
+    @BindView(R.id.tv_weight)
+    TextView tvWeight;//体重
 
-
+    private List<String> heights;
+    private List<String> weights;
     private UserBean userBean;
 
     @Override
@@ -65,16 +69,17 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         initRightTitle(getResources().getString(R.string.my_info), getResources().getString(R.string.modify));
         userBean = DataCacheManager.getUserInfo();
         mPresenter.getUserInfo();
+        initData();
     }
 
 
     private int genderPos = 2;
 
-    @OnClick({R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password})
+    @OnClick({R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password,R.id.lin_height,R.id.lin_weight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
-                mPresenter.updateUserInfo(genderPos, etHeight.getText().toString(), etWeight.getText().toString(), tvBirthday.getText().toString());
+                mPresenter.updateUserInfo(genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
             case R.id.lin_gender://性别
                 TypeFilterFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,
@@ -92,6 +97,26 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
             case R.id.lin_password://修改密码
                 new DefaultUriRequest(this,RouterCons.CREATE_RE_SET_PASSWORD)
                         .start();
+                break;
+            case R.id.lin_height:
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, 160,
+                        new TypeFilterFragment.TypeChangeListener() {
+                            @Override
+                            public void onTypeChange(int pos) {
+                                ModifyUserInfoActivity.this.genderPos = pos;
+                                tvHeight.setText(heights.get(pos));
+                            }
+                        });
+                break;
+            case R.id.lin_weight:
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, 50,
+                        new TypeFilterFragment.TypeChangeListener() {
+                            @Override
+                            public void onTypeChange(int pos) {
+                                ModifyUserInfoActivity.this.genderPos = pos;
+                                tvWeight.setText(weights.get(pos));
+                            }
+                        });
                 break;
         }
     }
@@ -117,8 +142,8 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
             tvGender.setText("未知");
         }
         tvBirthday.setText(bean.getBirthDate());
-        etHeight.setText(bean.getHeight() +"");
-        etWeight.setText(bean.getWeight() +"");
+        tvHeight.setText(bean.getHeight() +"cm");
+        tvWeight.setText(bean.getWeight() +"kg");
     }
 
     @Override
@@ -126,4 +151,18 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         finish();
     }
 
+
+    /**
+     * 初始化身高体重数据
+     */
+    private void initData(){
+        heights = new ArrayList<>();
+        weights = new ArrayList<>();
+        for (int i = 10; i < 259; i++) {
+            heights.add(i+"cm");
+        }
+        for (int i = 10; i < 200; i++) {
+            weights.add(i+"kg");
+        }
+    }
 }

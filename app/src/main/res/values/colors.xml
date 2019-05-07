@@ -86,6 +86,7 @@
     <color name="color_F1F3F8">#FFF1F3F8</color>//背景色
 
     <color name="color_B4B4B6">#FFB4B4B6</color>
+    <color name="color_b6b6b6">#b6b6b6</color>
     <color name="color_4E7CFE">#FF4E7CFE</color>
     <color name="color_8D92A3">#FF8D92A3</color>
     <color name="color_858585">#858585</color>
@@ -98,6 +99,7 @@
     <color name="color_f58047">#f58047</color>
     <color name="color_003E00">#003E00</color>
     <color name="color_e2e2e2">#e2e2e2</color>
+    <color name="color_eeeeee">#eeeeee</color>
     <color name="color_f5f5f5">#f5f5f5</color>
     <color name="color_6ecb2e">#6ecb2e</color>
     <color name="color_ff8400">#ff8400</color>
@@ -121,6 +123,7 @@
     <color name="color_ffffff">#ffffff</color>
     <color name="color_656565">#656565</color>
     <color name="color_41c8d5">#41c8d5</color>
+    <color name="color_c1c3c9">#c1c3c9</color>
     <color name="color_4CD865">#4CD865</color>
     <color name="color_c6c6c6">#c6c6c6</color>
     <color name="colorPrimary">#000000</color>
@@ -214,9 +217,14 @@
         <item>#BC34BA</item>
         <item>#F9C5C7</item>
         <item>#38E5BF</item>
+        <item>#0000ff</item>
         <item>#C5D2F9</item>
     </array>
 
     <color name="white_alpha_40">#66ffffff</color>
+
+    <color name="start_color">#3D6AFE</color>
+    <color name="middle_color">#0CBB94</color>
+    <color name="end_color">#FDA371</color>
 
 </resources>

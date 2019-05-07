@@ -12,6 +12,8 @@ import android.view.WindowManager;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.ui.adapter.TypeFilterAdapter;
+import com.business.electr.clothes.utils.CommonUtils;
+import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.ScreenUtils;
 
 import java.util.List;
@@ -106,6 +108,7 @@ public class TypeFilterFragment extends DialogFragment {
         fragment.setData(types, position);
         fragment.setListener(typeChangeListener);
         fragment.show(manager, "");
+        System.err.println(fragment+"==="+fragment.getDialog()+"====zhq====>111<");
         setDialogHeight(wm, types.size(), fragment);
         return fragment;
     }
@@ -118,9 +121,8 @@ public class TypeFilterFragment extends DialogFragment {
      * @param dialog
      */
     private static void setDialogHeight(WindowManager wm, int count, DialogFragment dialog) {
-        Display display = wm.getDefaultDisplay();
         WindowManager.LayoutParams p = dialog.getDialog().getWindow().getAttributes();  //获取对话框当前的参数值
-        if (count > 4) p.height = (int) (display.getHeight() * 0.5);//设置为当前屏幕高度的一半
+        if (count > 4) p.height = CommonUtils.dp2px(dialog.getContext(),200);//设置为当前屏幕高度的一半
         if (count <= 4) p.height = RecyclerView.LayoutParams.WRAP_CONTENT;
         dialog.getDialog().getWindow().setAttributes(p);     //设置生效
     }

@@ -76,7 +76,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                 ToolHelper.selectTime(this, tvBirthday, Constant.DATE_FORMAT_6);
                 break;
             case R.id.lin_height:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, genderPos,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, 160,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
@@ -86,7 +86,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                         });
                 break;
             case R.id.lin_weight:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, genderPos,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, 50,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {

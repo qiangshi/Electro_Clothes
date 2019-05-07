@@ -63,8 +63,8 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             Random random = new Random();
-            int curElect = random.nextInt(60);
-            dashBoard.setCurElect(curElect + 50);
+            int curElect = random.nextInt(80);
+            dashBoard.setCurElect(curElect + 40);
             handler.sendEmptyMessageDelayed(0, 1000);
         }
     };
