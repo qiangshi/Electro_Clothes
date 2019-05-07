@@ -79,11 +79,11 @@ public class MineFragment extends BaseFragment {
             case R.id.ll_ihi_exper:
                 break;
             case R.id.lin_ai:
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_PERFECT_INFO)
-                        .start();
+//                new DefaultUriRequest(getActivity(), RouterCons.CREATE_PERFECT_INFO)
+//                        .start();
                 break;
             case R.id.lin_my_doctor:
-                startActivity(new Intent(getActivity(), TestActivity.class));
+//                startActivity(new Intent(getActivity(), TestActivity.class));
 //                new DefaultUriRequest(getActivity(), RouterCons.CREATE_QUESTION_FEEDBACK)
 //                        .start();
                 break;
