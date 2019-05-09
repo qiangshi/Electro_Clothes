@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
@@ -90,7 +91,13 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
 
             @Override
             public void onPageSelected(int position) {
-
+                if(position == 0){
+                    img1.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_select));
+                    img2.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_no_select));
+                }else {
+                    img1.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_no_select));
+                    img2.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_select));
+                }
             }
 
             @Override
