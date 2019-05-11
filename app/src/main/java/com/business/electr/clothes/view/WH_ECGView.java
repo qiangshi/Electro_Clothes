@@ -45,13 +45,13 @@ public class WH_ECGView extends View {
     public WH_ECGView(Context context, AttributeSet attrs){
         super(context,attrs);
         //背景色
-        this.setBackgroundColor(getResources().getColor(R.color.black));
+        this.setBackgroundColor(getResources().getColor(R.color.white));
     }
 
     public WH_ECGView(Context context){
         super(context);
         //背景色
-        this.setBackgroundColor(getResources().getColor(R.color.black));
+        this.setBackgroundColor(getResources().getColor(R.color.white));
     }
 
     @Override
