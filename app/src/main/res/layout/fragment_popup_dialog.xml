@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="271dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_solid_ffffff_10">
+    android:background="@drawable/bg_solid_ffffff_6">
 
     <RelativeLayout
         android:layout_width="271dp"

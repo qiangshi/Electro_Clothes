@@ -16,4 +16,8 @@ public interface ModifyUserInfoView extends IView {
 
     void updateUserInfoSuccess();
 
+    void selectPhoto();
+
+    void onUploadSuccess(String filePath);
+
 }

@@ -9,6 +9,45 @@
 
     <include layout="@layout/title_bar_layout" />
 
+    <!--上传头像-->
+    <LinearLayout
+        android:id="@+id/lin_upload_pic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_63"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_28"
+            android:text="@string/upload_pic"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:id="@+id/img_upload_pic"
+            android:layout_width="@dimen/padding_37"
+            android:layout_height="@dimen/padding_37"
+            android:layout_marginEnd="@dimen/padding_61"
+            android:src="@drawable/icon_photo"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_28"
+        android:layout_marginEnd="@dimen/padding_25"
+        android:background="@color/color_44979797" />
+
+
     <!--用户名-->
     <LinearLayout
         android:id="@+id/lin_nick_name"

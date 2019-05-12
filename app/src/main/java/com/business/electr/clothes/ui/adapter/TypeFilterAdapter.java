@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.business.electr.clothes.R;
@@ -45,13 +46,19 @@ public class TypeFilterAdapter extends RecyclerView.Adapter<TypeFilterAdapter.Vi
         holder.typeTv.setText(types.get(position));
         if (position == curPos) {
             holder.typeTv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            holder.imgIsSelect.setVisibility(View.VISIBLE);
         } else {
+            holder.imgIsSelect.setVisibility(View.GONE);
             holder.typeTv.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
+        if(position == types.size()-1) holder.viewLint.setVisibility(View.GONE);
+        else holder.viewLint.setVisibility(View.VISIBLE);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (null != onItemClickListener) {
+                    curPos = position;
+                    notifyDataSetChanged();
                     onItemClickListener.onItemClick(position);
                 }
             }
@@ -66,6 +73,10 @@ public class TypeFilterAdapter extends RecyclerView.Adapter<TypeFilterAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_item_type_filter_rec_type)
         TextView typeTv;
+        @BindView(R.id.img_is_select)
+        ImageView imgIsSelect;
+        @BindView(R.id.view_lint)
+        View viewLint;
 
         public ViewHolder(View itemView) {
             super(itemView);

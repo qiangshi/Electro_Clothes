@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Environment;
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.yalantis.ucrop.UCrop;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.config.ISListConfig;
@@ -32,7 +33,7 @@ public class SelectImageUtils {
     // 读写文件请求码
     private static final int STORAGE_PERMISSIONS_REQUEST_CODE = 0x04;
 
-    public static void selectPhoto(Context context, String title, boolean isMulti, boolean isNeedCamera, int maxNum) {
+    public static void selectPhoto(Activity context, String title, boolean isMulti, boolean isNeedCamera, int maxNum) {
         // 自由配置选项
         ISListConfig config = new ISListConfig.Builder()
                 // 是否多选, 默认true
@@ -43,8 +44,6 @@ public class SelectImageUtils {
                 .btnBgColor(Color.GRAY)
                 // “确定”按钮文字颜色
                 .btnTextColor(Color.BLUE)
-                // 使用沉浸式状态栏
-                .statusBarColor(context.getResources().getColor(R.color.white))
                 // 返回图标ResId
                 .backResId(R.drawable.ic_goback)
                 // 标题

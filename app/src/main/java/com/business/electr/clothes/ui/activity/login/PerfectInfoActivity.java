@@ -109,6 +109,16 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                 .start();
     }
 
+    @Override
+    public void selectPhoto() {
+
+    }
+
+    @Override
+    public void onUploadSuccess(String filePath) {
+
+    }
+
     /**
      * 初始化身高体重数据
      */

@@ -146,6 +146,7 @@
     <string name="set">设置</string>
     <string name="user_head">头像</string>
     <string name="nick_name">用户名</string>
+    <string name="upload_pic">上传头像</string>
     <string name="phone_code">手机号</string>
     <string name="gender">性别</string>
     <string name="birthday">出生日期</string>
@@ -248,6 +249,9 @@
         <item>62kg</item>
         <item>63kg</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

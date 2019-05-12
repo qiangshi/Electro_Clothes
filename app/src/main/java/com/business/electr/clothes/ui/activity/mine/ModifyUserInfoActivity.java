@@ -1,9 +1,12 @@
 package com.business.electr.clothes.ui.activity.mine;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
@@ -14,9 +17,10 @@ import com.business.electr.clothes.mvp.view.mine.ModifyUserInfoView;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
-import com.business.electr.clothes.ui.activity.login.PerfectInfoActivity;
 import com.business.electr.clothes.ui.fragment.dialog.TypeFilterFragment;
-import com.business.electr.clothes.utils.MLog;
+import com.business.electr.clothes.ui.fragment.dialog.TypeGraderFragment;
+import com.business.electr.clothes.utils.GlidUtils;
+import com.business.electr.clothes.utils.SelectImageUtils;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -24,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -34,7 +39,8 @@ import butterknife.OnClick;
 @RouterUri(path = {RouterCons.MODIFY_USER_INFO})
 public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter> implements ModifyUserInfoView {
 
-
+    @BindView(R.id.img_upload_pic)
+    ImageView imgUploadPic;
     @BindView(R.id.tv_nick_name)
     TextView tvNickName;//用户昵称
     @BindView(R.id.tv_gender)
@@ -53,6 +59,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     private List<String> heights;
     private List<String> weights;
     private UserBean userBean;
+    private String logoUrl;
 
     @Override
     protected int getLayoutId() {
@@ -74,16 +81,21 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
 
 
     private int genderPos = 2;
+    private int heightPos = 160;
+    private int weightPos = 50;
 
-    @OnClick({R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password,R.id.lin_height,R.id.lin_weight})
+    @OnClick({R.id.img_upload_pic,R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password,R.id.lin_height,R.id.lin_weight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
                 mPresenter.updateUserInfo(genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
+            case R.id.img_upload_pic://上传图片
+                mPresenter.autoObtainStoragePermission(this);
+                break;
             case R.id.lin_gender://性别
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,
-                        new TypeFilterFragment.TypeChangeListener() {
+                TypeGraderFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,
+                        new TypeGraderFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
                                 ModifyUserInfoActivity.this.genderPos = pos;
@@ -99,21 +111,21 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                         .start();
                 break;
             case R.id.lin_height:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, 160,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, heightPos,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                ModifyUserInfoActivity.this.genderPos = pos;
+                                ModifyUserInfoActivity.this.heightPos = pos;
                                 tvHeight.setText(heights.get(pos));
                             }
                         });
                 break;
             case R.id.lin_weight:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, 50,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, weightPos,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                ModifyUserInfoActivity.this.genderPos = pos;
+                                ModifyUserInfoActivity.this.weightPos = pos;
                                 tvWeight.setText(weights.get(pos));
                             }
                         });
@@ -129,11 +141,15 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         userBean.setUserName(bean.getUserName());
         userBean.setNickName(bean.getNickName());
         userBean.setSex(bean.getSex());
+        userBean.setHeadImgUrl(bean.getHeadImgUrl());
         DataCacheManager.saveUserInfo(userBean);
         SynchronizationObserver.getInstance().onSynchronizationUpdate(SynchronizationObserver.TYPE_UPDATE_USER_INFO, userBean, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
+        GlidUtils.setCircleGrid(this,bean.getHeadImgUrl(),imgUploadPic);
         tvNickName.setText(bean.getPhone());
         etName.setText(bean.getUserName());
         genderPos = Integer.valueOf(bean.getSex());
+        heightPos = bean.getHeight() -10;
+        weightPos = bean.getWeight() - 10;
         if (0 == bean.getSex()) {
             tvGender.setText("男");
         } else if (1 == bean.getSex()) {
@@ -149,6 +165,30 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     @Override
     public void updateUserInfoSuccess() {
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mPresenter.onActivityResult(this, requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mPresenter.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+    }
+
+    @Override
+    public void selectPhoto() {
+        SelectImageUtils.selectPhoto(this, getString(R.string.takephoto), false, true, 1);
+    }
+
+    @Override
+    public void onUploadSuccess(String imgUrl) {
+        imgUploadPic.setVisibility(View.VISIBLE);
+        GlidUtils.setCircleGrid(this,imgUrl,imgUploadPic);
+        logoUrl = imgUrl;
     }
 
 

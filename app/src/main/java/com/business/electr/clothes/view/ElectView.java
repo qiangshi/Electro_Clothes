@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -50,8 +51,8 @@ public class ElectView extends View {
     private int per_elect_num;//每个格子代表的心电数
     private int per_height;//每个格子的边长
     private int per_height_num;//每个格子的数据量
-    private boolean isHavePoint = false;//是否有指示器
-    private Map<Float,Float> xyMap;
+    private boolean isHavePoint = true;//是否有指示器
+    private Map<Float, Float> xyMap;
 
     public ElectView(Context context) {
         super(context);
@@ -131,16 +132,20 @@ public class ElectView extends View {
         generateElectrocar();
     }
 
+    private Canvas canvas;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        this.canvas = canvas;
         if (isDrawGird) {
             drawGrid(canvas);
         }
         drawElectro(canvas);
-        if (isHavePoint){
-            drawPointer(canvas,per_height*2.0f);
+        if (isHavePoint) {
+            startX = per_height * 2.0f;
+            drawPointer(canvas, startX);
         }
     }
 
@@ -148,7 +153,7 @@ public class ElectView extends View {
         electPath.moveTo(0, baseLine - datas.get(0));
         for (int i = 0; i < electDatas.size(); i++) {
             float y = baseLine - electDatas.get(i);
-            xyMap.put(i * per_height * 1.0f / per_height_num,y);
+            xyMap.put(i * per_height * 1.0f / per_height_num, y);
             electPath.lineTo(i * per_height * 1.0f / per_height_num, y);
         }
         canvas.drawPath(electPath, electPaint);
@@ -171,6 +176,8 @@ public class ElectView extends View {
     }
 
 
+    private float view_show_x;//pointer显示的x坐标
+
     /**
      * 绘制指示器
      *
@@ -179,31 +186,75 @@ public class ElectView extends View {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void drawPointer(Canvas canvas, Float x) {
         canvas.save();
+        x += x_change;
+        view_show_x = x;
+        if(view_show_x < 0) view_show_x =0;
+        if(view_show_x > width) view_show_x = width;
         pointPaint.setColor(getResources().getColor(R.color.color_44979797));
         pointPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawLine(x,height,x,getValueByX_Time(x),pointPaint);
+        canvas.drawLine(x, height, x, getValueByX_Time(x), pointPaint);
         canvas.restore();
         canvas.save();
-        canvas.translate(x,height/2);
+        canvas.translate(x, height / 2);
         pointPaint.setColor(getResources().getColor(R.color.color_353535));
         pointPaint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(0,0,10,pointPaint);
-        RectF f = new RectF(-65f,-70f,65f,-20f);
-        canvas.drawRoundRect(f,4f,4f,pointPaint);
+        canvas.drawCircle(0, 0, 10, pointPaint);
+        RectF f = new RectF(-65f, -70f, 65f, -20f);
+        canvas.drawRoundRect(f, 4f, 4f, pointPaint);
         //绘制三角形形成指针
         Path path = new Path();
-        path.moveTo(0 , -15);
-        path.lineTo(10 , -20);
-        path.lineTo(-10 , -20);
-        path.lineTo(0 , -15);
+        path.moveTo(0, -15);
+        path.lineTo(10, -20);
+        path.lineTo(-10, -20);
+        path.lineTo(0, -15);
         path.close();
-        canvas.drawPath(path,pointPaint);
+        canvas.drawPath(path, pointPaint);
         pointPaint.setColor(getResources().getColor(R.color.white));
         pointPaint.setTextSize(33);
         pointPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("0:25:12",0,-35,pointPaint);
+        canvas.drawText(getTimeByX(x), 0, -35, pointPaint);
     }
 
+
+    float startX;
+    float x_change;
+    private boolean isStart;
+
+    /**
+     * 滑动心电图展示时间
+     *
+     * @param event
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        if (isHavePoint) {
+            float x = 0;
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    x = event.getX();
+                    if (x > view_show_x - 100 && x < view_show_x + 100 && event.getY() > 200) {
+                        isStart = true;
+                        startX = x;
+                    }
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    if (isStart) {
+                        x_change = event.getX() - startX;
+                        invalidate();
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    isStart = false;
+                    break;
+            }
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
 
     private List<Float> datas = new ArrayList<>();
     private List<Float> electDatas = new ArrayList<>();
@@ -229,13 +280,33 @@ public class ElectView extends View {
 
     /**
      * 根据x轴坐标获取y轴坐标
-     * @param time
+     *
+     * @param x
      * @return
      */
-    private float getValueByX_Time(float time) {
+    private float getValueByX_Time(float x) {
         float y = 0.0f;
 //        y = xyMap.get(time);
-        return height/2;
+        return height / 2;
+    }
+
+    /**
+     * 根据x轴坐标获取时间
+     *
+     * @param x
+     * @return
+     */
+    private String getTimeByX(float x) {
+        String time = "0:00";
+        float second = 1440 * x / 1080;
+        int house = (int) (second / 60);
+        int se = (int) (second % 60);
+        if(se < 10){
+            time = String.valueOf(house) + ":0" + String.valueOf(se);
+        }else {
+            time = String.valueOf(house) + ":" + String.valueOf(se);
+        }
+        return time;
     }
 
     private int index;

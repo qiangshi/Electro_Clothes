@@ -323,7 +323,7 @@
         <Button
             android:id="@+id/bt_cesi"
             android:layout_marginTop="@dimen/padding_10"
-            android:background="@drawable/bg_solid_ffffff_10"
+            android:background="@drawable/bg_solid_ffffff_6"
             android:layout_width="@dimen/padding_78"
             android:layout_height="@dimen/padding_39"
             android:layout_marginEnd="@dimen/padding_25"

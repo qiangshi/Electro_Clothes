@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_solid_ffffff_6"
+    android:paddingBottom="@dimen/padding_20"
+    tools:context=".ui.fragment.dialog.TypeGraderFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_dialog_type_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

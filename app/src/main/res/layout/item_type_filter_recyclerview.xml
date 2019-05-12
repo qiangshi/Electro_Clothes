@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -8,14 +8,28 @@
         android:id="@+id/tv_item_type_filter_rec_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_40"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="@dimen/padding_15"
         android:paddingTop="@dimen/padding_15"
-        android:textColor="@color/black"
+        android:textColor="@color/color_353535"
         android:textSize="@dimen/text_font_14" />
 
+    <ImageView
+        android:id="@+id/img_is_select"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="@dimen/padding_25"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_select_grader"/>
+
     <View
+        android:id="@+id/view_lint"
+        android:layout_below="@+id/tv_item_type_filter_rec_type"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/item_segmenting_line" />
-</LinearLayout>
+        android:layout_height="@dimen/padding_0.5"
+        android:layout_marginStart="@dimen/padding_22"
+        android:layout_marginEnd="@dimen/padding_30"
+        android:background="@color/color_44979797" />
+</RelativeLayout>
