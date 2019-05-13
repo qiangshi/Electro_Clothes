@@ -56,7 +56,7 @@ public class GlidUtils {
         GlideApp
                 .with(context)
                 .load(url)
-                .error(R.drawable.ic_test_avatar)
+                .error(R.drawable.icon_photo)
                 .apply(new RequestOptions().transform(new GlideRoundTransform(view.getWidth()/2)))
                 .into(view);
     }

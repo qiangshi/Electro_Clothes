@@ -148,9 +148,6 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_history_share://分享
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_ELECT_DETAIL)
-                        .putExtra(Constant.TITLE_TIME,"昨天")
-                        .start();
                 break;
             case R.id.img_last_page://上一页
                 break;

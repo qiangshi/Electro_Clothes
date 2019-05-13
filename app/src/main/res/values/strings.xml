@@ -24,6 +24,7 @@
     <string name="month">月</string>
     <string name="year">年</string>
     <string name="upload_doctor">上传问医</string>
+    <string name="scan_elect">查看心电图</string>
 
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>
@@ -174,84 +175,27 @@
         <item>女</item>
     </string-array>
 
-    <string-array name="height_list">
-        <item>110cm</item>
-        <item>111cm</item>
-        <item>112cm</item>
-        <item>113cm</item>
-        <item>114cm</item>
-        <item>115cm</item>
-        <item>116cm</item>
-        <item>117cm</item>
-        <item>118cm</item>
-        <item>119cm</item>
-        <item>120cm</item>
-        <item>121cm</item>
-        <item>122cm</item>
-        <item>123cm</item>
-        <item>124cm</item>
-        <item>125cm</item>
-        <item>126cm</item>
-        <item>127cm</item>
-        <item>128cm</item>
-        <item>129cm</item>
-        <item>130cm</item>
-        <item>131cm</item>
-        <item>132cm</item>
-        <item>133cm</item>
-        <item>134cm</item>
-        <item>135cm</item>
-        <item>136cm</item>
-        <item>137cm</item>
-        <item>138cm</item>
-        <item>139cm</item>
-        <item>140cm</item>
-        <item>141cm</item>
-        <item>142cm</item>
-        <item>143cm</item>
-        <item>144cm</item>
-        <item>145cm</item>
-        <item>146cm</item>
+    <string-array name="multiple_list">
+        <item>-10x</item>
+        <item>-5x</item>
+        <item>1x</item>
+        <item>5x</item>
+        <item>10x</item>
     </string-array>
 
-    <string-array name="weight_list">
-        <item>30kg</item>
-        <item>31kg</item>
-        <item>33kg</item>
-        <item>34kg</item>
-        <item>35kg</item>
-        <item>36kg</item>
-        <item>37kg</item>
-        <item>38kg</item>
-        <item>39kg</item>
-        <item>40kg</item>
-        <item>41kg</item>
-        <item>42kg</item>
-        <item>43kg</item>
-        <item>44kg</item>
-        <item>45kg</item>
-        <item>46kg</item>
-        <item>47kg</item>
-        <item>48kg</item>
-        <item>49kg</item>
-        <item>50kg</item>
-        <item>51kg</item>
-        <item>52kg</item>
-        <item>53kg</item>
-        <item>54kg</item>
-        <item>55kg</item>
-        <item>56kg</item>
-        <item>57kg</item>
-        <item>58kg</item>
-        <item>59kg</item>
-        <item>60kg</item>
-        <item>61kg</item>
-        <item>62kg</item>
-        <item>63kg</item>
+    <string-array name="time_list">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>

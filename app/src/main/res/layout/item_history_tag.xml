@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/padding_65">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_22"
+        android:layout_marginTop="@dimen/padding_15"
+        android:text="06:45-07:32"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14" />
+
+    <TextView
+        android:id="@+id/tv_time_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginStart="@dimen/padding_22"
+        android:text="1.2小时"
+        android:textColor="@color/color_8c919b"
+        android:textSize="@dimen/text_font_10" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_select"
+        android:layout_width="@dimen/padding_100"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="@dimen/padding_7"
+            android:layout_height="@dimen/padding_7"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/padding_6"
+            android:layout_toStartOf="@+id/tv_state"
+            android:background="@drawable/circular_4a90e2" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/padding_36"
+            android:text="睡觉"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_13" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_select"
+        android:layout_width="@dimen/padding_71"
+        android:layout_height="@dimen/padding_29"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/padding_29"
+        android:background="@drawable/bg_d0d1d2_15"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/tv_select_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="选择状态"
+            android:textColor="@color/color_494B50"
+            android:textSize="@dimen/text_font_11" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_3"
+            android:layout_toEndOf="@+id/tv_select_state"
+            android:src="@drawable/icon_area_code" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

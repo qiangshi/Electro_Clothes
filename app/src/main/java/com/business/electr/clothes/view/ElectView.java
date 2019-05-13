@@ -51,8 +51,10 @@ public class ElectView extends View {
     private int per_elect_num;//每个格子代表的心电数
     private int per_height;//每个格子的边长
     private int per_height_num;//每个格子的数据量
-    private boolean isHavePoint = true;//是否有指示器
+    private boolean isHavePoint = false;//是否有指示器
     private Map<Float, Float> xyMap;
+    private int allTime = 24;//总共多少个小时
+    private float multiple = 1;//播放倍数
 
     public ElectView(Context context) {
         super(context);
@@ -78,6 +80,39 @@ public class ElectView extends View {
         }
     };
 
+    /**
+     * 设置心电图的倍数
+     * @param multiple
+     */
+    public void setMultiple(float multiple) {
+        this.multiple = multiple;
+        invalidate();
+    }
+
+    /**
+     * 设置是否有指示器
+     * @param havePoint
+     */
+    public void setHavePoint(boolean havePoint) {
+        isHavePoint = havePoint;
+    }
+
+    /**
+     * 设置是否有背景
+     * @param drawGird
+     */
+    public void setDrawGird(boolean drawGird) {
+        isDrawGird = drawGird;
+    }
+
+    /**
+     * 设置总共展示的时间
+     * @param allTime
+     */
+    public void setAllTime(int allTime) {
+        this.allTime = allTime;
+        invalidate();
+    }
 
     private void init() {
         linePaint = new Paint();
@@ -101,17 +136,10 @@ public class ElectView extends View {
     }
 
     private int width, height;
-    private int baseLine;//基准线
+    private float baseLine;//基准线
     private int maxLevel;//最大高度
     private boolean isDrawGird = true;
 
-    public void setHavePoint(boolean havePoint) {
-        isHavePoint = havePoint;
-    }
-
-    public void setDrawGird(boolean drawGird) {
-        isDrawGird = drawGird;
-    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -121,7 +149,7 @@ public class ElectView extends View {
         per_height = (height - 3) / horizontalLineNum;//减去11根线的宽度
         verticalLineNum = width / per_height;
         MLog.e(verticalLineNum + "====zhq====>width<" + width + "===>" + height + "===>" + per_height);
-        baseLine = height / 2;
+        baseLine = per_height * 5f;
         maxLevel = height / 3;
         per_elect_num = 30;
         per_height_num = 1;
@@ -188,8 +216,14 @@ public class ElectView extends View {
         canvas.save();
         x += x_change;
         view_show_x = x;
-        if(view_show_x < 0) view_show_x =0;
-        if(view_show_x > width) view_show_x = width;
+        if(view_show_x < 0) {
+            view_show_x =0;
+            x = 0f;
+        }
+        if(view_show_x > width) {
+            view_show_x = width;
+            x = (float)width;
+        }
         pointPaint.setColor(getResources().getColor(R.color.color_44979797));
         pointPaint.setStyle(Paint.Style.STROKE);
         canvas.drawLine(x, height, x, getValueByX_Time(x), pointPaint);
@@ -242,7 +276,7 @@ public class ElectView extends View {
                     break;
 
                 case MotionEvent.ACTION_MOVE:
-                    if (isStart) {
+                    if (isStart && event.getY() < height && event.getX() < width) {
                         x_change = event.getX() - startX;
                         invalidate();
                     }
@@ -290,6 +324,7 @@ public class ElectView extends View {
         return height / 2;
     }
 
+
     /**
      * 根据x轴坐标获取时间
      *
@@ -297,16 +332,28 @@ public class ElectView extends View {
      * @return
      */
     private String getTimeByX(float x) {
-        String time = "0:00";
-        float second = 1440 * x / 1080;
-        int house = (int) (second / 60);
-        int se = (int) (second % 60);
-        if(se < 10){
-            time = String.valueOf(house) + ":0" + String.valueOf(se);
+        if(x < 0) x = 0;
+        float second = allTime * 60 * 60 * x / width;
+        int house = (int) (second / 60 / 60);
+        int se = (int) (second / 60 % 60);
+        int s = (int) (second % 60);
+        StringBuilder stringBuilder = new StringBuilder();
+        if(house < 10){
+            stringBuilder.append("0"+house);
         }else {
-            time = String.valueOf(house) + ":" + String.valueOf(se);
+            stringBuilder.append(""+house);
         }
-        return time;
+        if(se < 10){
+            stringBuilder.append(":0"+se);
+        }else {
+            stringBuilder.append(":"+se);
+        }
+        if(s < 10){
+            stringBuilder.append(":0"+s);
+        }else {
+            stringBuilder.append(":"+s);
+        }
+        return stringBuilder.toString();
     }
 
     private int index;
@@ -334,7 +381,7 @@ public class ElectView extends View {
             @Override
             public void run() {
                 addData();
-                handler.postDelayed(runnable, 100);
+                handler.postDelayed(runnable, (long) (40 / multiple));
             }
         };
         handler.post(runnable);
