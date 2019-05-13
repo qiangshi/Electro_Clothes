@@ -8,6 +8,9 @@ import com.business.electr.clothes.mvp.view.OnItemClickListener;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.adapter.HistoryStateAdapter;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.ui.fragment.dialog.CustomStateFragment;
+import com.business.electr.clothes.ui.fragment.dialog.HistoryStateFragment;
+import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.ToastUtils;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -25,6 +28,7 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
 
     @BindView(R.id.rv_tag)
     RecyclerView rvTag;
+    private int curPos = -1;
 
     public HistoryOneFragment() {
     }
@@ -60,8 +64,25 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
                 .start();
     }
 
+
+    private String customText = "自定义";
     @Override
     public void OnClickItemListener(Object obj, int position) {
-        ToastUtils.showToast(getActivity(),"显示状态列表");
+//        ToastUtils.showToast(getActivity(),"显示状态列表");
+        HistoryStateFragment.showFragment(getChildFragmentManager(), curPos,customText, new HistoryStateFragment.TypeChangeListener() {
+            @Override
+            public void onTypeChange(int pos) {
+                curPos = pos;
+                if(pos == 6){
+                    CustomStateFragment.showFragment(getChildFragmentManager(), new CustomStateFragment.CustomTextListener() {
+                        @Override
+                        public void onCustomText(String customText) {
+                            HistoryOneFragment.this.customText = customText;
+                            MLog.e("====zhq====>1111<"+customText);
+                        }
+                    });
+                }
+            }
+        });
     }
 }

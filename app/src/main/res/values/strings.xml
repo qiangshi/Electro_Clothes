@@ -25,6 +25,7 @@
     <string name="year">年</string>
     <string name="upload_doctor">上传问医</string>
     <string name="scan_elect">查看心电图</string>
+    <string name="please_input_state">请填写状态</string>
 
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>
@@ -197,5 +198,18 @@
         <item>22</item>
         <item>24</item>
     </string-array>
+
+    <string-array name="select_state_list">
+        <item>睡觉</item>
+        <item>运动</item>
+        <item>就餐</item>
+        <item>学习</item>
+        <item>工作</item>
+        <item>开会</item>
+        <item>自定义</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

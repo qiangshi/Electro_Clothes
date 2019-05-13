@@ -12,8 +12,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.ui.adapter.SelectStateAdapter;
 import com.business.electr.clothes.ui.adapter.TypeFilterAdapter;
-import com.business.electr.clothes.utils.CommonUtils;
 import com.business.electr.clothes.utils.ScreenUtils;
 
 import java.util.List;
@@ -26,20 +26,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by zenghaiqiang on 2019/5/12.
- * 描述：搜索结果类型筛选控件
+ * Created by zenghaiqiang on 2019/5/13.
+ * 描述：历史状态选择
  */
-public class TypeGraderFragment extends DialogFragment {
-    @BindView(R.id.recycler_dialog_type_filter)
+public class HistoryStateFragment extends DialogFragment {
+    @BindView(R.id.rv_history_state)
     RecyclerView recyclerView;
 
-    private TypeFilterAdapter adapter;
+    private SelectStateAdapter adapter;
     private LinearLayoutManager layoutManager;
 
     // 当前选中的下标
     private int curPos;
-    // 类型列表
-    private List<String> types;
+    private String customText = "自定义";
     //类型发生改变时的回调
     private TypeChangeListener typeChangeListener;
 
@@ -50,7 +49,7 @@ public class TypeGraderFragment extends DialogFragment {
         Dialog dialog = new Dialog(getActivity(), R.style.UpDownDialogStyle);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View root = inflater.inflate(R.layout.fragment_type_grader, null, false);
+        View root = inflater.inflate(R.layout.fragment_history_state, null, false);
         dialog.setContentView(root);
         Window window = dialog.getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
@@ -62,21 +61,24 @@ public class TypeGraderFragment extends DialogFragment {
         ButterKnife.bind(this, root);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new TypeFilterAdapter(getContext(), types, curPos);
-        adapter.setOnItemClickListener(pos -> {
-            typeChangeListener.onTypeChange(pos);
-            hideFragment();
+        adapter = new SelectStateAdapter(getContext(),curPos);
+        adapter.setListener(new SelectStateAdapter.OnCustomListener() {
+            @Override
+            public void onClickListener(int pos) {
+                typeChangeListener.onTypeChange(pos);
+            }
         });
+
         recyclerView.setAdapter(adapter);
-        if (curPos >= 0 && curPos < types.size()) {
-            recyclerView.scrollToPosition(curPos);
-        }
         return dialog;
     }
 
-    public void setData(List<String> types, int position) {
+    public void setCurPos(int position) {
         this.curPos = position;
-        this.types = types;
+    }
+
+    public void setCustomText(String customText){
+        this.customText = customText;
     }
 
     private void hideFragment() {
@@ -95,11 +97,12 @@ public class TypeGraderFragment extends DialogFragment {
         void onTypeChange(int pos);
     }
 
-    public static TypeGraderFragment showFragment(FragmentManager manager, List<String> types, int position, TypeChangeListener typeChangeListener) {
-        TypeGraderFragment fragment = new TypeGraderFragment();
-        fragment.setData(types, position);
+    public static HistoryStateFragment showFragment(FragmentManager manager, int position,String customText, TypeChangeListener typeChangeListener) {
+        HistoryStateFragment fragment = new HistoryStateFragment();
+        fragment.setCurPos(position);
+        fragment.setCustomText(customText);
         fragment.setListener(typeChangeListener);
-        fragment.show(manager, "");
+        fragment.show(manager, "historyStateFragment");
         return fragment;
     }
 
