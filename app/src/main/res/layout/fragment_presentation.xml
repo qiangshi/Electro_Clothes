@@ -3,14 +3,209 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <include layout="@layout/title_bar_layout" />
 
-    <TextView
+    <!--60s报告-->
+    <RelativeLayout
+        android:id="@+id/rl_presentation_60"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="fragment_presentation" />
+        android:layout_height="@dimen/padding_154"
+        android:background="@drawable/icon_presentation_60">
+
+        <TextView
+            android:id="@+id/tv_title_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_18"
+            android:textSize="@dimen/text_font_19"
+            android:text="@string/s_60_presentation"
+            android:textColor="@color/color_353535"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/padding_2"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_below="@+id/tv_title_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_11"
+            android:textColor="@color/color_353535"
+            android:text="@string/quick_experience"/>
+
+
+        <TextView
+            android:id="@+id/tv_gong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_marginStart="@dimen/padding_17"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/gong"/>
+
+        <TextView
+            android:id="@+id/tv_60_num"
+            android:layout_toEndOf="@+id/tv_gong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_19"
+            android:layout_marginStart="@dimen/padding_3"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_22"
+            android:textColor="@color/color_353535"
+            android:text="1"/>
+
+        <TextView
+            android:layout_toEndOf="@id/tv_60_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/fen"/>
+
+
+    </RelativeLayout>
+
+    <!--AI报告-->
+    <RelativeLayout
+        android:id="@+id/rl_presentation_ai"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_154"
+        android:background="@drawable/icon_ai_presenter">
+
+        <TextView
+            android:id="@+id/tv_title_ai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_18"
+            android:textSize="@dimen/text_font_19"
+            android:text="@string/ai_presentation"
+            android:textColor="@color/color_353535"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/padding_5"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_below="@+id/tv_title_ai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_11"
+            android:textColor="@color/color_353535"
+            android:text="@string/big_data_suggest"/>
+
+
+        <TextView
+            android:id="@+id/tv_ai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_marginStart="@dimen/padding_17"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/gong"/>
+
+        <TextView
+            android:id="@+id/tv_ai_num"
+            android:layout_toEndOf="@+id/tv_ai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_19"
+            android:layout_marginStart="@dimen/padding_3"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_22"
+            android:textColor="@color/color_353535"
+            android:text="7"/>
+
+        <TextView
+            android:layout_toEndOf="@id/tv_ai_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/fen"/>
+
+
+    </RelativeLayout>
+    <!--医生报告-->
+    <RelativeLayout
+        android:id="@+id/rl_presentation_doctor"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_154"
+        android:background="@drawable/icon_doctor_present">
+
+        <TextView
+            android:id="@+id/tv_title_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_18"
+            android:textSize="@dimen/text_font_19"
+            android:text="@string/doctor_presentation"
+            android:textColor="@color/color_353535"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/padding_5"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_below="@+id/tv_title_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_11"
+            android:textColor="@color/color_353535"
+            android:text="@string/doctor_service"/>
+
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_marginStart="@dimen/padding_17"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/gong"/>
+
+        <TextView
+            android:id="@+id/tv_doctor_num"
+            android:layout_toEndOf="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_19"
+            android:layout_marginStart="@dimen/padding_3"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_22"
+            android:textColor="@color/color_353535"
+            android:text="0"/>
+
+        <TextView
+            android:layout_toEndOf="@id/tv_doctor_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_10"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:textColor="@color/color_353535"
+            android:text="@string/fen"/>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

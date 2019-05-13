@@ -14,6 +14,7 @@ import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.ToastUtils;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -64,12 +65,12 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
                 .start();
     }
 
-
-    private String customText = "自定义";
+    HistoryStateFragment historyStateFragment;
     @Override
     public void OnClickItemListener(Object obj, int position) {
-//        ToastUtils.showToast(getActivity(),"显示状态列表");
-        HistoryStateFragment.showFragment(getChildFragmentManager(), curPos,customText, new HistoryStateFragment.TypeChangeListener() {
+        historyStateFragment = new HistoryStateFragment();
+
+        showFragment(getChildFragmentManager(), curPos, new HistoryStateFragment.TypeChangeListener() {
             @Override
             public void onTypeChange(int pos) {
                 curPos = pos;
@@ -77,7 +78,7 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
                     CustomStateFragment.showFragment(getChildFragmentManager(), new CustomStateFragment.CustomTextListener() {
                         @Override
                         public void onCustomText(String customText) {
-                            HistoryOneFragment.this.customText = customText;
+                            historyStateFragment.setCustomText(customText);
                             MLog.e("====zhq====>1111<"+customText);
                         }
                     });
@@ -85,4 +86,23 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
             }
         });
     }
+
+
+
+    public void showFragment(FragmentManager manager, int position, HistoryStateFragment.TypeChangeListener typeChangeListener) {
+        historyStateFragment = new HistoryStateFragment();
+        historyStateFragment.setCurPos(position);
+        historyStateFragment.setListener(typeChangeListener);
+        historyStateFragment.show(manager, "historyStateFragment");
+    }
+
+
+    private void hideFragment() {
+        try {
+            if (historyStateFragment.isAdded()) historyStateFragment.dismissAllowingStateLoss();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

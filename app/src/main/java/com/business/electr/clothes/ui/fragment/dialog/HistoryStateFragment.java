@@ -79,6 +79,7 @@ public class HistoryStateFragment extends DialogFragment {
 
     public void setCustomText(String customText){
         this.customText = customText;
+        adapter.setCustomText(customText);
     }
 
     private void hideFragment() {
@@ -97,7 +98,7 @@ public class HistoryStateFragment extends DialogFragment {
         void onTypeChange(int pos);
     }
 
-    public static HistoryStateFragment showFragment(FragmentManager manager, int position,String customText, TypeChangeListener typeChangeListener) {
+    public HistoryStateFragment showFragment(FragmentManager manager, int position,String customText, TypeChangeListener typeChangeListener) {
         HistoryStateFragment fragment = new HistoryStateFragment();
         fragment.setCurPos(position);
         fragment.setCustomText(customText);

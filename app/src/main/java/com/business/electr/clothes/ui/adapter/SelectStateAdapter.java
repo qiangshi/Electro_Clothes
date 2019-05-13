@@ -29,6 +29,7 @@ public class SelectStateAdapter extends RecyclerView.Adapter<SelectStateAdapter.
     private Context context;
     private List<String> list = new ArrayList<>();
     private int curPos = -1;
+    private String customText = "自定义";
 
     public SelectStateAdapter(Context context,int curPos) {
         this.context = context;
@@ -36,6 +37,10 @@ public class SelectStateAdapter extends RecyclerView.Adapter<SelectStateAdapter.
         list = Arrays.asList(context.getResources().getStringArray(R.array.select_state_list));
     }
 
+    public void setCustomText(String customText) {
+        this.customText = customText;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -92,6 +97,7 @@ public class SelectStateAdapter extends RecyclerView.Adapter<SelectStateAdapter.
                     view.setBackground(ContextCompat.getDrawable(context,R.drawable.circular_339c85));
                     break;
                 case 6:
+                    tvState.setText(customText);
                     view.setBackground(ContextCompat.getDrawable(context,R.drawable.circular_d0d1d2));
                     break;
             }

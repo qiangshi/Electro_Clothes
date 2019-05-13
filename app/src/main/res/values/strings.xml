@@ -27,6 +27,17 @@
     <string name="scan_elect">查看心电图</string>
     <string name="please_input_state">请填写状态</string>
 
+
+    <!--报告-->
+    <string name="s_60_presentation">60s报告</string>
+    <string name="quick_experience">快速精准的体检</string>
+    <string name="gong">共</string>
+    <string name="fen">份</string>
+    <string name="ai_presentation">AI报告</string>
+    <string name="big_data_suggest">大数据为您提供专属建议</string>
+    <string name="doctor_presentation">医生报告</string>
+    <string name="doctor_service">医学专家为您服务</string>
+
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>
     <string name="normal_elect_60_100">常规静息心率 60-100</string>
