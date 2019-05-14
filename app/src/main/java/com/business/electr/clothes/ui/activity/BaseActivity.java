@@ -1,6 +1,7 @@
 package com.business.electr.clothes.ui.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -36,6 +37,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import butterknife.ButterKnife;
+
 
 /**
  * Created by zenghaiqiang on 2019/1/5.
@@ -416,6 +418,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             finish();
         }
     }
+
+//    @Override
+//    protected void attachBaseContext(Context newBase) {
+//        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+//    }
 
     @Override
     protected void onDestroy() {

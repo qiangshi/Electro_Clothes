@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fondPath="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="晚上好，陈晓晓"
             android:textColor="@color/color_353535"
-            android:textSize="@dimen/text_font_16" />
+            android:textSize="@dimen/text_font_16"/>
 
 
         <Space

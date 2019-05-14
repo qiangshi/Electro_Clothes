@@ -1,5 +1,6 @@
 package com.business.electr.clothes.ui.fragment.home;
 
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,7 +10,6 @@ import com.business.electr.clothes.mvp.presenter.home.PresentationPresenter;
 import com.business.electr.clothes.mvp.view.home.PresentationView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
-import com.business.electr.clothes.utils.CommonUtils;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import butterknife.BindView;
@@ -35,6 +35,8 @@ public class PresentationFragment extends BaseFragment<PresentationPresenter> im
     @Override
     protected void initEventAndData() {
         tvTitle.setText(getResources().getString(R.string.presentation));
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/dinpro_medium.ttf");
+        tvTitle.setTypeface(typeface);
         btnBack.setVisibility(View.GONE);
         tvTitle.setTextSize(18);
     }

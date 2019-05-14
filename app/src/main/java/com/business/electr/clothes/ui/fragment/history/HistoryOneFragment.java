@@ -79,7 +79,6 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
                         @Override
                         public void onCustomText(String customText) {
                             historyStateFragment.setCustomText(customText);
-                            MLog.e("====zhq====>1111<"+customText);
                         }
                     });
                 }
