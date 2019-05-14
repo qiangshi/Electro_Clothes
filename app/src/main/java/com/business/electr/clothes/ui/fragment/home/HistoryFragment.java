@@ -4,20 +4,28 @@ package com.business.electr.clothes.ui.fragment.home;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.home.HistoryPresenter;
 import com.business.electr.clothes.mvp.view.home.HistoryView;
 import com.business.electr.clothes.router.RouterCons;
+import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.ui.fragment.dialog.EmptyFragment;
 import com.business.electr.clothes.ui.fragment.history.HistoryOneFragment;
 import com.business.electr.clothes.ui.fragment.history.HistoryTwoFragment;
+import com.business.electr.clothes.ui.fragment.history.SelectTimeFragment;
+import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.view.TimeTypeView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -51,9 +59,12 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     ImageView img1;
     @BindView(R.id.img_2)
     ImageView img2;
+    @BindView(R.id.tv_time_month)
+    TextView tvTimeMonth;
 
     private List<BaseFragment> fragments;
     private int timeType;//当前时间类型  0 ： 日   1： 周   2： 月   3： 年
+    private long currMonth;
 
     @Override
     protected void initEventAndData() {
@@ -71,6 +82,9 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         HistoryTwoFragment historyTwoFragment = new HistoryTwoFragment();
         fragments.add(historyOneFragment);
         fragments.add(historyTwoFragment);
+        currMonth = System.currentTimeMillis();
+        SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
+        tvTimeMonth.setText(DateUtils.getTime(currMonth,sf));
         vpType.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @NonNull
             @Override
@@ -144,15 +158,41 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         timeType = 3;
     }
 
-    @OnClick({R.id.img_last_page, R.id.img_next_page, R.id.img_history_share})
+    @OnClick({R.id.tv_time_month,R.id.img_last_page, R.id.img_next_page, R.id.img_history_share})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.tv_time_month://显示当月日期选择
+                ((BaseActivity)getActivity()).showSelectFragment(currMonth,new SelectTimeFragment.SelectTimeListener() {
+                    @Override
+                    public void onClickSelect(String day) {
+                        tvTimeMonth.setText(day);
+                    }
+                });
+                break;
             case R.id.img_history_share://分享
                 break;
             case R.id.img_last_page://上一页
+                monthChange(-1);
                 break;
             case R.id.img_next_page://下一页
+                monthChange(1);
                 break;
         }
+    }
+
+
+
+
+
+    /**
+     * 月份增减
+     */
+    public void monthChange(int change) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(currMonth));
+        calendar.add(Calendar.MONTH, change);
+        currMonth = calendar.getTime().getTime();
+        SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
+        tvTimeMonth.setText(DateUtils.getTime(currMonth,sf));
     }
 }

@@ -25,6 +25,7 @@ import com.business.electr.clothes.ui.fragment.dialog.EmptyFragment;
 import com.business.electr.clothes.ui.fragment.dialog.LoadingFragment;
 import com.business.electr.clothes.ui.fragment.dialog.PopupFragment;
 import com.business.electr.clothes.ui.fragment.dialog.PowerFragment;
+import com.business.electr.clothes.ui.fragment.history.SelectTimeFragment;
 import com.business.electr.clothes.utils.PermissionPageUtils;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.business.electr.clothes.view.SearchBarView;
@@ -69,6 +70,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
      * 权限检查回调接口
      */
     private OnPermissionCheckSuccess onPermissionCheckSuccess;
+
+    private SelectTimeFragment selectTimeFragment;
     /**
      * 权限检查列表
      */
@@ -308,22 +311,45 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     /**
      * 显示空页面
+     *
      * @param contentId 要依附在哪个的id上
      */
     public void showEmpty(int contentId) {
         if (mEmptyFragment == null) {
             mEmptyFragment = new EmptyFragment();
             getSupportFragmentManager().beginTransaction().add(contentId, mEmptyFragment).commitAllowingStateLoss();
-        } else getSupportFragmentManager().beginTransaction().show(mEmptyFragment).commitAllowingStateLoss();
+        } else
+            getSupportFragmentManager().beginTransaction().show(mEmptyFragment).commitAllowingStateLoss();
     }
 
     /**
      * 关闭空页面
      */
     public void hideEmpty() {
-        if (mEmptyFragment != null && mEmptyFragment.isAdded()) getSupportFragmentManager().beginTransaction().hide(mEmptyFragment).commitAllowingStateLoss();
+        if (mEmptyFragment != null && mEmptyFragment.isAdded())
+            getSupportFragmentManager().beginTransaction().hide(mEmptyFragment).commitAllowingStateLoss();
     }
 
+
+    /**
+     * 显示空页面
+     */
+    public void showSelectFragment(long month,SelectTimeFragment.SelectTimeListener listener) {
+        selectTimeFragment = new SelectTimeFragment();
+        Bundle bundle = new Bundle();
+        bundle.putLong("month",month);
+        selectTimeFragment.setArguments(bundle);
+        selectTimeFragment.setListener(listener);
+        getSupportFragmentManager().beginTransaction().add(R.id.relativeLayout, selectTimeFragment).commitAllowingStateLoss();
+    }
+
+    /**
+     * 关闭空页面
+     */
+    public void hideSelectFragment() {
+        if (selectTimeFragment != null && selectTimeFragment.isAdded())
+            getSupportFragmentManager().beginTransaction().hide(selectTimeFragment).commitAllowingStateLoss();
+    }
 
     /**
      * 检查权限

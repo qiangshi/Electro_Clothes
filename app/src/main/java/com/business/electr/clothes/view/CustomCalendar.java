@@ -18,15 +18,20 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.ui.activity.TestActivity;
+import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.FontUtil;
 
 import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * author : openXu
@@ -45,14 +50,14 @@ public class CustomCalendar extends View {
     /**
      * 各部分背景
      */
-    private int mBgMonth, mBgWeek, mBgDay, mBgPre;
+    private int mBgMonth, mBgWeek, mBgDay;
     /**
      * 标题的颜色、大小
      */
     private int mTextColorMonth;
     private float mTextSizeMonth;
-    private int mMonthRowL, mMonthRowR;
-    private float mMonthRowSpac;
+
+
     private float mMonthSpac;
     /**
      * 星期的颜色、大小
@@ -64,11 +69,7 @@ public class CustomCalendar extends View {
      */
     private int mTextColorDay;
     private float mTextSizeDay;
-    /**
-     * 任务次数文本的颜色、大小
-     */
-    private int mTextColorPreFinish, mTextColorPreUnFinish, mTextColorPreNull;
-    private float mTextSizePre;
+
     /**
      * 选中的文本的颜色
      */
@@ -77,7 +78,7 @@ public class CustomCalendar extends View {
      * 选中背景
      */
     private int mSelectBg, mCurrentBg;
-    private float mSelectRadius, mCurrentBgStrokeWidth;
+    private float mSelectRadius;
     private float[] mCurrentBgDashPath;
 
     /**
@@ -92,7 +93,7 @@ public class CustomCalendar extends View {
     private Paint mPaint;
     private Paint bgPaint;
 
-    private float titleHeight, weekHeight, dayHeight, preHeight, oneHeight;
+    private float titleHeight, weekHeight, dayHeight, oneHeight;
     private int columnWidth;       //每列宽度
 
     private Date month; //当前的月份
@@ -123,11 +124,6 @@ public class CustomCalendar extends View {
         mBgMonth = a.getColor(R.styleable.CustomCalendar_mBgMonth, Color.TRANSPARENT);
         mBgWeek = a.getColor(R.styleable.CustomCalendar_mBgWeek, Color.TRANSPARENT);
         mBgDay = a.getColor(R.styleable.CustomCalendar_mBgDay, Color.TRANSPARENT);
-        mBgPre = a.getColor(R.styleable.CustomCalendar_mBgPre, Color.TRANSPARENT);
-
-        mMonthRowL = a.getResourceId(R.styleable.CustomCalendar_mMonthRowL, R.drawable.icon_left);
-        mMonthRowR = a.getResourceId(R.styleable.CustomCalendar_mMonthRowR, R.drawable.icon_right);
-        mMonthRowSpac = a.getDimension(R.styleable.CustomCalendar_mMonthRowSpac, 20);
         mTextColorMonth = a.getColor(R.styleable.CustomCalendar_mTextColorMonth, Color.BLACK);
         mTextSizeMonth = a.getDimension(R.styleable.CustomCalendar_mTextSizeMonth, 100);
         mMonthSpac = a.getDimension(R.styleable.CustomCalendar_mMonthSpac, 20);
@@ -137,12 +133,8 @@ public class CustomCalendar extends View {
         mTextSizeWeek = a.getDimension(R.styleable.CustomCalendar_mTextSizeWeek, 70);
         mTextColorDay = a.getColor(R.styleable.CustomCalendar_mTextColorDay, Color.GRAY);
         mTextSizeDay = a.getDimension(R.styleable.CustomCalendar_mTextSizeDay, 70);
-        mTextColorPreFinish = a.getColor(R.styleable.CustomCalendar_mTextColorPreFinish, Color.BLUE);
-        mTextColorPreUnFinish = a.getColor(R.styleable.CustomCalendar_mTextColorPreUnFinish, Color.BLUE);
-        mTextColorPreNull = a.getColor(R.styleable.CustomCalendar_mTextColorPreNull, Color.BLUE);
-        mTextSizePre = a.getDimension(R.styleable.CustomCalendar_mTextSizePre, 40);
         mSelectTextColor = a.getColor(R.styleable.CustomCalendar_mSelectTextColor, Color.YELLOW);
-        mCurrentBg = a.getColor(R.styleable.CustomCalendar_mCurrentBg, Color.GRAY);
+        mCurrentBg = a.getColor(R.styleable.CustomCalendar_mCurrentBg, ContextCompat.getColor(context,R.color.color_D8D8D8));
         try {
             int dashPathId = a.getResourceId(R.styleable.CustomCalendar_mCurrentBgDashPath, R.array.customCalendar_currentDay_bg_DashPath);
             int[] array = getResources().getIntArray(dashPathId);
@@ -156,7 +148,6 @@ public class CustomCalendar extends View {
         }
         mSelectBg = a.getColor(R.styleable.CustomCalendar_mSelectBg, Color.YELLOW);
         mSelectRadius = a.getDimension(R.styleable.CustomCalendar_mSelectRadius, 20);
-        mCurrentBgStrokeWidth = a.getDimension(R.styleable.CustomCalendar_mCurrentBgStrokeWidth, 5);
         mLineSpac = a.getDimension(R.styleable.CustomCalendar_mLineSpac, 20);
         mTextSpac = a.getDimension(R.styleable.CustomCalendar_mTextSpac, 20);
         a.recycle();  //注意回收
@@ -183,25 +174,18 @@ public class CustomCalendar extends View {
         //日期高度
         mPaint.setTextSize(mTextSizeDay);
         dayHeight = FontUtil.getFontHeight(mPaint);
-        //次数字体高度
-        mPaint.setTextSize(mTextSizePre);
-        preHeight = FontUtil.getFontHeight(mPaint);
         //每行高度 = 行间距 + 日期字体高度 + 字间距 + 次数字体高度
-        oneHeight = mLineSpac + dayHeight + mTextSpac + preHeight;
-
-        //默认当前月份
-        String cDateStr = getMonthStr(new Date());
-//        cDateStr = "2015年08月";
-        setMonth(cDateStr);
+        oneHeight = mLineSpac + dayHeight + mTextSpac;
     }
+
+
 
     /**
      * 设置月份
      */
-    private void setMonth(String Month) {
-        //设置的月份（2017年01月）
+    public void setMonth(String Month) {
+        //设置的月份（2017.01）
         month = str2Date(Month);
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         //获取今天是多少号
@@ -255,38 +239,25 @@ public class CustomCalendar extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        drawMonth(canvas);
         drawWeek(canvas);
+        drawMonth(canvas);
         drawDayAndPre(canvas);
     }
 
     /**
      * 绘制月份
      */
-    private int rowLStart, rowRStart, rowWidth;
-
     private void drawMonth(Canvas canvas) {
         //背景
         bgPaint.setColor(mBgMonth);
-        RectF rect = new RectF(0, 0, getWidth(), titleHeight);
+        RectF rect = new RectF(0, weekHeight, getWidth(), titleHeight+weekHeight);
         canvas.drawRect(rect, bgPaint);
         //绘制月份
         mPaint.setTextSize(mTextSizeMonth);
         mPaint.setColor(mTextColorMonth);
-        float textLen = FontUtil.getFontlength(mPaint, getMonthStr(month));//字体长度
-        float textStart = (getWidth() - textLen) / 2;
-        canvas.drawText(getMonthStr(month), textStart,
-                mMonthSpac + FontUtil.getFontLeading(mPaint), mPaint);
-        /*绘制左右箭头*/
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mMonthRowL);
-        int h = bitmap.getHeight();
-        rowWidth = bitmap.getWidth();
-        //float left, float top
-        rowLStart = (int) (textStart - 2 * mMonthRowSpac - rowWidth);
-        canvas.drawBitmap(bitmap, rowLStart + mMonthRowSpac, (titleHeight - h) / 2, new Paint());
-        bitmap = BitmapFactory.decodeResource(getResources(), mMonthRowR);
-        rowRStart = (int) (textStart + textLen);
-        canvas.drawBitmap(bitmap, rowRStart + mMonthRowSpac, (titleHeight - h) / 2, new Paint());
+        float textStart = 60;
+        canvas.drawText(DateUtils.format(month,Constant.DATE_FORMAT_8), textStart,
+                weekHeight+mMonthSpac + FontUtil.getFontLeading(mPaint), mPaint);
     }
 
     /**
@@ -295,7 +266,7 @@ public class CustomCalendar extends View {
     private void drawWeek(Canvas canvas) {
         //背景
         bgPaint.setColor(mBgWeek);
-        RectF rect = new RectF(0, titleHeight, getWidth(), titleHeight + weekHeight);
+        RectF rect = new RectF(0, 0, getWidth(), weekHeight);
         canvas.drawRect(rect, bgPaint);
         //绘制星期：七天
         mPaint.setTextSize(mTextSizeWeek);
@@ -308,7 +279,7 @@ public class CustomCalendar extends View {
             }
             int len = (int) FontUtil.getFontlength(mPaint, WEEK_STR[i]);
             int x = i * columnWidth + (columnWidth - len) / 2;
-            canvas.drawText(WEEK_STR[i], x, titleHeight + FontUtil.getFontLeading(mPaint), mPaint);
+            canvas.drawText(WEEK_STR[i], x,  FontUtil.getFontLeading(mPaint), mPaint);
         }
     }
 
@@ -348,7 +319,7 @@ public class CustomCalendar extends View {
                                int count, int overDay, int startIndex) {
 //        Log.e(TAG, "总共"+dayOfMonth+"天  有"+lineNum+"行"+ "  已经画了"+overDay+"天,下面绘制："+count+"天");
         //背景
-        float topPre = top + mLineSpac + dayHeight;
+        float topPre = top  + mLineSpac;
         bgPaint.setColor(mBgDay);
         RectF rect = new RectF(0, top, getWidth(), topPre);
         canvas.drawRect(rect, bgPaint);
@@ -366,16 +337,12 @@ public class CustomCalendar extends View {
             if (isCurrentMonth && currentDay == day) {
                 mPaint.setColor(mTextColorDay);
                 bgPaint.setColor(mCurrentBg);
-                bgPaint.setStyle(Paint.Style.STROKE);  //空心
-                PathEffect effect = new DashPathEffect(mCurrentBgDashPath, 1);
-                bgPaint.setPathEffect(effect);   //设置画笔曲线间隔
-                bgPaint.setStrokeWidth(mCurrentBgStrokeWidth);       //画笔宽度
+                bgPaint.setStyle(Paint.Style.FILL);
                 //绘制空心圆背景
                 canvas.drawCircle(left + columnWidth / 2, top + mLineSpac + dayHeight / 2,
-                        mSelectRadius - mCurrentBgStrokeWidth, bgPaint);
+                        mSelectRadius, bgPaint);
             }
             //绘制完后将画笔还原，避免脏笔
-            bgPaint.setPathEffect(null);
             bgPaint.setStrokeWidth(0);
             bgPaint.setStyle(Paint.Style.FILL);
 
@@ -400,13 +367,13 @@ public class CustomCalendar extends View {
      * 获取月份标题
      */
     private String getMonthStr(Date month) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+        SimpleDateFormat df = new SimpleDateFormat(Constant.DATE_FORMAT_5);
         return df.format(month);
     }
 
     private Date str2Date(String str) {
         try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+            SimpleDateFormat df = new SimpleDateFormat(Constant.DATE_FORMAT_5);
             return df.parse(str);
         } catch (Exception e) {
             e.printStackTrace();
@@ -447,20 +414,7 @@ public class CustomCalendar extends View {
     public void touchFocusMove(final PointF point, boolean eventEnd) {
         Log.e(TAG, "点击坐标：(" + point.x + " ，" + point.y + "),事件是否结束：" + eventEnd);
         /**标题和星期只有在事件结束后才响应*/
-        if (point.y <= titleHeight) {
-            //事件在标题上
-            if (eventEnd && listener != null) {
-                if (point.x >= rowLStart && point.x < (rowLStart + 2 * mMonthRowSpac + rowWidth)) {
-                    Log.w(TAG, "点击左箭头");
-                    listener.onLeftRowClick();
-                } else if (point.x > rowRStart && point.x < (rowRStart + 2 * mMonthRowSpac + rowWidth)) {
-                    Log.w(TAG, "点击右箭头");
-                    listener.onRightRowClick();
-                } else if (point.x > rowLStart && point.x < rowRStart) {
-                    listener.onTitleClick(getMonthStr(month), month);
-                }
-            }
-        } else if (point.y <= (titleHeight + weekHeight)) {
+         if (point.y <= (titleHeight + weekHeight)) {
             //事件在星期部分
             if (eventEnd && listener != null) {
                 //根据X坐标找到具体的焦点日期
@@ -468,9 +422,6 @@ public class CustomCalendar extends View {
                 Log.e(TAG, "列宽：" + columnWidth + "  x坐标余数：" + (point.x / columnWidth));
                 if ((point.x / columnWidth - xIndex) > 0) {
                     xIndex += 1;
-                }
-                if (listener != null) {
-                    listener.onWeekClick(xIndex - 1, WEEK_STR[xIndex - 1]);
                 }
             }
         } else {
@@ -560,32 +511,13 @@ public class CustomCalendar extends View {
     }
 
 
-    /**
-     * 月份增减
-     */
-    public void monthChange(int change) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(month);
-        calendar.add(Calendar.MONTH, change);
-        setMonth(getMonthStr(calendar.getTime()));
-        invalidate();
-    }
-
     private onClickListener listener;
 
     public void setOnClickListener(onClickListener listener) {
         this.listener = listener;
     }
 
-    interface onClickListener {
-
-         void onLeftRowClick();
-
-         void onRightRowClick();
-
-         void onTitleClick(String monthStr, Date month);
-
-         void onWeekClick(int weekIndex, String weekStr);
+    public interface onClickListener {
 
          void onDayClick(int day, String dayStr);
     }

@@ -1,5 +1,7 @@
 package com.business.electr.clothes.constants;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by zenghaiqiang on 2018/11/16.
  * 描述：
@@ -34,6 +36,7 @@ public class Constant {
     public static final String DATE_FORMAT_5 = "MM月dd日";
     public static final String DATE_FORMAT_6 = "yyyy/MM/dd";
     public static final String DATE_FORMAT_7 = "yyyy/MM";
+    public static final String DATE_FORMAT_8 = "yyyy.MM";
 
     public static final String BAIDU_AK = "8MHzqiUwn85aYLLFl35bItIo7QC41OUS";
 

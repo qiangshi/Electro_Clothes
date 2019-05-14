@@ -2,6 +2,7 @@ package com.business.electr.clothes.utils;
 
 import com.business.electr.clothes.constants.Constant;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -26,7 +27,7 @@ public class DateUtils {
      * @param dateFormat
      * @return
      */
-    private static String getTime(long timeInMillis, SimpleDateFormat dateFormat) {
+    public static String getTime(long timeInMillis, SimpleDateFormat dateFormat) {
         return dateFormat.format(new Date(timeInMillis));
     }
 
@@ -46,6 +47,25 @@ public class DateUtils {
      */
     public static String getCurrentTimeYear() {
         return getTime(System.currentTimeMillis(), new SimpleDateFormat(Constant.DATE_FORMAT_3));
+    }
+
+    public static Date getDateByString(String month,String dateFormat){
+        Date date = null;
+        try {
+            SimpleDateFormat df = new SimpleDateFormat(dateFormat);
+            date = df.parse(month);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * 获取日期标题
+     */
+    public static String getMonthDayStr(Date month) {
+        SimpleDateFormat df = new SimpleDateFormat(Constant.DATE_FORMAT_5);
+        return df.format(month);
     }
 
     /**

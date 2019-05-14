@@ -1,45 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:openxu="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".ui.fragment.history.SelectTimeFragment">
 
-    <include layout="@layout/title_bar_layout"/>
+    <include layout="@layout/title_bar_layout" />
 
     <com.business.electr.clothes.view.CustomCalendar
         android:id="@+id/cal"
-        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/padding_20"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_5"
+        android:layout_marginEnd="@dimen/padding_5"
 
-        openxu:mMonthRowL="@drawable/icon_left"
-        openxu:mMonthRowR="@drawable/icon_right"
-        openxu:mMonthRowSpac="20dip"
+        openxu:mCurrentBg="@color/color_D8D8D8"
 
-        openxu:mTextSizeMonth="20sp"
-        openxu:mTextSizeWeek="17sp"
-        openxu:mTextSizeDay="17sp"
-        openxu:mTextSizePre="10sp"
-
-        openxu:mTextColorMonth="#4b4b4b"
-        openxu:mTextColorWeek="#9e9e9d"
-        openxu:mSelectWeekTextColor="#f67633"
-        openxu:mTextColorDay="#686768"
-        openxu:mTextColorPreFinish="#fc7451"
-        openxu:mTextColorPreUnFinish="#60ba8d"
-        openxu:mTextColorPreNull="#cecdcd"
-        openxu:mSelectTextColor="#ffffff"
-
-        openxu:mMonthSpac="10dip"
-        openxu:mLineSpac="12dip"
-        openxu:mTextSpac="8dip"
-
-        openxu:mCurrentBg="#6E6E6E"
-        openxu:mCurrentBgStrokeWidth="1.5dip"
         openxu:mCurrentBgDashPath="@array/customCalendar_currentDay_bg_DashPath"
+        openxu:mCurrentBgStrokeWidth="1.5dip"
+        openxu:mLineSpac="12dip"
+
+        openxu:mMonthSpac="@dimen/padding_20"
         openxu:mSelectBg="#fe7f5c"
-        openxu:mSelectRadius="15dip" />
+        openxu:mSelectRadius="@dimen/padding_17"
+        openxu:mSelectTextColor="@color/color_353535"
+        openxu:mSelectWeekTextColor="@color/color_8c919b"
+        openxu:mTextColorDay="@color/color_353535"
+        openxu:mTextColorMonth="@color/color_353535"
+        openxu:mTextColorWeek="@color/color_8c919b"
+
+        openxu:mTextSizeDay="@dimen/text_font_14"
+        openxu:mTextSizeMonth="@dimen/text_font_16"
+        openxu:mTextSizeWeek="@dimen/text_font_12"
+        openxu:mTextSpac="8dip" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="@dimen/padding_305"
+        android:layout_height="@dimen/padding_48"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/padding_55"
+        android:background="@drawable/bg_login_get_code"
+        android:gravity="center"
+        android:text="@string/commit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_15" />
 
 
 </LinearLayout>
