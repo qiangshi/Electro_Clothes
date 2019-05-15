@@ -6,40 +6,42 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.history.HistoryOneFragment">
 
-    <TextView
-        android:layout_width="match_parent"
+    <com.business.electr.clothes.view.HistoryElectView
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/padding_290"
-        android:gravity="center"
-        android:text="history_fragment_one" />
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:layout_marginBottom="@dimen/padding_16"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tv_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding_16"
-        android:paddingEnd="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_10"
-        android:paddingBottom="@dimen/padding_10"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/bg_solid_494b50_15"
+        android:paddingStart="@dimen/padding_16"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingEnd="@dimen/padding_16"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/scan_elect"
         android:textColor="@color/color_494B50"
-        android:textSize="@dimen/text_font_11"
-        android:text="@string/scan_elect"/>
+        android:textSize="@dimen/text_font_11" />
 
     <View
-        android:layout_below="@+id/ll_select_time"
         android:id="@+id/v_line"
-        android:layout_marginStart="@dimen/padding_25"
-        android:layout_marginEnd="@dimen/padding_28"
-        android:layout_marginTop="@dimen/padding_12"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_0_33"
-        android:background="@color/color_d5d5d5"/>
+        android:layout_below="@+id/ll_select_time"
+        android:layout_marginStart="@dimen/padding_25"
+        android:layout_marginTop="@dimen/padding_12"
+        android:layout_marginEnd="@dimen/padding_28"
+        android:background="@color/color_d5d5d5" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tag"
-        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
 
 </LinearLayout>
