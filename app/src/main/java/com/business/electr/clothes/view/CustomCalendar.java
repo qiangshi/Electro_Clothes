@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.PathEffect;
 import android.graphics.PointF;
 import android.graphics.RectF;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -22,6 +23,7 @@ import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.ui.activity.TestActivity;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.FontUtil;
+import com.business.electr.clothes.utils.MLog;
 
 import java.text.SimpleDateFormat;
 import java.time.Month;
@@ -106,6 +108,7 @@ public class CustomCalendar extends View {
     private int firstLineNum, lastLineNum; //第一行、最后一行能展示多少日期
     private int lineNum;      //日期行数
     private String[] WEEK_STR = new String[]{"日", "一", "二", "三", "四", "五", "六",};
+    private long monthStr;
 
 
     public CustomCalendar(Context context) {
@@ -176,25 +179,35 @@ public class CustomCalendar extends View {
         dayHeight = FontUtil.getFontHeight(mPaint);
         //每行高度 = 行间距 + 日期字体高度 + 字间距 + 次数字体高度
         oneHeight = mLineSpac + dayHeight + mTextSpac;
+        if(monthStr == 0){
+            monthStr = System.currentTimeMillis();
+        }
+        String aa = DateUtils.getTime(monthStr,new SimpleDateFormat(Constant.DATE_FORMAT_5));
+        setMonth(aa);
     }
 
-
+//
+    public void setMonthStr(long monthStr) {
+        this.monthStr = monthStr;
+        setMonth(DateUtils.getTime(monthStr,new SimpleDateFormat(Constant.DATE_FORMAT_5)));
+        invalidate();
+    }
 
     /**
      * 设置月份
      */
     public void setMonth(String Month) {
-        //设置的月份（2017.01）
+        //设置的月份（2017月01日）
         month = str2Date(Month);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         //获取今天是多少号
         currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         todayWeekIndex = calendar.get(Calendar.DAY_OF_WEEK) - 1;
-
-        Date cM = str2Date(getMonthStr(new Date()));
+        String nowDate = DateUtils.getTime(System.currentTimeMillis(),new SimpleDateFormat(Constant.DATE_FORMAT_9));
+        String selectDate = DateUtils.getTime(monthStr,new SimpleDateFormat(Constant.DATE_FORMAT_9));
         //判断是否为当月
-        if (cM.getTime() == month.getTime()) {
+        if (nowDate.equals(selectDate)) {
             isCurrentMonth = true;
             selectDay = currentDay;//当月默认选中当前日
         } else {
@@ -221,6 +234,7 @@ public class CustomCalendar extends View {
         }
         Log.i(TAG, getMonthStr(month) + "一共有" + dayOfMonth + "天,第一天的索引是：" + firstIndex + "   有" + lineNum +
                 "行，第一行" + firstLineNum + "个，最后一行" + lastLineNum + "个");
+
     }
 
     @Override
@@ -239,6 +253,7 @@ public class CustomCalendar extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
         drawWeek(canvas);
         drawMonth(canvas);
         drawDayAndPre(canvas);
@@ -256,7 +271,8 @@ public class CustomCalendar extends View {
         mPaint.setTextSize(mTextSizeMonth);
         mPaint.setColor(mTextColorMonth);
         float textStart = 60;
-        canvas.drawText(DateUtils.format(month,Constant.DATE_FORMAT_8), textStart,
+        SimpleDateFormat sdf = new SimpleDateFormat(Constant.DATE_FORMAT_8);
+        canvas.drawText(DateUtils.getTime(monthStr,sdf), textStart,
                 weekHeight+mMonthSpac + FontUtil.getFontLeading(mPaint), mPaint);
     }
 
@@ -496,7 +512,8 @@ public class CustomCalendar extends View {
         invalidate();
         if (listener != null && eventEnd && responseWhenEnd && lastSelectDay != selectDay) {
             lastSelectDay = selectDay;
-            listener.onDayClick(selectDay, getMonthStr(month) + selectDay + "日");
+            String yearAndMonth = DateUtils.format(new Date(monthStr),Constant.DATE_FORMAT_9);
+            listener.onDayClick(selectDay, yearAndMonth + selectDay + "日");
         }
         responseWhenEnd = !eventEnd;
     }

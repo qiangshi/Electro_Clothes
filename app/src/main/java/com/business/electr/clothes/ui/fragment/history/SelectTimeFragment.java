@@ -54,10 +54,8 @@ public class SelectTimeFragment extends DialogFragment implements CustomCalendar
         ButterKnife.bind(this,view);
         Bundle bundle = getArguments();
         long time = bundle.getLong("month",System.currentTimeMillis());
-        MLog.e("====zhq====>time<"+time);
         tvTitle.setText("选择时间");
-        SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
-        cal.setMonth(DateUtils.getTime(time,sf));
+        cal.setMonthStr(time);
         cal.setOnClickListener(this);
         return view;
     }

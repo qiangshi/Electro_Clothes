@@ -28,7 +28,6 @@ public class Constant {
     public static final int PERMISSIONS_RESULT_CODE = 1001;
     public static final int COMMON_CODE = 110;
 
-    public static final String DATE_FORMAT_0 = "yyyy-MM-dd";
     public static final String DATE_FORMAT_1 = "yyyy-MM-dd HH:mm";
     public static final String DATE_FORMAT_2 = "yyyy-MM-dd HH:mm:ss";
     public static final String DATE_FORMAT_3 = "yyyy";
@@ -37,6 +36,8 @@ public class Constant {
     public static final String DATE_FORMAT_6 = "yyyy/MM/dd";
     public static final String DATE_FORMAT_7 = "yyyy/MM";
     public static final String DATE_FORMAT_8 = "yyyy.MM";
+    public static final String DATE_FORMAT_9 = "yyyy年MM月";
+    public static final String DATE_FORMAT_0 = "yyyy年MM月dd日";
 
     public static final String BAIDU_AK = "8MHzqiUwn85aYLLFl35bItIo7QC41OUS";
 

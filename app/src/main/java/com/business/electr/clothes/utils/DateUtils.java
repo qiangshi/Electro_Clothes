@@ -60,6 +60,18 @@ public class DateUtils {
         return date;
     }
 
+
+    public static long getLongByString(String month,String dateFormat){
+        Date date = null;
+        try {
+            SimpleDateFormat df = new SimpleDateFormat(dateFormat);
+            date = df.parse(month);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date.getTime();
+    }
+
     /**
      * 获取日期标题
      */

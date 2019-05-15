@@ -165,7 +165,8 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
                 ((BaseActivity)getActivity()).showSelectFragment(currMonth,new SelectTimeFragment.SelectTimeListener() {
                     @Override
                     public void onClickSelect(String day) {
-                        tvTimeMonth.setText(day);
+                        tvTimeMonth.setText(day.substring(5));
+                        currMonth = DateUtils.getLongByString(day,Constant.DATE_FORMAT_0);
                     }
                 });
                 break;
