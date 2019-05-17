@@ -200,7 +200,7 @@ public class CustomCalendar extends View {
         //设置的月份（2017月01日）
         month = str2Date(Month);
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
+        calendar.setTime(new Date(monthStr));
         //获取今天是多少号
         currentDay = calendar.get(Calendar.DAY_OF_MONTH);
         todayWeekIndex = calendar.get(Calendar.DAY_OF_WEEK) - 1;
