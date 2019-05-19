@@ -33,10 +33,12 @@
     <string name="quick_experience">快速精准的体检</string>
     <string name="gong">共</string>
     <string name="fen">份</string>
-    <string name="ai_presentation">AI报告</string>
     <string name="big_data_suggest">大数据为您提供专属建议</string>
     <string name="doctor_presentation">医生报告</string>
     <string name="doctor_service">医学专家为您服务</string>
+    <string name="ai_presentation">AI报告</string>
+    <string name="record_time">记录时间</string>
+    <string name="request_doctor_time">求医时间</string>
 
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>

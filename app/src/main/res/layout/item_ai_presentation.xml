@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/padding_86"
+    android:background="@drawable/selector_bg_click"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:textColor="@color/color_353535"
+        android:layout_marginStart="@dimen/padding_29"
+        android:textSize="@dimen/text_font_15"
+        android:layout_marginTop="@dimen/padding_25"
+        android:text="05月07号AI报告"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_record_time"
+        android:layout_below="@+id/tv_title"
+        android:textColor="@color/color_8c919b"
+        android:layout_marginStart="@dimen/padding_29"
+        android:textSize="@dimen/text_font_12"
+        android:layout_marginTop="@dimen/padding_5"
+        android:text="05月07号AI报告"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_29"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_login_area_code"/>
+
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_29"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:background="@color/color_44979797"/>
+
+</RelativeLayout>

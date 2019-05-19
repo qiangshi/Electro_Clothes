@@ -16,15 +16,12 @@
 
     <TextView
         android:id="@+id/tv_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/padding_83"
+        android:layout_height="@dimen/padding_29"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/bg_solid_494b50_15"
-        android:paddingStart="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_10"
-        android:paddingEnd="@dimen/padding_16"
-        android:paddingBottom="@dimen/padding_10"
         android:text="@string/scan_elect"
+        android:gravity="center"
         android:textColor="@color/color_494B50"
         android:textSize="@dimen/text_font_11" />
 

@@ -20,6 +20,8 @@ public class RouterCons {
     public static final String CREATE_EQUIPMENT = "/create_equipment";
     public static final String CREATE_MEASUREMENT = "/create_measurement";
     public static final String CREATE_MEASURE_RESULT = "/create_measure_result";
+    public static final String CREATE_AI_PRESENTATION = "/create_ai_presentation";
+    public static final String CREATE_DOCTOR_PRESENTATION = "/create_doctor_presentation";
     public static final String CREATE_SET_PASSWORD = "/create_set_password";
     public static final String CREATE_RE_SET_PASSWORD = "/create_re_set_password";
     public static final String CREATE_SET_NEW_PASSWORD = "/create_set_new_password";

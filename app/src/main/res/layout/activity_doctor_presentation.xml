@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/scroll_view"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".ui.activity.presentation.DoctorPresentationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/padding_20"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_bar_layout"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_154"
+            android:src="@drawable/icon_doctor_presen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_103"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/padding_10"
+                    android:layout_height="@dimen/padding_103">
+
+                    <TextView
+                        android:id="@+id/tv_record_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3月31日"
+                        android:textColor="@color/color_353535"
+                        android:textSize="@dimen/text_font_21"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/record_time"
+                        android:layout_marginTop="@dimen/padding_12"
+                        android:textColor="@color/color_8c919b"
+                        android:textSize="@dimen/text_font_12"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/padding_10"
+                    android:layout_height="@dimen/padding_103">
+
+                    <TextView
+                        android:id="@+id/tv_request_doctor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4月01日"
+                        android:textColor="@color/color_353535"
+                        android:textSize="@dimen/text_font_21"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/request_doctor_time"
+                        android:layout_marginTop="@dimen/padding_12"
+                        android:textColor="@color/color_8c919b"
+                        android:textSize="@dimen/text_font_12"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="@dimen/padding_18"
+                android:layout_marginBottom="@dimen/padding_18"
+                android:textColor="@color/color_8c919b"
+                android:text="记录时长：6个小时"
+                android:textSize="@dimen/text_font_14"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_83"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3456"
+                        android:textColor="@color/color_353535"
+                        android:textSize="@dimen/text_font_20"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/elect_number"
+                        android:layout_marginTop="@dimen/padding_2"
+                        android:textColor="@color/color_8c919b"
+                        android:textSize="@dimen/text_font_10"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_kilometre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.5"
+                        android:textColor="@color/color_353535"
+                        android:textSize="@dimen/text_font_21"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kilometre"
+                        android:layout_marginTop="@dimen/padding_2"
+                        android:textColor="@color/color_8c919b"
+                        android:textSize="@dimen/text_font_10"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_elect_calorie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="478"
+                        android:textColor="@color/color_353535"
+                        android:textSize="@dimen/text_font_21"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/elect_calorie"
+                        android:layout_marginTop="@dimen/padding_2"
+                        android:textColor="@color/color_8c919b"
+                        android:textSize="@dimen/text_font_10"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.business.electr.clothes.view.ElectView
+                android:id="@+id/ev_detail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_161"
+                android:layout_below="@+id/tv_speed" />
+
+            <ImageView
+                android:id="@+id/img_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ev_detail"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/padding_27"
+                android:layout_marginBottom="@dimen/padding_7"
+                android:src="@drawable/icon_hor" />
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_comment"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

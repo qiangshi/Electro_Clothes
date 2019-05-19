@@ -31,8 +31,11 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.HorizontalDetailActivity"
-            android:screenOrientation="landscape"/>
+        <activity android:name=".ui.activity.presentation.DoctorPresentationActivity"></activity>
+        <activity android:name=".ui.activity.presentation.AIPresentationActivity" />
+        <activity
+            android:name=".ui.activity.HorizontalDetailActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".ui.activity.TestActivity" />
         <activity android:name=".ui.activity.login.PerfectInfoActivity" />
         <activity android:name=".ui.activity.ElectDetailActivity" />

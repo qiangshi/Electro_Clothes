@@ -19,6 +19,7 @@ import com.business.electr.clothes.ui.fragment.history.HistoryTwoFragment;
 import com.business.electr.clothes.ui.fragment.history.SelectTimeFragment;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.MLog;
+import com.business.electr.clothes.view.NoScrollViewPager;
 import com.business.electr.clothes.view.TimeTypeView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -54,7 +55,7 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     @BindView(R.id.ll_select_time)
     LinearLayout llSelectTime;
     @BindView(R.id.vp_type)
-    ViewPager vpType;
+    NoScrollViewPager vpType;
     @BindView(R.id.img_1)
     ImageView img1;
     @BindView(R.id.img_2)
@@ -85,6 +86,7 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         currMonth = System.currentTimeMillis();
         SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
         tvTimeMonth.setText(DateUtils.getTime(currMonth,sf));
+        vpType.setNoScroll(true);
         vpType.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @NonNull
             @Override
