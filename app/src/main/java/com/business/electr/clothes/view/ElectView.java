@@ -152,7 +152,7 @@ public class ElectView extends View {
         baseLine = per_height * 5f;
         maxLevel = height / 3;
         per_elect_num = 30;
-        per_height_num = 1;
+        per_height_num = 5;
         setData();
     }
 
@@ -181,6 +181,10 @@ public class ElectView extends View {
         electPath.moveTo(0, baseLine - datas.get(0));
         for (int i = 0; i < electDatas.size(); i++) {
             float y = baseLine - electDatas.get(i);
+            if(i == noElect){
+                electPath.moveTo(i * per_height * 1.0f / per_height_num,y);
+                continue;
+            }
             xyMap.put(i * per_height * 1.0f / per_height_num, y);
             electPath.lineTo(i * per_height * 1.0f / per_height_num, y);
         }
@@ -290,28 +294,6 @@ public class ElectView extends View {
         return super.onTouchEvent(event);
     }
 
-    private List<Float> datas = new ArrayList<>();
-    private List<Float> electDatas = new ArrayList<>();
-
-    public void generateElectrocar() {
-        for (int i = 0; i < 2 * per_height_num; i++) {
-            datas.add(0f);
-        }
-        for (int i = 0; i < 20 * per_height_num; i++) {
-            double random;
-            if (i % 2 == 0) {
-                random = Math.random();
-            } else {
-                random = -Math.random();
-            }
-            float value = (float) (maxLevel * random);
-            datas.add(value);
-        }
-        for (int i = 0; i < 2 * per_height_num; i++) {
-            datas.add(0f);
-        }
-    }
-
     /**
      * 根据x轴坐标获取y轴坐标
      *
@@ -356,19 +338,92 @@ public class ElectView extends View {
         return stringBuilder.toString();
     }
 
+    private List<Float> datas = new ArrayList<>();
+    private List<Float> electDatas = new ArrayList<>();
+    private int noElect = -1;//不绘制的位置
+
+    public void generateElectrocar() {
+        for (int i = 0; i < 24; i++) {
+            datas.add(0f);
+            datas.add(0f);
+            datas.add(0.5f*maxLevel);
+            datas.add(0.6f*maxLevel);
+            datas.add(1f*maxLevel);
+            datas.add(0.8f*maxLevel);
+            datas.add(0.5f*maxLevel);
+            datas.add(-0.1f*maxLevel);
+            datas.add(-0.3f*maxLevel);
+            datas.add(-0.2f*maxLevel);
+            datas.add(0f);
+            datas.add(0f);
+            datas.add(0.3f*maxLevel);
+            datas.add(0.5f*maxLevel);
+            datas.add(0.7f*maxLevel);
+            datas.add(1f*maxLevel);
+            datas.add(0.7f*maxLevel);
+            datas.add(0.5f*maxLevel);
+            datas.add(-0.1f*maxLevel);
+            datas.add(-0.3f*maxLevel);
+            datas.add(-0.2f*maxLevel);
+            datas.add(0f);
+            datas.add(0f);
+            datas.add(0.3f*maxLevel);
+            datas.add(0.5f*maxLevel);
+            datas.add(0.7f*maxLevel);
+            datas.add(1f*maxLevel);
+            datas.add(0.7f*maxLevel);
+            datas.add(0.5f*maxLevel);
+            datas.add(-0.1f*maxLevel);
+            datas.add(-0.3f*maxLevel);
+            datas.add(-0.2f*maxLevel);
+        }
+//        for (int i = 0; i < 2 * per_height_num; i++) {
+//            datas.add(0f);
+//        }
+//        for (int i = 0; i < 20 * per_height_num; i++) {
+//            double random;
+//            if (i % 2 == 0) {
+//                random = Math.random();
+//            } else {
+//                random = -Math.random();
+//            }
+//            float value = (float) (maxLevel * random);
+//            datas.add(value);
+//        }
+//        for (int i = 0; i < 2 * per_height_num; i++) {
+//            datas.add(0f);
+//        }
+    }
+
+
+
     private int index;
+
+    public void addOneData(Float nowElect){
+        datas.add(nowElect);
+        addData();
+    }
 
     public void addData() {
         if (datas.size() > 0) {
-            electDatas.add(datas.get(index));
-            index++;
-            if (index > datas.size() - 1) {
-                index = 0;
+            if(index <= (verticalLineNum+1)*per_height_num){
+                electDatas.add(datas.get(index));
+            }
+            if (index > (verticalLineNum+1)*per_height_num+1 && index <= datas.size() -1) {
+                int i = index % ((verticalLineNum+1)*per_height_num);
+                electPath.reset();
+                electDatas.set(i,datas.get(index));
+                noElect = i+1;
+
+            }else if(index > datas.size() -1){
+                index =0;
+                noElect = -1;
                 electDatas.clear();
                 electPath.reset();
                 datas.clear();
                 generateElectrocar();
             }
+            index++;
             invalidate();
         }
     }
