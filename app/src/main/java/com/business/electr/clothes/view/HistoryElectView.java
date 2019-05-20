@@ -11,12 +11,15 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.StripData;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.MLog;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
@@ -41,6 +44,7 @@ public class HistoryElectView extends View {
 
     private List<StripData> dataList;
     private String textTag = "读书";//标记
+    private boolean isShowTag;
 
 
     public void setTextTag(String textTag) {
@@ -138,9 +142,9 @@ public class HistoryElectView extends View {
         textPaint.setTextSize(33);
         textPaint.setTextAlign(Paint.Align.RIGHT);
         textPaint.setColor(getResources().getColor(R.color.color_8c919b));
-        drawText(canvas,"高",40,per_height - 15,textPaint,-90);
-        drawText(canvas,"常规", 40, 3.5f * per_height - 15,textPaint,-90);
-        drawText(canvas,"低", 40, 6 * per_height - 15,textPaint,-90);
+        drawText(canvas, "高", 40, per_height - 15, textPaint, -90);
+        drawText(canvas, "常规", 40, 3.5f * per_height - 15, textPaint, -90);
+        drawText(canvas, "低", 40, 6 * per_height - 15, textPaint, -90);
     }
 
 
@@ -187,9 +191,9 @@ public class HistoryElectView extends View {
             dynamicPaint.setStyle(Paint.Style.STROKE);
             for (int j = 0; j < dataList.size(); j++) {//从数据中找出当前时间的数据并绘画
                 StripData bean = dataList.get(j);
-                if (i == bean.getTime()) {
+                if (i == bean.getTime() && j < dataList.size() - 1 && i + 1 == dataList.get(j + 1).getTime()) {
                     isHas = true;
-                    drawPerStrip(canvas, bean);
+                    drawPerStrip(canvas, bean, j);
                 }
             }
             if (!isHas) {//当前时间没有数据
@@ -207,7 +211,7 @@ public class HistoryElectView extends View {
      * @param canvas
      * @param data
      */
-    private void drawPerStrip(Canvas canvas, StripData data) {
+    private void drawPerStrip(Canvas canvas, StripData data, int pos) {
         canvas.save();
         dynamicPaint.setStrokeWidth(stripHeight);
         if (data != null) {
@@ -219,7 +223,7 @@ public class HistoryElectView extends View {
                 dynamicPaint.setColor(getResources().getColor(R.color.end_color));
             }
             dynamicPaint.setStrokeWidth(6);
-            canvas.drawLine(0, 160 - (data.getElect() - 20) * per_height * 7 / 140, per_width + 1, 160 - (data.getElect() - 20) * per_height * 7 / 140, dynamicPaint);
+            canvas.drawLine(0, -(data.getElect() - 20) * per_height * 7 / 140, per_width + 1, -(dataList.get(pos + 1).getElect() - 20) * per_height * 7 / 140, dynamicPaint);
             dynamicPaint.setStrokeWidth(stripHeight);
             canvas.drawLine(0, 0, per_width + 1, 0, dynamicPaint);
             canvas.translate(per_width, 0);
@@ -250,24 +254,40 @@ public class HistoryElectView extends View {
             x = (float) width - 66;
         }
         canvas.drawLine(x, 0, x, height - 93, pointPaint);
-        canvas.restore();
-        canvas.save();
-        canvas.translate(66 + x, height / 2);
-        pointPaint.setStyle(Paint.Style.FILL);
-        RectF f = new RectF(-50f, -70f, 50f, -20f);
-        canvas.drawRoundRect(f, 4f, 4f, pointPaint);
-        //绘制三角形形成指针
-        Path path = new Path();
-        path.moveTo(0, -15);
-        path.lineTo(10, -20);
-        path.lineTo(-10, -20);
-        path.lineTo(0, -15);
-        path.close();
-        canvas.drawPath(path, pointPaint);
-        pointPaint.setColor(getResources().getColor(R.color.white));
-        pointPaint.setTextSize(33);
-        pointPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(textTag, 0, -35, pointPaint);
+        int time = (int) (x / per_width);
+        for (int j = 0; j < dataList.size(); j++) {
+            StripData bean = dataList.get(j);
+            if(time == bean.getTime()){
+                if (x > bean.getTime() * per_width && x < (bean.getTime()+1) * per_width)  {
+                    isShowTag = true;
+                    break;
+                }else {
+                    isShowTag = false;
+                    break;
+                }
+            }
+        }
+        if (isShowTag) {
+            canvas.restore();
+            canvas.save();
+            canvas.translate(66 + x, height / 2);
+            pointPaint.setStyle(Paint.Style.FILL);
+            RectF f = new RectF(-50f, -70f, 50f, -20f);
+            canvas.drawRoundRect(f, 4f, 4f, pointPaint);
+            //绘制三角形形成指针
+            Path path = new Path();
+            path.moveTo(0, -15);
+            path.lineTo(10, -20);
+            path.lineTo(-10, -20);
+            path.lineTo(0, -15);
+            path.close();
+            canvas.drawPath(path, pointPaint);
+            pointPaint.setColor(getResources().getColor(R.color.white));
+            pointPaint.setTextSize(33);
+            pointPaint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(textTag, 0, -35, pointPaint);
+        }
+
     }
 
 
@@ -333,57 +353,86 @@ public class HistoryElectView extends View {
 
 
     private void generalTestData() {
-        dataList.add(new StripData(15, 65));
-        dataList.add(new StripData(16, 68));
-        dataList.add(new StripData(17, 70));
-        dataList.add(new StripData(18, 67));
-        dataList.add(new StripData(19, 68));
-        dataList.add(new StripData(20, 69));
-        dataList.add(new StripData(21, 60));
-        dataList.add(new StripData(23, 55));
-        dataList.add(new StripData(24, 59));
-        dataList.add(new StripData(25, 56));
-        dataList.add(new StripData(26, 70));
-        dataList.add(new StripData(27, 72));
-        dataList.add(new StripData(28, 74));
+        dataList.add(new StripData(5, 35));
+        dataList.add(new StripData(6, 37));
+        dataList.add(new StripData(7, 39));
+        dataList.add(new StripData(8, 40));
+        dataList.add(new StripData(9, 41));
+        dataList.add(new StripData(10, 42));
+        dataList.add(new StripData(11, 43));
+        dataList.add(new StripData(12, 44));
+        dataList.add(new StripData(13, 45));
+        dataList.add(new StripData(14, 43));
+        dataList.add(new StripData(15, 41));
+        dataList.add(new StripData(16, 39));
+        dataList.add(new StripData(17, 42));
+        dataList.add(new StripData(18, 46));
+        dataList.add(new StripData(19, 49));
+        dataList.add(new StripData(20, 52));
+        dataList.add(new StripData(21, 56));
+        dataList.add(new StripData(22, 59));
+        dataList.add(new StripData(23, 53));
+        dataList.add(new StripData(24, 46));
+        dataList.add(new StripData(25, 40));
+        dataList.add(new StripData(26, 32));
+        dataList.add(new StripData(27, 25));
+        dataList.add(new StripData(28, 30));
+        dataList.add(new StripData(29, 25));
+        dataList.add(new StripData(30, 25));
+        dataList.add(new StripData(31, 27));
+        dataList.add(new StripData(32, 34));
+        dataList.add(new StripData(33, 36));
+        dataList.add(new StripData(34, 40));
+        dataList.add(new StripData(35, 46));
+        dataList.add(new StripData(36, 50));
+        dataList.add(new StripData(37, 54));
 
-        dataList.add(new StripData(50, 85));
-        dataList.add(new StripData(51, 84));
-        dataList.add(new StripData(52, 83));
-        dataList.add(new StripData(53, 82));
-        dataList.add(new StripData(54, 81));
-        dataList.add(new StripData(55, 80));
-        dataList.add(new StripData(56, 79));
+        dataList.add(new StripData(55, 60));
+        dataList.add(new StripData(56, 66));
+        dataList.add(new StripData(57, 72));
+        dataList.add(new StripData(58, 74));
+        dataList.add(new StripData(59, 78));
+        dataList.add(new StripData(60, 82));
+        dataList.add(new StripData(61, 78));
+        dataList.add(new StripData(62, 81));
+        dataList.add(new StripData(63, 80));
+        dataList.add(new StripData(64, 78));
+        dataList.add(new StripData(65, 85));
+        dataList.add(new StripData(66, 82));
+        dataList.add(new StripData(67, 86));
+        dataList.add(new StripData(68, 89));
+        dataList.add(new StripData(69, 95));
+        dataList.add(new StripData(70, 99));
+        dataList.add(new StripData(71, 95));
+        dataList.add(new StripData(72, 96));
+        dataList.add(new StripData(73, 97));
+        dataList.add(new StripData(74, 99));
+        dataList.add(new StripData(75, 96));
+        dataList.add(new StripData(76, 95));
+        dataList.add(new StripData(77, 93));
+        dataList.add(new StripData(78, 90));
+        dataList.add(new StripData(79, 85));
+        dataList.add(new StripData(80, 88));
+        dataList.add(new StripData(81, 84));
 
-
-        dataList.add(new StripData(75, 90));
-
-        dataList.add(new StripData(89, 120));
-        dataList.add(new StripData(90, 121));
-        dataList.add(new StripData(91, 123));
-        dataList.add(new StripData(92, 124));
-        dataList.add(new StripData(93, 125));
-        dataList.add(new StripData(94, 126));
-        dataList.add(new StripData(95, 127));
-
-        dataList.add(new StripData(112, 85));
-        dataList.add(new StripData(113, 86));
-        dataList.add(new StripData(114, 87));
-        dataList.add(new StripData(115, 88));
-        dataList.add(new StripData(116, 89));
-        dataList.add(new StripData(117, 90));
-        dataList.add(new StripData(118, 91));
-        dataList.add(new StripData(119, 92));
-        dataList.add(new StripData(120, 93));
-        dataList.add(new StripData(121, 94));
-        dataList.add(new StripData(122, 95));
-        dataList.add(new StripData(123, 96));
-        dataList.add(new StripData(124, 97));
-        dataList.add(new StripData(125, 98));
-        dataList.add(new StripData(126, 99));
-        dataList.add(new StripData(127, 100));
-        dataList.add(new StripData(128, 101));
-        dataList.add(new StripData(129, 102));
+        dataList.add(new StripData(112, 122));
+        dataList.add(new StripData(113, 128));
+        dataList.add(new StripData(114, 136));
+        dataList.add(new StripData(115, 142));
+        dataList.add(new StripData(116, 145));
+        dataList.add(new StripData(117, 156));
+        dataList.add(new StripData(118, 150));
+        dataList.add(new StripData(119, 145));
+        dataList.add(new StripData(120, 151));
+        dataList.add(new StripData(121, 146));
+        dataList.add(new StripData(122, 140));
+        dataList.add(new StripData(123, 136));
+        dataList.add(new StripData(124, 130));
+        dataList.add(new StripData(125, 138));
+        dataList.add(new StripData(126, 140));
+        dataList.add(new StripData(127, 132));
+        dataList.add(new StripData(128, 128));
+        dataList.add(new StripData(129, 126));
 
     }
 
