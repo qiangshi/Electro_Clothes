@@ -18,8 +18,7 @@ import butterknife.BindView;
 public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskView {
     @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.btn_back)
-    ImageView btnBack;
+
 
     public TaskFragment() {}
 
@@ -27,8 +26,8 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
 
     @Override
     protected void initEventAndData() {
-        tvTitle.setText(getResources().getString(R.string.task));
-        btnBack.setVisibility(View.GONE);
+//        tvTitle.setText(getResources().getString(R.string.task));
+
     }
 
     @Override

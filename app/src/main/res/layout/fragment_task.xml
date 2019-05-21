@@ -27,48 +27,217 @@
             android:id="@+id/img_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_history"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/tv_history"
-            />
+            android:src="@drawable/icon_history" />
 
         <TextView
             android:id="@+id/tv_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_353535"
-            android:layout_marginStart="@dimen/padding_2"
-            android:textSize="@dimen/text_font_14"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/padding_2"
             android:layout_marginEnd="@dimen/padding_32"
-            android:text="@string/history"/>
+            android:text="@string/history"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_14" />
     </RelativeLayout>
 
 
     <RelativeLayout
+        android:id="@+id/rel_sleep"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/img_back"
+        <RelativeLayout
+            android:id="@+id/img_back_sleep"
             android:layout_width="@dimen/padding_120"
             android:layout_height="@dimen/padding_24"
             android:layout_marginStart="@dimen/padding_25"
             android:layout_marginTop="@dimen/padding_20"
-            android:background="@drawable/icon_task_bg"/>
+            android:background="@drawable/icon_task_bg">
+
+            <ImageView
+                android:id="@+id/img_left_bg_sleep"
+                android:layout_width="@dimen/padding_32"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/icon_history_sleep" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_10"
+                android:src="@drawable/icon_sleep_in" />
+
+
+            <TextView
+                android:id="@+id/tv_sleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/img_left_bg_sleep"
+                android:text="睡眠"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_12" />
+
+            <TextView
+                android:id="@+id/tv_sleep_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_10"
+                android:layout_toEndOf="@+id/tv_sleep"
+                android:text="0/8小时"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_11" />
+
+        </RelativeLayout>
+
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/img_back"
-            android:layout_alignBottom="@+id/img_back"
-            android:src="@drawable/icon_history_sleep"/>
-
-
+            android:layout_width="@dimen/padding_48"
+            android:layout_height="@dimen/padding_52"
+            android:layout_below="@+id/img_back_sleep"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_32"
+            android:src="@drawable/icon_task_sleep_back" />
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rel_elect"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
+        <RelativeLayout
+            android:id="@+id/rel_elect_back"
+            android:layout_width="@dimen/padding_146"
+            android:layout_height="@dimen/padding_24"
+            android:layout_marginStart="@dimen/padding_25"
+            android:layout_marginTop="@dimen/padding_20"
+            android:background="@drawable/icon_task_bg">
+
+
+            <ImageView
+                android:id="@+id/img_left_bg_elect"
+                android:layout_width="@dimen/padding_32"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/icon_history_heartbeat" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_8"
+                android:src="@drawable/icon_in_elect" />
+
+
+            <TextView
+                android:id="@+id/tv_elect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/img_left_bg_elect"
+                android:text="心跳数"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_12" />
+
+            <TextView
+                android:id="@+id/tv_elect_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_10"
+                android:layout_toEndOf="@+id/tv_elect"
+                android:text="0/20000跳"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_11" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/img_center_elect"
+            android:layout_width="@dimen/padding_56"
+            android:layout_height="@dimen/padding_45"
+            android:layout_below="@+id/rel_elect_back"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_51"
+            android:src="@drawable/icon_task_elect_back" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_number"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/img_back_number"
+            android:layout_width="@dimen/padding_122"
+            android:layout_height="@dimen/padding_24"
+            android:layout_marginStart="@dimen/padding_25"
+            android:layout_marginTop="@dimen/padding_20"
+            android:background="@drawable/icon_task_bg">
+
+
+            <ImageView
+                android:id="@+id/img_left_bg_number"
+                android:layout_width="@dimen/padding_32"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_history_step_number" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_8"
+                android:src="@drawable/icon_in_number" />
+
+
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/img_left_bg_number"
+                android:text="步数"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_12" />
+
+            <TextView
+                android:id="@+id/tv_number_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_10"
+                android:layout_toEndOf="@+id/tv_number"
+                android:text="0/8000步"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_font_11" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_center_number"
+            android:layout_width="@dimen/padding_48"
+            android:layout_height="@dimen/padding_41"
+            android:layout_below="@+id/img_back_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_42"
+            android:src="@drawable/icon_task_num_back" />
+
+    </RelativeLayout>
 
 </LinearLayout>

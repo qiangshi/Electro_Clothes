@@ -84,7 +84,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.historyClick();
@@ -99,7 +99,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_select));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.presentation();
@@ -114,7 +114,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_select));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_select));
                 if (homeBottomClick != null) {
                     homeBottomClick.electClick();
@@ -129,7 +129,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_select));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.taskClick();
@@ -144,7 +144,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_select));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.mineClick();
@@ -171,7 +171,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.historyClick();
@@ -186,7 +186,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_select));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.presentation();
@@ -201,7 +201,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_select));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_select));
                 if (homeBottomClick != null) {
                     homeBottomClick.electClick();
@@ -216,7 +216,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_select));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_noselect));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.taskClick();
@@ -231,7 +231,7 @@ public class MainBottomView extends LinearLayout {
                 imgPresentation.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_presen_noselect));
                 imgTask.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_task_noselect));
                 imgMine.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_mine_select));
-                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect_noselect));
+                imgElect.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.icon_main_elect));
                 relMainElect.setBackground(ContextCompat.getDrawable(context,R.drawable.bg_main_circlure_noselect));
                 if (homeBottomClick != null) {
                     homeBottomClick.mineClick();

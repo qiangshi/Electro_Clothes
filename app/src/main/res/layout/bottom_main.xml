@@ -113,14 +113,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/bg_main_circlure_noselect">
+            android:background="@drawable/bg_main_circlure_select">
 
             <ImageView
                 android:id="@+id/img_elect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/icon_main_elect_select"/>
+                android:src="@drawable/icon_main_elect"/>
 
         </RelativeLayout>
 
