@@ -7,7 +7,7 @@
     tools:context=".ui.fragment.history.HistoryOneFragment">
 
     <com.business.electr.clothes.view.HistoryElectView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/padding_290"
         android:layout_marginStart="@dimen/padding_26"
         android:layout_marginEnd="@dimen/padding_26"
@@ -17,11 +17,11 @@
     <TextView
         android:id="@+id/tv_select"
         android:layout_width="@dimen/padding_83"
-        android:layout_height="@dimen/padding_30"
+        android:layout_height="@dimen/padding_29"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/bg_solid_494b50_15"
-        android:gravity="center"
         android:text="@string/scan_elect"
+        android:gravity="center"
         android:textColor="@color/color_494B50"
         android:textSize="@dimen/text_font_11" />
 

@@ -80,7 +80,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="@dimen/padding_27"
             android:layout_marginBottom="@dimen/padding_7"
-            android:src="@drawable/icon_share" />
+            android:src="@drawable/icon_hor" />
 
 
         <TextView

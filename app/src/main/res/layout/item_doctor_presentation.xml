@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_head"
+        android:layout_marginTop="@dimen/padding_50"
+        android:layout_width="@dimen/padding_35"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_height="@dimen/padding_35"
+        android:src="@drawable/ic_test_avatar"/>
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_alignTop="@+id/img_head"
+        android:layout_width="wrap_content"
+        android:text="周小生"
+        android:textSize="@dimen/text_font_13"
+        android:textColor="@color/color_353535"
+        android:layout_marginTop="@dimen/padding_1"
+        android:layout_toEndOf="@+id/img_head"
+        android:layout_marginStart="@dimen/padding_8"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:text="4-15"
+        android:layout_below="@+id/tv_name"
+        android:textSize="@dimen/text_font_11"
+        android:textColor="@color/color_8c919b"
+        android:layout_toEndOf="@+id/img_head"
+        android:layout_marginStart="@dimen/padding_8"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_doctor_position"
+        android:layout_width="wrap_content"
+        android:text="主治医生"
+        android:layout_alignBottom="@+id/tv_name"
+        android:textSize="@dimen/text_font_10"
+        android:textColor="@color/color_353535"
+        android:layout_toEndOf="@+id/tv_name"
+        android:layout_marginStart="@dimen/padding_7"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_marginTop="@dimen/padding_10"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginEnd="@dimen/padding_32"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="想要改善与预防心率不齐，最简单的做法就 是调整日常生活型态：保持情绪稳定、调适 压力；控制体重；拒烟，避免摄取酒精性及 含咖啡因的饮料；均衡饮食，稳定摄取六大 类食物，不偏食；"/>
+
+</RelativeLayout>

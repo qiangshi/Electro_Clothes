@@ -64,8 +64,12 @@ public class PresentationFragment extends BaseFragment<PresentationPresenter> im
                         .start();
                 break;
             case R.id.rl_presentation_ai:
+                new DefaultUriRequest(getActivity(), RouterCons.CREATE_AI_PRESENTATION)
+                        .start();
                 break;
             case R.id.rl_presentation_doctor:
+                new DefaultUriRequest(getActivity(),RouterCons.CREATE_DOCTOR_PRESENTATION)
+                        .start();
                 break;
         }
     }

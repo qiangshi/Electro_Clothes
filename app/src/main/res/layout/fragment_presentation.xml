@@ -11,11 +11,11 @@
     <!--60s报告-->
     <RelativeLayout
         android:id="@+id/rl_presentation_60"
-        android:layout_marginTop="@dimen/padding_15"
-        android:layout_marginStart="@dimen/padding_26"
-        android:layout_marginEnd="@dimen/padding_26"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_154"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginEnd="@dimen/padding_26"
         android:background="@drawable/icon_presentation_60">
 
         <TextView
@@ -24,53 +24,62 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
-            android:textSize="@dimen/text_font_19"
             android:text="@string/s_60_presentation"
-            android:textColor="@color/color_353535"/>
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_19" />
+
+        <ImageView
+            android:layout_alignBottom="@+id/tv_title_60"
+            android:layout_alignTop="@+id/tv_title_60"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/padding_12"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tv_title_60"
+            android:src="@drawable/icon_pot_right" />
 
         <TextView
-            android:layout_marginTop="@dimen/padding_2"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_below="@+id/tv_title_60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_11"
+            android:layout_below="@+id/tv_title_60"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_2"
+            android:text="@string/quick_experience"
             android:textColor="@color/color_353535"
-            android:text="@string/quick_experience"/>
+            android:textSize="@dimen/text_font_11" />
 
 
         <TextView
             android:id="@+id/tv_gong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
-            android:layout_marginStart="@dimen/padding_17"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_17"
             android:layout_marginBottom="@dimen/padding_24"
+            android:text="@string/gong"
             android:textColor="@color/color_353535"
-            android:text="@string/gong"/>
+            android:textSize="@dimen/text_font_10" />
 
         <TextView
             android:id="@+id/tv_60_num"
-            android:layout_toEndOf="@+id/tv_gong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_19"
-            android:layout_marginStart="@dimen/padding_3"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_3"
             android:layout_marginBottom="@dimen/padding_22"
+            android:layout_toEndOf="@+id/tv_gong"
+            android:text="1"
             android:textColor="@color/color_353535"
-            android:text="1"/>
+            android:textSize="@dimen/text_font_19" />
 
         <TextView
-            android:layout_toEndOf="@id/tv_60_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/padding_24"
+            android:layout_toEndOf="@id/tv_60_num"
+            android:text="@string/fen"
             android:textColor="@color/color_353535"
-            android:text="@string/fen"/>
+            android:textSize="@dimen/text_font_10" />
 
 
     </RelativeLayout>
@@ -78,11 +87,11 @@
     <!--AI报告-->
     <RelativeLayout
         android:id="@+id/rl_presentation_ai"
-        android:layout_marginTop="@dimen/padding_15"
-        android:layout_marginStart="@dimen/padding_26"
-        android:layout_marginEnd="@dimen/padding_26"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_154"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginEnd="@dimen/padding_26"
         android:background="@drawable/icon_ai_presenter">
 
         <TextView
@@ -91,64 +100,73 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
-            android:textSize="@dimen/text_font_19"
             android:text="@string/ai_presentation"
-            android:textColor="@color/color_353535"/>
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_19" />
+
+        <ImageView
+            android:layout_alignBottom="@+id/tv_title_ai"
+            android:layout_alignTop="@+id/tv_title_ai"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/padding_12"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tv_title_ai"
+            android:src="@drawable/icon_pot_right" />
 
         <TextView
-            android:layout_marginTop="@dimen/padding_5"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_below="@+id/tv_title_ai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_11"
+            android:layout_below="@+id/tv_title_ai"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_5"
+            android:text="@string/big_data_suggest"
             android:textColor="@color/color_353535"
-            android:text="@string/big_data_suggest"/>
+            android:textSize="@dimen/text_font_11" />
 
 
         <TextView
             android:id="@+id/tv_ai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
-            android:layout_marginStart="@dimen/padding_17"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_17"
             android:layout_marginBottom="@dimen/padding_24"
+            android:text="@string/gong"
             android:textColor="@color/color_353535"
-            android:text="@string/gong"/>
+            android:textSize="@dimen/text_font_10" />
 
         <TextView
             android:id="@+id/tv_ai_num"
-            android:layout_toEndOf="@+id/tv_ai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_19"
-            android:layout_marginStart="@dimen/padding_3"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_3"
             android:layout_marginBottom="@dimen/padding_22"
+            android:layout_toEndOf="@+id/tv_ai"
+            android:text="7"
             android:textColor="@color/color_353535"
-            android:text="7"/>
+            android:textSize="@dimen/text_font_19" />
 
         <TextView
-            android:layout_toEndOf="@id/tv_ai_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/padding_24"
+            android:layout_toEndOf="@id/tv_ai_num"
+            android:text="@string/fen"
             android:textColor="@color/color_353535"
-            android:text="@string/fen"/>
+            android:textSize="@dimen/text_font_10" />
 
 
     </RelativeLayout>
     <!--医生报告-->
     <RelativeLayout
         android:id="@+id/rl_presentation_doctor"
-        android:layout_marginTop="@dimen/padding_15"
-        android:layout_marginStart="@dimen/padding_26"
-        android:layout_marginEnd="@dimen/padding_26"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_154"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginEnd="@dimen/padding_26"
         android:background="@drawable/icon_doctor_present">
 
         <TextView
@@ -157,53 +175,62 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
-            android:textSize="@dimen/text_font_19"
             android:text="@string/doctor_presentation"
-            android:textColor="@color/color_353535"/>
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_19" />
+
+        <ImageView
+            android:layout_alignBottom="@+id/tv_title_doctor"
+            android:layout_alignTop="@+id/tv_title_doctor"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/padding_12"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tv_title_doctor"
+            android:src="@drawable/icon_pot_right" />
 
         <TextView
-            android:layout_marginTop="@dimen/padding_5"
-            android:layout_marginStart="@dimen/padding_16"
-            android:layout_below="@+id/tv_title_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_11"
+            android:layout_below="@+id/tv_title_doctor"
+            android:layout_marginStart="@dimen/padding_16"
+            android:layout_marginTop="@dimen/padding_5"
+            android:text="@string/doctor_service"
             android:textColor="@color/color_353535"
-            android:text="@string/doctor_service"/>
+            android:textSize="@dimen/text_font_11" />
 
 
         <TextView
             android:id="@+id/tv_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
-            android:layout_marginStart="@dimen/padding_17"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_17"
             android:layout_marginBottom="@dimen/padding_24"
+            android:text="@string/gong"
             android:textColor="@color/color_353535"
-            android:text="@string/gong"/>
+            android:textSize="@dimen/text_font_10" />
 
         <TextView
             android:id="@+id/tv_doctor_num"
-            android:layout_toEndOf="@+id/tv_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_19"
-            android:layout_marginStart="@dimen/padding_3"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_3"
             android:layout_marginBottom="@dimen/padding_22"
+            android:layout_toEndOf="@+id/tv_doctor"
+            android:text="0"
             android:textColor="@color/color_353535"
-            android:text="0"/>
+            android:textSize="@dimen/text_font_19" />
 
         <TextView
-            android:layout_toEndOf="@id/tv_doctor_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_10"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/padding_24"
+            android:layout_toEndOf="@id/tv_doctor_num"
+            android:text="@string/fen"
             android:textColor="@color/color_353535"
-            android:text="@string/fen"/>
+            android:textSize="@dimen/text_font_10" />
 
 
     </RelativeLayout>
