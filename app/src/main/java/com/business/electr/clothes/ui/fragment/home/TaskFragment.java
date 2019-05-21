@@ -27,7 +27,7 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
 
     @Override
     protected void initEventAndData() {
-        tvTitle.setText("任务");
+        tvTitle.setText(getResources().getString(R.string.task));
         btnBack.setVisibility(View.GONE);
     }
 

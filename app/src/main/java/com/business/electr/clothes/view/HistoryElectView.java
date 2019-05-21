@@ -257,14 +257,13 @@ public class HistoryElectView extends View {
         int time = (int) (x / per_width);
         for (int j = 0; j < dataList.size(); j++) {
             StripData bean = dataList.get(j);
-            if(time == bean.getTime()){
-                if (x > bean.getTime() * per_width && x < (bean.getTime()+1) * per_width)  {
+            if (time == bean.getTime()) {
+                if (x > bean.getTime() * per_width && x < (bean.getTime() + 1) * per_width) {
                     isShowTag = true;
                     break;
-                }else {
-                    isShowTag = false;
-                    break;
                 }
+            }else {
+                isShowTag = false;
             }
         }
         if (isShowTag) {
@@ -345,6 +344,7 @@ public class HistoryElectView extends View {
             canvas.rotate(-angle, x, y);
         }
     }
+
 
     public void setDataList(List<StripData> list) {
         this.dataList = list;

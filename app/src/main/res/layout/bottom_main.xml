@@ -113,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/bg_main_circlure_select">
+            android:background="@drawable/bg_main_circlure_noselect">
 
             <ImageView
                 android:id="@+id/img_elect"

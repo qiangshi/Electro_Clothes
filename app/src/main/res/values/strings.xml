@@ -40,6 +40,9 @@
     <string name="record_time">记录时间</string>
     <string name="request_doctor_time">求医时间</string>
 
+    <!--任务-->
+    <string name="today_task">今日任务</string>
+
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>
     <string name="normal_elect_60_100">常规静息心率 60-100</string>

@@ -1,17 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".ui.fragment.home.TaskFragment">
 
-    <include layout="@layout/title_bar_layout"/>
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="fragment_task" />
+        android:layout_height="@dimen/padding_44"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:text="@string/today_task"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16" />
+
+        <ImageView
+            android:id="@+id/img_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_history"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tv_history"
+            />
+
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_353535"
+            android:layout_marginStart="@dimen/padding_2"
+            android:textSize="@dimen/text_font_14"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/padding_32"
+            android:text="@string/history"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/padding_120"
+            android:layout_height="@dimen/padding_24"
+            android:layout_marginStart="@dimen/padding_25"
+            android:layout_marginTop="@dimen/padding_20"
+            android:background="@drawable/icon_task_bg"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_back"
+            android:layout_alignBottom="@+id/img_back"
+            android:src="@drawable/icon_history_sleep"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
