@@ -82,6 +82,11 @@ public class ToolHelper {
         }).setType(new boolean[]{true, true, isDay, isHM, isHM, false})
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
+                .setTitleText(activity.getResources().getString(R.string.select_birthday))
+                .setSubmitText(activity.getResources().getString(R.string.confirm))
+                .setCancelText(activity.getResources().getString(R.string.cancel))
+                .setCancelColor(activity.getResources().getColor(R.color.color_8c919b))
+                .setSubmitColor(activity.getResources().getColor(R.color.color_353535))
                 .build();
         pvTime.show();
     }
