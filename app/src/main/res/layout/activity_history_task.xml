@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.task.HistoryTaskActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="@dimen/padding_50">
+
+        <RelativeLayout
+            android:id="@+id/rel_all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_all_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_font_14"
+                android:textColor="@color/color_353535"
+                android:text="@string/all_task"/>
+
+            <View
+                android:id="@+id/v_all_task"
+                android:layout_width="@dimen/padding_15"
+                android:layout_height="@dimen/padding_3"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_353535"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_finish_task"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_font_14"
+                android:textColor="@color/color_8c919b"
+                android:text="@string/finished"/>
+
+            <View
+                android:id="@+id/v_finish_task"
+                android:layout_width="@dimen/padding_15"
+                android:layout_height="@dimen/padding_3"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_353535"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_no_finish"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_no_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_font_14"
+                android:textColor="@color/color_8c919b"
+                android:text="@string/no_finish"/>
+
+            <View
+                android:id="@+id/v_no_finish"
+                android:layout_width="@dimen/padding_15"
+                android:layout_height="@dimen/padding_3"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                android:background="@color/color_353535"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_history_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -42,6 +42,13 @@
 
     <!--任务-->
     <string name="today_task">今日任务</string>
+    <string name="history_task">历史任务</string>
+    <string name="sleep">睡眠</string>
+    <string name="elect_num">心跳数</string>
+    <string name="number">步数</string>
+    <string name="all_task">全部任务</string>
+    <string name="finished">已完成</string>
+    <string name="no_finish">未完成</string>
 
     <!--设备匹配-->
     <string name="equipment_match">设备匹配</string>
@@ -174,6 +181,7 @@
     <string name="please_input_feedback_content">请输入反馈内容</string>
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
+    <string name="development_ing">开发中...</string>
 
     <string name="user_argument">用户协议</string>
     <string name="clear_cpu">清空缓存</string>

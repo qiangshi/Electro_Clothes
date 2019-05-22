@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"
         app:tabIndicatorColor="@color/color_353535"
-        app:tabIndicatorHeight="@dimen/padding_3"
+        app:tabIndicatorHeight="0dp"
         app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/color_353535"
         app:tabTextColor="@color/color_8c919b" />

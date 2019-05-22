@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/img_left_bg_sleep"
-                android:text="睡眠"
+                android:text="@string/sleep"
                 android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/text_font_12" />
 
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/img_left_bg_elect"
-                android:text="心跳数"
+                android:text="@string/elect_num"
                 android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/text_font_12" />
 
@@ -212,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/img_left_bg_number"
-                android:text="步数"
+                android:text="@string/number"
                 android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/text_font_12" />
 

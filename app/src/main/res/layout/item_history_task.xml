@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/padding_200"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_record_time"
+        android:layout_marginTop="@dimen/padding_32"
+        android:layout_marginStart="@dimen/padding_26"
+        android:textSize="@dimen/text_font_19"
+        android:textColor="@color/color_353535"
+        android:text="05月07号"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_toEndOf="@+id/tv_record_time"
+        android:layout_marginTop="@dimen/padding_38"
+        android:layout_marginStart="@dimen/padding_16"
+        android:textSize="@dimen/text_font_11"
+        android:background="@drawable/bg_solid_00b68d_9"
+        android:textColor="@color/white"
+        android:text="已完成"
+        android:gravity="center"
+        android:layout_width="@dimen/padding_49"
+        android:layout_height="@dimen/padding_17" />
+
+    <TextView
+        android:id="@+id/tv_sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_23"
+        android:layout_marginTop="@dimen/padding_29"
+        android:text="睡眠"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14"
+        android:layout_below="@+id/tv_record_time"/>
+
+    <TextView
+        android:id="@+id/tv_sleep_time"
+        android:text="8/8 小时"
+        android:textColor="@color/color_353535"
+        android:layout_alignTop="@+id/tv_sleep"
+        android:textSize="@dimen/text_font_14"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/padding_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_elect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_23"
+        android:layout_marginTop="@dimen/padding_17"
+        android:text="心跳数"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14"
+        android:layout_below="@+id/tv_sleep"/>
+
+    <TextView
+        android:id="@+id/tv_elect_num"
+        android:text="20000/20000 跳"
+        android:textColor="@color/color_353535"
+        android:layout_alignTop="@+id/tv_elect"
+        android:textSize="@dimen/text_font_14"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/padding_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_number_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_23"
+        android:layout_marginTop="@dimen/padding_17"
+        android:text="步数"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/text_font_14"
+        android:layout_below="@+id/tv_elect"/>
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:text="8000/8000 步"
+        android:textColor="@color/color_353535"
+        android:layout_alignTop="@+id/tv_number_hint"
+        android:textSize="@dimen/text_font_14"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/padding_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_0_33"
+        android:layout_marginStart="@dimen/padding_25"
+        android:layout_marginEnd="@dimen/padding_30"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_44979797"/>
+
+</RelativeLayout>
