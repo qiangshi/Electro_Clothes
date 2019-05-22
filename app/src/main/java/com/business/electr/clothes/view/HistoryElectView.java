@@ -2,11 +2,14 @@ package com.business.electr.clothes.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DashPathEffect;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathEffect;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -31,6 +34,7 @@ import androidx.annotation.RequiresApi;
  */
 public class HistoryElectView extends View {
     private Paint dynamicPaint;//动态绘制条形
+    private Paint lineGraphics;//渐变颜色
     private Paint textPaint;//绘制文字
     private Paint pointPaint;//标记条
     private Paint bgPaint;//绘制背景
@@ -90,6 +94,10 @@ public class HistoryElectView extends View {
         dynamicPaint.setStyle(Paint.Style.STROKE);
         dynamicPaint.setStrokeWidth(stripHeight);
 
+        lineGraphics = new Paint();
+        lineGraphics.setAntiAlias(true);
+        lineGraphics.setStyle(Paint.Style.STROKE);
+
         textPaint = new Paint();
         textPaint.setColor(getResources().getColor(R.color.color_44979797));
         textPaint.setStyle(Paint.Style.FILL);
@@ -118,8 +126,8 @@ public class HistoryElectView extends View {
     protected void onDraw(Canvas canvas) {
         initBackground(canvas);//背景绘制
         initText(canvas);//字体描绘
-        initPointer(canvas, startX);//绘制标记线
         initStrip(canvas);//横坐标描绘
+        initPointer(canvas, startX);//绘制标记线
     }
 
 
@@ -207,7 +215,6 @@ public class HistoryElectView extends View {
 
     /**
      * 绘制单个条
-     *
      * @param canvas
      * @param data
      */
@@ -215,15 +222,28 @@ public class HistoryElectView extends View {
         canvas.save();
         dynamicPaint.setStrokeWidth(stripHeight);
         if (data != null) {
+            int color ;
+            float maxY;
             if (data.getElect() < 60) {
                 dynamicPaint.setColor(getResources().getColor(R.color.start_color));
+                color = getResources().getColor(R.color.self_start_color);
+                maxY = -(25 - 20) * per_height * 7 / 140;
             } else if (data.getElect() < 100) {
                 dynamicPaint.setColor(getResources().getColor(R.color.middle_color));
+                color = getResources().getColor(R.color.self_middle_color);
+                maxY = -(60 - 20) * per_height * 7 / 140;
             } else {
                 dynamicPaint.setColor(getResources().getColor(R.color.end_color));
+                color = getResources().getColor(R.color.self_end_color);
+                maxY = -(120 - 20) * per_height * 7 / 140;
             }
             dynamicPaint.setStrokeWidth(6);
             canvas.drawLine(0, -(data.getElect() - 20) * per_height * 7 / 140, per_width + 1, -(dataList.get(pos + 1).getElect() - 20) * per_height * 7 / 140, dynamicPaint);
+            //两个坐标形成变量，规定了渐变的方向和间距大小，着色器为镜像
+            LinearGradient linearGradient =new LinearGradient(0,-(data.getElect() - 20) * per_height * 7 / 140 +6,0,maxY, color,Color.WHITE, Shader.TileMode.MIRROR);
+            lineGraphics.setShader(linearGradient);
+            lineGraphics.setStrokeWidth(per_width*2);
+            canvas.drawLine(0, -(data.getElect() - 20) * per_height * 7 / 140, 0, maxY, lineGraphics);
             dynamicPaint.setStrokeWidth(stripHeight);
             canvas.drawLine(0, 0, per_width + 1, 0, dynamicPaint);
             canvas.translate(per_width, 0);
@@ -239,7 +259,7 @@ public class HistoryElectView extends View {
     private void initPointer(Canvas canvas, Float x) {
         canvas.restore();
         canvas.save();
-        canvas.translate(66, 0);
+        canvas.translate(-per_width*128, 93 - height);
         pointPaint.setStyle(Paint.Style.STROKE);
         pointPaint.setStrokeWidth(2);
         pointPaint.setColor(getResources().getColor(R.color.color_353535));
@@ -253,7 +273,7 @@ public class HistoryElectView extends View {
             view_show_x = width - 66;
             x = (float) width - 66;
         }
-        canvas.drawLine(x, 0, x, height - 93, pointPaint);
+        canvas.drawLine(x, 0, x, height - 108, pointPaint);
         int time = (int) (x / per_width);
         for (int j = 0; j < dataList.size(); j++) {
             StripData bean = dataList.get(j);
@@ -269,7 +289,7 @@ public class HistoryElectView extends View {
         if (isShowTag) {
             canvas.restore();
             canvas.save();
-            canvas.translate(66 + x, height / 2);
+            canvas.translate( -per_width*128 + x, 93 - height / 2);
             pointPaint.setStyle(Paint.Style.FILL);
             RectF f = new RectF(-50f, -70f, 50f, -20f);
             canvas.drawRoundRect(f, 4f, 4f, pointPaint);

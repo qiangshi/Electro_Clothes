@@ -9,14 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.home.ElectPresenter;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.view.DashBoard;
 import com.business.electr.clothes.view.ElectView;
 import com.business.electr.clothes.view.QuantityView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -53,6 +56,8 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
     TextView tvCalorie;
     @BindView(R.id.tv_house)
     TextView tvHouse;
+    @BindView(R.id.tv_elect_title)
+    TextView tvElectTitle;
 
     public ElectFragment() {
     }
@@ -71,6 +76,7 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
 
     @Override
     protected void initEventAndData() {
+        tvElectTitle.setText(DateUtils.getTime(System.currentTimeMillis(),new SimpleDateFormat(Constant.DATE_FORMAT_5)));
         handler.sendEmptyMessageDelayed(0, 1000);
         electView.startDarw();
         quantityView.setProcess(75);

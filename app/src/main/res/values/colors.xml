@@ -236,7 +236,10 @@
     <color name="white_alpha_40">#66ffffff</color>
 
     <color name="start_color">#3D6AFE</color>
+    <color name="self_start_color">#443D6AFE</color>
     <color name="middle_color">#0CBB94</color>
+    <color name="self_middle_color">#440CBB94</color>
     <color name="end_color">#FDA371</color>
+    <color name="self_end_color">#44FDA371</color>
 
 </resources>

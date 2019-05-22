@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="@dimen/text_font_13"
-        android:textColor="@color/color_979797"
+        android:textColor="@color/white"
         android:background="@drawable/bg_time_day_select"
         android:text="@string/day"/>
 
