@@ -11,6 +11,8 @@ import com.business.electr.clothes.mvp.presenter.home.TaskPresenter;
 import com.business.electr.clothes.mvp.view.home.TaskView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.utils.CommonUtils;
+import com.business.electr.clothes.view.DayTaskView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import butterknife.BindView;
@@ -33,14 +35,10 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
     RelativeLayout imgBackSleep;
     @BindView(R.id.rel_sleep)
     RelativeLayout relSleep;
-    @BindView(R.id.img_left_bg_elect)
-    ImageView imgLeftBgElect;
-    @BindView(R.id.tv_elect)
-    TextView tvElect;
-    @BindView(R.id.tv_elect_num)
-    TextView tvElectNum;
-    @BindView(R.id.rel_elect_back)
-    RelativeLayout relElectBack;
+
+
+    @BindView(R.id.day_task_view)
+    DayTaskView dayTaskView;
     @BindView(R.id.img_center_elect)
     ImageView imgCenterElect;
     @BindView(R.id.rel_elect)
@@ -65,7 +63,7 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
 
     @Override
     protected void initEventAndData() {
-
+        dayTaskView.setFinishWidth(CommonUtils.dp2px(getActivity(),120));
     }
 
     @Override
