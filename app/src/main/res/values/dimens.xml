@@ -34,6 +34,7 @@
     <dimen name="text_font_30">30sp</dimen>
     <dimen name="text_font_36">36sp</dimen>
     <dimen name="text_font_33">33sp</dimen>
+    <dimen name="text_font_32">32sp</dimen>
     <dimen name="text_font_28">28sp</dimen>
     <dimen name="text_font_25">25sp</dimen>
     <dimen name="text_font_24">24sp</dimen>
