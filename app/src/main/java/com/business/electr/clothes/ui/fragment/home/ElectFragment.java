@@ -2,6 +2,7 @@ package com.business.electr.clothes.ui.fragment.home;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.business.electr.clothes.R;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.home.ElectPresenter;
 import com.business.electr.clothes.router.RouterCons;
+import com.business.electr.clothes.ui.activity.equipment.PatternActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.view.DashBoard;
@@ -102,8 +104,7 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_bluetooth:
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_EQUIPMENT)
-                        .start();
+                startActivity(new Intent(getActivity(), PatternActivity.class));
                 break;
             case R.id.bt_cesi:
                 new DefaultUriRequest(getActivity(),RouterCons.CREATE_MEASUREMENT)

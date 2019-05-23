@@ -31,7 +31,8 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.task.HistoryTaskActivity"></activity>
+        <activity android:name=".ui.activity.equipment.PatternActivity"></activity>
+        <activity android:name=".ui.activity.task.HistoryTaskActivity" />
         <activity android:name=".ui.activity.presentation.DoctorPresentationActivity" />
         <activity android:name=".ui.activity.presentation.AIPresentationActivity" />
         <activity

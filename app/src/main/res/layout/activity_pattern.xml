@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_3F3F40"
+    tools:context=".ui.activity.equipment.PatternActivity">
+    
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_collection"
+            android:layout_width="@dimen/padding_286"
+            android:layout_height="@dimen/padding_55"
+            android:textSize="@dimen/text_font_15"
+            android:textColor="@color/white"
+            android:text="集成模式"
+            android:gravity="center"
+            android:background="@drawable/bg_solid_17979797_6"/>
+
+        <TextView
+            android:id="@+id/tv_custom"
+            android:layout_width="@dimen/padding_284"
+            android:layout_height="@dimen/padding_55"
+            android:textSize="@dimen/text_font_15"
+            android:textColor="@color/white"
+            android:text="定制模式"
+            android:layout_marginTop="@dimen/padding_19"
+            android:gravity="center"
+            android:background="@drawable/bg_solid_17979797_6"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

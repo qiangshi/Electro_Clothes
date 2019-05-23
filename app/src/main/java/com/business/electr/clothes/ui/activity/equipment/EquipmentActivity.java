@@ -53,7 +53,7 @@ public class EquipmentActivity extends BaseActivity {
 
     @Override
     protected void initDataAndEvent() {
-        StatusBarUtil.setStatusBarColor(this,0xff3F3F40);
+        StatusBarUtil.setStatusBarColor(this,getResources().getColor(R.color.color_3F3F40));
         StatusBarUtil.setStatusBarDarkTheme(this, false);
         fragments = new ArrayList<>();
         Equipment1Fragment equipment1Fragment = new Equipment1Fragment();

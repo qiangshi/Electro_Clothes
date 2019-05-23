@@ -44,4 +44,23 @@
         <attr name="mTextSpac" format="dimension" />             <!--日期和任务次数字体上下间距-->
     </declare-styleable>
 
+
+    <declare-styleable name="CustomDayTaskView">   <!--今日历史自定义进度条-->
+        <attr name="mBgFirst" format="reference" />   <!--背景前面的圆角图片-->
+        <attr name="mBgAll" format="reference" />     <!--整个背景图片-->
+        <attr name="mBgUp" format="reference" />      <!--背景上面的图片-->
+        <attr name="mBgIn" format="reference" />      <!--背景里面的图片-->
+
+        <attr name="mShowType" format="integer">      <!--显示类型-->
+            <enum name="sleep_time" value="0" />
+            <enum name="elect_num" value="1" />
+            <enum name="number" value="2" />
+        </attr>
+
+        <attr name="mProcess" format="float"/>        <!--进度-->
+        <attr name="mBgWidth" format="dimension"/>    <!--背景的宽度-->
+        <attr name="mTextDefault" format="string"/>    <!--默认的文字-->
+        <attr name="mFillColor" format="reference"/>      <!--填充的颜色-->
+    </declare-styleable>
+
 </resources>

@@ -11,7 +11,6 @@ import com.business.electr.clothes.mvp.presenter.home.TaskPresenter;
 import com.business.electr.clothes.mvp.view.home.TaskView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
-import com.business.electr.clothes.utils.CommonUtils;
 import com.business.electr.clothes.view.DayTaskView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -25,36 +24,28 @@ import butterknife.OnClick;
 public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskView {
     @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.img_left_bg_sleep)
-    ImageView imgLeftBgSleep;
-    @BindView(R.id.tv_sleep)
-    TextView tvSleep;
-    @BindView(R.id.tv_sleep_time)
-    TextView tvSleepTime;
-    @BindView(R.id.img_back_sleep)
-    RelativeLayout imgBackSleep;
-    @BindView(R.id.rel_sleep)
+
+    @BindView(R.id.rel_sleep)//睡眠
     RelativeLayout relSleep;
+    @BindView(R.id.day_task_view_sleep)
+    DayTaskView dayTaskViewSleep;
+    @BindView(R.id.img_center_sleep)
+    ImageView imgCenterSleep;
 
-
+    @BindView(R.id.rel_elect)//心跳数
+    RelativeLayout relElect;
     @BindView(R.id.day_task_view)
-    DayTaskView dayTaskView;
+    DayTaskView dayTaskViewElect;
     @BindView(R.id.img_center_elect)
     ImageView imgCenterElect;
-    @BindView(R.id.rel_elect)
-    RelativeLayout relElect;
-    @BindView(R.id.img_left_bg_number)
-    ImageView imgLeftBgNumber;
-    @BindView(R.id.tv_number)
-    TextView tvNumber;
-    @BindView(R.id.tv_number_time)
-    TextView tvNumberTime;
-    @BindView(R.id.img_back_number)
-    RelativeLayout imgBackNumber;
+
+    @BindView(R.id.rel_number)//步数
+    RelativeLayout relNumber;
+    @BindView(R.id.day_task_view_number)
+    DayTaskView dayTaskViewNumber;
     @BindView(R.id.img_center_number)
     ImageView imgCenterNumber;
-    @BindView(R.id.rel_number)
-    RelativeLayout relNumber;
+
 
 
     public TaskFragment() {
@@ -63,7 +54,7 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
 
     @Override
     protected void initEventAndData() {
-        dayTaskView.setFinishWidth(CommonUtils.dp2px(getActivity(),120));
+//        dayTaskView.setFinishWidth(CommonUtils.dp2px(getActivity(),120));
     }
 
     @Override
