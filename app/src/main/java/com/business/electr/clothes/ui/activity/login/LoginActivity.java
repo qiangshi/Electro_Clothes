@@ -145,7 +145,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void loginSuccess(UserBean userBean) {
         saveLoginInfo(userBean);
-        new DefaultUriRequest(this,RouterCons.CREATE_MAIN)
+        new DefaultUriRequest(this,RouterCons.CREATE_PATTERN)
                 .start();
         finish();
     }

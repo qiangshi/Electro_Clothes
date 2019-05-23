@@ -43,6 +43,8 @@ public class DayTaskView extends RelativeLayout {
     RelativeLayout relElectBack;
     @BindView(R.id.tv_fill_color)
     TextView tvFillColor;
+    @BindView(R.id.rel_content)
+    RelativeLayout relContent;
 
     private Context context;
     /**

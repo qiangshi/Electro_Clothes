@@ -126,7 +126,7 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
 
     @Override
     public void loginSuccess(UserBean userBean) {
-        new DefaultUriRequest(this,RouterCons.CREATE_MAIN)
+        new DefaultUriRequest(this,RouterCons.CREATE_PATTERN)
                 .start();
         finish();
     }

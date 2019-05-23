@@ -9,6 +9,7 @@
 
 
     <ImageView
+        android:id="@+id/img_elect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_49"
@@ -36,6 +37,7 @@
         android:textColor="@color/color_b4b4b4"/>
 
     <ImageView
+        android:id="@+id/img_smart_socks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

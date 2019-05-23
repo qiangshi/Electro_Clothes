@@ -45,24 +45,24 @@
 
         <ImageView
             android:id="@+id/img_pot1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/circular_d8d8d8_pot" />
+            android:layout_width="@dimen/padding_12"
+            android:layout_height="@dimen/padding_2"
+            android:src="@drawable/bg_solid_ffffff_1" />
         <ImageView
             android:id="@+id/img_pot2"
-            android:layout_marginStart="@dimen/padding_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/circular_51d8d8d8_pot" />
+            android:layout_marginStart="@dimen/padding_4"
+            android:layout_width="@dimen/padding_12"
+            android:layout_height="@dimen/padding_2"
+            android:src="@drawable/bg_solid_17979797_6" />
         <ImageView
             android:id="@+id/img_pot3"
-            android:layout_marginStart="@dimen/padding_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/circular_51d8d8d8_pot" />
+            android:layout_marginStart="@dimen/padding_4"
+            android:layout_width="@dimen/padding_12"
+            android:layout_height="@dimen/padding_2"
+            android:src="@drawable/bg_solid_17979797_6" />
     </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.business.electr.clothes.view.NoScrollViewPager
         android:id="@+id/view_pager"
         android:layout_below="@+id/ll_pot"
         android:layout_width="match_parent"

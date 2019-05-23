@@ -31,5 +31,6 @@ public class RouterCons {
     public static final String CREATE_HORIZONTAL_ELECT_DETAIL = "/create_horizontal_elect_detail";
     public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
     public static final String CREATE_TASK_HISTORY = "/create_task_history";
+    public static final String CREATE_PATTERN = "/create_pattern";
 
 }

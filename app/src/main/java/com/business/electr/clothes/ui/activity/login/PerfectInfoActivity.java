@@ -105,7 +105,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
 
     @Override
     public void updateUserInfoSuccess() {
-        new DefaultUriRequest(this,RouterCons.CREATE_MAIN)
+        new DefaultUriRequest(this,RouterCons.CREATE_PATTERN)
                 .start();
     }
 

@@ -1,16 +1,19 @@
 package com.business.electr.clothes.ui.fragment.equipment;
 
-import android.app.Fragment;
+import android.view.View;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
+import com.business.electr.clothes.ui.activity.equipment.EquipmentActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+
+import butterknife.OnClick;
 
 public class Equipment1Fragment extends BaseFragment {
 
 
     public Equipment1Fragment() {
     }
-
 
 
     @Override
@@ -33,4 +36,14 @@ public class Equipment1Fragment extends BaseFragment {
 
     }
 
+    @OnClick({R.id.img_elect, R.id.img_smart_socks})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.img_elect:
+                ((EquipmentActivity)getActivity()).setCurrentPage(1);
+                break;
+            case R.id.img_smart_socks:
+                break;
+        }
+    }
 }

@@ -91,12 +91,12 @@
             android:layout_height="@dimen/padding_44"
             app:mBgFirst="@drawable/icon_history_heartbeat"
             app:mBgAll="@drawable/icon_task_bg"
-            app:mBgWidth="@dimen/padding_185"
+            app:mBgWidth="@dimen/padding_160"
             app:mBgIn="@drawable/icon_in_elect"
             app:mBgUp="@drawable/icon_up_elect"
-            app:mProcess="0.005"
+            app:mProcess="0.1"
             app:mShowType="elect_num"
-            app:mTextDefault="10000/20000 跳"
+            app:mTextDefault="2000/20000 跳"
             app:mFillColor="@color/color_0bbb94"
             />
 
@@ -104,7 +104,7 @@
             android:id="@+id/img_center_elect"
             android:layout_width="@dimen/padding_56"
             android:layout_height="@dimen/padding_45"
-            android:layout_below="@+id/rel_elect_back"
+            android:layout_below="@+id/day_task_view"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/padding_51"
             android:src="@drawable/icon_task_elect_back" />

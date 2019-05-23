@@ -1,12 +1,7 @@
 package com.business.electr.clothes.ui.fragment.equipment;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
@@ -17,15 +12,10 @@ import com.business.electr.clothes.ui.fragment.BaseFragment;
 public class Equipment3Fragment extends BaseFragment {
 
 
-    public Equipment3Fragment() {
-    }
-
-
+    public Equipment3Fragment() {}
 
     @Override
-    protected void initEventAndData() {
-
-    }
+    protected void initEventAndData() {}
 
     @Override
     protected int getLayoutId() {

@@ -6,9 +6,10 @@ import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
+import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 import butterknife.OnClick;
-
+@RouterUri(path = {RouterCons.CREATE_PATTERN})
 public class PatternActivity extends BaseActivity {
 
 
@@ -33,11 +34,11 @@ public class PatternActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_collection:
-                new DefaultUriRequest(this, RouterCons.CREATE_EQUIPMENT)
+                new DefaultUriRequest(this, RouterCons.CREATE_MAIN)
                         .start();
                 break;
             case R.id.tv_custom:
-                new DefaultUriRequest(this, RouterCons.CREATE_EQUIPMENT)
+                new DefaultUriRequest(this, RouterCons.CREATE_MAIN)
                         .start();
                 break;
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rel_elect_back"
-    android:layout_width="@dimen/padding_146"
+    android:layout_width="wrap_content"
     android:layout_height="@dimen/padding_44"
     android:layout_marginStart="@dimen/padding_25">
 
@@ -11,6 +11,7 @@
         android:layout_width="@dimen/padding_146"
         android:layout_height="@dimen/padding_24"
         android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
         android:background="@drawable/icon_task_bg" />
 
     <LinearLayout
@@ -56,7 +57,8 @@
 
 
     <RelativeLayout
-        android:layout_width="@dimen/padding_146"
+        android:id="@+id/rel_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/padding_24"
         android:layout_alignParentBottom="true">
 
@@ -88,7 +90,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/padding_5"
             android:layout_toEndOf="@+id/tv_elect"
-            android:text="0/20000跳"
+            android:text="10000/20000跳"
             android:textColor="@color/white"
             android:textSize="@dimen/text_font_11" />
 

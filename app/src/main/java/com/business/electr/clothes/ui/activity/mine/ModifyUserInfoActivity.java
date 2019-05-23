@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.bean.DataEvent;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.helper.ToolHelper;
@@ -21,8 +22,11 @@ import com.business.electr.clothes.ui.fragment.dialog.TypeFilterFragment;
 import com.business.electr.clothes.ui.fragment.dialog.TypeGraderFragment;
 import com.business.electr.clothes.utils.GlidUtils;
 import com.business.electr.clothes.utils.SelectImageUtils;
+import com.business.electr.clothes.utils.SharePreferenceUtil;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,7 +88,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     private int heightPos = 160;
     private int weightPos = 50;
 
-    @OnClick({R.id.img_upload_pic,R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password,R.id.lin_height,R.id.lin_weight})
+    @OnClick({R.id.img_upload_pic,R.id.tv_right_btn, R.id.lin_gender, R.id.lin_birthday, R.id.lin_password,R.id.lin_height,R.id.lin_weight,R.id.tv_log_out})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
@@ -129,6 +133,13 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                                 tvWeight.setText(weights.get(pos));
                             }
                         });
+                break;
+            case R.id.tv_log_out://退出登录
+                DataCacheManager.saveUserInfo(null);
+                DataCacheManager.saveToken("");
+                SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, false);
+                SharePreferenceUtil.putInt(Constant.CLOCK_TYPE,0);
+                EventBus.getDefault().post(new DataEvent(DataEvent.TYPE_LOGIN, null));
                 break;
         }
     }

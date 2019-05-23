@@ -10,6 +10,7 @@ import com.business.electr.clothes.ui.fragment.equipment.Equipment1Fragment;
 import com.business.electr.clothes.ui.fragment.equipment.Equipment2Fragment;
 import com.business.electr.clothes.ui.fragment.equipment.Equipment3Fragment;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
+import com.business.electr.clothes.view.NoScrollViewPager;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class EquipmentActivity extends BaseActivity {
     @BindView(R.id.img_pot3)
     ImageView imgPot3;
     @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    NoScrollViewPager viewPager;
 
     private List<Fragment> fragments;
 
@@ -62,6 +63,7 @@ public class EquipmentActivity extends BaseActivity {
         fragments.add(equipment1Fragment);
         fragments.add(equipment2Fragment);
         fragments.add(equipment3Fragment);
+        viewPager.setNoScroll(true);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @NonNull
             @Override
@@ -96,21 +98,26 @@ public class EquipmentActivity extends BaseActivity {
     private void changePot(int pos){
         switch (pos){
             case 0:
-                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_d8d8d8_pot));
-                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
-                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
+                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
+                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_17979797_6));
+                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_17979797_6));
                 break;
             case 1:
-                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
-                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_d8d8d8_pot));
-                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
+                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
+                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
+                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_17979797_6));
                 break;
             case 2:
-                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
-                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_51d8d8d8_pot));
-                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.circular_d8d8d8_pot));
+                imgPot1.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
+                imgPot2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
+                imgPot3.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_solid_ffffff_1));
                 break;
         }
+    }
+
+
+    public void setCurrentPage(int pos){
+        viewPager.setCurrentItem(pos);
     }
 
 

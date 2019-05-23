@@ -104,7 +104,8 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_bluetooth:
-                startActivity(new Intent(getActivity(), PatternActivity.class));
+                new DefaultUriRequest(getActivity(), RouterCons.CREATE_EQUIPMENT)
+                        .start();
                 break;
             case R.id.bt_cesi:
                 new DefaultUriRequest(getActivity(),RouterCons.CREATE_MEASUREMENT)
