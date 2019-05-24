@@ -3,7 +3,6 @@ package com.business.electr.clothes.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -15,17 +14,12 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.utils.DateFormatUtil;
 import com.business.electr.clothes.utils.MLog;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;

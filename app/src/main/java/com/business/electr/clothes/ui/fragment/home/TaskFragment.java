@@ -11,9 +11,12 @@ import com.business.electr.clothes.mvp.presenter.home.TaskPresenter;
 import com.business.electr.clothes.mvp.view.home.TaskView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.utils.CommonUtils;
 import com.business.electr.clothes.view.DayTaskView;
+import com.business.electr.clothes.view.TodayTaskCoverView;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -24,6 +27,14 @@ import butterknife.OnClick;
 public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskView {
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.rel_task_back)
+    RelativeLayout relTaskBack;//背景图
+    @BindView(R.id.ttcv_sleep)
+    TodayTaskCoverView ttcvSleep;
+    @BindView(R.id.ttcv_elect)
+    TodayTaskCoverView ttcvElect;
+    @BindView(R.id.ttcv_number)
+    TodayTaskCoverView ttcvNumber;
 
     @BindView(R.id.rel_sleep)//睡眠
     RelativeLayout relSleep;
@@ -54,7 +65,12 @@ public class TaskFragment extends BaseFragment<TaskPresenter> implements TaskVie
 
     @Override
     protected void initEventAndData() {
-//        dayTaskView.setFinishWidth(CommonUtils.dp2px(getActivity(),120));
+        ttcvSleep.setRatio(4.0f/8);
+        imgCenterSleep.setVisibility(View.GONE);
+        ttcvElect.setRatio(20000.0f/20000);
+        imgCenterElect.setVisibility(View.GONE);
+        relNumber.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.white));
+        ttcvNumber.setVisibility(View.INVISIBLE);
     }
 
     @Override

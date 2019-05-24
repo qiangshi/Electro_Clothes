@@ -102,9 +102,7 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         vpType.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
-
             @Override
             public void onPageSelected(int position) {
                 if(position == 0){
@@ -115,7 +113,6 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
                     img2.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_select));
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 

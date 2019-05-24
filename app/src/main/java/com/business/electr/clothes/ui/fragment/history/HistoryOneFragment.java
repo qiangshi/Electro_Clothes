@@ -2,6 +2,7 @@ package com.business.electr.clothes.ui.fragment.history;
 
 
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.bean.HistoryBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.mvp.view.OnItemClickListener;
@@ -13,6 +14,11 @@ import com.business.electr.clothes.ui.fragment.dialog.HistoryStateFragment;
 import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.ToastUtils;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,6 +36,8 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
     @BindView(R.id.rv_tag)
     RecyclerView rvTag;
     private int curPos = -1;
+    private HistoryStateAdapter adapter;
+    private List<HistoryBean> list = new ArrayList<>();
 
     public HistoryOneFragment() {
     }
@@ -37,8 +45,11 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
 
     @Override
     protected void initEventAndData() {
+        list.add(new HistoryBean("06:15-07:15","1小时","睡觉",true));
+        list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
+        list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
         rvTag.setLayoutManager(new LinearLayoutManager(getActivity()));
-        HistoryStateAdapter adapter = new HistoryStateAdapter(getActivity());
+        adapter = new HistoryStateAdapter(getActivity(),list);
         rvTag.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
     }
@@ -60,20 +71,24 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
 
     @OnClick(R.id.tv_select)
     public void onViewClicked() {
-        new DefaultUriRequest(getActivity(), RouterCons.CREATE_ELECT_DETAIL)
+        new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_ELECT_DETAIL)
                 .putExtra(Constant.TITLE_TIME,"昨天")
                 .start();
     }
 
-    HistoryStateFragment historyStateFragment;
+    private HistoryStateFragment historyStateFragment;
     @Override
     public void OnClickItemListener(Object obj, int position) {
         historyStateFragment = new HistoryStateFragment();
-
+        adapter.setData(list);
         showFragment(getChildFragmentManager(), curPos, new HistoryStateFragment.TypeChangeListener() {
             @Override
             public void onTypeChange(int pos) {
                 curPos = pos;
+                List<String> strings = Arrays.asList(getResources().getStringArray(R.array.select_state_list));
+                list.get(position).setSelect(true);
+                list.get(position).setState(strings.get(pos));
+                adapter.setData(list);
                 if(pos == 6){
                     CustomStateFragment.showFragment(getChildFragmentManager(), new CustomStateFragment.CustomTextListener() {
                         @Override
@@ -88,7 +103,7 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
 
 
 
-    public void showFragment(FragmentManager manager, int position, HistoryStateFragment.TypeChangeListener typeChangeListener) {
+    private void showFragment(FragmentManager manager, int position, HistoryStateFragment.TypeChangeListener typeChangeListener) {
         historyStateFragment = new HistoryStateFragment();
         historyStateFragment.setCurPos(position);
         historyStateFragment.setListener(typeChangeListener);
@@ -96,12 +111,12 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
     }
 
 
-    private void hideFragment() {
-        try {
-            if (historyStateFragment.isAdded()) historyStateFragment.dismissAllowingStateLoss();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void hideFragment() {
+//        try {
+//            if (historyStateFragment.isAdded()) historyStateFragment.dismissAllowingStateLoss();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }

@@ -11,6 +11,8 @@ import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -32,7 +34,7 @@ public class MineFragment extends BaseFragment {
     }
 
 
-    SynchronizationObserver.OnSynchronizationListener syncListener = new SynchronizationObserver.OnSynchronizationListener() {
+    private SynchronizationObserver.OnSynchronizationListener syncListener = new SynchronizationObserver.OnSynchronizationListener() {
         @Override
         public void onSynchronizationUpdate(int type, Object object) {
             UserBean bean = (UserBean) object;
@@ -62,11 +64,11 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_user_info:
-                new DefaultUriRequest(getActivity(), RouterCons.MODIFY_USER_INFO)
+                new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.MODIFY_USER_INFO)
                         .start();
                 break;
             case R.id.ll_ihi:
-                new DefaultUriRequest(getActivity(),RouterCons.CREATE_MY_IHI)
+                new DefaultUriRequest(Objects.requireNonNull(getActivity()),RouterCons.CREATE_MY_IHI)
                         .start();
                 break;
             case R.id.ll_task:
@@ -76,17 +78,14 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.lin_ai:
                 toastMessage(R.string.development_ing);
-//                new DefaultUriRequest(getActivity(), RouterCons.CREATE_PERFECT_INFO)
-//                        .start();
                 break;
             case R.id.lin_my_doctor:
                 toastMessage(R.string.development_ing);
-//                startActivity(new Intent(getActivity(), TestActivity.class));
-//                new DefaultUriRequest(getActivity(), RouterCons.CREATE_QUESTION_FEEDBACK)
-//                        .start();
+                new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_SHARE_TASK)
+                        .start();
                 break;
             case R.id.lin_help:
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_HELPER)
+                new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_HELPER)
                         .start();
                 break;
         }

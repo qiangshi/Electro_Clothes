@@ -16,10 +16,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @ClassName: DayTaskView
- * @Description: 历史中的今日任务类别
- * @Author: 曾海强
- * @CreateDate: 2019/5/22 22:36
+ * ClassName:  DayTaskView
+ * Description: 历史中的今日任务类别
+ * Author: 曾海强
+ * CreateDate: 2019/5/22 22:36
  */
 public class DayTaskView extends RelativeLayout {
 
@@ -109,7 +109,7 @@ public class DayTaskView extends RelativeLayout {
     }
 
 
-    public void setFinishWidth(float process){
+    private void setFinishWidth(float process){
         if(process <= 0){
             imgInElectLast.setVisibility(GONE);
             tvFillColor.setVisibility(GONE);
@@ -125,12 +125,17 @@ public class DayTaskView extends RelativeLayout {
         }
     }
 
-    public void setBgWidth(int width){
+    private void setBgWidth(int width){
         RelativeLayout.LayoutParams params = (LayoutParams) imgBg.getLayoutParams();
         params.width = width;
         imgBg.setLayoutParams(params);
     }
 
+    /**
+     * 设置当前显示的进度和文字
+     * @param text 显示的文字
+     * @param process 进度
+     */
     public void setProcess(String text,float process){
         setFinishWidth(process);
         tvElectNum.setText(text);

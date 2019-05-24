@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    android:orientation="vertical"
     tools:context=".ui.fragment.home.TaskFragment">
 
 
     <RelativeLayout
+        android:id="@+id/rel_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_44"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/tv_title"
@@ -45,101 +45,142 @@
             android:textSize="@dimen/text_font_14" />
     </RelativeLayout>
 
-
     <RelativeLayout
-        android:id="@+id/rel_sleep"
+        android:layout_below="@+id/rel_title"
+        android:id="@+id/rel_task_back"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:background="@drawable/icon_share_back"
+        android:visibility="visible"/>
 
-        <com.business.electr.clothes.view.DayTaskView
-            android:id="@+id/day_task_view_sleep"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_44"
-            app:mBgFirst="@drawable/icon_history_sleep"
-            app:mBgAll="@drawable/icon_task_bg"
-            app:mBgWidth="@dimen/padding_120"
-            app:mBgIn="@drawable/icon_sleep_in"
-            app:mBgUp="@drawable/icon_up_sleep"
-            app:mProcess="0.5"
-            app:mShowType="sleep_time"
-            app:mTextDefault="4/8 小时"
-            app:mFillColor="@color/color_3262fe"
-            />
-
-
-        <ImageView
-            android:id="@+id/img_center_sleep"
-            android:layout_width="@dimen/padding_48"
-            android:layout_height="@dimen/padding_52"
-            android:layout_below="@+id/day_task_view_sleep"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/padding_32"
-            android:src="@drawable/icon_task_sleep_back" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rel_elect"
+    <LinearLayout
+        android:layout_below="@+id/rel_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        <com.business.electr.clothes.view.DayTaskView
-            android:id="@+id/day_task_view"
+        <com.business.electr.clothes.view.TodayTaskCoverView
+            android:id="@+id/ttcv_sleep"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_44"
-            app:mBgFirst="@drawable/icon_history_heartbeat"
-            app:mBgAll="@drawable/icon_task_bg"
-            app:mBgWidth="@dimen/padding_160"
-            app:mBgIn="@drawable/icon_in_elect"
-            app:mBgUp="@drawable/icon_up_elect"
-            app:mProcess="0.1"
-            app:mShowType="elect_num"
-            app:mTextDefault="2000/20000 跳"
-            app:mFillColor="@color/color_0bbb94"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-        <ImageView
-            android:id="@+id/img_center_elect"
-            android:layout_width="@dimen/padding_56"
-            android:layout_height="@dimen/padding_45"
-            android:layout_below="@+id/day_task_view"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/padding_51"
-            android:src="@drawable/icon_task_elect_back" />
+        <com.business.electr.clothes.view.TodayTaskCoverView
+            android:id="@+id/ttcv_elect"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-    </RelativeLayout>
+        <com.business.electr.clothes.view.TodayTaskCoverView
+            android:id="@+id/ttcv_number"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-    <RelativeLayout
-        android:id="@+id/rel_number"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/rel_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.business.electr.clothes.view.DayTaskView
-            android:id="@+id/day_task_view_number"
+        <RelativeLayout
+            android:id="@+id/rel_sleep"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_44"
-            app:mBgFirst="@drawable/icon_history_step_number"
-            app:mBgAll="@drawable/icon_task_bg"
-            app:mBgWidth="@dimen/padding_122"
-            app:mBgIn="@drawable/icon_in_number"
-            app:mBgUp="@drawable/icon_up_number"
-            app:mProcess="0"
-            app:mShowType="number"
-            app:mTextDefault="0/8000 步"
-            app:mFillColor="@color/color_fc8c4b"
-            />
-        <ImageView
-            android:id="@+id/img_center_number"
-            android:layout_width="@dimen/padding_48"
-            android:layout_height="@dimen/padding_41"
-            android:layout_below="@+id/day_task_view_number"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/padding_42"
-            android:src="@drawable/icon_task_num_back" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    </RelativeLayout>
+            <com.business.electr.clothes.view.DayTaskView
+                android:id="@+id/day_task_view_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_44"
+                app:mBgFirst="@drawable/icon_history_sleep"
+                app:mBgAll="@drawable/icon_task_bg"
+                app:mBgWidth="@dimen/padding_120"
+                app:mBgIn="@drawable/icon_sleep_in"
+                app:mBgUp="@drawable/icon_up_sleep"
+                app:mProcess="0.5"
+                app:mShowType="sleep_time"
+                app:mTextDefault="4/8 小时"
+                app:mFillColor="@color/color_3262fe"
+                />
 
-</LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_center_sleep"
+                android:layout_width="@dimen/padding_48"
+                android:layout_height="@dimen/padding_52"
+                android:layout_below="@+id/day_task_view_sleep"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/padding_32"
+                android:src="@drawable/icon_task_sleep_back" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_elect"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.business.electr.clothes.view.DayTaskView
+                android:id="@+id/day_task_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_44"
+                app:mBgFirst="@drawable/icon_history_heartbeat"
+                app:mBgAll="@drawable/icon_task_bg"
+                app:mBgWidth="@dimen/padding_160"
+                app:mBgIn="@drawable/icon_in_elect"
+                app:mBgUp="@drawable/icon_up_elect"
+                app:mProcess="0.1"
+                app:mShowType="elect_num"
+                app:mTextDefault="20000/20000 跳"
+                app:mFillColor="@color/color_0bbb94"
+                />
+
+            <ImageView
+                android:id="@+id/img_center_elect"
+                android:layout_width="@dimen/padding_56"
+                android:layout_height="@dimen/padding_45"
+                android:layout_below="@+id/day_task_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/padding_51"
+                android:src="@drawable/icon_task_elect_back" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_number"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.business.electr.clothes.view.DayTaskView
+                android:id="@+id/day_task_view_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_44"
+                app:mBgFirst="@drawable/icon_history_step_number"
+                app:mBgAll="@drawable/icon_task_bg"
+                app:mBgWidth="@dimen/padding_122"
+                app:mBgIn="@drawable/icon_in_number"
+                app:mBgUp="@drawable/icon_up_number"
+                app:mProcess="0"
+                app:mShowType="number"
+                app:mTextDefault="0/8000 步"
+                app:mFillColor="@color/color_fc8c4b"
+                />
+            <ImageView
+                android:id="@+id/img_center_number"
+                android:layout_width="@dimen/padding_48"
+                android:layout_height="@dimen/padding_41"
+                android:layout_below="@+id/day_task_view_number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/padding_42"
+                android:src="@drawable/icon_task_num_back" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

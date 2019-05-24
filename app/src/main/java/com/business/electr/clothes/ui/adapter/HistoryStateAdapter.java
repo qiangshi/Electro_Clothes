@@ -32,11 +32,9 @@ public class HistoryStateAdapter extends RecyclerView.Adapter<HistoryStateAdapte
     private Context mContext;
     private List<HistoryBean> list = new ArrayList<>();
 
-    public HistoryStateAdapter(Context mContext) {
+    public HistoryStateAdapter(Context mContext,List<HistoryBean> list) {
         this.mContext = mContext;
-        list.add(new HistoryBean("06:15-07:15","1小时","睡觉",true));
-        list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
-        list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
+        this.list = list;
     }
 
     public void setData(List<HistoryBean> historyBeanList) {

@@ -32,5 +32,6 @@ public class RouterCons {
     public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
     public static final String CREATE_TASK_HISTORY = "/create_task_history";
     public static final String CREATE_PATTERN = "/create_pattern";
+    public static final String CREATE_SHARE_TASK = "/create_share_task";
 
 }
