@@ -1,6 +1,8 @@
 package com.business.electr.clothes.ui.fragment.history;
 
 
+import android.text.TextUtils;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.HistoryBean;
 import com.business.electr.clothes.constants.Constant;
@@ -38,6 +40,7 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
     private int curPos = -1;
     private HistoryStateAdapter adapter;
     private List<HistoryBean> list = new ArrayList<>();
+    List<String> strings ;
 
     public HistoryOneFragment() {
     }
@@ -45,6 +48,7 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
 
     @Override
     protected void initEventAndData() {
+        strings = Arrays.asList(getResources().getStringArray(R.array.select_state_list));
         list.add(new HistoryBean("06:15-07:15","1小时","睡觉",true));
         list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
         list.add(new HistoryBean("18:45-20:15","1.5小时","",false));
@@ -80,20 +84,17 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
     @Override
     public void OnClickItemListener(Object obj, int position) {
         historyStateFragment = new HistoryStateFragment();
-        adapter.setData(list);
         showFragment(getChildFragmentManager(), curPos, new HistoryStateFragment.TypeChangeListener() {
             @Override
             public void onTypeChange(int pos) {
                 curPos = pos;
-                List<String> strings = Arrays.asList(getResources().getStringArray(R.array.select_state_list));
-                list.get(position).setSelect(true);
-                list.get(position).setState(strings.get(pos));
-                adapter.setData(list);
+                changeList(position,"");
                 if(pos == 6){
                     CustomStateFragment.showFragment(getChildFragmentManager(), new CustomStateFragment.CustomTextListener() {
                         @Override
                         public void onCustomText(String customText) {
                             historyStateFragment.setCustomText(customText);
+                            changeList(position,customText);
                         }
                     });
                 }
@@ -101,6 +102,15 @@ public class HistoryOneFragment extends BaseFragment implements OnItemClickListe
         });
     }
 
+    private void changeList(int position,String customText) {//刷新数据
+        list.get(position).setSelect(true);
+        if(TextUtils.isEmpty(customText)){
+            list.get(position).setState(strings.get(curPos));
+        }else {
+            list.get(position).setState(customText);
+        }
+        adapter.setData(list);
+    }
 
 
     private void showFragment(FragmentManager manager, int position, HistoryStateFragment.TypeChangeListener typeChangeListener) {

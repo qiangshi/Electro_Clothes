@@ -1,6 +1,5 @@
 package com.business.electr.clothes.ui.activity.login;
 
-import android.content.Intent;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.business.electr.clothes.App;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
@@ -19,7 +17,6 @@ import com.business.electr.clothes.mvp.presenter.login.LoginPresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
-import com.business.electr.clothes.ui.activity.MainActivity;
 import com.business.electr.clothes.ui.fragment.dialog.ThireLoginFragment;
 import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.SharePreferenceUtil;

@@ -37,6 +37,13 @@ public interface ApiStores {
     Observable<BaseApiResponse<MapModel<UserBean>>> requestLogin(@Body RequestBody requestBody);
 
     /**
+     * 验证码登录
+     * @return
+     */
+    @POST("login/loginPhone.do")
+    Observable<BaseApiResponse<MapModel<UserBean>>> requestCodeLogin(@Body RequestBody requestBody);
+
+    /**
      * 刷新token
      * @param token
      * @return
@@ -62,7 +69,7 @@ public interface ApiStores {
      * @return
      */
     @POST("sendVerify.do")
-    Observable<BaseApiResponse<String>> requestVerificationCode(@Body RequestBody requestBody);
+    Observable<BaseApiResponse<MapModel<String>>> requestVerificationCode(@Body RequestBody requestBody);
 
     /**********************************************业务接口**************************************/
 

@@ -69,8 +69,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
             @Override
             public void onSucess(String code) {
                 if(type == 1){// TODO: 2019/4/28 验证码登录
-                    mPresenter.requestLogin(phone,code,true);
-                    loginSuccess(new UserBean());
+                    mPresenter.requestCodeLogin(phone,code,true);
                 }else if(type ==0 || type== 2) { //注册或忘记密码
                     // TODO: 2019/4/25 完善个人信息
                     new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
