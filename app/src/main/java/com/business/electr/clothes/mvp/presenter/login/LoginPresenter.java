@@ -1,11 +1,14 @@
 package com.business.electr.clothes.mvp.presenter.login;
 
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.MapModel;
 import com.business.electr.clothes.bean.UserBean;
+import com.business.electr.clothes.constants.Constant;
+import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.net.ApiClient;
@@ -14,6 +17,8 @@ import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
 import com.business.electr.clothes.utils.DataCheckUtils;
 import com.business.electr.clothes.utils.MLog;
+import com.business.electr.clothes.utils.SharePreferenceUtil;
+import com.business.electr.clothes.utils.ToastUtils;
 
 import java.util.Map;
 
@@ -56,16 +61,17 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 //        }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
                 .addParams("userName",mobilePhone)
-                .addParams("phone",password)
+                .addParams("password",password)
                 .addParams("roleType",0).toRequestBody();
         addSubscription(
-                apiStores.requestCodeLogin(requestBody),
+                apiStores.requestLogin(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
                     @Override
                     public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
                         if (data.getData() == null) {
-                            mView.toastMessage(R.string.please_get_code);
+                            Toast.makeText(context,data.getMsg(),Toast.LENGTH_SHORT).show();
                         } else {
+                            saveLoginInfo(data.getData().getMap());
                             mView.loginSuccess(data.getData().getMap());
                         }
                     }
@@ -81,6 +87,17 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                     }
                 }
         );
+    }
+
+
+    /**
+     * 保存用户信息
+     */
+    private void saveLoginInfo(UserBean userBean) {
+        MLog.e("====zhq====>111<"+userBean.getToken());
+        DataCacheManager.saveToken(userBean.getToken());
+        DataCacheManager.saveUserInfo(userBean);
+        SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
     }
 
 
@@ -119,6 +136,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
+                            saveLoginInfo(data.getData().getMap());
                             mView.loginSuccess(data.getData().getMap());
                         }
                     }

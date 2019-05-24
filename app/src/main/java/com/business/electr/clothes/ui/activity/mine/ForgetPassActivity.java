@@ -2,6 +2,7 @@ package com.business.electr.clothes.ui.activity.mine;
 
 
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.constants.Constant;
@@ -18,6 +19,8 @@ import butterknife.OnClick;
 public class ForgetPassActivity extends BaseActivity<ForgetPassPresenter> implements ForgetPassView {
 
 
+    @BindView(R.id.tv_nick_name)
+    TextView tvNickName;
     @BindView(R.id.et_new_password)
     EditText etNewPassword;
     @BindView(R.id.et_new_again_password)
@@ -42,6 +45,7 @@ public class ForgetPassActivity extends BaseActivity<ForgetPassPresenter> implem
         phone = getIntent().getStringExtra(Constant.EXTRA_PHONE);
         area_code = getIntent().getStringExtra(Constant.EXTRA_CODE);
         type = getIntent().getIntExtra(Constant.TYPE, 3);
+        tvNickName.setText(phone);
     }
 
 

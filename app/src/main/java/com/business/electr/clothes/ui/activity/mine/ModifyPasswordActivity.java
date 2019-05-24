@@ -28,13 +28,13 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
 
 
     @BindView(R.id.et_new_password)
-    EditText etNewPassword;
+    EditText etNewPassword;//新密码
     @BindView(R.id.et_again_password)
-    EditText etAgainPassword;
+    EditText etAgainPassword;//再次新密码
     @BindView(R.id.img_new_pass)
-    ImageView imgNewPass;
+    ImageView imgNewPass;//清空新密码
     @BindView(R.id.img_again_pass)
-    ImageView imgAgainPass;
+    ImageView imgAgainPass;//清空密码
 
     private String phone;
     private String vertify;
@@ -57,10 +57,7 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
         type = getIntent().getIntExtra(Constant.TYPE,0);
         etNewPassword.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() >= 1) {//如果长度大于等于1,显示删除图片
@@ -69,18 +66,12 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
                     imgNewPass.setVisibility(View.INVISIBLE);
                 }
             }
-
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
         etAgainPassword.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() >= 1) {//如果长度大于等于1,显示删除图片
@@ -89,14 +80,10 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
                     imgAgainPass.setVisibility(View.INVISIBLE);
                 }
             }
-
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
     }
-
 
     @OnClick({R.id.img_back, R.id.tv_confirm,R.id.img_new_pass, R.id.img_again_pass})
     public void onViewClicked(View view) {
@@ -107,6 +94,8 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
             case R.id.tv_confirm:
                 if(type == 0){
                     mPresenter.registerUser(phone, etNewPassword.getText().toString(), etAgainPassword.getText().toString(), vertify);
+                }else {//从登录页面点击忘记密码进来
+
                 }
                 break;
             case R.id.img_new_pass:
@@ -126,9 +115,6 @@ public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter
 
     @Override
     public void loginSuccess(UserBean userBean) {
-        new DefaultUriRequest(this,RouterCons.CREATE_PATTERN)
-                .start();
-        finish();
     }
 
 

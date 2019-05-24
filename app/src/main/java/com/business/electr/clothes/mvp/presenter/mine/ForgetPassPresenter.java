@@ -45,7 +45,6 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
                 return;
             }
         }
-
         if(TextUtils.isEmpty(againPassword)){
             mView.toastMessage(R.string.please_in_again_password);
             return;
@@ -54,31 +53,30 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
             mView.toastMessage(R.string.password_no_agreement);
             return;
         }
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()// TODO: 2019/5/24 忘记密码是不知道用户id 
+                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
+                .addParams("oldPassword", "")
+                .addParams("verify",code)
+                .addParams("newPassword", newPassword)
+                .toRequestBody();
+        addSubscription(
+                apiStores.requestUpdatePassword(requestBody),
+                new BaseObserver<BaseApiResponse<String>>() {
+                    @Override
+                    public void onError(ResponseException e) {
 
-//        RequestBody requestBody = ApiClient.getInstance().getBuilder()
-//                .addCommonMap()
-//                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
-//                .addParams("oldPassword", oldPassword)
-//                .addParams("newPassword", newPassword)
-//                .toRequestBody();
-//        addSubscription(
-//                apiStores.requestUpdatePassword(requestBody),
-//                new BaseObserver<BaseApiResponse<String>>() {
-//                    @Override
-//                    public void onError(ResponseException e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(BaseApiResponse<String> o) {
-//                        mView.toastMessage(R.string.modify_success);
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
+                    }
 
+                    @Override
+                    public void onNext(BaseApiResponse<String> o) {
+                        mView.toastMessage(R.string.modify_success);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

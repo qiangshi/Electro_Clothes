@@ -70,7 +70,7 @@ public class ModifyPasswordPresenter extends BasePresenter<ModifyPasswordView> {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-                            saveLoginInfo(data.getData());
+//                            saveLoginInfo(data.getData());
                             mView.registerSuccess(data.getData());
                         }
                     }

@@ -12,13 +12,11 @@ import com.business.electr.clothes.App;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
-import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.login.LoginPresenter;
 import com.business.electr.clothes.mvp.view.login.LoginView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.ui.fragment.dialog.ThireLoginFragment;
-import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.sankuai.waimai.router.annotation.RouterUri;
@@ -29,7 +27,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 /**
  * Created by zenghaiqiang on 2019/4/28.
- * 描述：登录
+ * 描述：登录界面
  */
 @RouterUri(path = {RouterCons.CREATE_LOGIN})
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginView {
@@ -52,11 +50,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     ImageView imgPasswordClose;
 
     @BindView(R.id.tv_code_login)
-    TextView tvCodeLogin;
+    TextView tvCodeLogin;//账号登录和手机号登录或注册的切换按钮
     @BindView(R.id.ll_phone_login)
-    LinearLayout llPhoneLogin;
+    LinearLayout llPhoneLogin;//手机号登录或注册界面
     @BindView(R.id.ll_code_password)
-    LinearLayout llCodePassword;
+    LinearLayout llCodePassword;//账号密码登录界面
 
     @BindView(R.id.tv_code)
     TextView tvCode;//登陆或者获取验证码
@@ -86,7 +84,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
      * 初始化数据
      */
     private void initData() {
-        if(SharePreferenceUtil.getBoolean(Constant.IS_REGISTER,false)){
+        if(SharePreferenceUtil.getBoolean(Constant.IS_REGISTER,false)){//该手机以及注册过了
             tvCodeLogin.setText(getResources().getString(R.string.phone_code_login));
         } else tvCodeLogin.setText(getResources().getString(R.string.phone_code_login_or_register));
         etPhone.addTextChangedListener(new TextWatcher() {
@@ -140,22 +138,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void loginSuccess(UserBean userBean) {
-        saveLoginInfo(userBean);
+    public void loginSuccess(UserBean userBean) {//登录成功回调
         new DefaultUriRequest(this,RouterCons.CREATE_PATTERN)
                 .start();
         finish();
     }
 
-    /**
-     * 保存用户信息
-     */
-    private void saveLoginInfo(UserBean userBean) {
-        MLog.e("====zhq====>111<"+userBean.getToken());
-        DataCacheManager.saveToken(userBean.getToken());
-        DataCacheManager.saveUserInfo(userBean);
-        SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
-    }
 
     @OnClick({R.id.img_logout, R.id.area_code, R.id.tv_code_area, R.id.phone_close, R.id.img_phone_close, R.id.img_password_close, R.id.tv_code, R.id.tv_code_login, R.id.tv_forget_password, R.id.ll_weixin, R.id.ll_qq, R.id.ll_weibo, R.id.ll_more})
     public void onViewClicked(View view) {
@@ -166,13 +154,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.tv_code_area://区号选择
             case R.id.area_code:
                 break;
-            case R.id.phone_close:
+            case R.id.phone_close://清空手机号（手机号登录界面）
                 etPhone.setText("");
                 break;
-            case R.id.img_phone_close:
+            case R.id.img_phone_close://清空手机号（账号密码登录界面）
                 etPhonePass.setText("");
                 break;
-            case R.id.img_password_close:
+            case R.id.img_password_close://密码是否可见
                 if (!isOpen) {
                     isOpen = true;
                     etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
@@ -214,7 +202,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             case R.id.tv_forget_password://忘记密码
                 type = 2;
-                mPresenter.sendVerificationCode(etPhone.getText().toString());
+                String phone;
+                if(llCodePassword.getVisibility() == View.VISIBLE){
+                    phone = etPhonePass.getText().toString();
+                }else {
+                    phone = etPhone.getText().toString();
+                }
+                mPresenter.sendVerificationCode(phone);
                 break;
             case R.id.ll_weixin:
                 break;
@@ -228,7 +222,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-
+    /**
+     * 显示第三方登录平台
+     */
     private void showThireFragment() {
         if (thireLoginFragment == null) {
             thireLoginFragment = new ThireLoginFragment();
@@ -237,12 +233,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             getSupportFragmentManager().beginTransaction().add(thireLoginFragment, "thireLoginFragment").commitAllowingStateLoss();
         }
     }
-
-
-    private void hideThireFragment() {
-        if (thireLoginFragment != null && thireLoginFragment.isVisible()) {
-            getSupportFragmentManager().beginTransaction().hide(thireLoginFragment).commitAllowingStateLoss();
-        }
-    }
+//    private void hideThireFragment() {
+//        if (thireLoginFragment != null && thireLoginFragment.isVisible()) {
+//            getSupportFragmentManager().beginTransaction().hide(thireLoginFragment).commitAllowingStateLoss();
+//        }
+//    }
 
 }
