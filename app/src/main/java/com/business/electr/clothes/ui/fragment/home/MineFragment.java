@@ -72,6 +72,8 @@ public class MineFragment extends BaseFragment {
                         .start();
                 break;
             case R.id.ll_task:
+                new DefaultUriRequest(Objects.requireNonNull(getActivity()),RouterCons.CREATE_TASK_TARGET)
+                        .start();
                 break;
             case R.id.ll_ihi_exper:
                 toastMessage(R.string.development_ing);

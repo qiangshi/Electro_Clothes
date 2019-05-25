@@ -31,7 +31,9 @@ public class RouterCons {
     public static final String CREATE_HORIZONTAL_ELECT_DETAIL = "/create_horizontal_elect_detail";
     public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
     public static final String CREATE_TASK_HISTORY = "/create_task_history";
-    public static final String CREATE_PATTERN = "/create_pattern";
-    public static final String CREATE_SHARE_TASK = "/create_share_task";
+    public static final String CREATE_PATTERN = "/create_pattern";//
+    public static final String CREATE_SHARE_TASK = "/create_share_task";//分享任务
+    public static final String CREATE_SECOND_60 = "/create_second_60";//60s报告列表
+    public static final String CREATE_TASK_TARGET = "/create_task_target";//设置任务目标
 
 }

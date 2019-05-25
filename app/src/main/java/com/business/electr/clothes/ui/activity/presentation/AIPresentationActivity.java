@@ -77,6 +77,7 @@ public class AIPresentationActivity extends BaseActivity {
                 return fragments.size();
             }
         };
+        vpAiPresentation.setOffscreenPageLimit(mTabTitles.length);
         vpAiPresentation.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

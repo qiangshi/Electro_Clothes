@@ -63,18 +63,21 @@
         <com.business.electr.clothes.view.TodayTaskCoverView
             android:id="@+id/ttcv_sleep"
             android:layout_width="match_parent"
+            app:mShowType="sleep_time"
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
         <com.business.electr.clothes.view.TodayTaskCoverView
             android:id="@+id/ttcv_elect"
             android:layout_width="match_parent"
+            app:mShowType="elect_num"
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
         <com.business.electr.clothes.view.TodayTaskCoverView
             android:id="@+id/ttcv_number"
             android:layout_width="match_parent"
+            app:mShowType="number"
             android:layout_height="0dp"
             android:layout_weight="1"/>
 

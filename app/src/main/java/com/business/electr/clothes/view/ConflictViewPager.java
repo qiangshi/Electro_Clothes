@@ -32,7 +32,7 @@ public class ConflictViewPager extends ViewPager {
 
     public boolean onInterceptTouchEvent(MotionEvent arg0) {
         if(arg0.getY() > 900){
-            return super.onTouchEvent(arg0);
+            return super.onInterceptTouchEvent(arg0);
         }else {
             return false;
         }

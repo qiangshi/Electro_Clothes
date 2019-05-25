@@ -63,4 +63,7 @@
         <attr name="mFillColor" format="reference"/>      <!--填充的颜色-->
     </declare-styleable>
 
+
+
+
 </resources>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.AiPresentationBean;
@@ -51,7 +52,7 @@ public class AiPresentationAdapter extends RecyclerView.Adapter<AiPresentationAd
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtils.showToast(mContext,"点击了"+position);
+                    Toast.makeText(mContext,R.string.development_ing,Toast.LENGTH_SHORT).show();
                 }
             });
         }

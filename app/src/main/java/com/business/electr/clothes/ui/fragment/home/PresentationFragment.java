@@ -60,7 +60,7 @@ public class PresentationFragment extends BaseFragment<PresentationPresenter> im
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_presentation_60:
-                new DefaultUriRequest(getActivity(), RouterCons.CREATE_MEASURE_RESULT)
+                new DefaultUriRequest(getActivity(), RouterCons.CREATE_SECOND_60)
                         .start();
                 break;
             case R.id.rl_presentation_ai:

@@ -38,6 +38,10 @@ public class Constant {
     public static final String DATE_FORMAT_8 = "yyyy.MM";
     public static final String DATE_FORMAT_9 = "yyyy年MM月";
     public static final String DATE_FORMAT_0 = "yyyy年MM月dd日";
+    public static final String DATE_CACHE_TIME = "date_cache_time";
+    public static final String SP_TASK_DATA_SLEEP = "sp_task_data_sleep";
+    public static final String SP_TASK_DATA_ELECT = "sp_task_data_elect";
+    public static final String SP_TASK_DATA_NUMBER = "sp_task_data_number";
 
     public static final String BAIDU_AK = "8MHzqiUwn85aYLLFl35bItIo7QC41OUS";
 
