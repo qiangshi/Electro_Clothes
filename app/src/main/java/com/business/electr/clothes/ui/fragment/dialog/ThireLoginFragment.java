@@ -50,13 +50,13 @@ public class ThireLoginFragment extends DialogFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_facebook:
-                Toast.makeText(getActivity(),"facebook登录",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"facebook",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ll_twitter:
-                Toast.makeText(getActivity(),"twitter登录",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"twitter",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ll_google:
-                Toast.makeText(getActivity(),"google登录",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"google",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
