@@ -6,8 +6,6 @@ public class RouterCons {
     public static final String DATA = "data";
     public static final String TYPE = "type";
 
-
-    public static final String CREATE_CPY_SET_INFO = "/create_cpy_set_info";
     public static final String CREATE_MAIN = "/create_main";
     public static final String CREATE_LOGIN = "/create_login";//登录
     public static final String CREATE_REGISTER = "/create_register";
@@ -31,7 +29,7 @@ public class RouterCons {
     public static final String CREATE_HORIZONTAL_ELECT_DETAIL = "/create_horizontal_elect_detail";
     public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
     public static final String CREATE_TASK_HISTORY = "/create_task_history";
-    public static final String CREATE_PATTERN = "/create_pattern";//
+    public static final String CREATE_PATTERN = "/create_pattern";//集成或定制模式选择
     public static final String CREATE_SHARE_TASK = "/create_share_task";//分享任务
     public static final String CREATE_SECOND_60 = "/create_second_60";//60s报告列表
     public static final String CREATE_TASK_TARGET = "/create_task_target";//设置任务目标

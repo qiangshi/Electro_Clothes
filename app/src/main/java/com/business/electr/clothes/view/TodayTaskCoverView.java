@@ -12,7 +12,6 @@ import android.view.View;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.bean.HistoryBean;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.MLog;
@@ -20,8 +19,6 @@ import com.business.electr.clothes.utils.SharePreferenceUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
