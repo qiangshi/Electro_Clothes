@@ -83,8 +83,8 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.lin_my_doctor:
                 toastMessage(R.string.development_ing);
-                new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_SHARE_TASK)
-                        .start();
+//                new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_SHARE_TASK)
+//                        .start();
                 break;
             case R.id.lin_help:
                 new DefaultUriRequest(Objects.requireNonNull(getActivity()), RouterCons.CREATE_HELPER)

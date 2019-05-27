@@ -73,7 +73,7 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     protected void initEventAndData() {
         ttvTime.setListener(this);
         initViewPager();
-
+        initData();
     }
 
     /**
@@ -121,6 +121,15 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
             }
         });
     }
+
+
+    private void initData() {
+        String dataTime = DateUtils.getTime(System.currentTimeMillis(),new SimpleDateFormat(Constant.DATE_FORMAT_0));
+        if(dataTime.equals(getResources().getString(R.string.current_data_time))){
+            fragments = null;
+        }
+    }
+
 
     @Override
     protected int getLayoutId() {

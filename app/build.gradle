@@ -29,7 +29,7 @@ android {
         release {
             storeFile file("../electro_clothes.jks")
             storePassword "business2019"
-            keyAlias "business"
+            keyAlias "bus"
             keyPassword "business2019"
         }
     }
@@ -37,11 +37,11 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

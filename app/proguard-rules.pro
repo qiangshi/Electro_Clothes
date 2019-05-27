@@ -1,7 +1,8 @@
 #-------------------------------------------定制化区域----------------------------------------------
 #---------------------------------1.实体类---------------------------------
 
--keep class com.riskbook.hzdc.irb.bean.** { *; }
+-keep class com.business.electr.clothes.bean.** { *; }
+-keep class com.business.electr.clothes.net.** { *; }
 
 
 #---------------------------------1.实体类---------------------------------
@@ -11,9 +12,9 @@
 #-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
 #public static java.lang.String TABLENAME;
 #}
--keep class **$Properties
--dontwarn org.greenrobot.greendao.database.**
--dontwarn rx.**
+#-keep class **$Properties
+#-dontwarn org.greenrobot.greendao.database.**
+#-dontwarn rx.**
 
 ### fastjson
 -ignorewarnings
@@ -69,17 +70,27 @@
 
 
 ### 微信
--keep class com.tencent.mm.opensdk.** { *;}
--keep class com.tencent.wxop.** { *;}
--keep class com.tencent.mm.sdk.** { *;}
+#-keep class com.tencent.mm.opensdk.** { *;}
+#-keep class com.tencent.wxop.** { *;}
+#-keep class com.tencent.mm.sdk.** { *;}
 ###百度地图
--keep class com.baidu.** {*;}
--keep class mapsdkvi.com.** {*;}
--dontwarn com.baidu.**
+#-keep class com.baidu.** {*;}
+#-keep class mapsdkvi.com.** {*;}
+#-dontwarn com.baidu.**
 
 ### bugly
--dontwarn com.tencent.bugly.**
--keep public class com.tencent.bugly.**{*;}
+#-dontwarn com.tencent.bugly.**
+#-keep public class com.tencent.bugly.**{*;}
+
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode {*; }
+# Only required if you use AsyncExecutor
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    <init>(java.lang.Throwable);
+}
 
 ### Retrofit
 -dontwarn retrofit2.**
