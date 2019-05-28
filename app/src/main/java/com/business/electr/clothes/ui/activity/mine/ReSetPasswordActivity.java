@@ -18,6 +18,9 @@ import com.sankuai.waimai.router.common.DefaultUriRequest;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * 重置密码
+ */
 @RouterUri(path = {RouterCons.CREATE_RE_SET_PASSWORD})
 public class ReSetPasswordActivity extends BaseActivity<ReSetPasswordPresenter> implements ReSetPasswordView {
 
@@ -43,7 +46,7 @@ public class ReSetPasswordActivity extends BaseActivity<ReSetPasswordPresenter> 
 
     @Override
     protected void initDataAndEvent() {
-        initTitle("重置密码");
+        initTitle(getResources().getString(R.string.re_set_password));
         tvNickName.setText(DataCacheManager.getUserInfo().getPhone());
     }
 
@@ -64,5 +67,10 @@ public class ReSetPasswordActivity extends BaseActivity<ReSetPasswordPresenter> 
                 mPresenter.updateUserPassword(etOldPassword.getText().toString(),etNewPassword.getText().toString(),etNewAgainPassword.getText().toString());
                 break;
         }
+    }
+
+    @Override
+    public void reSetSuccess() {
+        finish();
     }
 }

@@ -26,7 +26,7 @@ public interface ApiStores {
      * @return
      */
     @POST("login/regist.do")
-    Observable<BaseApiResponse<UserBean>> requestRegister(@Body RequestBody requestBody);
+    Observable<BaseApiResponse<MapModel<UserBean>>> requestRegister(@Body RequestBody requestBody);
 
 
     /**
@@ -71,6 +71,13 @@ public interface ApiStores {
     @POST("sendVerify.do")
     Observable<BaseApiResponse<MapModel<String>>> requestVerificationCode(@Body RequestBody requestBody);
 
+    /**
+     * 上传头像
+     */
+    @POST("uploadHead.do")
+    @Multipart
+    Observable<BaseApiResponse<MapModel<String>>> requestUserHead(@Part MultipartBody.Part headImg);
+
     /**********************************************业务接口**************************************/
 
 
@@ -96,7 +103,6 @@ public interface ApiStores {
      * @return
      */
     @POST("updatePassword.do")
-    @FormUrlEncoded
     Observable<BaseApiResponse<String>> requestUpdatePassword(@Body RequestBody requestBody);
 
     /**
@@ -439,15 +445,6 @@ public interface ApiStores {
     Observable<BaseApiResponse<String>> requestDutys(
             @Field("userId") @NonNull long userId);
 
-    /**
-     * 用户反馈
-     */
-    @POST("basic/web/index.php?r=user/feedback")
-    @Multipart
-    Observable<BaseApiResponse<String>> requestFeedBack(
-            @Part MultipartBody.Part userId, @Part MultipartBody.Part token,
-            @Part MultipartBody.Part content, @Part MultipartBody.Part pic1,
-            @Part MultipartBody.Part pic2, @Part MultipartBody.Part pic3,
-            @Part MultipartBody.Part contact);
+
 
 }

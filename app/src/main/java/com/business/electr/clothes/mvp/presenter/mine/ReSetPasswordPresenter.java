@@ -67,12 +67,13 @@ public class ReSetPasswordPresenter extends BasePresenter<ReSetPasswordView> {
                 new BaseObserver<BaseApiResponse<String>>() {
                     @Override
                     public void onError(ResponseException e) {
-
+                        mView.toastMessage(R.string.password_err);
                     }
 
                     @Override
                     public void onNext(BaseApiResponse<String> o) {
                         mView.toastMessage(R.string.modify_success);
+                        mView.reSetSuccess();
                     }
 
                     @Override

@@ -80,7 +80,8 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(int sex, String height, String weight, String birthDate){
+    public void updateUserInfo(String nickName,int sex, String height, String weight, String birthDate){
+        birthDate = birthDate + " 00:00:00";
         mView.showLoading();
         int heigh = 0,weigh = 0;
         if(!TextUtils.isEmpty(height)){
@@ -96,6 +97,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 .addParams("height",heigh)
                 .addParams("weight",weigh)
                 .addParams("birthDate",birthDate)
+                .addParams("nickName",nickName)
                 .toRequestBody();
         addSubscription(apiStores.requestUpdateUserInfo(requestBody),
                 new BaseObserver<BaseApiResponse<String>>() {

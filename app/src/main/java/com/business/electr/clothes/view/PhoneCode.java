@@ -44,14 +44,14 @@ public class PhoneCode extends RelativeLayout {
     TextView tv_code4;
     @BindView(R.id.v4)
     View v4;
-//    @BindView(R.id.tv_code5)
-//    TextView tv_code5;
-//    @BindView(R.id.v5)
-//    View v5;
-//    @BindView(R.id.tv_code6)
-//    TextView tv_code6;
-//    @BindView(R.id.v6)
-//    View v6;
+    @BindView(R.id.tv_code5)
+    TextView tv_code5;
+    @BindView(R.id.v5)
+    View v5;
+    @BindView(R.id.tv_code6)
+    TextView tv_code6;
+    @BindView(R.id.v6)
+    View v6;
     @BindView(R.id.ll_code)
     LinearLayout llCode;
     @BindView(R.id.et_code)
@@ -96,7 +96,7 @@ public class PhoneCode extends RelativeLayout {
             public void afterTextChanged(Editable editable) {
                 if (editable != null && editable.length() > 0) {
                     et_code.setText("");
-                    if (codes.size() < 4) {
+                    if (codes.size() < 6) {
                         codes.add(editable.toString());
                         showCode();
                     }
@@ -125,8 +125,8 @@ public class PhoneCode extends RelativeLayout {
         String code2 = "";
         String code3 = "";
         String code4 = "";
-//        String code5 = "";
-//        String code6 = "";
+        String code5 = "";
+        String code6 = "";
         if (codes.size() >= 1) {
             code1 = codes.get(0);
         }
@@ -139,18 +139,18 @@ public class PhoneCode extends RelativeLayout {
         if (codes.size() >= 4) {
             code4 = codes.get(3);
         }
-//        if (codes.size() >= 5) {
-//            code5 = codes.get(4);
-//        }
-//        if (codes.size() >= 6) {
-//            code6 = codes.get(5);
-//        }
+        if (codes.size() >= 5) {
+            code5 = codes.get(4);
+        }
+        if (codes.size() >= 6) {
+            code6 = codes.get(5);
+        }
         tv_code1.setText(code1);
         tv_code2.setText(code2);
         tv_code3.setText(code3);
         tv_code4.setText(code4);
-//        tv_code5.setText(code5);
-//        tv_code6.setText(code6);
+        tv_code5.setText(code5);
+        tv_code6.setText(code6);
 
         setColor();//设置高亮颜色
         callBack();//回调
@@ -166,8 +166,8 @@ public class PhoneCode extends RelativeLayout {
         v2.setBackgroundColor(color_default);
         v3.setBackgroundColor(color_default);
         v4.setBackgroundColor(color_default);
-//        v5.setBackgroundColor(color_default);
-//        v6.setBackgroundColor(color_default);
+        v5.setBackgroundColor(color_default);
+        v6.setBackgroundColor(color_default);
         if (codes.size() == 0) {
             v1.setBackgroundColor(color_focus);
         }
@@ -177,15 +177,15 @@ public class PhoneCode extends RelativeLayout {
         if (codes.size() == 2) {
             v3.setBackgroundColor(color_focus);
         }
-        if (codes.size() >= 3) {
+        if (codes.size() == 3) {
             v4.setBackgroundColor(color_focus);
         }
-//        if (codes.size() == 4) {
-//            v5.setBackgroundColor(color_focus);
-//        }
-//        if (codes.size() >= 5) {
-//            v6.setBackgroundColor(color_focus);
-//        }
+        if (codes.size() == 4) {
+            v5.setBackgroundColor(color_focus);
+        }
+        if (codes.size() >= 5) {
+            v6.setBackgroundColor(color_focus);
+        }
     }
 
     /**
@@ -195,7 +195,7 @@ public class PhoneCode extends RelativeLayout {
         if (onInputListener == null) {
             return;
         }
-        if (codes.size() == 4) {
+        if (codes.size() == 6) {
             onInputListener.onSucess(getPhoneCode());
         } else {
             onInputListener.onInput();

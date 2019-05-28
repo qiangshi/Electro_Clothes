@@ -8,6 +8,46 @@ import java.io.Serializable;
 
 public class UserBean implements Serializable {
 
+
+    /**
+     * country :
+     * userStatus : 1
+     * openidStatus : 0
+     * city :
+     * loginType : 0
+     * onlineStatus : 1
+     * inputTime :
+     * roleType : 0
+     * cardNo :
+     * totalRecharge : 0
+     * lastLoginIp :
+     * score : 0
+     * password : 123456
+     * province :
+     * email :
+     * height : 0
+     * info :
+     * openidZfb :
+     * registerTime :
+     * nickName :
+     * openid :
+     * sex : 0
+     * weight : 0
+     * userName : 15001396144
+     * birthDate :
+     * userId : 1000000000019713
+     * userKey : ACB247E359379CF698A0146C34235589
+     * token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDAwMDAwMDAwMTk3MTMiLCJleHAiOjE1NjE2MjU4MzcsImp0aSI6IjNiMTA5YjAxLWUwYjctNGNjYi1iNTk2LTVkYTgyNDdiMThmNyJ9.KaAlMXr28tTbUfcUAmnHx22jLbmeX51RGp9q7ag3yPc
+     * lastLoginTime :
+     * headImgUrl :
+     * phone : 15001396144
+     * sourceType : 0
+     * retreatAmount : 0
+     * numberStatus : 0
+     * enableStatus : 0
+     * accountRest : 0
+     */
+
     private long userId;//用户编号
     private int height;//身高
     private int weight;//体重
@@ -45,62 +85,15 @@ public class UserBean implements Serializable {
     private String registerTime;//注册时间
     private String lastLoginTime;//上次登录时间
     private String inputTime;//输入时间
+    private int openidStatus;
+    private int score;
 
-
-    public long getUserId() {
-        return userId;
+    public String getCountry() {
+        return country;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public int getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(int roleType) {
-        this.roleType = roleType;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
-    public int getSourceType() {
-        return sourceType;
-    }
-
-    public void setSourceType(int sourceType) {
-        this.sourceType = sourceType;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public int getUserStatus() {
@@ -111,12 +104,20 @@ public class UserBean implements Serializable {
         this.userStatus = userStatus;
     }
 
-    public int getOnlineStatus() {
-        return onlineStatus;
+    public int getOpenidStatus() {
+        return openidStatus;
     }
 
-    public void setOnlineStatus(int onlineStatus) {
-        this.onlineStatus = onlineStatus;
+    public void setOpenidStatus(int openidStatus) {
+        this.openidStatus = openidStatus;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public int getLoginType() {
@@ -125,6 +126,230 @@ public class UserBean implements Serializable {
 
     public void setLoginType(int loginType) {
         this.loginType = loginType;
+    }
+
+    public int getOnlineStatus() {
+        return onlineStatus;
+    }
+
+    public void setOnlineStatus(int onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
+    public String getInputTime() {
+        return inputTime;
+    }
+
+    public void setInputTime(String inputTime) {
+        this.inputTime = inputTime;
+    }
+
+    public int getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(int roleType) {
+        this.roleType = roleType;
+    }
+
+    public String getCardNo() {
+        return cardNo;
+    }
+
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
+
+    public int getTotalRecharge() {
+        return totalRecharge;
+    }
+
+    public void setTotalRecharge(int totalRecharge) {
+        this.totalRecharge = totalRecharge;
+    }
+
+    public String getLastLoginIp() {
+        return lastLoginIp;
+    }
+
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getOpenidZfb() {
+        return openidZfb;
+    }
+
+    public void setOpenidZfb(String openidZfb) {
+        this.openidZfb = openidZfb;
+    }
+
+    public String getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(String registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserKey() {
+        return userKey;
+    }
+
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(String lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getHeadImgUrl() {
+        return headImgUrl;
+    }
+
+    public void setHeadImgUrl(String headImgUrl) {
+        this.headImgUrl = headImgUrl;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(int sourceType) {
+        this.sourceType = sourceType;
+    }
+
+    public int getRetreatAmount() {
+        return retreatAmount;
+    }
+
+    public void setRetreatAmount(int retreatAmount) {
+        this.retreatAmount = retreatAmount;
     }
 
     public int getNumberStatus() {
@@ -143,203 +368,11 @@ public class UserBean implements Serializable {
         this.enableStatus = enableStatus;
     }
 
-    public int getLoadStatus() {
-        return loadStatus;
-    }
-
-    public void setLoadStatus(int loadStatus) {
-        this.loadStatus = loadStatus;
-    }
-
-    public int getSignStatus() {
-        return signStatus;
-    }
-
-    public void setSignStatus(int signStatus) {
-        this.signStatus = signStatus;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUserKey() {
-        return userKey;
-    }
-
-    public void setUserKey(String userKey) {
-        this.userKey = userKey;
-    }
-
-    public String getCardNo() {
-        return cardNo;
-    }
-
-    public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
-    }
-
-    public int getCreditValue() {
-        return creditValue;
-    }
-
-    public void setCreditValue(int creditValue) {
-        this.creditValue = creditValue;
-    }
-
-    public int getTotalRecharge() {
-        return totalRecharge;
-    }
-
-    public void setTotalRecharge(int totalRecharge) {
-        this.totalRecharge = totalRecharge;
-    }
-
     public int getAccountRest() {
         return accountRest;
     }
 
     public void setAccountRest(int accountRest) {
         this.accountRest = accountRest;
-    }
-
-    public int getRetreatAmount() {
-        return retreatAmount;
-    }
-
-    public void setRetreatAmount(int retreatAmount) {
-        this.retreatAmount = retreatAmount;
-    }
-
-    public String getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
-
-    public String getOpenidZfb() {
-        return openidZfb;
-    }
-
-    public void setOpenidZfb(String openidZfb) {
-        this.openidZfb = openidZfb;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getLastLoginIp() {
-        return lastLoginIp;
-    }
-
-    public void setLastLoginIp(String lastLoginIp) {
-        this.lastLoginIp = lastLoginIp;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getHeadImgUrl() {
-        return headImgUrl;
-    }
-
-    public void setHeadImgUrl(String headImgUrl) {
-        this.headImgUrl = headImgUrl;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-    public String getRegisterTime() {
-        return registerTime;
-    }
-
-    public void setRegisterTime(String registerTime) {
-        this.registerTime = registerTime;
-    }
-
-    public String getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime(String lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
-    }
-
-    public String getInputTime() {
-        return inputTime;
-    }
-
-    public void setInputTime(String inputTime) {
-        this.inputTime = inputTime;
     }
 }

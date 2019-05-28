@@ -64,6 +64,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         phoneCode.setOnInputListener(new PhoneCode.OnInputListener() {
             @Override
             public void onSucess(String code) {
+                // TODO: 2019/5/28 验证验证码
                 if(type == 1){//手机号登录
                     mPresenter.requestCodeLogin(phone,code,true);
                 }else if(type ==0 ||type== 2) { //注册或忘记密码

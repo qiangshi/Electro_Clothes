@@ -64,14 +64,14 @@ public class ModifyPasswordPresenter extends BasePresenter<ModifyPasswordView> {
                 .addParams("verify",code).toRequestBody();
         addSubscription(
                 apiStores.requestRegister(requestBody),
-                new BaseObserver<BaseApiResponse<UserBean>>() {
+                new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
                     @Override
-                    public void onNext(BaseApiResponse<UserBean> data) {
+                    public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
                         if (data.getData() == null) {
                             mView.toastMessage(R.string.please_get_code);
                         } else {
-//                            saveLoginInfo(data.getData());
-                            mView.registerSuccess(data.getData());
+                            saveLoginInfo(data.getData().getMap());
+                            mView.registerSuccess(data.getData().getMap());
                         }
                     }
 

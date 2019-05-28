@@ -52,7 +52,7 @@
         <activity android:name=".ui.activity.equipment.MeasurementActivity" />
         <activity android:name=".ui.activity.login.RegisterActivity" />
         <activity android:name=".ui.activity.equipment.EquipmentActivity" />
-        <activity android:name=".ui.activity.mine.ModifyPasswordActivity" />
+        <activity android:name=".ui.activity.mine.SetNewPasswordActivity" />
         <activity android:name=".ui.activity.login.GetPhoneCodeActivity" />
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>

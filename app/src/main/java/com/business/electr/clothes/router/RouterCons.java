@@ -27,7 +27,7 @@ public class RouterCons {
     public static final String CREATE_HELPER = "/create_helper";
     public static final String CREATE_ELECT_DETAIL = "/create_elect_detail";
     public static final String CREATE_HORIZONTAL_ELECT_DETAIL = "/create_horizontal_elect_detail";
-    public static final String CREATE_PERFECT_INFO = "/create_perfect_info";
+    public static final String CREATE_PERFECT_INFO = "/create_perfect_info";//完善用户信息
     public static final String CREATE_TASK_HISTORY = "/create_task_history";
     public static final String CREATE_PATTERN = "/create_pattern";//集成或定制模式选择
     public static final String CREATE_SHARE_TASK = "/create_share_task";//分享任务

@@ -146,9 +146,6 @@ public class ShareActivity extends BaseActivity {
                 relShareThree.setLayoutParams(params);
                 relShare.setAlpha((float) (1 -scale));
                 relImg.setAlpha((float) scale);
-                if(scale == 0){
-
-                }
             }
         };
 

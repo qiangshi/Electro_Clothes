@@ -92,7 +92,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
-                mPresenter.updateUserInfo(genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
+                mPresenter.updateUserInfo(etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
             case R.id.img_upload_pic://上传图片
                 mPresenter.autoObtainStoragePermission(this);
@@ -102,7 +102,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                         new TypeGraderFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                ModifyUserInfoActivity.this.genderPos = pos;
+                                ModifyUserInfoActivity.this.genderPos = pos+1;
                                 tvGender.setText(Arrays.asList(getResources().getStringArray(R.array.gender_sex)).get(pos));
                             }
                         });
@@ -161,9 +161,9 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         genderPos = Integer.valueOf(bean.getSex());
         heightPos = bean.getHeight() -10;
         weightPos = bean.getWeight() - 10;
-        if (0 == bean.getSex()) {
+        if (1 == bean.getSex()) {
             tvGender.setText("男");
-        } else if (1 == bean.getSex()) {
+        } else if (2 == bean.getSex()) {
             tvGender.setText("女");
         } else {
             tvGender.setText("未知");

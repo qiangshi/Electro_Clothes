@@ -11,7 +11,9 @@ import com.business.electr.clothes.mvp.presenter.mine.ModifyUserInfoPresenter;
 import com.business.electr.clothes.mvp.view.mine.ModifyUserInfoView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
+import com.business.electr.clothes.ui.activity.mine.ModifyUserInfoActivity;
 import com.business.electr.clothes.ui.fragment.dialog.TypeFilterFragment;
+import com.business.electr.clothes.ui.fragment.dialog.TypeGraderFragment;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
@@ -22,6 +24,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * 完善用户信息
+ */
 @RouterUri(path = {RouterCons.CREATE_PERFECT_INFO})
 public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> implements ModifyUserInfoView {
 
@@ -36,6 +41,8 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
     @BindView(R.id.tv_weight)
     TextView tvWeight;
     private int genderPos;//性别
+    private int heightPos = 160;
+    private int weightPos = 50;
     private List<String> heights;
     private List<String> weights;
 
@@ -60,14 +67,14 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn:
-                mPresenter.updateUserInfo(genderPos,tvHeight.getText().toString(),tvWeight.getText().toString(),tvBirthday.getText().toString());
+                mPresenter.updateUserInfo(etName.getText().toString(),genderPos,tvHeight.getText().toString(),tvWeight.getText().toString(),tvBirthday.getText().toString());
                 break;
             case R.id.lin_gender:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,
-                        new TypeFilterFragment.TypeChangeListener() {
+                TypeGraderFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,
+                        new TypeGraderFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                PerfectInfoActivity.this.genderPos = pos;
+                                PerfectInfoActivity.this.genderPos = pos +1;
                                 tvGender.setText(Arrays.asList(getResources().getStringArray(R.array.gender_sex)).get(pos));
                             }
                         });
@@ -76,21 +83,21 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
                 ToolHelper.selectTime(this, tvBirthday, Constant.DATE_FORMAT_6);
                 break;
             case R.id.lin_height:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, 160,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), heights, heightPos,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                PerfectInfoActivity.this.genderPos = pos;
+                                PerfectInfoActivity.this.heightPos = pos;
                                 tvHeight.setText(heights.get(pos));
                             }
                         });
                 break;
             case R.id.lin_weight:
-                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, 50,
+                TypeFilterFragment.showFragment(getSupportFragmentManager(), weights, weightPos,
                         new TypeFilterFragment.TypeChangeListener() {
                             @Override
                             public void onTypeChange(int pos) {
-                                PerfectInfoActivity.this.genderPos = pos;
+                                PerfectInfoActivity.this.weightPos = pos;
                                 tvWeight.setText(weights.get(pos));
                             }
                         });

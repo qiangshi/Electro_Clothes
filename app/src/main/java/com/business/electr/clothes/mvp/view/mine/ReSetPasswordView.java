@@ -9,4 +9,5 @@ import com.business.electr.clothes.mvp.view.IView;
  * @CreateDate: 2019/5/4 16:38
  */
 public interface ReSetPasswordView extends IView {
+    void reSetSuccess();
 }

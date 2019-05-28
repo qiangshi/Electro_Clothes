@@ -33,7 +33,7 @@ public class Constant {
     public static final String DATE_FORMAT_3 = "yyyy";
     public static final String DATE_FORMAT_4 = "HH:mm";
     public static final String DATE_FORMAT_5 = "MM月dd日";
-    public static final String DATE_FORMAT_6 = "yyyy/MM/dd";
+    public static final String DATE_FORMAT_6 = "yyyy-MM-dd";
     public static final String DATE_FORMAT_7 = "yyyy/MM";
     public static final String DATE_FORMAT_8 = "yyyy.MM";
     public static final String DATE_FORMAT_9 = "yyyy年MM月";

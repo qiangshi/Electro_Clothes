@@ -21,10 +21,10 @@ import butterknife.OnClick;
 
 /**
  * Created by zenghaiqiang on 2019/4/28.
- * 描述：设置用户信息
+ * 描述：设置新密码
  */
 @RouterUri(path = {RouterCons.CREATE_SET_PASSWORD})
-public class ModifyPasswordActivity extends BaseActivity<ModifyPasswordPresenter> implements ModifyPasswordView {
+public class SetNewPasswordActivity extends BaseActivity<ModifyPasswordPresenter> implements ModifyPasswordView {
 
 
     @BindView(R.id.et_new_password)
