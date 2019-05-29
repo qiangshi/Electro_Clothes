@@ -21,5 +21,7 @@ public interface LoginView extends IView {
    */
   void loginSuccess(UserBean userBean);
 
+  void checkPhoneCodeSuccess(String phoneCode);
+
 
 }

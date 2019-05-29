@@ -76,7 +76,12 @@ public interface ApiStores {
      */
     @POST("uploadHead.do")
     @Multipart
-    Observable<BaseApiResponse<MapModel<String>>> requestUserHead(@Part MultipartBody.Part headImg);
+    Observable<BaseApiResponse<MapModel<String>>> requestUserHead(
+            @Part MultipartBody.Part token,
+            @Part MultipartBody.Part headImg);
+
+    @POST("checkVerify.do")
+    Observable<BaseApiResponse<MapModel<String>>> requestCheckCode(@Body RequestBody requestBody);
 
     /**********************************************业务接口**************************************/
 
@@ -104,6 +109,13 @@ public interface ApiStores {
      */
     @POST("updatePassword.do")
     Observable<BaseApiResponse<String>> requestUpdatePassword(@Body RequestBody requestBody);
+
+    /**
+     * 更新用户密码
+     * @return
+     */
+    @POST("forgetPassword.do")
+    Observable<BaseApiResponse<String>> requestForgetPassword(@Body RequestBody requestBody);
 
     /**
      * 更新用户信息
@@ -445,6 +457,15 @@ public interface ApiStores {
     Observable<BaseApiResponse<String>> requestDutys(
             @Field("userId") @NonNull long userId);
 
-
+    /**
+     * 用户反馈
+     */
+    @POST("basic/web/index.php?r=user/feedback")
+    @Multipart
+    Observable<BaseApiResponse<String>> requestFeedBack(
+            @Part MultipartBody.Part userId, @Part MultipartBody.Part token,
+            @Part MultipartBody.Part content, @Part MultipartBody.Part pic1,
+            @Part MultipartBody.Part pic2, @Part MultipartBody.Part pic3,
+            @Part MultipartBody.Part contact);
 
 }

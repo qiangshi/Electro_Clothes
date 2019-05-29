@@ -67,7 +67,7 @@ public class PerfectInfoActivity extends BaseActivity<ModifyUserInfoPresenter> i
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn:
-                mPresenter.updateUserInfo(etName.getText().toString(),genderPos,tvHeight.getText().toString(),tvWeight.getText().toString(),tvBirthday.getText().toString());
+                mPresenter.updateUserInfo(null,etName.getText().toString(),genderPos,tvHeight.getText().toString(),tvWeight.getText().toString(),tvBirthday.getText().toString());
                 break;
             case R.id.lin_gender:
                 TypeGraderFragment.showFragment(getSupportFragmentManager(), Arrays.asList(getResources().getStringArray(R.array.gender_sex)), genderPos,

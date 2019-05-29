@@ -9,4 +9,5 @@ import com.business.electr.clothes.mvp.view.IView;
  * @CreateDate: 2019/5/4 17:03
  */
 public interface ForgetPassView extends IView {
+    void modifyPasswordSuccess();
 }

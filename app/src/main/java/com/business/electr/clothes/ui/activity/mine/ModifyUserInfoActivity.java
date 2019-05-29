@@ -23,11 +23,13 @@ import com.business.electr.clothes.ui.fragment.dialog.TypeGraderFragment;
 import com.business.electr.clothes.utils.GlidUtils;
 import com.business.electr.clothes.utils.SelectImageUtils;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
+import com.business.electr.clothes.utils.StringUtils;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +37,9 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by zenghaiqiang on 2019/01/24.
@@ -92,7 +97,13 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
-                mPresenter.updateUserInfo(etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
+                MultipartBody.Part portrait = null;
+                if (StringUtils.isNotEmpty(logoUrl)) {
+                    File file = new File(logoUrl);
+                    RequestBody fileRQ = RequestBody.create(MediaType.parse("image/*"), file);
+                    portrait = MultipartBody.Part.createFormData("portrait", file.getName(), fileRQ);
+                }
+                mPresenter.updateUserInfo(portrait,etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
             case R.id.img_upload_pic://上传图片
                 mPresenter.autoObtainStoragePermission(this);
@@ -156,7 +167,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         DataCacheManager.saveUserInfo(userBean);
         SynchronizationObserver.getInstance().onSynchronizationUpdate(SynchronizationObserver.TYPE_UPDATE_USER_INFO, userBean, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
         GlidUtils.setCircleGrid(this,bean.getHeadImgUrl(),imgUploadPic);
-        tvNickName.setText(bean.getPhone());
+        tvNickName.setText(bean.getNickName());
         etName.setText(bean.getUserName());
         genderPos = Integer.valueOf(bean.getSex());
         heightPos = bean.getHeight() -10;

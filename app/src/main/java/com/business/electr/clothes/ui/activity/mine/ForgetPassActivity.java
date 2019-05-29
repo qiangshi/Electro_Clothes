@@ -11,6 +11,7 @@ import com.business.electr.clothes.mvp.view.mine.ForgetPassView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.sankuai.waimai.router.annotation.RouterUri;
+import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -51,6 +52,20 @@ public class ForgetPassActivity extends BaseActivity<ForgetPassPresenter> implem
 
     @OnClick(R.id.tv_commit)
     public void onViewClicked() {
-        mPresenter.updateUserPassword(phone,area_code,etNewPassword.getText().toString(),etNewAgainPassword.getText().toString());
+        mPresenter.forgetPassword(phone,area_code,etNewPassword.getText().toString(),etNewAgainPassword.getText().toString());
+    }
+
+    @Override
+    public void modifyPasswordSuccess() {
+        switch (type){
+            case 2:
+                new DefaultUriRequest(this, RouterCons.CREATE_LOGIN)
+                        .start();
+                finish();
+                break;
+            case 3:
+                finish();
+                break;
+        }
     }
 }

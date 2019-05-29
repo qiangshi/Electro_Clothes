@@ -3,6 +3,7 @@ package com.business.electr.clothes.ui.activity.login;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -131,7 +132,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         if(isNewUser) type = 0;
         new DefaultUriRequest(this, RouterCons.CREATE_GET_CODE)
                 .putExtra(Constant.EXTRA_AREA_CODE, areaCode.getText().toString().trim())
-                .putExtra(Constant.EXTRA_PHONE, etPhone.getText().toString())
+                .putExtra(Constant.EXTRA_PHONE, phone)
                 .putExtra(Constant.TYPE,type)
                 .putExtra(Constant.EXTRA_IS_NEW_USER,isNewUser)
                 .start();
@@ -144,7 +145,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         finish();
     }
 
+    @Override
+    public void checkPhoneCodeSuccess(String phoneCode) {
 
+    }
+
+
+    private String phone;
     @OnClick({R.id.img_logout, R.id.area_code, R.id.tv_code_area, R.id.phone_close, R.id.img_phone_close, R.id.img_password_close, R.id.tv_code, R.id.tv_code_login, R.id.tv_forget_password, R.id.ll_weixin, R.id.ll_qq, R.id.ll_weibo, R.id.ll_more})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -202,7 +209,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             case R.id.tv_forget_password://忘记密码
                 type = 2;
-                String phone;
                 if(llCodePassword.getVisibility() == View.VISIBLE){
                     phone = etPhonePass.getText().toString();
                 }else {
@@ -220,6 +226,15 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 showThireFragment();
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            App.getApp().quitApp();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**

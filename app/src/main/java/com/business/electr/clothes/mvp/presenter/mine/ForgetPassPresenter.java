@@ -1,6 +1,7 @@
 package com.business.electr.clothes.mvp.presenter.mine;
 
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.manager.DataCacheManager;
@@ -31,7 +32,7 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
      * @Param code
      * @param newPassword
      */
-    public void updateUserPassword(String phone,String code, String newPassword,String againPassword) {
+    public void forgetPassword(String phone,String code, String newPassword,String againPassword) {
         if(TextUtils.isEmpty(phone)){
             mView.toastMessage(R.string.hint_input_phone_num);
             return;
@@ -54,23 +55,21 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
             return;
         }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
-                .addCommonMap()// TODO: 2019/5/24 忘记密码是不知道用户id 
-                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
-                .addParams("oldPassword", "")
-                .addParams("verify",code)
+                .addParams("phone", phone)
                 .addParams("newPassword", newPassword)
                 .toRequestBody();
         addSubscription(
-                apiStores.requestUpdatePassword(requestBody),
+                apiStores.requestForgetPassword(requestBody),
                 new BaseObserver<BaseApiResponse<String>>() {
                     @Override
                     public void onError(ResponseException e) {
-
+                        Toast.makeText(context,e.getErrorMessage(),Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onNext(BaseApiResponse<String> o) {
                         mView.toastMessage(R.string.modify_success);
+                        mView.modifyPasswordSuccess();
                     }
 
                     @Override

@@ -64,22 +64,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         phoneCode.setOnInputListener(new PhoneCode.OnInputListener() {
             @Override
             public void onSucess(String code) {
-                // TODO: 2019/5/28 验证验证码
-                if(type == 1){//手机号登录
-                    mPresenter.requestCodeLogin(phone,code,true);
-                }else if(type ==0 ||type== 2) { //注册或忘记密码
-                    new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
-                            .putExtra(Constant.EXTRA_PHONE,phone)
-                            .putExtra(Constant.EXTRA_CODE,code)
-                            .putExtra(Constant.TYPE,type)
-                            .start();
-                }else if(type == 3){
-                    new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_NEW_PASSWORD)
-                            .putExtra(Constant.EXTRA_PHONE,phone)
-                            .putExtra(Constant.EXTRA_CODE,code)
-                            .putExtra(Constant.TYPE,type)
-                            .start();
-                }
+                mPresenter.checkPhoneCode(phone,code);
             }
             @Override
             public void onInput() {
@@ -108,5 +93,24 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         new DefaultUriRequest(this, RouterCons.CREATE_PATTERN)
                 .start();
         finish();
+    }
+
+    @Override
+    public void checkPhoneCodeSuccess(String verifyCode) {
+        if(type == 1){//手机号登录
+            mPresenter.requestCodeLogin(phone,verifyCode,true);
+        }else if(type ==0 ) { //注册
+            new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_PASSWORD)
+                    .putExtra(Constant.EXTRA_PHONE,phone)
+                    .putExtra(Constant.EXTRA_CODE,verifyCode)
+                    .putExtra(Constant.TYPE,type)
+                    .start();
+        }else if(type == 3||type== 2){//忘记密码
+            new DefaultUriRequest(GetPhoneCodeActivity.this,RouterCons.CREATE_SET_NEW_PASSWORD)
+                    .putExtra(Constant.EXTRA_PHONE,phone)
+                    .putExtra(Constant.EXTRA_CODE,verifyCode)
+                    .putExtra(Constant.TYPE,type)
+                    .start();
+        }
     }
 }

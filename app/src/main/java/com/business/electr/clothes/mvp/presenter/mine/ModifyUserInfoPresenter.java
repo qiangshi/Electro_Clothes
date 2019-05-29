@@ -32,6 +32,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 import static android.app.Activity.RESULT_OK;
@@ -40,7 +41,6 @@ import static android.app.Activity.RESULT_OK;
  * Created by zenghaiqiang on 2019/1/24.
  * 我的信息 P 层
  */
-
 public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     public ModifyUserInfoPresenter(ModifyUserInfoView view) {
         super(view);
@@ -76,13 +76,36 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 });
     }
 
+    public void updateUserHead(MultipartBody.Part headImg){
+        mView.showLoading();
+        MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
+        addSubscription(apiStores.requestUserHead(token,headImg),
+                new BaseObserver<BaseApiResponse<MapModel<String>>>() {
+                    @Override
+                    public void onError(ResponseException e) {
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onNext(BaseApiResponse<MapModel<String>> data) {
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        mView.hideLoading();
+                    }
+                });
+    }
+
 
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(String nickName,int sex, String height, String weight, String birthDate){
+    public void updateUserInfo(MultipartBody.Part headImg,String nickName,int sex, String height, String weight, String birthDate){
         birthDate = birthDate + " 00:00:00";
         mView.showLoading();
+        if(headImg != null) updateUserHead(headImg);
         int heigh = 0,weigh = 0;
         if(!TextUtils.isEmpty(height)){
             heigh = Integer.valueOf(height.substring(0,height.length()-2));

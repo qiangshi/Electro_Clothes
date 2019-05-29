@@ -100,4 +100,9 @@ public class RegisterActivity extends BaseActivity<LoginPresenter> implements Lo
 
     }
 
+    @Override
+    public void checkPhoneCodeSuccess(String phoneCode) {
+
+    }
+
 }

@@ -57,6 +57,11 @@ public class ModifyPhoneActivity extends BaseActivity<LoginPresenter> implements
 
     }
 
+    @Override
+    public void checkPhoneCodeSuccess(String phoneCode) {
+
+    }
+
 
     @OnClick(R.id.tv_code)
     public void onViewClicked() {

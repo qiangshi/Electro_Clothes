@@ -31,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".ui.activity.mine.TaskTargetActivity"></activity>
+        <activity android:name=".ui.activity.mine.TaskTargetActivity"/>
         <activity android:name=".ui.activity.presentation.Second60Activity" />
         <activity android:name=".ui.activity.task.ShareActivity" />
         <activity android:name=".ui.activity.equipment.PatternActivity" />

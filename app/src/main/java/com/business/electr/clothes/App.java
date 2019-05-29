@@ -8,6 +8,7 @@ import android.os.Build;
 
 import com.bumptech.glide.Glide;
 import com.business.electr.clothes.ui.activity.BaseActivity;
+import com.business.electr.clothes.utils.FontsOverride;
 import com.sankuai.waimai.router.Router;
 import com.sankuai.waimai.router.common.DefaultRootUriHandler;
 import com.sankuai.waimai.router.core.RootUriHandler;
@@ -28,6 +29,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
 
 
 /**
@@ -51,7 +54,9 @@ public class App extends Application {
         init();
         initWMRouter();
         initISNav();
-        initTypeface();
+//        initTypeface();
+//        replaceSystemDefaultFont(this,"fonts/dinpro_medium.ttf");
+        FontsOverride.setDefaultFont(this,"SANS","fonts/dinpro_medium.ttf");
         activities = new ArrayList<>();
     }
 
@@ -111,6 +116,30 @@ public class App extends Application {
      */
     private void initISNav() {
         ISNav.getInstance().init((ImageLoader) (context, path, imageView) -> Glide.with(context).load(path).into(imageView));
+    }
+
+
+    public void replaceSystemDefaultFont(@NonNull Context context, @NonNull String fontPath) {
+        replaceTypefaceField("SANS", createTypeface(context, fontPath));
+    }
+
+    private Typeface createTypeface(Context context, String fontPath) {
+        return Typeface.createFromAsset(context.getAssets(), fontPath);
+    }
+
+    /**
+     * <p>Replace field in class Typeface with reflection.</p>
+     */
+    private void replaceTypefaceField(String fieldName, Object value) {
+        try {
+            Field defaultField = Typeface.class.getDeclaredField(fieldName);
+            defaultField.setAccessible(true);
+            defaultField.set(null, value);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
 

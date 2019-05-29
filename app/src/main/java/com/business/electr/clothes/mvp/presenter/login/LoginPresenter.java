@@ -60,16 +60,16 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 //            return;
 //        }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
-                .addParams("userName",mobilePhone)
-                .addParams("password",password)
-                .addParams("roleType",0).toRequestBody();
+                .addParams("userName", mobilePhone)
+                .addParams("password", password)
+                .addParams("roleType", 0).toRequestBody();
         addSubscription(
                 apiStores.requestLogin(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
                     @Override
                     public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
                         if (data.getData() == null) {
-                            Toast.makeText(context,data.getMsg(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, data.getMsg(), Toast.LENGTH_SHORT).show();
                         } else {
                             saveLoginInfo(data.getData().getMap());
                             mView.loginSuccess(data.getData().getMap());
@@ -78,7 +78,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
                     @Override
                     public void onError(ResponseException e) {
-                        e.printStackTrace();
+                        Toast.makeText(context, e.getErrorMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -94,10 +94,54 @@ public class LoginPresenter extends BasePresenter<LoginView> {
      * 保存用户信息
      */
     private void saveLoginInfo(UserBean userBean) {
-        MLog.e("====zhq====>111<"+userBean.getToken());
+        MLog.e("====zhq====>111<" + userBean.getToken());
         DataCacheManager.saveToken(userBean.getToken());
         DataCacheManager.saveUserInfo(userBean);
         SharePreferenceUtil.putBoolean(Constant.IS_LOGIN, true);
+    }
+
+    /**
+     * 验证码登录
+     *
+     * @param mobilePhone
+     * @param verify
+     */
+    public void checkPhoneCode(String mobilePhone, String verify) {
+
+        if (TextUtils.isEmpty(mobilePhone)) {
+            //请输入手机号
+            mView.toastMessage(R.string.hint_input_phone_num);
+            return;
+        } else if (!DataCheckUtils.checkPhone(mobilePhone)) {
+            mView.toastMessage(R.string.msg_phone_num_error);
+            return;
+        }
+        if (TextUtils.isEmpty(verify)) {
+            mView.toastMessage(R.string.please_in_code);
+            return;
+        }
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addParams("phone", mobilePhone)
+                .addParams("verify", verify).toRequestBody();
+        addSubscription(
+                apiStores.requestCheckCode(requestBody),
+                new BaseObserver<BaseApiResponse<MapModel<String>>>() {
+                    @Override
+                    public void onNext(BaseApiResponse<MapModel<String>> data) {
+                        mView.checkPhoneCodeSuccess(verify);
+                    }
+
+                    @Override
+                    public void onError(ResponseException e) {
+                        Toast.makeText(context, e.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        MLog.d("HistoryPresenter onComplete:");
+                    }
+                }
+        );
     }
 
 
@@ -126,8 +170,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 //            return;
 //        }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
-                .addParams("phone",mobilePhone)
-                .addParams("verify",verify).toRequestBody();
+                .addParams("phone", mobilePhone)
+                .addParams("verify", verify).toRequestBody();
         addSubscription(
                 apiStores.requestCodeLogin(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
@@ -166,23 +210,20 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             return;
         }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
-                .addParams("phone",mobilePhone).toRequestBody();
+                .addParams("phone", mobilePhone).toRequestBody();
         //发送手机验证码
         addSubscription(
                 apiStores.requestVerificationCode(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<String>>>() {
                     @Override
                     public void onNext(BaseApiResponse<MapModel<String>> data) {
-                        // TODO: 2019/4/28 根据发送验证码回调判断是否是新用户
-                        MLog.e("====zhq====>111<"+data);
                         String isRe = data.getData().getMap();
                         JSONObject object = JSONObject.parseObject(isRe);
                         int isResiger = object.getInteger("isRegist");
-                        MLog.e("====zhq====>111<"+isResiger);
-                        boolean isRegist ;
-                        if(isResiger == 1){
+                        boolean isRegist;
+                        if (isResiger == 1) {
                             isRegist = false;
-                        }else {
+                        } else {
                             isRegist = true;
                         }
                         mView.toastMessage(R.string.get_success);
