@@ -23,6 +23,7 @@
         android:layout_marginStart="@dimen/padding_29"
         android:layout_marginTop="@dimen/padding_20"
         android:text="@string/you_good"
+        android:fontFamily="@font/dinpro_medium"
         android:textColor="@color/color_353535"
         android:textSize="@dimen/text_font_22" />
 
@@ -32,6 +33,7 @@
         android:layout_marginStart="@dimen/padding_29"
         android:layout_marginTop="@dimen/padding_3"
         android:text="@string/welcome_ihi"
+        android:fontFamily="@font/dinpro_medium"
         android:textColor="@color/color_353535"
         android:textSize="@dimen/text_font_22" />
 
@@ -105,6 +107,7 @@
                 android:hint="@string/please_in_phone"
                 android:maxLength="11"
                 android:singleLine="true"
+                android:fontFamily="@font/dinpro_medium"
                 android:textColorHint="@color/color_b4b4b4"
                 android:textSize="@dimen/text_font_16" />
 
@@ -167,6 +170,7 @@
                 android:background="@null"
                 android:hint="@string/please_in_phone"
                 android:maxLength="11"
+                android:fontFamily="@font/dinpro_medium"
                 android:paddingStart="@dimen/padding_24"
                 android:singleLine="true"
                 android:textColorHint="@color/color_b4b4b4"
@@ -238,6 +242,7 @@
         android:background="@drawable/bg_login_get_code"
         android:gravity="center"
         android:text="@string/login"
+        android:fontFamily="@font/dinpro_medium"
         android:textColor="@color/white"
         android:textSize="@dimen/text_font_16" />
 

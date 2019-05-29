@@ -21,6 +21,7 @@
         android:src="@drawable/ic_goback" />
 
     <TextView
+        android:fontFamily="@font/dinpro_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_22"

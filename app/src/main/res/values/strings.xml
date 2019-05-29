@@ -70,6 +70,7 @@
     <string name="select_a_ihi">选择一个iHi心贴</string>
     <string name="match_success">配对成功 请穿上心电衣</string>
     <string name="if_no_match_up_slide">若要解除匹配 请向上滑动心贴</string>
+    <string name="start_test">开始检测</string>
 
 
     <!--splash   login-->

@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="60"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/text_font_52" />
 

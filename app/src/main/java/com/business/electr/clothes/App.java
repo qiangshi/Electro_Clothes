@@ -55,33 +55,9 @@ public class App extends Application {
         init();
         initWMRouter();
         initISNav();
-//        initTypeface();
-//        replaceSystemDefaultFont(this,"fonts/dinpro_medium.ttf");
-//        FontsOverride.setDefaultFont(this,"SANS","fonts/dinpro_medium.ttf");
-        replaceFont(this, "SANS_SERIF", "fonts/dinpro_medium.ttf"); // OK,需要与<item name="android:typeface">serif</item> 的值对应
         activities = new ArrayList<>();
     }
 
-    /**
-     * 初始化默认字体
-     */
-    private void initTypeface() {
-        Typeface typeFace = Typeface.createFromAsset(getAssets(),"fonts/dinpro_medium.ttf");
-        try {
-            Field field = Typeface.class.getDeclaredField("SANS_SERIF");
-            field.setAccessible(true);
-            field.set(null,typeFace);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-//        replaceFont(this, "SERIF", "fonts/dinpro_medium.ttf"); // OK,需要与<item name="android:typeface">serif</item> 的值对应
-//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-//                                    .setDefaultFontPath("fonts/dinpro_medium.ttf")
-//                                    .setFontAttrId(R.attr.fontPath)
-//                                    .build());
-    }
 
     public List<BaseActivity> getActivities() {
         return activities;
@@ -130,61 +106,5 @@ public class App extends Application {
         ISNav.getInstance().init((ImageLoader) (context, path, imageView) -> Glide.with(context).load(path).into(imageView));
     }
 
-
-    public void replaceSystemDefaultFont(@NonNull Context context, @NonNull String fontPath) {
-        replaceTypefaceField("SANS", createTypeface(context, fontPath));
-    }
-
-    private Typeface createTypeface(Context context, String fontPath) {
-        return Typeface.createFromAsset(context.getAssets(), fontPath);
-    }
-
-    /**
-     * <p>Replace field in class Typeface with reflection.</p>
-     */
-    private void replaceTypefaceField(String fieldName, Object value) {
-        try {
-            Field defaultField = Typeface.class.getDeclaredField(fieldName);
-            defaultField.setAccessible(true);
-            defaultField.set(null, value);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    /**
-     * 替换字体，其本质是将系统底层的字体变量进行替换自己的字体引用 ,
-     * 只会替换控件中没有自定义字体的控件，已自定义的就是使用的是自定义的字体
-     *
-     * @param context
-     * @param oldFontName           　支持的名称有 MONOSPACE、SERIF，NORMAL（程序无法运行）、SANS与DEFAULT和DEFAULT_BOLD与SANS_SERIF（可以运行但是显示字体没有修改成功）
-     *                              而且需要与 需要与AndroidManifest文件application节点的android:theme引用的styles文件中
-     *                              <item name="android:typeface">monospace</item> 的值对应
-     * @param newFontNameFromAssets 新的字体路径，必须要放在assets文件夹下，如：fonts/Nsimsun.ttf
-     */
-    public static void replaceFont(Context context, String oldFontName, String newFontNameFromAssets) {
-        Typeface newTypeface = Typeface.createFromAsset(context.getAssets(), newFontNameFromAssets);
-        try {
-            //android 5.0及以上我们反射修改Typeface.sSystemFontMap变量
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Map<String, Typeface> newMap = new HashMap<>();
-                newMap.put(oldFontName, newTypeface);
-                final Field staticField = Typeface.class.getDeclaredField("sSystemFontMap");
-                staticField.setAccessible(true);
-                staticField.set(null, newMap);
-            } else {
-                final Field staticField = Typeface.class.getDeclaredField(oldFontName);
-                staticField.setAccessible(true);
-                staticField.set(null, newTypeface);
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }

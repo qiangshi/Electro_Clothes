@@ -27,6 +27,7 @@
                 android:layout_marginBottom="@dimen/padding_19"
                 android:gravity="center"
                 android:text="01"
+                android:fontFamily="@font/dinpro_medium"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_font_32" />
 
@@ -137,6 +138,7 @@
                     android:layout_below="@+id/tv_sleep"
                     android:layout_alignLeft="@+id/tv_sleep"
                     android:text="8"
+                    android:fontFamily="@font/dinpro_medium"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_font_21" />
 
@@ -174,6 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_elect"
                     android:text="20000"
+                    android:fontFamily="@font/dinpro_medium"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_font_21" />
 
@@ -212,6 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_number"
                     android:text="8000"
+                    android:fontFamily="@font/dinpro_medium"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_font_21" />
 

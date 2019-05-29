@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="90"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_65" />
 
@@ -69,6 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="60"
+                    android:fontFamily="@font/dinpro_medium"
                     android:textColor="@color/color_353535"
                     android:textSize="@dimen/text_font_20" />
 
@@ -116,6 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="96"
+                    android:fontFamily="@font/dinpro_medium"
                     android:textColor="@color/color_353535"
                     android:textSize="@dimen/text_font_20" />
 

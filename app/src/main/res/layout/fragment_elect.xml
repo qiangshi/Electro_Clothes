@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="4月29日"
+                android:fontFamily="@font/dinpro_medium"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_16" />
 

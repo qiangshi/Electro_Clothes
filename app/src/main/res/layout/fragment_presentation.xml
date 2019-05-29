@@ -25,6 +25,7 @@
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
             android:text="@string/s_60_presentation"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 
@@ -68,6 +69,7 @@
             android:layout_marginBottom="@dimen/padding_22"
             android:layout_toEndOf="@+id/tv_gong"
             android:text="1"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 
@@ -101,6 +103,7 @@
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
             android:text="@string/ai_presentation"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 
@@ -144,6 +147,7 @@
             android:layout_marginBottom="@dimen/padding_22"
             android:layout_toEndOf="@+id/tv_ai"
             android:text="7"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 
@@ -176,6 +180,7 @@
             android:layout_marginStart="@dimen/padding_16"
             android:layout_marginTop="@dimen/padding_18"
             android:text="@string/doctor_presentation"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 
@@ -219,6 +224,7 @@
             android:layout_marginBottom="@dimen/padding_22"
             android:layout_toEndOf="@+id/tv_doctor"
             android:text="0"
+            android:fontFamily="@font/dinpro_medium"
             android:textColor="@color/color_353535"
             android:textSize="@dimen/text_font_19" />
 

@@ -38,8 +38,9 @@ public class PatternActivity extends BaseActivity {
                         .start();
                 break;
             case R.id.tv_custom:
-                new DefaultUriRequest(this, RouterCons.CREATE_MAIN)
-                        .start();
+                toastMessage(R.string.development_ing);
+//                new DefaultUriRequest(this, RouterCons.CREATE_MAIN)
+//                        .start();
                 break;
         }
     }

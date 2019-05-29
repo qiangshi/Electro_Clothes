@@ -2,9 +2,14 @@ package com.business.electr.clothes.ui.fragment.equipment;
 
 
 import android.app.Fragment;
+import android.widget.TextView;
+
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -12,10 +17,15 @@ import com.business.electr.clothes.ui.fragment.BaseFragment;
 public class Equipment3Fragment extends BaseFragment {
 
 
-    public Equipment3Fragment() {}
+    @BindView(R.id.tv_start)
+    TextView tvStart;
+
+    public Equipment3Fragment() {
+    }
 
     @Override
-    protected void initEventAndData() {}
+    protected void initEventAndData() {
+    }
 
     @Override
     protected int getLayoutId() {
@@ -32,4 +42,8 @@ public class Equipment3Fragment extends BaseFragment {
 
     }
 
+    @OnClick(R.id.tv_start)
+    public void onViewClicked() {
+        getActivity().finish();
+    }
 }

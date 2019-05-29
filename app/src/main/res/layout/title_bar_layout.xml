@@ -11,6 +11,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/padding_50"
         android:layout_marginRight="@dimen/padding_50"
+        android:fontFamily="@font/dinpro_medium"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"

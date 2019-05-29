@@ -33,10 +33,24 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_13"
         android:text="@string/if_no_match_up_slide"
-        android:layout_marginBottom="@dimen/padding_69"
+        android:layout_marginBottom="@dimen/padding_94"
         android:layout_alignParentBottom="true"
         android:textColor="@color/color_33ffffff"
         android:layout_centerHorizontal="true"/>
+    
+    <TextView
+        android:id="@+id/tv_start"
+        android:layout_width="@dimen/padding_194"
+        android:layout_height="@dimen/padding_48"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_font_15"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/padding_38"
+        android:fontFamily="@font/dinpro_medium"
+        android:text="@string/start_test"
+        android:background="@drawable/bg_stroke_979797_24"/>
 
 
 </RelativeLayout>
