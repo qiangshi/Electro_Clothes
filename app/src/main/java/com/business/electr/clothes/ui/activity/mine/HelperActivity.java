@@ -42,8 +42,9 @@ public class HelperActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.lin_faq:
-                new DefaultUriRequest(this, RouterCons.CREATE_QUESTION_FEEDBACK)
-                        .start();
+                toastMessage(R.string.development_ing);
+//                new DefaultUriRequest(this, RouterCons.CREATE_QUESTION_FEEDBACK)
+//                        .start();
                 break;
             case R.id.lin_update_version:
                 toastMessage(R.string.used_update_news);
@@ -53,6 +54,7 @@ public class HelperActivity extends BaseActivity {
                         .start();
                 break;
             case R.id.lin_about_our:
+                toastMessage(R.string.development_ing);
                 break;
             case R.id.tv_service:
 //                new DefaultUriRequest(this,RouterCons.WEB_VIEW_INFO)

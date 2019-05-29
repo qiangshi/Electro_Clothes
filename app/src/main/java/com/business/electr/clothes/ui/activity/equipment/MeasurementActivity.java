@@ -1,6 +1,8 @@
 package com.business.electr.clothes.ui.activity.equipment;
 
 import android.annotation.SuppressLint;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -48,6 +50,7 @@ public class MeasurementActivity extends BaseActivity {
     ImageView imgStart;
 
     private int currTime = 60;
+    private MediaPlayer mMediaPlayer;
 
     @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
@@ -102,12 +105,24 @@ public class MeasurementActivity extends BaseActivity {
         return null;
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void initDataAndEvent() {
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
         StatusBarUtil.setTranslucentStatus(this);
         StatusBarUtil.setStatusBarDarkTheme(this, false);
         qvTime.setIsDown(true);
+        //直接创建，不需要设置setDataSource
+//        mMediaPlayer= MediaPlayer.create(this, R.raw.audio);
+//        mMediaPlayer.start();
+//        //需将资源文件放在assets文件夹
+//        try (AssetFileDescriptor fd = getAssets().openFd("samsara.mp3")) {
+//            mMediaPlayer.setDataSource(fd);
+//            mMediaPlayer.prepareAsync() ;
+//        }catch (Exception e){
+//
+//        }
+
     }
 
 
@@ -130,5 +145,15 @@ public class MeasurementActivity extends BaseActivity {
                 }
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(mMediaPlayer != null){
+            mMediaPlayer.stop();
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+        super.onDestroy();
     }
 }
