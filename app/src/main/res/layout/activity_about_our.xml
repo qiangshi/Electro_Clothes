@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.mine.AboutOurActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_font_16"
+        android:layout_marginTop="@dimen/padding_25"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:textColor="@color/color_353535"
+        android:text="智纤至康致力于通过纤维传感和柔性传感的 研发，整合以全球领先的人工智能算法和大 数据技术，打造一个以智能化服装、IOT设备等普世智能产品为载体的健康管理服务平台，旨在为家庭、机构提供度身定制的一揽子医 疗健康新技术解决方"/>
+
+</LinearLayout>

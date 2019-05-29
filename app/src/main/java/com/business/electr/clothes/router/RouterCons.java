@@ -33,5 +33,7 @@ public class RouterCons {
     public static final String CREATE_SHARE_TASK = "/create_share_task";//分享任务
     public static final String CREATE_SECOND_60 = "/create_second_60";//60s报告列表
     public static final String CREATE_TASK_TARGET = "/create_task_target";//设置任务目标
+    public static final String CREATE_ABOUT_OUR = "/create_about_our";//关于我们
+    public static final String CREATE_FAQ = "/create_faq";//faq
 
 }

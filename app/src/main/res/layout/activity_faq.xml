@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.mine.FAQActivity">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/padding_25"
+        android:layout_marginStart="@dimen/padding_26"
+        android:layout_marginEnd="@dimen/padding_26"
+        android:text="目前版本属于内测阶段如有问题请及时反馈给 我们"
+        android:textSize="@dimen/text_font_16"
+        android:textColor="@color/color_353535"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/padding_27"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/padding_26"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16"
+            android:text="反馈操作:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_10"
+            android:textColor="@color/color_353535"
+            android:textSize="@dimen/text_font_16"
+            android:text="1. 进入我的页面 — 2. 点击帮助 —\n3. 点击联系产品经理 — 4.输入问题"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
