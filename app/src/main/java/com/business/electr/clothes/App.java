@@ -25,6 +25,7 @@ import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +57,8 @@ public class App extends Application {
         initISNav();
 //        initTypeface();
 //        replaceSystemDefaultFont(this,"fonts/dinpro_medium.ttf");
-        FontsOverride.setDefaultFont(this,"SANS","fonts/dinpro_medium.ttf");
+//        FontsOverride.setDefaultFont(this,"SANS","fonts/dinpro_medium.ttf");
+        replaceFont(this, "SANS_SERIF", "fonts/dinpro_medium.ttf"); // OK,需要与<item name="android:typeface">serif</item> 的值对应
         activities = new ArrayList<>();
     }
 
@@ -64,6 +66,16 @@ public class App extends Application {
      * 初始化默认字体
      */
     private void initTypeface() {
+        Typeface typeFace = Typeface.createFromAsset(getAssets(),"fonts/dinpro_medium.ttf");
+        try {
+            Field field = Typeface.class.getDeclaredField("SANS_SERIF");
+            field.setAccessible(true);
+            field.set(null,typeFace);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 //        replaceFont(this, "SERIF", "fonts/dinpro_medium.ttf"); // OK,需要与<item name="android:typeface">serif</item> 的值对应
 //        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
 //                                    .setDefaultFontPath("fonts/dinpro_medium.ttf")

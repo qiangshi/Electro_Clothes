@@ -1,7 +1,6 @@
 package com.business.electr.clothes.ui.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -13,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.business.electr.clothes.App;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.DataEvent;
@@ -29,15 +27,14 @@ import com.business.electr.clothes.ui.fragment.history.SelectTimeFragment;
 import com.business.electr.clothes.utils.PermissionPageUtils;
 import com.business.electr.clothes.utils.StatusBar.StatusBarUtil;
 import com.business.electr.clothes.view.SearchBarView;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import butterknife.ButterKnife;
+
 
 
 /**
@@ -106,7 +103,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         initDataAndEvent();
     }
 
-
     /**
      * 获取contentViewId
      *
@@ -144,6 +140,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 //            StatusBarUtil.setStatusBarColor(this,0x55000000);
 //        }
     }
+
 
     /*初始化普通标题*/
     protected void initTitle(String title) {

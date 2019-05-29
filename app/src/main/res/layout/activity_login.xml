@@ -77,7 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/icon_login_area_code" />
+                android:src="@drawable/icon_login_area_code"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -155,7 +156,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_6"
-                android:src="@drawable/icon_area_code" />
+                android:src="@drawable/icon_area_code"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/et_phone_pass"

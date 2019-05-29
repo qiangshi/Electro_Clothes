@@ -137,7 +137,7 @@
                 app:mBgWidth="@dimen/padding_160"
                 app:mBgIn="@drawable/icon_in_elect"
                 app:mBgUp="@drawable/icon_up_elect"
-                app:mProcess="0.1"
+                app:mProcess="1"
                 app:mShowType="elect_num"
                 app:mTextDefault="20000/20000 跳"
                 app:mFillColor="@color/color_0bbb94"

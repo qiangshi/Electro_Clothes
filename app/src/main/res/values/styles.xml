@@ -9,11 +9,8 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:typeface">sans</item>
+        <!--<item name="android:fontFamily">@font/dinpro_medium</item>-->
 
-    </style>
-
-    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
-        <item name="android:fontFamily">@font/dinpro</item>
     </style>
 
     <style name="BottomDialog" parent="@style/TranslucentTheme">

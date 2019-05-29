@@ -182,8 +182,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             case R.id.tv_code://发送验证码
                 if (isCodePassword) {//登陆
+                    phone = etPhonePass.getText().toString();
                     mPresenter.requestLogin(etPhonePass.getText().toString(),etPassword.getText().toString(),true);
                 } else {//发送验证码
+                    phone = etPhone.getText().toString();
                     mPresenter.sendVerificationCode(etPhone.getText().toString());
                 }
 
