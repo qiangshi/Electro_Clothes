@@ -78,7 +78,7 @@ public interface ApiStores {
     @Multipart
     Observable<BaseApiResponse<MapModel<String>>> requestUserHead(
             @Part MultipartBody.Part token,
-            @Part MultipartBody.Part headImg);
+            @Part MultipartBody.Part headFile);
 
     @POST("checkVerify.do")
     Observable<BaseApiResponse<MapModel<String>>> requestCheckCode(@Body RequestBody requestBody);

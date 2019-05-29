@@ -76,10 +76,10 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 });
     }
 
-    public void updateUserHead(MultipartBody.Part headImg){
+    public void updateUserHead(MultipartBody.Part headFile){
         mView.showLoading();
         MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
-        addSubscription(apiStores.requestUserHead(token,headImg),
+        addSubscription(apiStores.requestUserHead(token,headFile),
                 new BaseObserver<BaseApiResponse<MapModel<String>>>() {
                     @Override
                     public void onError(ResponseException e) {

@@ -100,8 +100,8 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                 MultipartBody.Part portrait = null;
                 if (StringUtils.isNotEmpty(logoUrl)) {
                     File file = new File(logoUrl);
-                    RequestBody fileRQ = RequestBody.create(MediaType.parse("image/*"), file);
-                    portrait = MultipartBody.Part.createFormData("portrait", file.getName(), fileRQ);
+                    RequestBody fileRQ = RequestBody.create(MediaType.parse("file/*"), file);
+                    portrait = MultipartBody.Part.createFormData("headFile", file.getName(), fileRQ);
                 }
                 mPresenter.updateUserInfo(portrait,etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
@@ -179,7 +179,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
         } else {
             tvGender.setText("未知");
         }
-        tvBirthday.setText(bean.getBirthDate());
+        tvBirthday.setText(bean.getBirthDate().substring(0,10));
         tvHeight.setText(bean.getHeight() +"cm");
         tvWeight.setText(bean.getWeight() +"kg");
     }
