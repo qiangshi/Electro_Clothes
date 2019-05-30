@@ -73,15 +73,12 @@ public interface ApiStores {
     @POST("sendVerify.do")
     Observable<BaseApiResponse<MapModel<String>>> requestVerificationCode(@Body RequestBody requestBody);
 
+
     /**
      * 上传头像
      */
     @POST("uploadHead.do")
-    @Multipart
-    Observable<BaseApiResponse<MapModel<String>>> requestUserHead(
-            @Part MultipartBody.Part token,
-            @Part MultipartBody.Part content,
-            @Part MultipartBody.Part extName);
+    Observable<BaseApiResponse<MapModel<String>>> requestUserHead(@Body RequestBody requestBody);
 
     /**
      * 验证码校验

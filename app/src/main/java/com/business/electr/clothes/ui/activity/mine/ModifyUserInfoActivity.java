@@ -97,13 +97,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_right_btn://保存
-                MultipartBody.Part portrait = null;
-                if (StringUtils.isNotEmpty(logoUrl)) {
-                    File file = new File(logoUrl);
-                    RequestBody fileRQ = RequestBody.create(MediaType.parse("file/*"), file);
-                    portrait = MultipartBody.Part.createFormData("content", file.getName(), fileRQ);
-                }
-                mPresenter.updateUserInfo(portrait,etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
+                mPresenter.updateUserInfo(logoUrl,etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
             case R.id.img_upload_pic://上传图片
                 mPresenter.autoObtainStoragePermission(this);

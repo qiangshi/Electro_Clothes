@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import com.alibaba.fastjson.JSONObject;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.MapModel;
 import com.business.electr.clothes.bean.UserBean;
@@ -21,6 +22,7 @@ import com.business.electr.clothes.net.ApiClient;
 import com.business.electr.clothes.net.BaseApiResponse;
 import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
+import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.utils.BitmapUtils;
 import com.business.electr.clothes.utils.DataCheckUtils;
 import com.business.electr.clothes.utils.MLog;
@@ -32,6 +34,7 @@ import com.yuyh.library.imgsel.utils.LogUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -81,11 +84,24 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 });
     }
 
-    private void updateUserHead(MultipartBody.Part headFile) {
+    private void updateUserHead(String headFile) {
         mView.showLoading();
-        MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
-        MultipartBody.Part extName = MultipartBody.Part.createFormData("extName", "png");
-        addSubscription(apiStores.requestUserHead(token, headFile,extName),
+        String extName = "jpg";
+        if (headFile.indexOf(".") > 0) {
+            if (headFile.contains(".png")) {
+                extName = "png";
+            } else if (headFile.contains(".jpg")) {
+                extName = "jpg";
+            }else {
+                extName = "jpeg";
+            }
+        }
+        RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
+                .addParams("content", imgToBase64String(headFile))
+                .addParams("extName",extName)
+                .toRequestBody();
+        addSubscription(apiStores.requestUserHead(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<String>>>() {
                     @Override
                     public void onError(ResponseException e) {
@@ -95,6 +111,9 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                     @Override
                     public void onNext(BaseApiResponse<MapModel<String>> data) {
                         mView.hideLoading();
+                        JSONObject object = JSONObject.parseObject(data.getData().getMap());
+                        String imgUrl = object.getString("headImgUrl");
+                        getUserInfo();
                     }
 
                     @Override
@@ -108,7 +127,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(MultipartBody.Part headImg, String nickName, int sex, String height, String weight, String birthDate) {
+    public void updateUserInfo(String headImg, String nickName, int sex, String height, String weight, String birthDate) {
         birthDate = birthDate + " 00:00:00";
         mView.showLoading();
         if (headImg != null) updateUserHead(headImg);
@@ -140,7 +159,6 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                         mView.hideLoading();
                         mView.toastMessage(R.string.preservation_success);
                         mView.updateUserInfoSuccess();
-                        getUserInfo();
                     }
 
                     @Override
@@ -196,8 +214,8 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 case UCrop.REQUEST_CROP:
                     if (data != null) {
                         File file = uriToRoundFileImg(UCrop.getOutput(data));
-                        String base64Url = imgToBase64String(file.getAbsolutePath());
-                        mView.onUploadSuccess(base64Url);
+//                        String base64Url = imgToBase64String(file.getAbsolutePath());
+                        mView.onUploadSuccess(file.getAbsolutePath());
                     }
                     break;
             }

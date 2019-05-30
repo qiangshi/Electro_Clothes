@@ -49,6 +49,7 @@ public class LinkOurPresenter extends BasePresenter<LinkOurView> {
                     @Override
                     public void onNext(BaseApiResponse<String> data) {
                         mView.toastMessage(R.string.thank_your_feedback);
+                        mView.linkSuccess();
                     }
 
                     @Override

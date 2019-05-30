@@ -3,12 +3,17 @@ package com.business.electr.clothes.ui.fragment.home;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.alibaba.fastjson.JSONObject;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
+import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
+import com.business.electr.clothes.utils.GlidUtils;
+import com.business.electr.clothes.utils.MLog;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
 
 import java.util.Objects;
@@ -31,6 +36,8 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initEventAndData() {
         SynchronizationObserver.getInstance().registerSynchronizationListener(syncListener, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
+        tvName.setText(DataCacheManager.getUserInfo().getUserName());
+        GlidUtils.setCircleGrid(getActivity(), DataCacheManager.getUserInfo().getHeadImgUrl(),imgUserHead);
     }
 
 
@@ -40,6 +47,7 @@ public class MineFragment extends BaseFragment {
             UserBean bean = (UserBean) object;
             if (bean != null) {
                 tvName.setText(bean.getUserName());
+                GlidUtils.setCircleGrid(getActivity(),bean.getHeadImgUrl(),imgUserHead);
             }
         }
     };

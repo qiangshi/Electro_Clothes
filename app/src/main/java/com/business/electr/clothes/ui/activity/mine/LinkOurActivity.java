@@ -70,4 +70,9 @@ public class LinkOurActivity extends BaseActivity<LinkOurPresenter> implements L
                 break;
         }
     }
+
+    @Override
+    public void linkSuccess() {
+        finish();
+    }
 }

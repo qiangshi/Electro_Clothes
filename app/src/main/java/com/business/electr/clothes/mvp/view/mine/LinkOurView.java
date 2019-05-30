@@ -8,4 +8,6 @@ import com.business.electr.clothes.mvp.view.IView;
  * CreateDate: 2019/5/30 10:50
  */
 public interface LinkOurView extends IView {
+
+    void linkSuccess();
 }
