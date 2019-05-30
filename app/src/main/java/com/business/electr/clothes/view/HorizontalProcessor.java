@@ -182,6 +182,11 @@ public class HorizontalProcessor extends View {
 
     }
 
+    public void setCurrent(float current){
+        process = current *1.0f / total;
+        invalidate();
+    }
+
 
     public float getSizeNumber() {
         return total * process;

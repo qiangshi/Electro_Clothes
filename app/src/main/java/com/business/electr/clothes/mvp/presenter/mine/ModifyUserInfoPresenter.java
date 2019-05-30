@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.MapModel;
@@ -22,11 +23,15 @@ import com.business.electr.clothes.net.BaseObserver;
 import com.business.electr.clothes.net.exception.ResponseException;
 import com.business.electr.clothes.utils.BitmapUtils;
 import com.business.electr.clothes.utils.DataCheckUtils;
+import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.utils.SelectImageUtils;
 import com.business.electr.clothes.utils.ToastUtils;
 import com.yalantis.ucrop.UCrop;
+import com.yuyh.library.imgsel.utils.LogUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -50,10 +55,10 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     /**
      * 获取用户信息
      */
-    public void getUserInfo(){
+    public void getUserInfo() {
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
                 .addCommonMap()
-                .addParams("userId",DataCacheManager.getUserInfo().getUserId())
+                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
                 .toRequestBody();
         addSubscription(apiStores.requestUserInfo(requestBody),
                 new BaseObserver<BaseApiResponse<MapModel<UserBean>>>() {
@@ -64,7 +69,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
 
                     @Override
                     public void onNext(BaseApiResponse<MapModel<UserBean>> data) {
-                        if(data.getData() != null){
+                        if (data.getData() != null) {
                             mView.getUserInfoSuccess(data.getData().getMap());
                         }
                     }
@@ -76,10 +81,11 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 });
     }
 
-    public void updateUserHead(MultipartBody.Part headFile){
+    private void updateUserHead(MultipartBody.Part headFile) {
         mView.showLoading();
         MultipartBody.Part token = MultipartBody.Part.createFormData("token", DataCacheManager.getToken());
-        addSubscription(apiStores.requestUserHead(token,headFile),
+        MultipartBody.Part extName = MultipartBody.Part.createFormData("extName", "png");
+        addSubscription(apiStores.requestUserHead(token, headFile,extName),
                 new BaseObserver<BaseApiResponse<MapModel<String>>>() {
                     @Override
                     public void onError(ResponseException e) {
@@ -102,25 +108,25 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(MultipartBody.Part headImg,String nickName,int sex, String height, String weight, String birthDate){
+    public void updateUserInfo(MultipartBody.Part headImg, String nickName, int sex, String height, String weight, String birthDate) {
         birthDate = birthDate + " 00:00:00";
         mView.showLoading();
-        if(headImg != null) updateUserHead(headImg);
-        int heigh = 0,weigh = 0;
-        if(!TextUtils.isEmpty(height)){
-            heigh = Integer.valueOf(height.substring(0,height.length()-2));
+        if (headImg != null) updateUserHead(headImg);
+        int heigh = 0, weigh = 0;
+        if (!TextUtils.isEmpty(height)) {
+            heigh = Integer.valueOf(height.substring(0, height.length() - 2));
         }
-        if(!TextUtils.isEmpty(weight)){
-            weigh = Integer.valueOf(weight.substring(0,weight.length()-2));
+        if (!TextUtils.isEmpty(weight)) {
+            weigh = Integer.valueOf(weight.substring(0, weight.length() - 2));
         }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
                 .addCommonMap()
-                .addParams("userId",DataCacheManager.getUserInfo().getUserId())
-                .addParams("sex",sex)
-                .addParams("height",heigh)
-                .addParams("weight",weigh)
-                .addParams("birthDate",birthDate)
-                .addParams("nickName",nickName)
+                .addParams("userId", DataCacheManager.getUserInfo().getUserId())
+                .addParams("sex", sex)
+                .addParams("height", heigh)
+                .addParams("weight", weigh)
+                .addParams("birthDate", birthDate)
+                .addParams("nickName", nickName)
                 .toRequestBody();
         addSubscription(apiStores.requestUpdateUserInfo(requestBody),
                 new BaseObserver<BaseApiResponse<String>>() {
@@ -146,6 +152,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
 
     // 读写文件请求码
     private static final int STORAGE_PERMISSIONS_REQUEST_CODE = 0x04;
+
     /**
      * 获取权限
      */
@@ -189,7 +196,8 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 case UCrop.REQUEST_CROP:
                     if (data != null) {
                         File file = uriToRoundFileImg(UCrop.getOutput(data));
-                        mView.onUploadSuccess(file.getAbsolutePath());
+                        String base64Url = imgToBase64String(file.getAbsolutePath());
+                        mView.onUploadSuccess(base64Url);
                     }
                     break;
             }
@@ -201,6 +209,37 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
             }
         }
     }
+
+
+    /**
+     * 将图片转为base64 位 * * @param url 图片的地址 * @return
+     */
+    public static String imgToBase64String(String url) {
+        if (url == null) {
+            return null;
+        }
+        Bitmap bitmap = BitmapFactory.decodeFile(url);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        if (url.indexOf(".") > 0) {
+            if (url.contains(".png")) {
+                url = url.substring(0, url.indexOf(".png"));
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            } else if (url.contains(".jpg")) {
+                url = url.substring(0, url.indexOf(".jpg"));
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            }
+        }
+        byte[] byteServer = stream.toByteArray();
+        try {
+            stream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MLog.e( "图片的大小：" + byteServer.length);
+        String base64String = Base64.encodeToString(byteServer, 0, byteServer.length, Base64.DEFAULT);
+        return base64String;
+    }
+
 
     /**
      * 图片转换成圆形图片

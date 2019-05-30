@@ -156,8 +156,9 @@
     <string name="unit_cm">单位(cm)</string>
     <string name="unit_kg">单位(kg)</string>
     <string name="sampling_rate">采样率</string>
-    <string name="my_ihi">我的iHi</string>
+
     <string name="task_tag">任务目标</string>
+    <string name="my_ihi">我的iHi</string>
     <string name="ai_experience">AI体验</string>
     <string name="vip_function">会员功能</string>
     <string name="my_ai_nurses">我的AI小护士</string>
@@ -189,6 +190,9 @@
     <string name="contact_email_text">请输入邮箱或联系电话</string>
     <string name="msg_remind">消息提醒</string>
     <string name="development_ing">开发中...</string>
+    <string name="please_input_feedback_info">请输入你的反馈问题</string>
+    <string name="thank_your_feedback">感谢您的反馈</string>
+    <string name="please_in_link_info">请输入联系信息</string>
 
     <string name="user_argument">用户协议</string>
     <string name="clear_cpu">清空缓存</string>

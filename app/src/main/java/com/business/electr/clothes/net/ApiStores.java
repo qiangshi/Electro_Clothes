@@ -1,7 +1,9 @@
 package com.business.electr.clothes.net;
 
 import com.business.electr.clothes.bean.MapModel;
+import com.business.electr.clothes.bean.TaskBean;
 import com.business.electr.clothes.bean.UserBean;
+import com.business.electr.clothes.bean.VersionBean;
 
 import java.util.Map;
 
@@ -78,10 +80,65 @@ public interface ApiStores {
     @Multipart
     Observable<BaseApiResponse<MapModel<String>>> requestUserHead(
             @Part MultipartBody.Part token,
-            @Part MultipartBody.Part headFile);
+            @Part MultipartBody.Part content,
+            @Part MultipartBody.Part extName);
 
+    /**
+     * 验证码校验
+     * @param requestBody
+     * @return
+     */
     @POST("checkVerify.do")
     Observable<BaseApiResponse<MapModel<String>>> requestCheckCode(@Body RequestBody requestBody);
+
+    /**
+     * 获取任务信息
+     * @param requestBody
+     * @return
+     */
+    @POST("getUserTask.do")
+    Observable<BaseApiResponse<MapModel<TaskBean>>> requestGetTaskInfo(@Body RequestBody requestBody);
+
+    /**
+     * 更新任务信息
+     * @param requestBody
+     * @return
+     */
+    @POST("updateUserTask.do")
+    Observable<BaseApiResponse<String>> requestUpdateTaskInfo(@Body RequestBody requestBody);
+
+    /**
+     * 获取采样率信息
+     * @param requestBody
+     * @return
+     */
+    @POST("getSampling.do")
+    Observable<BaseApiResponse<MapModel<String>>> requestGetSampling(@Body RequestBody requestBody);
+
+    /**
+     * 更新采样率信息
+     * @param requestBody
+     * @return
+     */
+    @POST("updateSampling.do")
+    Observable<BaseApiResponse<String>> requestUpdateSampling(@Body RequestBody requestBody);
+
+
+    /**
+     * 联系产品经理
+     * @param requestBody
+     * @return
+     */
+    @POST("saveContactUs.do")
+    Observable<BaseApiResponse<String>> requestLinkOur(@Body RequestBody requestBody);
+
+    /**
+     * 获取版本信息
+     * @param requestBody
+     * @return
+     */
+    @POST("getProgramVersion.do")
+    Observable<BaseApiResponse<MapModel<VersionBean>>> requestGetVersion(@Body RequestBody requestBody);
 
     /**********************************************业务接口**************************************/
 

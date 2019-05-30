@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import com.business.electr.clothes.R;
@@ -26,6 +27,8 @@ public class DashBoard extends View {
     private float perOld;          //变化前指针百分比
     private float length;          //仪表盘半径
     private float r;
+    private Typeface mFace;
+
 
     public DashBoard(Context context) {
         super(context);
@@ -59,6 +62,7 @@ public class DashBoard extends View {
 
 
     private void init() {
+        mFace = Typeface.createFromAsset(getContext().getAssets(),"fonts/dinpro_medium.ttf");
         paint = new Paint();
         rect = new RectF();
         textPaint = new Paint();
@@ -208,12 +212,14 @@ public class DashBoard extends View {
         textPaint.setColor(getResources().getColor(R.color.color_353535));
         textPaint.setTextAlign(Paint.Align.RIGHT);
 
+        textPaint.setTypeface(mFace);
         float swidth = textPaint.measureText(String.valueOf(per));
         //计算偏移量 是的数字和单位整体居中显示
         swidth = (swidth - (swidth + 60) / 2);
 
         canvas.translate(swidth, 0);
         canvas.drawText("" + per, 0, 0, textPaint);
+        textPaint.setTypeface(null);
         textPaint.setTextSize(60);
         textPaint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("/m", 0, 0, textPaint);

@@ -1,6 +1,10 @@
 package com.business.electr.clothes.utils;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
+import com.business.electr.clothes.App;
 
 /**
  * 常用工具类
@@ -90,4 +94,36 @@ public class CommonUtils {
 //        }
 //        return null;
 //    }
+
+    /**
+     * 获取版本名称
+     *
+     * @return
+     */
+    public static String getVersionName() {
+        PackageManager packageManager = App.getApp().getPackageManager();
+        try {
+            PackageInfo packInfo = packageManager.getPackageInfo(App.getApp().getApplicationContext().getPackageName(), 0);
+            return packInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return " ";
+    }
+
+    /**
+     * 获取版本号
+     *
+     * @return
+     */
+    public static long getVersionCode() {
+        PackageManager packageManager = App.getApp().getPackageManager();
+        try {
+            PackageInfo packInfo = packageManager.getPackageInfo(App.getApp().getApplicationContext().getPackageName(), 0);
+            return packInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 100;
+    }
 }

@@ -1,22 +1,21 @@
 package com.business.electr.clothes.ui.activity.mine;
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
-
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.constants.Constant;
-import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
+import com.business.electr.clothes.bean.VersionBean;
+import com.business.electr.clothes.mvp.presenter.mine.HelperPresenter;
+import com.business.electr.clothes.mvp.view.mine.HelperView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
-import com.business.electr.clothes.ui.activity.WebViewContainerActivity;
+import com.business.electr.clothes.utils.CommonUtils;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
-
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 @RouterUri(path = {RouterCons.CREATE_HELPER})
-public class HelperActivity extends BaseActivity {
+public class HelperActivity extends BaseActivity<HelperPresenter> implements HelperView {
 
 
     @Override
@@ -25,8 +24,8 @@ public class HelperActivity extends BaseActivity {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
-        return null;
+    protected HelperPresenter getPresenter() {
+        return new HelperPresenter(this);
     }
 
     @Override
@@ -46,7 +45,7 @@ public class HelperActivity extends BaseActivity {
                         .start();
                 break;
             case R.id.lin_update_version:
-                toastMessage(R.string.used_update_news);
+                mPresenter.getVersionInfo();
                 break;
             case R.id.lin_link:
                 new DefaultUriRequest(this,RouterCons.CREATE_LINK_OUR)
@@ -68,6 +67,19 @@ public class HelperActivity extends BaseActivity {
 //                        .putExtra(WebViewContainerActivity.TITLE,getResources().getString(R.string.private_policy))
 //                        .start();
                 break;
+        }
+    }
+
+    @Override
+    public void getVersionSuccess(VersionBean bean) {
+        long versionCode =  CommonUtils.getVersionCode();
+        if(versionCode < bean.getVersionNo()){
+            Uri uri = Uri.parse(bean.getFilePath());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else {
+            toastMessage(R.string.used_update_news);
         }
     }
 }

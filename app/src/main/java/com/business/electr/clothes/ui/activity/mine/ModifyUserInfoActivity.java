@@ -101,7 +101,7 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
                 if (StringUtils.isNotEmpty(logoUrl)) {
                     File file = new File(logoUrl);
                     RequestBody fileRQ = RequestBody.create(MediaType.parse("file/*"), file);
-                    portrait = MultipartBody.Part.createFormData("headFile", file.getName(), fileRQ);
+                    portrait = MultipartBody.Part.createFormData("content", file.getName(), fileRQ);
                 }
                 mPresenter.updateUserInfo(portrait,etName.getText().toString(),genderPos, tvHeight.getText().toString(), tvWeight.getText().toString(), tvBirthday.getText().toString());
                 break;
@@ -227,4 +227,5 @@ public class ModifyUserInfoActivity extends BaseActivity<ModifyUserInfoPresenter
             weights.add(i+"kg");
         }
     }
+
 }

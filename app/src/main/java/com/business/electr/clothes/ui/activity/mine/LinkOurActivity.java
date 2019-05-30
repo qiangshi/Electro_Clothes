@@ -1,18 +1,15 @@
 package com.business.electr.clothes.ui.activity.mine;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import com.business.electr.clothes.R;
-import com.business.electr.clothes.mvp.presenter.basePresenter.BasePresenter;
+import com.business.electr.clothes.mvp.presenter.mine.LinkOurPresenter;
+import com.business.electr.clothes.mvp.view.mine.LinkOurView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.sankuai.waimai.router.annotation.RouterUri;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -20,7 +17,7 @@ import butterknife.OnClick;
  * 描述：联系产品经理
  */
 @RouterUri(path = {RouterCons.CREATE_LINK_OUR})
-public class LinkOurActivity extends BaseActivity {
+public class LinkOurActivity extends BaseActivity<LinkOurPresenter> implements LinkOurView {
 
     @BindView(R.id.et_suggest)
     EditText etSuggest;
@@ -32,6 +29,7 @@ public class LinkOurActivity extends BaseActivity {
     ImageView imgEmail;
     @BindView(R.id.et_email)
     EditText etEmail;
+    private int contactType;
 
     @Override
     protected int getLayoutId() {
@@ -39,8 +37,8 @@ public class LinkOurActivity extends BaseActivity {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
-        return null;
+    protected LinkOurPresenter getPresenter() {
+        return new LinkOurPresenter(this);
     }
 
     @Override
@@ -52,12 +50,21 @@ public class LinkOurActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_commit:
+                String contact;
+                if(contactType == 0){
+                    contact = etWeixin.getText().toString();
+                }else {
+                    contact = etEmail.getText().toString();
+                }
+                mPresenter.linkOur(etSuggest.getText().toString(),contactType,contact);
                 break;
             case R.id.ll_weixin:
+                contactType = 0;
                 imgWeixin.setVisibility(View.VISIBLE);
                 imgEmail.setVisibility(View.INVISIBLE);
                 break;
             case R.id.ll_email:
+                contactType = 1;
                 imgWeixin.setVisibility(View.INVISIBLE);
                 imgEmail.setVisibility(View.VISIBLE);
                 break;
