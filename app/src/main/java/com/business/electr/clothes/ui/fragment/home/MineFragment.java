@@ -9,6 +9,7 @@ import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.basePresenter.IPresenter;
+import com.business.electr.clothes.net.ApiClient;
 import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
@@ -36,8 +37,9 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initEventAndData() {
         SynchronizationObserver.getInstance().registerSynchronizationListener(syncListener, SynchronizationObserver.PAGE_FRAGMENT_TYPE_MINE);
-        tvName.setText(DataCacheManager.getUserInfo().getUserName());
-        GlidUtils.setCircleGrid(getActivity(), DataCacheManager.getUserInfo().getHeadImgUrl(),imgUserHead);
+        MLog.e("====zhq====>userBean<"+JSONObject.toJSONString(DataCacheManager.getUserInfo()));
+        tvName.setText(DataCacheManager.getUserInfo().getNickName());
+        GlidUtils.setCircleGrid(getActivity(), ApiClient.BASE_URL +  DataCacheManager.getUserInfo().getHeadImgUrl(),imgUserHead);
     }
 
 
@@ -46,8 +48,8 @@ public class MineFragment extends BaseFragment {
         public void onSynchronizationUpdate(int type, Object object) {
             UserBean bean = (UserBean) object;
             if (bean != null) {
-                tvName.setText(bean.getUserName());
-                GlidUtils.setCircleGrid(getActivity(),bean.getHeadImgUrl(),imgUserHead);
+                tvName.setText(bean.getNickName());
+                GlidUtils.setCircleGrid(getActivity(),ApiClient.BASE_URL + bean.getHeadImgUrl(),imgUserHead);
             }
         }
     };

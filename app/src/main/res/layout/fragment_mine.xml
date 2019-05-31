@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/img_user_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/padding_28"
+            android:layout_height="@dimen/padding_28"
             android:layout_marginEnd="@dimen/padding_13"
             android:src="@drawable/icon_mine_user_head" />
 

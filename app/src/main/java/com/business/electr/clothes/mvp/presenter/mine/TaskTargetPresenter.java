@@ -28,6 +28,7 @@ public class TaskTargetPresenter extends BasePresenter<TaskTargetView> {
      */
     public void getTaskInfo(){
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()
                 .addParams("userId", DataCacheManager.getUserInfo().getUserId()).toRequestBody();
         addSubscription(
                 apiStores.requestGetTaskInfo(requestBody),
@@ -54,9 +55,10 @@ public class TaskTargetPresenter extends BasePresenter<TaskTargetView> {
      */
     public void updateTaskInfo(float sleepTime,int heartBeat, int stepNum){
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()
                 .addParams("userId", DataCacheManager.getUserInfo().getUserId())
                 .addParams("sleepTime",sleepTime)
-                .addParams("heartBeat",heartBeat)
+                .addParams("heartNum",heartBeat)
                 .addParams("stepNum",stepNum).toRequestBody();
         addSubscription(
                 apiStores.requestUpdateTaskInfo(requestBody),

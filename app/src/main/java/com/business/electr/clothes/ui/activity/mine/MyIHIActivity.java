@@ -63,7 +63,6 @@ public class MyIHIActivity extends BaseActivity<MyIHIPresenter> implements MyIHI
 
     @Override
     public void getSuccess(int sampling) {
-        MLog.e("====zhq====>okhttp<"+sampling);
         this.sampling = sampling;
         if (sampling == 125) {
             img125.setVisibility(View.VISIBLE);

@@ -32,6 +32,7 @@ public class MyIHIPresenter extends BasePresenter<MyIHIView> {
     public void getSampling(){
 
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()
                 .addParams("userId", DataCacheManager.getUserInfo().getUserId()).toRequestBody();
         addSubscription(
                 apiStores.requestGetSampling(requestBody),
@@ -62,6 +63,7 @@ public class MyIHIPresenter extends BasePresenter<MyIHIView> {
      */
     public void updateSampling(int sampling){
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()
                 .addParams("userId", DataCacheManager.getUserInfo().getUserId())
                 .addParams("sampling",sampling).toRequestBody();
         addSubscription(

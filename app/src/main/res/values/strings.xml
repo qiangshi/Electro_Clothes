@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">心电衣</string>
+    <string name="app_name">FibreT</string>
 
     <integer name="loading_anim">100</integer>
     <integer name="animation_default_duration">300</integer>
@@ -67,7 +67,7 @@
     <string name="equipment_start">心贴 / 摇动以启动</string>
     <string name="or">或</string>
     <string name="smart_socks">智能袜 / 打开开关</string>
-    <string name="select_a_ihi">选择一个iHi心贴</string>
+    <string name="select_a_ihi">选择一个FibreT心贴</string>
     <string name="match_success">配对成功 请穿上心电衣</string>
     <string name="if_no_match_up_slide">若要解除匹配 请向上滑动心贴</string>
     <string name="start_test">开始检测</string>
@@ -79,7 +79,7 @@
     <string name="code_password_login">账号密码登录</string>
     <string name="phone_code_login">手机验证码登录</string>
     <string name="phone_code_login_or_register">手机验证码登录/注册</string>
-    <string name="welcome_ihi">欢迎来到智能iHi</string>
+    <string name="welcome_ihi">欢迎来到智能FibreT</string>
     <string name="forget_password">忘记密码</string>
     <string name="first_register">快速注册</string>
     <string name="other_login">其他登录方式</string>
@@ -119,7 +119,7 @@
     <string name="log_out">退出</string>
     <string name="modify">修改</string>
     <string name="my_info">账号信息</string>
-    <string name="my_company">我的iHi</string>
+    <string name="my_company">我的FibreT</string>
     <string name="please_in_height">请输入正确的身高信息</string>
     <string name="please_in_weight">请输入正确的体重信息</string>
     <string name="please_in_old_password">请输入您旧密码</string>
@@ -158,7 +158,7 @@
     <string name="sampling_rate">采样率</string>
 
     <string name="task_tag">任务目标</string>
-    <string name="my_ihi">我的iHi</string>
+    <string name="my_ihi">我的FibreT</string>
     <string name="ai_experience">AI体验</string>
     <string name="vip_function">会员功能</string>
     <string name="my_ai_nurses">我的AI小护士</string>

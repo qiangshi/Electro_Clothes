@@ -45,7 +45,7 @@ public class ParamsBuilder {
      */
     public ParamsBuilder addCommonMap() {
         //添加统一参数
-        addParams("token", DataCacheManager.getToken());
+//        addParams("token", DataCacheManager.getToken());
         return this;
     }
 

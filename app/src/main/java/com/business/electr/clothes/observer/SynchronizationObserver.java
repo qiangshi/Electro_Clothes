@@ -18,6 +18,8 @@ public class SynchronizationObserver {
     public static final int PAGE_BASEACTIVITY = 22;
     /*我的*/
     public static final int PAGE_FRAGMENT_TYPE_MINE = 0;
+    /*心电衣界面*/
+    public static final int PAGE_FRAGMENT_TYPE_ELECT = 1;
 
 
     /**

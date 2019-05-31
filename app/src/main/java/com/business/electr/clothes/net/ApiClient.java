@@ -1,8 +1,15 @@
 package com.business.electr.clothes.net;
 
+import com.business.electr.clothes.constants.Constant;
+import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.net.paramjson.ParamsBuilder;
+import com.business.electr.clothes.utils.SharePreferenceUtil;
+
 import java.util.concurrent.TimeUnit;
+
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -10,6 +17,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 public class ApiClient {
 
     private final static String REQUEST_TOKEN = "token";
+    public static final String BASE_URL = "http://47.102.145.7:8003/";
 
 
     public static ApiClient getInstance() {
@@ -31,7 +39,7 @@ public class ApiClient {
 
     public static Retrofit retrofit() {
         return new Retrofit.Builder()
-            .baseUrl("http://47.102.145.7:8003/business/")
+            .baseUrl(BASE_URL+"business/")
             .addConverterFactory(FastJsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(getClient())
@@ -46,32 +54,16 @@ public class ApiClient {
         try {
             return new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
-//                .addInterceptor(
-//                    chain -> {
-//                        Request srcRequest = chain.request();
-//                        if (srcRequest.method().equals("POST")) {//post请求
-//                            if (srcRequest.body() instanceof FormBody) {
-//                                FormBody.Builder newBodyBuilder = new FormBody.Builder();
-//                                FormBody formBody = (FormBody) srcRequest.body();
-//                                for (int i = 0; i < formBody.size(); i++) {
-//                                    newBodyBuilder.addEncoded(formBody.encodedName(i),
-//                                        formBody.encodedValue(i));
-//                                }
-//                                if (SharePreferenceUtil.getBoolean(Constant.IS_LOGIN, false)) {
-//                                    formBody = newBodyBuilder
-//                                        .addEncoded(REQUEST_TOKEN, DataCacheManager.getToken())
-////                                        .addEncoded(REQUEST_USER_ID,
-////                                            DataCacheManager.getUserInfo().getId() + "")
-//                                        .build();
-//                                } else {
-//                                    formBody = newBodyBuilder.build();
-//                                }
-//                                srcRequest = srcRequest.newBuilder().post(formBody).build();
-//                            }
-//                        }
-//                        return chain.proceed(srcRequest);
-//                    }
-//                )
+
+                .addInterceptor(
+                    chain -> {
+                        Request original = chain.request();
+                        Request.Builder requestBuilder = original.newBuilder()
+                                .header(REQUEST_TOKEN, DataCacheManager.getToken());
+                        Request request = requestBuilder.build();
+                        return chain.proceed(request);
+                    }
+                )
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
         } catch (Exception e) {

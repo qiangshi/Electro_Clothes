@@ -9,13 +9,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.bean.UserBean;
 import com.business.electr.clothes.constants.Constant;
+import com.business.electr.clothes.manager.DataCacheManager;
 import com.business.electr.clothes.mvp.presenter.home.ElectPresenter;
+import com.business.electr.clothes.net.ApiClient;
+import com.business.electr.clothes.observer.SynchronizationObserver;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.equipment.PatternActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
 import com.business.electr.clothes.utils.DateUtils;
+import com.business.electr.clothes.utils.GlidUtils;
+import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.view.DashBoard;
 import com.business.electr.clothes.view.ElectView;
 import com.business.electr.clothes.view.QuantityView;
@@ -78,9 +85,12 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
 
     @Override
     protected void initEventAndData() {
+        SynchronizationObserver.getInstance().registerSynchronizationListener(syncListener,SynchronizationObserver.PAGE_FRAGMENT_TYPE_ELECT);
         tvElectTitle.setText(DateUtils.getTime(System.currentTimeMillis(),new SimpleDateFormat(Constant.DATE_FORMAT_5)));
         handler.sendEmptyMessageDelayed(0, 1000);
         electView.startDarw();
+        MLog.e("====zhq====>userBean<"+ JSONObject.toJSONString(DataCacheManager.getUserInfo()));
+        tvName.setText(DataCacheManager.getUserInfo().getNickName());
         quantityView.setProcess(75);
     }
 
@@ -88,6 +98,16 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
     protected int getLayoutId() {
         return R.layout.fragment_elect;
     }
+
+    private SynchronizationObserver.OnSynchronizationListener syncListener = new SynchronizationObserver.OnSynchronizationListener() {
+        @Override
+        public void onSynchronizationUpdate(int type, Object object) {
+            UserBean bean = (UserBean) object;
+            if (bean != null) {
+                tvName.setText(bean.getNickName());
+            }
+        }
+    };
 
     @Override
     protected ElectPresenter getPresenter() {
@@ -112,5 +132,11 @@ public class ElectFragment extends BaseFragment<ElectPresenter> {
                         .start();
                 break;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        SynchronizationObserver.getInstance().unRegisterSynchronizationListener(SynchronizationObserver.PAGE_FRAGMENT_TYPE_ELECT);
+        super.onDestroy();
     }
 }

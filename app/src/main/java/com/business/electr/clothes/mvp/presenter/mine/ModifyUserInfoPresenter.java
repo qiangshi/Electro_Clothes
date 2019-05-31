@@ -97,6 +97,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
             }
         }
         RequestBody requestBody = ApiClient.getInstance().getBuilder()
+                .addCommonMap()
                 .addParams("userId", DataCacheManager.getUserInfo().getUserId())
                 .addParams("content", imgToBase64String(headFile))
                 .addParams("extName",extName)
@@ -159,6 +160,7 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                         mView.hideLoading();
                         mView.toastMessage(R.string.preservation_success);
                         mView.updateUserInfoSuccess();
+                        getUserInfo();
                     }
 
                     @Override
