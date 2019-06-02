@@ -116,7 +116,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/padding_30"
+                android:layout_marginEnd="@dimen/padding_34"
                 android:src="@drawable/icon_login_area_code" />
 
         </LinearLayout>
@@ -155,12 +155,18 @@
                 android:id="@+id/et_name"
                 android:layout_width="@dimen/padding_150"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/padding_36"
+                android:layout_marginEnd="@dimen/padding_11"
                 android:background="@null"
                 android:gravity="right|center_vertical"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
                 tools:text="陈晓晓" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
 
 
         </LinearLayout>
@@ -199,11 +205,15 @@
                 android:id="@+id/tv_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/padding_36"
+                android:layout_marginEnd="@dimen/padding_11"
                 tools:text="男"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14" />
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
 
         </LinearLayout>
 
@@ -241,11 +251,15 @@
                 android:id="@+id/tv_birthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/padding_36"
+                android:layout_marginEnd="@dimen/padding_11"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
                 tools:text="1993-06-14" />
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
 
         </LinearLayout>
 
@@ -261,6 +275,7 @@
             android:id="@+id/lin_height"
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_63"
+            android:background="@drawable/selector_bg_click"
             android:gravity="center_vertical">
 
 
@@ -282,15 +297,19 @@
                 android:id="@+id/tv_height"
                 android:layout_width="@dimen/padding_150"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/padding_36"
+                android:layout_marginEnd="@dimen/padding_11"
                 android:gravity="right|center_vertical"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
                 tools:text="150cm" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
+
         </LinearLayout>
-
-
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_0_33"
@@ -324,11 +343,17 @@
                 android:id="@+id/tv_weight"
                 android:layout_width="@dimen/padding_150"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/padding_36"
+                android:layout_marginEnd="@dimen/padding_11"
                 android:gravity="right|center_vertical"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
                 tools:text="50kg" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
 
         </LinearLayout>
 
@@ -351,9 +376,5 @@
             android:text="@string/log_out"
             android:textColor="@color/white"
             android:textSize="@dimen/text_font_15" />
-
-
     </LinearLayout>
-
-
 </ScrollView>

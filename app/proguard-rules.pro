@@ -3,6 +3,7 @@
 
 -keep class com.business.electr.clothes.bean.** { *; }
 -keep class com.business.electr.clothes.net.** { *; }
+-keep class com.business.electr.clothes.com.utils.** { *;}
 
 
 #---------------------------------1.实体类---------------------------------
@@ -94,9 +95,18 @@
 
 ### Retrofit
 -dontwarn retrofit2.**
+-dontwarn org.codehaus.mojo.**
 -keep class retrofit2.** { *; }
 -keepattributes Signature
 -keepattributes Exceptions
+-keepattributes *Annotation*
+-keepattributes RuntimeVisibleAnnotations
+-keepattributes RuntimeInvisibleAnnotations
+-keepattributes RuntimeVisibleParameterAnnotations
+-keepattributes RuntimeInvisibleParameterAnnotations
+-keepattributes EnclosingMethod
+-keepclasseswithmembers class * {@retrofit2.* <methods>;}
+-keepclasseswithmembers interface * {@retrofit2.* <methods>;}
 
 ##数据库管理类
 #-keep class hat.ai.photomanager.manager.** { *; }
