@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.business.electr.clothes.R;
+import com.business.electr.clothes.utils.CommonUtils;
+
 import androidx.annotation.Nullable;
 
 /**
@@ -51,7 +53,7 @@ public class HorizontalProcessor extends View {
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(getResources().getColor(R.color.color_353535));
-        paint.setStrokeWidth(2);
+        paint.setStrokeWidth(1);
     }
 
     @Override
@@ -73,7 +75,7 @@ public class HorizontalProcessor extends View {
     private void drawText(Canvas canvas) {
         canvas.save();
         changeProcess();
-        paint.setTextSize(42);
+        paint.setTextSize(getResources().getDimension(R.dimen.text_font_14));
         paint.setTextAlign(Paint.Align.LEFT);
         String hint = "", lastHint = "";
         String showNum = "";

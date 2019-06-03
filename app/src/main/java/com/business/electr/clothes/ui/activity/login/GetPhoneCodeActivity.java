@@ -57,7 +57,7 @@ public class GetPhoneCodeActivity extends BaseActivity<LoginPresenter> implement
         phone = getIntent().getStringExtra(Constant.EXTRA_PHONE);
         type = getIntent().getIntExtra(Constant.TYPE,0);
 //        boolean isNewUser = getIntent().getBooleanExtra(Constant.EXTRA_IS_NEW_USER,false);
-        tvAreaCode.setText("(" + areaCode + ")");
+        tvAreaCode.setText("(+86)");
         tvPhone.setText(phone);
         mTimeCounter = new TimeCounter(60000, 1000, downTime, R.string.btn_re_send_code);
         mTimeCounter.start();

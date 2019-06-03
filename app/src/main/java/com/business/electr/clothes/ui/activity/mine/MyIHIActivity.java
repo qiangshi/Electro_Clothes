@@ -12,6 +12,7 @@ import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.utils.MLog;
 import com.sankuai.waimai.router.annotation.RouterUri;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -37,6 +38,7 @@ public class MyIHIActivity extends BaseActivity<MyIHIPresenter> implements MyIHI
 
     @Override
     protected void initDataAndEvent() {
+
         initTitle(getResources().getString(R.string.my_ihi));
         mPresenter.getSampling();
     }
@@ -47,13 +49,14 @@ public class MyIHIActivity extends BaseActivity<MyIHIPresenter> implements MyIHI
         switch (view.getId()) {
             case R.id.ll_125_sampling:
                 sampling = 125;
-                img125.setVisibility(View.VISIBLE);
-                img1000.setVisibility(View.GONE);
+                img125.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+                img1000.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
                 break;
             case R.id.ll_1000_sampling:
                 sampling = 1000;
-                img1000.setVisibility(View.VISIBLE);
-                img125.setVisibility(View.GONE);
+                img1000.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+                img125.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
+
                 break;
             case R.id.tv_commit:
                 mPresenter.updateSampling(sampling);
@@ -65,11 +68,11 @@ public class MyIHIActivity extends BaseActivity<MyIHIPresenter> implements MyIHI
     public void getSuccess(int sampling) {
         this.sampling = sampling;
         if (sampling == 125) {
-            img125.setVisibility(View.VISIBLE);
-            img1000.setVisibility(View.GONE);
+            img125.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+            img1000.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
         } else {
-            img1000.setVisibility(View.VISIBLE);
-            img125.setVisibility(View.GONE);
+            img1000.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+            img125.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
         }
     }
 }

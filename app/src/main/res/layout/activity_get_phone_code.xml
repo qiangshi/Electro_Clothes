@@ -57,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_font_12"
+            android:fontFamily="@font/dinpro_regular"
             android:textColor="@color/color_8c919b"
             android:text="15001355465"/>
 
@@ -77,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_font_12"
+        android:fontFamily="@font/dinpro_regular"
         android:textColor="@color/color_8c919b"
         android:text="@string/again_get"/>
 

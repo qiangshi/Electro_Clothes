@@ -71,6 +71,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
 }
 
 dependencies {
@@ -114,4 +115,5 @@ dependencies {
     debugImplementation rootProject.ext.dependencies["spiderman"]//异常捕获
     releaseImplementation rootProject.ext.dependencies["spiderman_no_op"]
     implementation rootProject.ext.dependencies["eventbus"]
+    api (name:'langlangfilter-release',ext:'aar')
 }

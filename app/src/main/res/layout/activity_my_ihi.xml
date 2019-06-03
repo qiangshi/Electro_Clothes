@@ -85,8 +85,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_31"
-            android:src="@drawable/icon_my_ihi"
-            android:visibility="gone"/>
+            android:src="@drawable/bg_stroke_e3e3e3_19"
+            />
 
     </LinearLayout>
 

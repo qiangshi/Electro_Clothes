@@ -4,6 +4,5 @@
     <style name="TranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fontFamily">@font/dinpro_regular</item>
     </style>
 </resources>

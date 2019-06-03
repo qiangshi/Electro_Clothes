@@ -9,6 +9,10 @@ import android.os.Build;
 import com.bumptech.glide.Glide;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.utils.FontsOverride;
+import com.langlang.data.LanglangUserInfo;
+import com.langlang.operation.LanglangCallback;
+import com.langlang.operation.LanglangInitCallback;
+import com.langlang.operation.LanglangSDKUtils;
 import com.sankuai.waimai.router.Router;
 import com.sankuai.waimai.router.common.DefaultRootUriHandler;
 import com.sankuai.waimai.router.core.RootUriHandler;
@@ -23,6 +27,8 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.simple.spiderman.SpiderMan;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;
+
+import org.json.JSONArray;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -55,8 +61,11 @@ public class App extends Application {
         init();
         initWMRouter();
         initISNav();
+//        initLangLangSDK();
         activities = new ArrayList<>();
     }
+
+
 
 
     public List<BaseActivity> getActivities() {
@@ -106,5 +115,102 @@ public class App extends Application {
         ISNav.getInstance().init((ImageLoader) (context, path, imageView) -> Glide.with(context).load(path).into(imageView));
     }
 
+
+    /**
+     * 初始化郎朗sdk
+     */
+    private void initLangLangSDK() {
+        LanglangSDKUtils.getInstance().setContext(getApplicationContext(), "jjkiAK5QvwJ", "85eb1a03e1bbad6df2ebc883b751f11c", new LanglangInitCallback() {
+            @Override
+            public void initResult(boolean result, String msg) {
+                if(result){
+                    LanglangSDKUtils.getInstance().setMac("00:23:03:55:00:06"); // 传入设备
+                    LanglangSDKUtils.getInstance().setUserInfo(new LanglangUserInfo("4646",0,55,170,"1975-06-03","zhaoxc")); //传入用户
+                    LanglangSDKUtils.getInstance().init(new LanglangCallback() {
+
+                        @Override
+                        public void getOrigEcgResult(int[] ecg) {
+                            System.out.println("received origecg");
+                        }
+
+                        @Override
+                        public void getVoltage(float vol) {
+
+                            System.out.println("received vol : " + vol);
+                        }
+
+                        @Override
+                        public void getRssi(int rssi) {
+                            System.out.println("received rssi");
+
+                        }
+
+                        @Override
+                        public void getBleState(int state) {
+
+                            System.out.println("received blestate");
+                        }
+
+                        @Override
+                        public void getCalories(int cal) {
+
+                            System.out.println("received calories");
+                        }
+
+                        @Override
+                        public void getStep(int step) {
+
+                            System.out.println("received step");
+                        }
+
+                        @Override
+                        public void getAccel(int[] xyz) {
+
+                            System.out.println("received accel");
+                        }
+
+                        @Override
+                        public void getFilterEcg(int[] ecg) {
+
+                            System.out.println("received filterecg");
+                        }
+
+                        @Override
+                        public void getUploadPath(String path) {
+
+                            System.out.println("received uploadpath");
+                        }
+
+                        @Override
+                        public void getPnn50(float pnn50, String stress) {
+
+                            System.out.println("received pnn50");
+                        }
+
+                        @Override
+                        public void getHr(int hr) {
+
+                            System.out.println("received hr");
+                        }
+
+                        @Override
+                        public void getPos(String pos) {
+
+                            System.out.println("received pos");
+                        }
+
+                        @Override
+                        public void getServResult(int heart, int maxHeart, int minHeart, String pnn50, String st, String pr, String qt, String qtc, JSONArray countArray) {
+
+                            System.out.println("received servresult");
+                        }
+                    });
+                }else{
+                    //初始化失败 请确认APPID，SECRET
+                    System.out.println("received fail");
+                }
+            }
+        });
+    }
 
 }

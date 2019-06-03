@@ -37,9 +37,16 @@
                 android:id="@+id/img_upload_pic"
                 android:layout_width="@dimen/padding_37"
                 android:layout_height="@dimen/padding_37"
-                android:layout_marginEnd="@dimen/padding_61"
+                android:layout_marginEnd="@dimen/padding_19"
                 android:src="@drawable/icon_photo"
                 />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_34"
+                android:src="@drawable/icon_login_area_code" />
+
 
         </LinearLayout>
 
@@ -79,6 +86,7 @@
                 android:layout_marginEnd="@dimen/padding_35"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
+                android:fontFamily="@font/dinpro_regular"
                 tools:text="13452658987" />
 
         </LinearLayout>
@@ -254,6 +262,7 @@
                 android:layout_marginEnd="@dimen/padding_11"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
+                android:fontFamily="@font/dinpro_regular"
                 tools:text="1993-06-14" />
             <ImageView
                 android:layout_width="wrap_content"
@@ -301,6 +310,7 @@
                 android:gravity="right|center_vertical"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
+                android:fontFamily="@font/dinpro_regular"
                 tools:text="150cm" />
 
             <ImageView
@@ -347,6 +357,7 @@
                 android:gravity="right|center_vertical"
                 android:textColor="@color/color_8c919b"
                 android:textSize="@dimen/text_font_14"
+                android:fontFamily="@font/dinpro_regular"
                 tools:text="50kg" />
 
             <ImageView

@@ -9,6 +9,8 @@ import com.business.electr.clothes.mvp.view.mine.LinkOurView;
 import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.sankuai.waimai.router.annotation.RouterUri;
+
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -60,13 +62,13 @@ public class LinkOurActivity extends BaseActivity<LinkOurPresenter> implements L
                 break;
             case R.id.ll_weixin:
                 contactType = 0;
-                imgWeixin.setVisibility(View.VISIBLE);
-                imgEmail.setVisibility(View.INVISIBLE);
+                imgWeixin.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+                imgEmail.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
                 break;
             case R.id.ll_email:
                 contactType = 1;
-                imgWeixin.setVisibility(View.INVISIBLE);
-                imgEmail.setVisibility(View.VISIBLE);
+                imgEmail.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.icon_my_ihi));
+                imgWeixin.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bg_stroke_e3e3e3_19));
                 break;
         }
     }

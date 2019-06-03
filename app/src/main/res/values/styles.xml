@@ -7,7 +7,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:fontFamily">@font/dinpro_regular</item>
+        <!--<item name="android:fontFamily">@font/dinpro_regular</item>-->
 
     </style>
 

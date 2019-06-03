@@ -225,6 +225,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_16"
+                android:fontFamily="@font/dinpro_regular"
                 android:layout_marginStart="@dimen/padding_31"
                 android:text="32564"
                 />
@@ -250,6 +251,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_16"
+                android:fontFamily="@font/dinpro_regular"
                 android:text="21"
                 />
 
@@ -273,6 +275,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_353535"
                 android:textSize="@dimen/text_font_16"
+                android:fontFamily="@font/dinpro_regular"
                 android:text="456"
                 />
 
