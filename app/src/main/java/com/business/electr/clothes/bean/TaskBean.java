@@ -22,9 +22,9 @@ public class TaskBean {
     private int curDistance;
     private int dayNo;
     private double finishRate;
-    private int heartNum;
     private int curStepNum;
     private int stepNum;
+    private int heartNum;
     private double sleepTime;
 
     public int getCurHrateNum() {
@@ -37,6 +37,14 @@ public class TaskBean {
 
     public int getCurDistance() {
         return curDistance;
+    }
+
+    public int getHeartNum() {
+        return heartNum;
+    }
+
+    public void setHeartNum(int heartNum) {
+        this.heartNum = heartNum;
     }
 
     public void setCurDistance(int curDistance) {
@@ -57,14 +65,6 @@ public class TaskBean {
 
     public void setFinishRate(double finishRate) {
         this.finishRate = finishRate;
-    }
-
-    public int getHeartNum() {
-        return heartNum;
-    }
-
-    public void setHeartNum(int heartNum) {
-        this.heartNum = heartNum;
     }
 
     public int getCurStepNum() {

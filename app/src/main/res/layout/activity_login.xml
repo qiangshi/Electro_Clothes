@@ -106,9 +106,11 @@
                 android:background="@null"
                 android:hint="@string/please_in_phone"
                 android:maxLength="11"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:textColor="@color/color_203237"
                 android:singleLine="true"
                 android:fontFamily="@font/dinpro_medium"
-                android:textColorHint="@color/color_b4b4b4"
+                android:textColorHint="@color/color_8c919b"
                 android:textSize="@dimen/text_font_16" />
 
 
@@ -173,7 +175,9 @@
                 android:fontFamily="@font/dinpro_medium"
                 android:paddingStart="@dimen/padding_24"
                 android:singleLine="true"
-                android:textColorHint="@color/color_b4b4b4"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:textColor="@color/color_203237"
+                android:textColorHint="@color/color_8c919b"
                 android:textSize="@dimen/text_font_16" />
 
             <ImageView
@@ -209,7 +213,9 @@
                 android:hint="@string/please_in_password"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textColorHint="@color/color_b4b4b4"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:textColor="@color/color_203237"
+                android:textColorHint="@color/color_8c919b"
                 android:textSize="@dimen/text_font_16" />
 
 

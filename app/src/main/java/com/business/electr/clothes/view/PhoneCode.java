@@ -160,8 +160,8 @@ public class PhoneCode extends RelativeLayout {
      * 设置高亮颜色
      */
     private void setColor() {
-        int color_default = Color.parseColor("#353535");
-        int color_focus = Color.parseColor("#3F8EED");
+        int color_default = getResources().getColor(R.color.color_44979797);
+        int color_focus = getResources().getColor(R.color.color_353535);
         v1.setBackgroundColor(color_default);
         v2.setBackgroundColor(color_default);
         v3.setBackgroundColor(color_default);
