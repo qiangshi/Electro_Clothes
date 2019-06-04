@@ -5,8 +5,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.bean.DataEvent;
 import com.business.electr.clothes.bean.UserBean;
@@ -24,23 +22,15 @@ import com.business.electr.clothes.ui.fragment.dialog.TypeGraderFragment;
 import com.business.electr.clothes.utils.GlidUtils;
 import com.business.electr.clothes.utils.SelectImageUtils;
 import com.business.electr.clothes.utils.SharePreferenceUtil;
-import com.business.electr.clothes.utils.StringUtils;
 import com.sankuai.waimai.router.annotation.RouterUri;
 import com.sankuai.waimai.router.common.DefaultUriRequest;
-
 import org.greenrobot.eventbus.EventBus;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 /**
  * Created by zenghaiqiang on 2019/01/24.

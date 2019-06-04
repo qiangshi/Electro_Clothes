@@ -1,30 +1,23 @@
 package com.business.electr.clothes.ui.fragment.home;
 
 
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.business.electr.clothes.R;
 import com.business.electr.clothes.constants.Constant;
 import com.business.electr.clothes.mvp.presenter.home.HistoryPresenter;
 import com.business.electr.clothes.mvp.view.home.HistoryView;
-import com.business.electr.clothes.router.RouterCons;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.ui.fragment.BaseFragment;
-import com.business.electr.clothes.ui.fragment.dialog.EmptyFragment;
 import com.business.electr.clothes.ui.fragment.history.HistoryOneFragment;
 import com.business.electr.clothes.ui.fragment.history.HistoryTwoFragment;
 import com.business.electr.clothes.ui.fragment.history.SelectTimeFragment;
 import com.business.electr.clothes.utils.DateUtils;
 import com.business.electr.clothes.utils.MLog;
 import com.business.electr.clothes.view.ConflictViewPager;
-import com.business.electr.clothes.view.NoScrollViewPager;
 import com.business.electr.clothes.view.TimeTypeView;
-import com.sankuai.waimai.router.common.DefaultUriRequest;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +28,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -87,7 +79,7 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         fragments.add(historyTwoFragment);
         currMonth = System.currentTimeMillis();
         SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
-        tvTimeMonth.setText(DateUtils.getTime(currMonth,sf));
+        tvTimeMonth.setText(DateUtils.getTime(currMonth, sf));
 
         vpType.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @NonNull
@@ -105,16 +97,18 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
+
             @Override
             public void onPageSelected(int position) {
-                if(position == 0){
+                if (position == 0) {
                     img1.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_select));
                     img2.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_no_select));
-                }else {
+                } else {
                     img1.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_no_select));
                     img2.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.icon_bottom_select));
                 }
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -124,8 +118,9 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
 
 
     private void initData() {
-        String dataTime = DateUtils.getTime(System.currentTimeMillis(),new SimpleDateFormat(Constant.DATE_FORMAT_0));
-        if(dataTime.equals(getResources().getString(R.string.current_data_time))){
+        long data = System.currentTimeMillis();
+        long curData = DateUtils.getDateByString(getResources().getString(R.string.current_data_time), Constant.DATE_FORMAT_0).getTime();
+        if (data > curData) {
             fragments = null;
         }
     }
@@ -168,15 +163,15 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         timeType = 3;
     }
 
-    @OnClick({R.id.tv_time_month,R.id.img_last_page, R.id.img_next_page, R.id.img_history_share})
+    @OnClick({R.id.tv_time_month, R.id.img_last_page, R.id.img_next_page, R.id.img_history_share})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_time_month://显示当月日期选择
-                ((BaseActivity)getActivity()).showSelectFragment(currMonth,new SelectTimeFragment.SelectTimeListener() {
+                ((BaseActivity) getActivity()).showSelectFragment(currMonth, new SelectTimeFragment.SelectTimeListener() {
                     @Override
                     public void onClickSelect(String day) {
                         tvTimeMonth.setText(day.substring(5));
-                        currMonth = DateUtils.getLongByString(day,Constant.DATE_FORMAT_0);
+                        currMonth = DateUtils.getLongByString(day, Constant.DATE_FORMAT_0);
                     }
                 });
                 break;
@@ -192,9 +187,6 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
     }
 
 
-
-
-
     /**
      * 月份增减
      */
@@ -204,6 +196,6 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         calendar.add(Calendar.MONTH, change);
         currMonth = calendar.getTime().getTime();
         SimpleDateFormat sf = new SimpleDateFormat(Constant.DATE_FORMAT_5);
-        tvTimeMonth.setText(DateUtils.getTime(currMonth,sf));
+        tvTimeMonth.setText(DateUtils.getTime(currMonth, sf));
     }
 }

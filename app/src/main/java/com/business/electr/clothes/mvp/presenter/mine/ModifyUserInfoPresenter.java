@@ -114,6 +114,8 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                         mView.hideLoading();
                         JSONObject object = JSONObject.parseObject(data.getData().getMap());
                         String imgUrl = object.getString("headImgUrl");
+                        mView.toastMessage(R.string.preservation_success);
+                        mView.updateUserInfoSuccess();
                         getUserInfo();
                     }
 
@@ -124,6 +126,8 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                 });
     }
 
+    boolean isUploadHear = false;
+
 
     /**
      * 更新用户信息
@@ -131,7 +135,10 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
     public void updateUserInfo(String headImg, String nickName, int sex, String height, String weight, String birthDate) {
         birthDate = birthDate + " 00:00:00";
         mView.showLoading();
-        if (headImg != null) updateUserHead(headImg);
+        if (headImg != null) {
+            isUploadHear = true;
+            updateUserHead(headImg);
+        }else isUploadHear = false;
         int heigh = 0, weigh = 0;
         if (!TextUtils.isEmpty(height)) {
             heigh = Integer.valueOf(height.substring(0, height.length() - 2));
@@ -158,9 +165,11 @@ public class ModifyUserInfoPresenter extends BasePresenter<ModifyUserInfoView> {
                     @Override
                     public void onNext(BaseApiResponse<String> data) {
                         mView.hideLoading();
-                        mView.toastMessage(R.string.preservation_success);
-                        mView.updateUserInfoSuccess();
-                        getUserInfo();
+                        if(!isUploadHear) {
+                            mView.toastMessage(R.string.preservation_success);
+                            mView.updateUserInfoSuccess();
+                            getUserInfo();
+                        }
                     }
 
                     @Override

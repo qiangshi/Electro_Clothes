@@ -9,6 +9,7 @@ import android.os.Build;
 import com.bumptech.glide.Glide;
 import com.business.electr.clothes.ui.activity.BaseActivity;
 import com.business.electr.clothes.utils.FontsOverride;
+import com.business.electr.clothes.utils.MLog;
 import com.langlang.data.LanglangUserInfo;
 import com.langlang.operation.LanglangCallback;
 import com.langlang.operation.LanglangInitCallback;
@@ -61,11 +62,9 @@ public class App extends Application {
         init();
         initWMRouter();
         initISNav();
-//        initLangLangSDK();
+        initLangLangSDK();
         activities = new ArrayList<>();
     }
-
-
 
 
     public List<BaseActivity> getActivities() {
@@ -123,9 +122,10 @@ public class App extends Application {
         LanglangSDKUtils.getInstance().setContext(getApplicationContext(), "jjkiAK5QvwJ", "85eb1a03e1bbad6df2ebc883b751f11c", new LanglangInitCallback() {
             @Override
             public void initResult(boolean result, String msg) {
-                if(result){
+                MLog.e("====zhq====>1111<" + result + "====>" + msg);
+                if (result) {
                     LanglangSDKUtils.getInstance().setMac("00:23:03:55:00:06"); // 传入设备
-                    LanglangSDKUtils.getInstance().setUserInfo(new LanglangUserInfo("4646",0,55,170,"1975-06-03","zhaoxc")); //传入用户
+                    LanglangSDKUtils.getInstance().setUserInfo(new LanglangUserInfo("4646", 0, 55, 170, "1975-06-03", "zhaoxc")); //传入用户
                     LanglangSDKUtils.getInstance().init(new LanglangCallback() {
 
                         @Override
@@ -205,7 +205,7 @@ public class App extends Application {
                             System.out.println("received servresult");
                         }
                     });
-                }else{
+                } else {
                     //初始化失败 请确认APPID，SECRET
                     System.out.println("received fail");
                 }
